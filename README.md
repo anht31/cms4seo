@@ -123,10 +123,8 @@ For Https, add this lines to
 ## Future Plan
 
 - I18N support
-- flatter site architecture
 - Shopping Cart
 - Support Plugin
-- Tracking behaviour, user active conversion.
 
 ## Release History
 
