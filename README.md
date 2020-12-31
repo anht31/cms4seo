@@ -160,4 +160,4 @@ For Https, add this lines to
 ## License
 
 (C) Power by cms4seo.
-License under the [GPLv3 License](LICENSE).
+License under the [GPLv3 License](LICENSE.MD).
