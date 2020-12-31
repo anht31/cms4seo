@@ -8,6 +8,7 @@
 * [Caution](#caution)
 * [Release History](#release-history)
 * [Acknowledgments](#Acknowledgments)
+* [License](#License)
 
 ## General info
 This is Powerful Opensource Website For SEO, write by asp.net MVC5 
@@ -155,3 +156,8 @@ For Https, add this lines to
 * ckeditor 4 with codemirror
 * Nadeem Afana for i18n StrongType & client side https://afana.me/
 * John Atten for his Implementing Group-Based Permissions Management http://johnatten.com/2014/08/10/asp-net-identity-2-0-implementing-group-based-permissions-management
+
+## License
+
+(C) Power by cms4seo.
+License under the [GPLv3 License](LICENSE).
