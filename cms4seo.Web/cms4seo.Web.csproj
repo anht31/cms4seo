@@ -3546,6 +3546,19 @@
     <Content Include="Themes\rectangle\Assets\fontawesome-5\webfonts\fa-solid-900.woff2" />
     <Content Include="Themes\leki\Views\Shared\_Download.cshtml" />
     <Content Include="Themes\leki\Views\Shared\_CardLeki.mobile.cshtml" />
+    <Content Include="Themes\adsolution\LICENSE.MD" />
+    <Content Include="Themes\aero\LICENSE.MD" />
+    <Content Include="Themes\border\LICENSE.MD" />
+    <Content Include="Themes\colorful\LICENSE.MD" />
+    <Content Include="Themes\foundationAgency\LICENSE.MD" />
+    <Content Include="Themes\foundationEcommerce\LICENSE.MD" />
+    <Content Include="Themes\foundationMagazine\LICENSE.MD" />
+    <Content Include="Themes\foundationMarketing\LICENSE.MD" />
+    <Content Include="Themes\foundationRealEstate\LICENSE.MD" />
+    <Content Include="Themes\industry\LICENSE.MD" />
+    <Content Include="Themes\metro\LICENSE.MD" />
+    <Content Include="Themes\moderniness\LICENSE.MD" />
+    <Content Include="Themes\rectangle\LICENSE.MD" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

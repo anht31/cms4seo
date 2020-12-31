@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // associated with an assembly.
 
 [assembly: AssemblyTitle("cms4seo")]
-[assembly: AssemblyDescription("Mobile Management, no private key theme, fb comment")]
+[assembly: AssemblyDescription("High Performance CMS For SEO")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("cms4seo.com")]
-[assembly: AssemblyProduct("asp Net MVC for SEO")]
-[assembly: AssemblyCopyright("Copyright ©  2019 Tran Anh")]
+[assembly: AssemblyProduct("CMS for SEO")]
+[assembly: AssemblyCopyright("Copyright ©  2020 Tran Anh")]
 [assembly: AssemblyTrademark("cms4seo")]
 [assembly: AssemblyCulture("")]
 

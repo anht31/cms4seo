@@ -6,12 +6,12 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("cms4seo Admin")]
-[assembly: AssemblyDescription("Mobile Management, no private key theme, fb comment")]
+[assembly: AssemblyDescription("High Performance CMS For SEO")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("cms4seo.com")]
 [assembly: AssemblyProduct("cms4seo Admin")]
-[assembly: AssemblyCopyright("Copyright ©  2020 Tran Anh")]
-[assembly: AssemblyTrademark("cms4seo.com")]
+[assembly: AssemblyCopyright("Copyright © 2020 Tran Anh")]
+[assembly: AssemblyTrademark("cms4seo")]
 [assembly: AssemblyCulture("")]
 
 // Setting ComVisible to false makes the types in this assembly not visible
