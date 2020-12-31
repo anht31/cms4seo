@@ -65,11 +65,6 @@ $ Add-migration Initial
 $ Update-database
 ```
 
-To allow permisson access other files & folder (allow IIS_IUSRS user edit file & folder)
-* \Photo
-* \App_Data\Setting.xml
-* \App_Data\301.csv
-* \Events.log
 
 Note: if Nuget Package not full load, enter command (Package Manager Console)
 
