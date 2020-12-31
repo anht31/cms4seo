@@ -1,0 +1,33 @@
+﻿
+<!-- Footer -->
+@*<div class="container black-and-yellow-striped" style="width: 100%; height: 35px;"></div>*@
+
+<footer class="container py-5 footerColor bg-dark">
+    
+    <div class="">
+
+        <div class="row">
+            <div class="col-md-6">
+                @Html.Partial("_FooterInfo")
+            </div>
+            <div class="col-md-6">
+
+                @Html.Partial("_ContactForm")
+
+            </div>
+            @*<div class="col-md-4">
+                @Html.Partial("_Map")
+
+                @{
+                    Html.RenderAction("FooterMenu", "Nav");
+                }
+
+
+            </div>*@
+
+        </div>
+
+
+    </div>
+    <!-- /.container -->
+</footer>

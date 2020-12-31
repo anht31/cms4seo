@@ -1,0 +1,18 @@
+﻿<div class="">
+    @using (Html.BeginForm("SearchByName", "Product", FormMethod.Get,
+        new
+        {
+            @class = "input-group FormSearch",
+            style = "padding-top:0;"
+        }))
+    {
+
+        <input @CMS.Attribute("Form.Search.Placeholder")
+            placeholder="@Setting.Contents["Form.Search.Placeholder"]" 
+            class="form-control" name="strSearch" type="text" value="" aria-label="search">
+
+        <span class="input-group-btn">
+            <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
+        </span>
+    }
+</div>

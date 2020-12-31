@@ -1,0 +1,36 @@
+﻿@model Info
+
+@{
+    ViewBag.Title = Model.MetaTitle;
+    ViewBag.Description = Model.MetaDescription;
+    ViewBag.Keywords = Model.MetaKeyWords;
+
+    ViewBag.PageHeader = ViewBag.Title;
+}
+
+
+<div class="mt-4">
+
+
+    @if (Model.Location == 1)
+    {
+        <div class="row justify-content-md-center">
+            <div class="col-lg-8">
+                @{
+                    Html.RenderPartial("_ContactForm");
+                }
+
+            </div>
+        </div>
+
+    }
+
+    @if (Model.Content != null)
+    {
+        <div class="mt-4">
+            @Html.Raw(Model.Content)
+        </div>
+    }
+
+
+</div>

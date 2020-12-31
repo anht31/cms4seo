@@ -1,0 +1,97 @@
+﻿@model cms4seo.Data.IdentityModels.IndexViewModel
+@{
+    ViewBag.Title = AdminResources.Index_cshtmlExecute_Manage_your_account;
+}
+
+<h2>@ViewBag.Title.</h2>
+<p class="text-success">@ViewBag.StatusMessage</p>
+<div class="row">
+    <div class="col-md-8">
+        <p>
+            @if (Model.HasPassword)
+            {
+                @Html.ActionLink(AdminResources.Index_cshtmlExecute_Change_your_password, 
+                    "ChangePassword")
+            }
+            else
+            {
+                @Html.ActionLink(AdminResources.Index_cshtmlExecute_Pick_a_password, 
+                    "SetPassword")
+            }
+        </p>
+        
+        <p>
+            @if ((bool)(ViewBag.EmailConfirmed))
+            {
+                <div class="alert alert-success" role="alert">
+                    @AdminResources.Index_cshtmlExecute_Email_Confirmed
+                </div>
+            }
+            else
+            {
+                @Html.ActionLink(AdminResources.Index_cshtmlExecute_Verify_Email_Now,
+                    "VerifyEmail", null, new { @class = "btn btn-warning" })
+            }
+        </p>
+
+        <div>
+            <p>
+                @AdminResources.Index_cshtmlExecute_Phone_Number_ @(Model.PhoneNumber ?? AdminResources.CommonNone) [
+                @if (Model.PhoneNumber != null)
+                {
+                    @Html.ActionLink(AdminResources.CommonChange, "AddPhoneNumber")
+                    @: &nbsp;|&nbsp;
+                    @Html.ActionLink(AdminResources.CommonRemove, "RemovePhoneNumber")
+                }
+                else
+                {
+                    @Html.ActionLink(AdminResources.CommonAdd, "AddPhoneNumber")
+                }
+                ]
+            </p>
+            <p>
+                @AdminResources.Index_cshtmlExecute_External_Logins_ @Model.Logins.Count
+                @Html.ActionLink(AdminResources.Index_cshtmlExecute__Manage_, 
+                    "ManageLogins")
+            </p>
+            @if (Model.TwoFactor)
+            {
+                <form method="post" action="@Url.Action("DisableTFA")">
+                    <p>
+                        @AdminResources.Index_cshtmlExecute_Two_factor_is_currently_enabled_
+                        <input type="submit" value="Disable" class="btn btn-outline-secondary" />
+                    </p>
+                </form>
+            }
+            else
+            {
+                <form method="post" action="@Url.Action("EnableTFA")">
+                    <p>
+                        @AdminResources.Index_cshtmlExecute_Two_factor_is_currently_disabled_
+                        <input type="submit" value="Enable" class="btn btn-outline-secondary" />
+                    </p>
+                </form>
+            }
+            @if (Model.BrowserRemembered)
+            {
+                <form method="post" action="@Url.Action("ForgetBrowser","Manage")">
+                    <p>
+                        @AdminResources.Index_cshtmlExecute_Browser_is_currently_remembered_for_two_factor_
+                        <input type="submit" value="Forget Browser" class="btn btn-outline-secondary" />
+                    </p>
+                </form>
+            }
+            else
+            {
+                <form method="post" action="@Url.Action("RememberBrowser","Manage")">
+                    <p>
+                        @AdminResources.Index_cshtmlExecute_Browser_is_currently_not_remembered_for_two_factor_
+                        <input type="submit" value="Remember Browser" class="btn btn-outline-secondary" />
+                    </p>
+                </form>
+            }
+
+        </div>
+
+    </div>
+</div>

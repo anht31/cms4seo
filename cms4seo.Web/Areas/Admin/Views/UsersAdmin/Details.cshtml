@@ -1,0 +1,43 @@
+﻿@model cms4seo.Data.IdentityModels.ApplicationUser
+
+@{
+    ViewBag.Title = AdminResources.CommonDetails;
+}
+
+<h2>Details.</h2>
+
+<div>
+    <h4>User</h4>
+    <hr/>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.UserName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.UserName)
+        </dd>
+    </dl>
+</div>
+<h4>List of roles for this user</h4>
+@if (ViewBag.GroupNames.Count == 0)
+{
+    <hr/>
+    <p>No Group roles found for this user.</p>
+}
+
+<table class="table">
+
+    @foreach (var item in ViewBag.GroupNames)
+    {
+        <tr>
+            <td>
+                @item
+            </td>
+        </tr>
+    }
+
+</table>
+<p>
+    @Html.ActionLink(AdminResources.CommonEdit, "Edit", new { id = Model.Id }) |
+    @Html.ActionLink(AdminResources.CommonBackToList, "Index")
+</p>

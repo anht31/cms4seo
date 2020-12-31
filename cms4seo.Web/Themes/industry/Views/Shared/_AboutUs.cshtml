@@ -1,0 +1,112 @@
+﻿
+<!-- Page Content -->
+<div class="mt-5 mb-4">
+    <!-- Features Section -->
+    <div class="row">
+        <div class="col-lg-6">
+            <h2 @CMS.Attribute("Section.AboutUs.Header") class="layout-header-1">
+                @Setting.Contents["Section.AboutUs.Header"]
+            </h2>
+            <p @CMS.Attribute("Section.AboutUs.Description")>
+                @Setting.Contents["Section.AboutUs.Description"]
+            </p>
+            <ul>
+   
+                <li @CMS.Attribute("Section.AboutUs.Item1")>
+                    @Setting.Contents["Section.AboutUs.Item1"]
+                </li>
+                
+                <li @CMS.Attribute("Section.AboutUs.Item2")>
+                    @Setting.Contents["Section.AboutUs.Item2"]
+                </li>
+                
+                <li @CMS.Attribute("Section.AboutUs.Item3")>
+                    @Setting.Contents["Section.AboutUs.Item3"]
+                </li>
+                
+
+                <opt @CMS.Attribute("Section.AboutUs.Item4")>
+                    @if (!string.IsNullOrWhiteSpace(Setting.Contents["Section.AboutUs.Item4"]))
+                    {
+                        <li>
+                            @Setting.Contents["Section.AboutUs.Item4"]
+                        </li>
+                    }
+                </opt>
+                
+                
+                <opt @CMS.Attribute("Section.AboutUs.Item5")>
+                    @if (!string.IsNullOrWhiteSpace(Setting.Contents["Section.AboutUs.Item5"]))
+                    {
+                        <li>
+                            @Setting.Contents["Section.AboutUs.Item5"]
+                        </li>
+                    }
+                </opt>
+
+                
+                
+                <opt @CMS.Attribute("Section.AboutUs.Item6")>
+                    @if (!string.IsNullOrWhiteSpace(Setting.Contents["Section.AboutUs.Item6"]))
+                    {
+                        <li>
+                            @Setting.Contents["Section.AboutUs.Item6"]
+                        </li>
+                    }
+                </opt>
+
+                
+                
+                <opt @CMS.Attribute("Section.AboutUs.Item7")>
+                    @if (!string.IsNullOrWhiteSpace(Setting.Contents["Section.AboutUs.Item7"]))
+                    {
+                        <li>
+                            @Setting.Contents["Section.AboutUs.Item7"]
+                        </li>
+                    }
+                </opt>
+
+
+            </ul>
+
+        </div>
+        <div class="col-lg-6">
+
+            <img @CMS.Attribute("Section.AboutUs.Image")
+                src="@Setting.Contents["Section.AboutUs.Image"]"
+                class="img-responsive rounded" />
+
+        </div>
+    </div>
+    
+
+    <!-- Call to Action Section -->
+    
+    <opt @CMS.Attribute("Section.AboutUs.CallAction")>
+        @if (!string.IsNullOrWhiteSpace(Setting.Contents["Section.AboutUs.CallAction"]))
+        {
+            <!-- /.row -->
+            <hr>
+            
+            <div class="row mb-4">
+                <div class="col-md-8">
+                    <p>
+                        @Setting.Contents["Section.AboutUs.CallAction"]             
+                    </p>
+                </div>
+                <div class="col-md-4">
+                    <a @CMS.Attribute(AppShop.Hotline)
+                       class="btn btn-lg btn-block btn-outline-warning"
+                       href="tel:@Setting.WebSettings[AppShop.Hotline].RemoveSpace()" >
+                        Call&nbsp;
+                        <strong class="">@Setting.WebSettings[AppShop.Hotline]</strong>
+                    </a>
+                </div>
+            </div>
+        }
+    </opt>
+
+    
+
+</div>
+<!-- /.container -->

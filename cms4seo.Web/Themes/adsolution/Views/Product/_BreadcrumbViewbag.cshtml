@@ -1,0 +1,41 @@
+﻿
+<ul class="breadcrumb-style-1">
+    <li>
+        <a href="/" target="_top">
+            <span class="fa fa-home visible-xs p-b-5"></span>
+            <span class="hidden-xs">
+                <span @CMS.Attribute("Breadcrumb.Home")>
+                    @Setting.Contents["Breadcrumb.Home"]
+                </span>
+            </span>            
+        </a>
+    </li>
+
+    @if (ViewBag.Category != null)
+    {
+        if (ViewBag.Category.ParentId != null)
+        {
+            if (ViewBag.Category.Parent.ParentId != null)
+            {
+                <li>
+                    <a href="@Url.Action("ListBy", "Product", new {slug = ViewBag.Category.Parent.Parent.Slug})">
+                        @ViewBag.Category.Parent.Parent.Name
+                    </a>
+                </li>
+            }
+            <li>
+                <a href="@Url.Action("ListBy", "Product", new {slug = ViewBag.Category.Parent.Slug})">
+                    @ViewBag.Category.Parent.Name
+                </a>
+            </li>
+        }
+        <li>
+            <a href="@Url.Action("ListBy", "Product", new {slug = ViewBag.Category.Slug})"
+               class="current">
+                @ViewBag.Category.Name
+            </a>
+        </li>
+    }
+
+</ul>
+

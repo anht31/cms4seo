@@ -1,0 +1,81 @@
+﻿@model PagedList.IPagedList<Article>
+@using PagedList.Mvc;
+
+
+@{
+    ViewBag.Title = "Author";
+
+}
+
+
+
+<div class="callout large primary">
+    <div class="text-center">
+        <h1>Blog of @ViewBag.Author</h1>
+    </div>
+</div>
+
+<article class="grid-container object-850x350 cover">
+    <div class="grid-x grid-margin-x" id="content">
+        <div class="medium-9 cell">
+
+            @foreach (var item in Model)
+            {
+
+                <div class="blog-post">
+                    <a class="cell-link" href="@item.Slug" target="_top">
+                        <h3>@item.Name <small>@item.PostedDate.Value.ToShortDateString()</small></h3>
+                        <img class="thumbnail" src="@item.Avatar">
+                        @*<img class="thumbnail" src="@((item.Photos.FirstOrDefault(x => x.SmPath == item.Avatar) ?? new Photo()).LgPath)">*@
+                        <p>
+                            @item.Description
+                        </p>
+                        <div class="callout">
+                            <ul class="menu simple">
+                                <li><a href="#">Author: @item.PostBy</a></li>
+                                <li><a href="#">Viewed: @item.ViewCounter</a></li>
+                                @*<li><a href="#">Comments: 3</a></li>*@
+                            </ul>
+                        </div>
+                    </a>
+                </div>
+
+            }
+
+
+        </div>
+
+
+        <div class="medium-3 cell" data-sticky-container>
+            <div class="sticky" data-sticky data-anchor="content">
+
+                @{
+                    Html.RenderAction("AsideAllTopic", "Topics");
+                }
+
+
+
+                @{
+                    Html.RenderAction("AllAuthors", "Articles");
+                }
+
+            </div>
+        </div>
+    </div>
+
+    <!-- PagerList -->
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+
+</article>
+
+
+@*<div class="mt-3">
+        @foreach (var item in Model)
+        {
+            @Html.Partial("_CardArticle", item)
+        }
+    </div>*@
+
+<!-- PagerList -->
+@*@Html.PagedListPager(Model, page => Url.Action("Index", new { page }))*@
+

@@ -1,0 +1,13 @@
+﻿<ul class="nav navbar-nav">
+    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+    <li>@Html.ActionLink("About", "About", "Home")</li>
+    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+
+    @if (Request.IsAuthenticated && User.IsInRole("Admin"))
+    {
+        <li>@Html.ActionLink("RolesAdmin", "Index", "RolesAdmin", new {area = "Admin"}, null)</li>
+        <li>@Html.ActionLink("UsersAdmin", "Index", "UsersAdmin", new {area = "Admin"}, null)</li>
+    }
+</ul>
+@Html.Action("Summary", "Cart")
+@Html.Partial("_LoginPartial")

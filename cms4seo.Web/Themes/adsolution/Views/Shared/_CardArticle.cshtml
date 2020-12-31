@@ -1,0 +1,53 @@
+﻿@model Article
+
+<div class="card mb-3 article-card">
+    <div class="card-body">
+        <div class="row article-box">
+            <div class="col-lg-4 col-md-12">
+                <a href="@Model.Slug" target="_top">
+                    <img class="img-responsive object-fit-height-13" src="@Model.Avatar" alt="@Model.Slug">
+                </a>
+            </div>
+
+            <div class="col-lg-8 col-md-12 ">
+
+                <div class="artilce-card-right-content">
+
+                    <div class="font-weight-bold text-ellipsis-2 text-danger">
+                        <a class="text-danger h4" href="@Model.Slug" target="_top">@Model.Name</a>
+                    </div>
+
+
+                    <p class="text-ellipsis-3">@Html.Raw(Model.Description)</p>
+
+
+                    <div>
+                        <a class="btn btn-outline-danger btn-sm mr-2 d-inline-block float-left" href="@Model.Slug" target="_top">
+                            <span @CMS.Attribute("Articles.Card.SeeMore")>
+                                @Setting.Contents["Articles.Card.SeeMore"]
+                            </span>
+                            <span class="glyphicon glyphicon-chevron-right"></span>
+                        </a>
+
+                        <em class="d-inline-block float-right artilce-info">
+                            <span @CMS.Attribute("Articles.Card.DateCreated")>
+                                @Setting.Contents["Articles.Card.DateCreated"]
+                            </span>
+                            @Model.PostedDate.Value.ToShortDateString()
+                            <span @CMS.Attribute("Articles.Card.Viewed")>
+                                @Setting.Contents["Articles.Card.Viewed"]
+                            </span>
+                            <span class="">@Model.ViewCounter</span>
+                        </em>
+
+
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+</div>

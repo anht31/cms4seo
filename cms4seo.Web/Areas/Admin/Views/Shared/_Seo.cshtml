@@ -1,0 +1,52 @@
+﻿@model Seo
+
+
+@if (Model.IsLockSeo)
+{
+
+    <div class="card">
+        <div class="card-header bg-warning text-light">
+            <span class="h3">
+                @AdminResources._Seo_cshtmlExecute_Seo_Meta_Tag
+            </span>
+        </div>
+
+        <div class="card-body">
+
+            <div class="alert alert-warning">
+                <strong>
+                    @AdminResources.CommonNote:
+                </strong>
+                @AdminResources._Seo_cshtmlExecute_Change_Meta_Seo_could_reduce_your_traffic_website
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.MetaTitle)
+                <p class="remainMetaTitle">62</p>
+                @Html.EditorFor(model => model.MetaTitle, new { htmlAttributes = new { @class = "form-control counterMetaTitle" } })
+                @Html.ValidationMessageFor(model => model.MetaTitle, "", new { @class = "text-danger" })
+            </div>
+
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.MetaDescription)
+                <p class="remainMetaDescription">155</p>
+                @Html.TextAreaFor(model => model.MetaDescription, 5, 20, new { @class = "form-control counterMetaDescription" })
+                @Html.ValidationMessageFor(model => model.MetaDescription, "", new { @class = "text-danger" })
+            </div>
+
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.MetaKeyWords)
+                <p class="remainMetaKeyword">155</p>
+                @Html.TextAreaFor(model => model.MetaKeyWords, 5, 20, new { @class = "form-control counterMetaKeyword" })
+                @Html.ValidationMessageFor(model => model.MetaKeyWords, "", new { @class = "text-danger" })
+            </div>
+
+        </div>
+
+        <div class="card-footer">
+        </div>
+    </div>
+
+}

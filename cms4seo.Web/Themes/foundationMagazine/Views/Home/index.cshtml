@@ -1,0 +1,22 @@
+﻿@using PagedList.Mvc
+@model PagedList.IPagedList<Product>
+
+@{
+    var theme = Setting.WebSettings[WebSettingType.CurrentTheme];
+    Layout = "~/Themes/" + theme + "/Views/Shared/_LayoutArticle.cshtml";
+
+    ViewBag.Title = Setting.WebSettings[ShopSettingType.HomepageMetaTitle];
+    ViewBag.Description = Setting.WebSettings[ShopSettingType.HomepageMetaDescription];
+    ViewBag.Keywords = Setting.WebSettings[ShopSettingType.HomepageMetaKeywords];
+
+
+    ViewBag.IsHome = "true";
+
+    ViewBag.OgImage = Setting.WebSettings[ShopSettingType.OgImage];
+
+}
+
+
+@{
+    Html.RenderAction("Newest", "Articles", new {size = 10});
+}

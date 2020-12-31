@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "Server Error";
+}
+
+<div class="statusCode">
+    <div class="statusCode-header">
+        <h1>500</h1>
+    </div>
+    <h2>
+        <span @CMS.Attribute("Page.Error.ServerError.Header")>
+            @Setting.Contents["Page.Error.ServerError.Header"]
+        </span>
+    </h2>
+    <p>
+        <span @CMS.Attribute("Page.Error.ServerError.Description")>
+            @Setting.Contents["Page.Error.ServerError.Description"]
+        </span>
+    </p>
+    <a href="/" target="_top">
+        <span @CMS.Attribute("Page.Error.GoHome")>
+            @Setting.Contents["Page.Error.GoHome"]
+        </span>
+    </a>
+</div>

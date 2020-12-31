@@ -1,0 +1,39 @@
+﻿
+
+<form class="footer-contact" name="sentMessage" id="contactForm" novalidate>
+    <label>
+        <span @CMS.Attribute("Footer.Column.Contact.Form.Name")>
+            @Setting.Contents["Footer.Column.Contact.Form.Name"]
+        </span>
+        <input id="name" type="text"
+               @CMS.Attribute("Footer.Column.Contact.Form.Name.Placeholder")
+               placeholder="@Setting.Contents["Footer.Column.Contact.Form.Name.Placeholder"]">
+    </label>
+    <label>
+        <span @CMS.Attribute("Footer.Column.Contact.Form.Phone")>
+            @Setting.Contents["Footer.Column.Contact.Form.Phone"]
+        </span>
+        <input id="phone" type="text"
+               @CMS.Attribute("Footer.Column.Contact.Form.Phone.Placeholder")
+               placeholder="@Setting.Contents["Footer.Column.Contact.Form.Phone.Placeholder"]">
+    </label>
+    <label>
+        <span @CMS.Attribute("Footer.Column.Contact.Form.Email")>
+            @Setting.Contents["Footer.Column.Contact.Form.Email"]
+        </span>
+        <input id="email" type="text"
+               @CMS.Attribute("Footer.Column.Contact.Form.Email.Placeholder")
+               placeholder="@Setting.Contents["Footer.Column.Contact.Form.Email.Placeholder"]">
+    </label>
+    <label>
+        <span @CMS.Attribute("Footer.Column.Contact.Form.Message")>
+            @Setting.Contents["Footer.Column.Contact.Form.Message"]
+        </span>
+        <textarea id="message"
+                  @CMS.Attribute("Footer.Column.Contact.Form.Message.Placeholder")
+                  placeholder="@Setting.Contents["Footer.Column.Contact.Form.Message.Placeholder"]"></textarea>
+    </label>
+    <input type="submit" class="button expanded" 
+           @CMS.Attribute("Footer.Column.Contact.Form.Button.Submit")
+           value="@Setting.Contents["Footer.Column.Contact.Form.Button.Submit"]">
+</form>

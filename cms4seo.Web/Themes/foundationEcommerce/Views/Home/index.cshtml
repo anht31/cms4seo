@@ -1,0 +1,82 @@
+﻿@using PagedList.Mvc
+@model PagedList.IPagedList<Product>
+
+@{
+    Html.RenderAction("Slider", "Home");
+}
+
+<br>
+
+
+
+<article class="grid-container">
+
+    @{
+        Html.RenderAction("NewestProducts", "Product", new {size = 4});
+    }
+
+    <hr>
+
+    <div class="grid-x cell">
+        <div class="callout small-12 primary">
+            <h3 @CMS.Attribute("Section.Callout.Header")>
+                @Setting.Contents["Section.Callout.Header"]
+            </h3>
+        </div>
+    </div>
+
+    <hr>
+
+    @{
+        Html.RenderAction("ProductSystem", "Product");
+    }
+
+    <hr>
+    
+    <h4>Top Products</h4>
+
+    <div class="grid-x align-bottom">
+        
+
+        @foreach (var item in Model.Where(x => x.IsHome).Take(9))
+        {
+
+
+            <div class="medium-4 cell">
+                <div class="media-object">
+                    <div class="media-object-section">
+                        <img class="thumbnail" width="100" src="@item.Avatar" alt="@item.Name">
+                    </div>
+                    <div class="media-object-section">
+                        <h5>@item.Name</h5>
+                        <p>@item.Brief</p>
+                    </div>
+                </div>
+            </div>
+        }
+        
+
+    </div>
+
+</article>
+
+
+
+@*@Html.Partial("_Marketing", Model)*@
+
+
+@*@Html.Partial("_Magazine", Model)*@
+
+@*@Html.Partial("_RealEstate", Model)*@
+
+@*@Html.Partial("_Ecommerce", Model)*@
+
+@*@Html.Partial("_Agency", Model)*@
+
+
+
+@*@Html.Partial("_Blog", Model)*@
+
+@*@Html.Partial("_Portfolio", Model)*@
+
+@*@Html.Partial("_Product", Model)*@

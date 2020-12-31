@@ -1,0 +1,24 @@
+﻿@model PagedList.IPagedList<Article>
+
+
+<br />
+<div class="callout primary">
+    <article class="grid-container">
+        <div class="">
+            <h2>
+                <span @CMS.Attribute("Article.Header.Readmore")>
+                    @Setting.Contents["Article.Header.Readmore"]
+                </span>
+            </h2>
+            <p class="lead">
+
+            </p>
+        </div>
+    </article>
+</div>
+
+
+@foreach (var item in Model)
+{
+    @Html.Partial("_CardArticle", item)
+}

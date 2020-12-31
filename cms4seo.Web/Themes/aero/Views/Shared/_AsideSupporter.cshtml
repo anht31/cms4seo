@@ -1,0 +1,42 @@
+﻿
+
+<aside class="asideSupporter card rounded-0 shadow-sm mt-3">
+    <div class="card-header text-white bg-info rounded-0">
+        <b>
+            <span class="fa fa-comments fa-fw"></span>
+            <span @CMS.Attribute("Aside.Supporter.Header")>
+                @Setting.Contents["Aside.Supporter.Header"]
+            </span>
+        </b>
+    </div>
+    <div class="card-body text-center">
+
+        <div class="font-weight-bold h5">
+
+            <div @CMS.Attribute(AppShop.HotlineName)>
+                @Setting.WebSettings[AppShop.HotlineName]
+            </div>
+            
+            
+            <div class="text-danger">
+                <a @CMS.Attribute(AppShop.Hotline)
+                    href="tel:@Setting.WebSettings[AppShop.Hotline].RemoveSpace()">
+                    @Setting.WebSettings[AppShop.Hotline]    
+                </a>                
+            </div>
+
+            <div class="mt-2" @CMS.Attribute(AppShop.SupporterLabel)>
+                @Setting.WebSettings[AppShop.SupporterLabel]
+            </div>
+
+            <div class="text-warning hot-line-2">
+                <a @CMS.Attribute(AppShop.SupporterPhone)
+                    href="tel:@Setting.WebSettings[AppShop.SupporterPhone].RemoveSpace()">
+                    @Setting.WebSettings[AppShop.SupporterPhone]
+                </a>                
+            </div>
+            
+        </div>
+
+    </div>
+</aside>

@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<appSettings>
+  <add key="Article.Detail.DateCreated" value="Erstellt" />
+  <add key="Article.Detail.Download" value="Herunterladen" />
+  <add key="Article.Detail.Promote.InstructionPhone" value="Bitte kontaktieren Sie unsere " />
+  <add key="Article.Detail.Promote.OrEmail" value="oder E-Mail" />
+  <add key="Article.Detail.Promote.Product" value="unser Produkt" />
+  <add key="Article.Detail.Promote.Promise" value="Wir beraten Sie mit dem richtigen Service" />
+  <add key="Article.Detail.Promote.Welcome" value="Wenn du brauchst" />
+  <add key="Article.Detail.Viewed" value=", Aussicht:" />
+  <add key="Article.Header.Readmore" value="Vielleicht möchten Sie mehr lesen ..." />
+  <add key="Article.Relate.Header" value="Vielleicht möchten Sie ..." />
+  <add key="Articles.Card.DateCreated" value="Erstellt: " />
+  <add key="Articles.Card.SeeMore" value="Mehr sehen" />
+  <add key="Articles.Card.Viewed" value=", Aussicht: " />
+  <add key="Articles.Search.Message" value="Nicht gefunden, bitte versuchen Sie es unten" />
+  <add key="Articles.Section.Header" value="NEUESTE GESCHICHTEN" />
+  <add key="Aside.Articles.Trending" value="Trend" />
+  <add key="Aside.Callout.SmsBody" value="Bitte erzählen Sie mir mehr über Ihre Produkte" />
+  <add key="Aside.Callout.Span1" value="Sie verlassen einfach die Nummer per SMS" />
+  <add key="Aside.Callout.Span2" value="Wir rufen Sie gleich zurück." />
+  <add key="Aside.Category.Header" value="Startseite" />
+  <add key="Aside.Category.MenuContact" value="Kontakt" />
+  <add key="Aside.Links.Header" value="Links" />
+  <add key="Aside.Statistic.Header" value="Statistik" />
+  <add key="Aside.Statistic.Today" value="Heute: " />
+  <add key="Aside.Supporter.Header" value="Fan" />
+  <add key="Aside.Topic.Header" value="Thema" />
+  <add key="Aside.TopView.Header" value="TRENDING POSTS" />
+  <add key="Banner.CallNow" value="Jetzt anrufen" />
+  <add key="Banner.SeeMore" value="Mehr sehen" />
+  <add key="Breadcrumb.Home" value="Startseite" />
+  <add key="Contact.Form.Email" value="Bitte geben Sie eine E-Mail-Adresse ein" />
+  <add key="Contact.Form.Fullname" value="Ihr vollständiger Name" />
+  <add key="Contact.Form.Header" value="Bitte hinterlassen Sie Ihre Nachricht, wir werden Ihnen so schnell wie möglich antworten." />
+  <add key="Contact.Form.Message" value="deine Nachricht" />
+  <add key="Contact.Form.Phonenumber" value="Bitte gib deine Telefonnummer ein" />
+  <add key="Contact.Form.Submit" value="Nachricht senden" />
+  <add key="Emails.ContactForm.ServerBusyPleaseTryLater" value="Scheint, unser Mailserver ist überlastet, bitte versuchen Sie es später noch einmal" />
+  <add key="Emails.Js.ServerBusyPleaseTryLater" value="Der E-Mail-Server scheint ausgelastet zu sein. Bitte versuchen Sie es später noch einmal" />
+  <add key="Emails.Js.ThankForYourMessage" value="Danke für deine Nachricht" />
+  <add key="Emails.Template.Empty" value="Möglicherweise richten Sie SMTP Mail Server noch nicht ein" />
+  <add key="Emails.Template.Fullname" value="Vollständiger Name: " />
+  <add key="Emails.Template.Header" value="Neukunde haben Nachricht für Sie:" />
+  <add key="Emails.Template.PhoneNumber" value="Telefonnummer: " />
+  <add key="Footer.Column.Contact.Form.Button.Submit" value="einreichen" />
+  <add key="Footer.Column.Contact.Form.Email" value="Email" />
+  <add key="Footer.Column.Contact.Form.Email.Placeholder" value="deine E-Mail" />
+  <add key="Footer.Column.Contact.Form.Message" value="Botschaft" />
+  <add key="Footer.Column.Contact.Form.Message.Placeholder" value="Botschaft" />
+  <add key="Footer.Column.Contact.Form.Name" value="Name" />
+  <add key="Footer.Column.Contact.Form.Name.Placeholder" value="Bitte geben Sie Ihren Namen ein" />
+  <add key="Footer.Column.Contact.Form.Phone" value="Telefon" />
+  <add key="Footer.Column.Contact.Form.Phone.Placeholder" value="Bitte gib deine Telefonnummer ein" />
+  <add key="Footer.Socials.Facebook.Href" value="Bitte geben Sie den Wert ein" />
+  <add key="Footer.Socials.Header" value="Unser soziales Netz" />
+  <add key="Footer.Socials.Instagram.Href" value="Bitte geben Sie den Wert ein" />
+  <add key="Footer.Socials.Pinterest.Href" value="Bitte geben Sie den Wert ein" />
+  <add key="Footer.Socials.Twitter.Href" value="Bitte geben Sie den Wert ein" />
+  <add key="Footer.SupporterPhone.Label" value="Verkauf: " />
+  <add key="Footer2.Column1.Description" value="Groß- und Einzelhandel im ganzen Land mit hohen Rabatten für Agenten und Geschäfte." />
+  <add key="Footer2.Column1.Header" value="Kontaktiere mich" />
+  <add key="Form.Search.Article.Placeholder" value="Artikel finden" />
+  <add key="Form.Search.Placeholder" value="Finden Sie Ihr Produkt" />
+  <add key="Header.Menu.Brand" value="cms4seo" />
+  <add key="Header.Menu.Contact" value="Kontakt" />
+  <add key="Header.Search.Button" value="Suche" />
+  <add key="Label.Home" value="Startseite" />
+  <add key="Page.Error.BadRequest.Description" value="Header oder Cookie zu groß anfordern" />
+  <add key="Page.Error.BadRequest.Header" value="Bad Request" />
+  <add key="Page.Error.GoHome" value="Go Homepage" />
+  <add key="Page.Error.NotFound.Description" value="Die angeforderte URL wurde auf diesem Server nicht gefunden." />
+  <add key="Page.Error.NotFound.Header" value="Nicht gefunden" />
+  <add key="Page.Error.ServerError.Description" value="Die Seite kann nicht angezeigt werden, da ein interner Serverfehler aufgetreten ist." />
+  <add key="Page.Error.ServerError.Header" value="interner Serverfehler" />
+  <add key="Page.Filter.ByPrice" value="Nach Preis filtern" />
+  <add key="Product.Detail.Shopping.Button.Buy" value="Kaufe jetzt" />
+  <add key="Product.Detail.Shopping.Options" value="Klein, Mittel, Groß" />
+  <add key="Product.Detail.Shopping.Property1" value="Größe" />
+  <add key="Product.Detail.Shopping.Quantity.Input" value="Eins oder zwei" />
+  <add key="Product.Detail.Shopping.Quantity.Label" value="Menge" />
+  <add key="Product.Edit" value="bearbeiten" />
+  <add key="Product.NewProduct" value="Neues Produkt" />
+  <add key="Product.OutOfStock" value="Nicht vorrättig" />
+  <add key="Product.Relate" value="Vielleicht willst du mehr" />
+  <add key="Product.SeeDemo" value="Siehe Demo" />
+  <add key="Products.Card.Price" value="Preis: Ruf mich an" />
+  <add key="Products.Header" value="Unsere jüngste Arbeit" />
+  <add key="Products.Search.Message" value="Nicht gefunden, bitte versuchen Sie es unten" />
+  <add key="Section.AboutUs.CallAction" value="Für detaillierte Beratung zu unseren Produkten und Dienstleistungen wenden Sie sich bitte an" />
+  <add key="Section.AboutUs.Description" value="Weitere Beschreibung unseres Unternehmens" />
+  <add key="Section.AboutUs.Header" value="Header-Titel" />
+  <add key="Section.AboutUs.Item1" value="Artikelbeschreibung 1" />
+  <add key="Section.AboutUs.Item2" value="Artikelbeschreibung 2" />
+  <add key="Section.AboutUs.Item3" value="Artikelbeschreibung 3" />
+  <add key="Section.AboutUs.Item4" value="Artikelbeschreibung 4" />
+  <add key="Section.AboutUs.Item5" value="Artikelbeschreibung 5" />
+  <add key="Section.AboutUs.Item6" value="Artikelbeschreibung 6" />
+  <add key="Section.AboutUs.Item7" value="Artikelbeschreibung 7" />
+  <add key="Section.Certify1.Description" value="Mit fortschrittlicher Technologie und einem klaren Prozess, um die Kosten auf höchstem Niveau zu senken." />
+  <add key="Section.Certify1.Header" value="Wirtschaft" />
+  <add key="Section.Certify2.Description" value="Mit dem Ziel einer nachhaltigen Entwicklung setzen wir uns für Qualitätsprodukte ein." />
+  <add key="Section.Certify2.Header" value="Stabilisierung" />
+  <add key="Section.Certify3.Description" value="Unsere Produkte verfügen über eine Vielzahl von Langzeit-Haltbarkeitszertifizierungen." />
+  <add key="Section.Certify3.Header" value="Qualität" />
+  <add key="Section.Products.SeeMore" value="Mehr sehen" />
+  <add key="Section.Search.Header" value=" Ergebnisse für Schlüsselwort: " />
+  <add key="Topic.Aside.AuthorsHeader" value="Autoren" />
+  <add key="Topic.Aside.TopicHeader" value="Kategorien" />
+  <add key="Topic.Header" value="NEUESTE GESCHICHTEN" />
+  <add key="Topic.Trend.Header" value="AKTUELLE NACHRICHTEN" />
+  <add key="Slider.Logo" value="" />
+
+
+
+  <add key="Section.Header.Menu.Logo" value="/Themes/colorful/Assets/logo/cms4seo.png" />
+  <add key="Section.Index.Callout" value="Groß- und Einzelhandel im ganzen Land mit hohen Rabatten für Agenten und Geschäfte." />
+  
+</appSettings>

@@ -1,0 +1,114 @@
+﻿
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @*<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,400italic,600italic' rel='stylesheet' type='text/css'>*@
+    <link href="/Areas/Admin/Assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/Areas/Admin/Assets/sb-admin-2/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/Areas/Admin/Assets/setup/step-progress.css">
+    <link rel="stylesheet" href="/Areas/Admin/Assets/setup/styles.css">
+    <script src="~/Areas/Admin/Assets/jquery/jquery-2.1.3.js"></script>
+    
+    <script>
+        //// Wait for window load
+        //$(window).load(function() {
+        //    // Animate loader off screen
+        //    $(".se-pre-con").fadeOut("slow");;
+        //});
+
+        window.addEventListener('load',function(){
+            jQuery(".waiting-when-post").click(function(){
+                console.log("button press");
+                $('.se-pre-con').addClass('active');
+            });
+        });
+
+    </script>
+
+</head>
+<body>
+
+    <div class="se-pre-con"></div>
+
+    <header>
+        <h1>Setup @ViewBag.Mode</h1>
+        <h2>@ViewBag.Title</h2>
+    </header>
+
+    <section class="container-fluid">
+
+        <article>
+            @Html.Partial("_StaticMessage")
+
+            @if (ViewBag.Title != "Unauthorized")
+            {
+
+                <p>@ViewBag.Description</p>
+                <br />
+                <div class="steps">
+                    <ul class="steps-container">
+                        <li style="width: 20%;" class='@(ViewBag.Step >= 1 ? "activated" : "")'>
+                            <div class="step">
+                                <div class="step-image"><span></span></div>
+                                <div class="step-current">Step 1</div>
+                                <div class="step-description">Setup Database</div>
+                            </div>
+                        </li>
+                        <li style="width: 20%;" class='@(ViewBag.Step >= 2 ? "activated" : "")'>
+                            <div class="step">
+                                <div class="step-image"><span></span></div>
+                                <div class="step-current">Step 2</div>
+                                <div class="step-description">Seed Admin</div>
+                            </div>
+                        </li>
+                        <li style="width: 20%;" class='@(ViewBag.Step >= 3 ? "activated" : "")'>
+                            <div class="step">
+                                <div class="step-image"><span></span></div>
+                                <div class="step-current">Step 3</div>
+                                <div class="step-description">Permission</div>
+                            </div>
+                        </li>
+                        <li style="width: 20%;" class='@(ViewBag.Step >= 4 ? "activated" : "")'>
+                            <div class="step">
+                                <div class="step-image"><span></span></div>
+                                <div class="step-current">Step 4</div>
+                                <div class="step-description">Setup Store</div>
+                            </div>
+                        </li>
+                        <li style="width: 20%;" class='@(ViewBag.Step >= 5 ? "activated" : "")'>
+                            <div class="step">
+                                <div class="step-image"><span></span></div>
+                                <div class="step-current">Step 5</div>
+                                <div class="step-description">Done</div>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="step-bar" style='width: @(ViewBag.Step * 20)%;'></div>
+                </div>
+
+            }
+
+        </article>
+
+
+    </section>
+
+    <section class="container-fluid setup-box mt-5">
+        <div class="jumbotron">
+            @RenderBody()
+        </div>
+    </section>
+
+    <footer>
+        <a href="https://cms4seo.com" target="_blank">power by</a> by <a href="https://cms4seo.com" target="_blank">cms4seo.com</a>
+    </footer>
+
+
+    @RenderSection("scripts", false)
+
+</body>
+</html>

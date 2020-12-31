@@ -1,0 +1,12 @@
+﻿
+@model IEnumerable<Category>
+
+
+@foreach (var category in Model)
+{
+
+    foreach (var item in category.GetAllChildProduct().Where(x => x.IsHome).Take(9))
+    {
+        @Html.Partial("_CardLeki", item)
+    }
+}

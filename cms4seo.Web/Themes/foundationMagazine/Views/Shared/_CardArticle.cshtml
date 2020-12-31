@@ -1,0 +1,26 @@
+﻿
+@model Article
+    
+<div class="grid-x grid-margin-x object-600x370-cover-resize">
+    <div class="large-6 cell">
+        <a class="cell-link" href="@Model.Slug" target="_top">
+            <img src="@Model.Avatar" alt="size-600x370">
+        </a>
+    </div>
+    <div class="large-6 cell">
+        <h5>
+            <a href="@Model.Slug" target="_top">@Model.Name</a>
+        </h5>
+        <p>
+            <span><i class="fi-torso"> By @Model.PostBy &nbsp;&nbsp;</i></span>
+            <span><i class="fi-calendar"> @Model.PostedDate.Value.ToShortDateString() &nbsp;&nbsp;</i></span>
+            <span><i class="fi-graph-bar"> @Model.ViewCounter views</i></span>
+            @*<span><i class="fi-comments"> 6 comments</i></span>*@
+        </p>
+        <p>
+            @Model.Description
+        </p>
+    </div>
+</div>
+
+<hr>

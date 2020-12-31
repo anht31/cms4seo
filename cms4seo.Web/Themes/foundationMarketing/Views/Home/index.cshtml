@@ -1,0 +1,132 @@
+﻿@using PagedList.Mvc
+@model PagedList.IPagedList<Product>
+
+@{
+    ViewBag.Title = Setting.WebSettings[ShopSettingType.HomepageMetaTitle];
+    ViewBag.Description = Setting.WebSettings[ShopSettingType.HomepageMetaDescription];
+    ViewBag.Keywords = Setting.WebSettings[ShopSettingType.HomepageMetaKeywords];
+
+
+    ViewBag.IsHome = "true";
+
+    ViewBag.OgImage = Setting.WebSettings[ShopSettingType.OgImage];
+
+}
+
+
+
+
+<article class="grid-container">
+
+    @{ 
+        Html.RenderAction("Slider", "Home");
+    }
+
+
+    <div class="row column text-center">
+        <h1 @CMS.Attribute("Section.Callout.Header")>
+            @Setting.Contents["Section.Callout.Header"]
+        </h1>
+        <p class="lead">
+            <span @CMS.Attribute("Section.Callout.Description")>
+                @Setting.Contents["Section.Callout.Description"]
+            </span>
+        </p>
+        <a @CMS.Attribute("Section.Callout.Button1.Href"
+               , "Section.Callout.Button1.Text")
+            href="@Setting.Contents["Section.Callout.Button1.Href"]" class="button large">
+            @Setting.Contents["Section.Callout.Button1.Text"]
+        </a>
+        <a @CMS.Attribute("Section.Callout.Button2.Href"
+               , "Section.Callout.Button2.Text")
+            href="@Setting.Contents["Section.Callout.Button2.Href"]" class="button large hollow">
+            @Setting.Contents["Section.Callout.Button2.Text"]
+        </a>
+    </div>
+
+
+    <hr>
+
+
+    <div class="grid-x grid-margin-x">
+        <div class="medium-6 large-3 cell">            
+            <h3 @CMS.Attribute("Section.Feature1.Header")>
+                @Setting.Contents["Section.Feature1.Header"]
+            </h3>
+            <p @CMS.Attribute("Section.Feature1.Description")>
+                @Setting.Contents["Section.Feature1.Description"]
+            </p>
+        </div>
+        <div class="medium-6 large-3 cell">
+            <h3 @CMS.Attribute("Section.Feature2.Header")>
+                @Setting.Contents["Section.Feature2.Header"]
+            </h3>
+            <p @CMS.Attribute("Section.Feature2.Description")>
+                @Setting.Contents["Section.Feature2.Description"]
+            </p>           
+        </div>
+        <div class="medium-6 large-3 cell">
+            <h3 @CMS.Attribute("Section.Feature3.Header")>
+                @Setting.Contents["Section.Feature3.Header"]
+            </h3>
+            <p @CMS.Attribute("Section.Feature3.Description")>
+                @Setting.Contents["Section.Feature3.Description"]
+            </p>
+        </div>
+        <div class="medium-6 large-3 cell">
+            <h3 @CMS.Attribute("Section.Feature4.Header")>
+                @Setting.Contents["Section.Feature4.Header"]
+            </h3>
+            <p @CMS.Attribute("Section.Feature4.Description")>
+                @Setting.Contents["Section.Feature4.Description"]
+            </p>
+        </div>
+    </div>
+
+
+    <hr>
+    
+    
+    <div class="row column text-center">
+        <div class="callout primary text-center">
+            <h3 @CMS.Attribute("Section.Callout2.Header")>
+                @Setting.Contents["Section.Callout2.Header"]
+            </h3>
+            <p @CMS.Attribute("Section.Callout2.Description")>
+                @Setting.Contents["Section.Callout2.Description"]
+            </p>
+        </div>
+    </div>
+
+
+    <hr>
+
+
+    <div class="grid-x grid-margin-x">
+        <div class="large-6 cell">
+            <h4 @CMS.Attribute("Section.Portfolio1.Header")>
+                @Setting.Contents["Section.Portfolio1.Header"]
+            </h4>
+            <img @CMS.Attribute("Section.Portfolio1.Image") class="thumbnail"
+                 src="@Setting.Contents["Section.Portfolio1.Image"]" alt="size-700x250">
+
+            <p @CMS.Attribute("Section.Portfolio1.Description")>
+                @Setting.Contents["Section.Portfolio1.Description"]
+            </p>
+        </div>
+        <div class="large-6 cell">
+            <h4 @CMS.Attribute("Section.Portfolio2.Header")>
+                @Setting.Contents["Section.Portfolio2.Header"]
+            </h4>
+            <img @CMS.Attribute("Section.Portfolio2.Image") class="thumbnail"
+                 src="@Setting.Contents["Section.Portfolio2.Image"]" alt="size-700x250">
+
+            <p @CMS.Attribute("Section.Portfolio2.Description")>
+                @Setting.Contents["Section.Portfolio2.Description"]
+            </p>
+        </div>
+    </div>
+
+
+
+</article>

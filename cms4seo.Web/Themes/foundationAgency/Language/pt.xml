@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<appSettings>
+  <add key="Article.Detail.DateCreated" value="Crio" />
+  <add key="Article.Detail.Download" value="Baixar" />
+  <add key="Article.Detail.Promote.InstructionPhone" value="Entre em contato com nosso" />
+  <add key="Article.Detail.Promote.OrEmail" value="ou email" />
+  <add key="Article.Detail.Promote.Product" value="nosso produto" />
+  <add key="Article.Detail.Promote.Promise" value="Vamos aconselhar o serviço certo para você" />
+  <add key="Article.Detail.Promote.Welcome" value="Quando você precisa" />
+  <add key="Article.Detail.Viewed" value=", Visão:" />
+  <add key="Article.Header.Readmore" value="Talvez você queira ler mais ..." />
+  <add key="Article.Relate.Header" value="Talvez você gostaria ..." />
+  <add key="Articles.Card.DateCreated" value="Crio: " />
+  <add key="Articles.Card.SeeMore" value="Ver mais" />
+  <add key="Articles.Card.Viewed" value=", Visão: " />
+  <add key="Articles.Search.Message" value="Não encontrado, por favor tente etag abaixo" />
+  <add key="Articles.Section.Header" value="ÚLTIMAS HISTÓRIAS" />
+  <add key="Aside.Articles.Trending" value="Tendendo" />
+  <add key="Aside.Callout.SmsBody" value="Por favor, me conte mais sobre seus produtos" />
+  <add key="Aside.Callout.Span1" value="Basta enviar SMS para o número" />
+  <add key="Aside.Callout.Span2" value="Ligaremos para você em breve." />
+  <add key="Aside.Category.Header" value="Pagina inicial" />
+  <add key="Aside.Category.MenuContact" value="Contato" />
+  <add key="Aside.Links.Header" value="Links" />
+  <add key="Aside.Statistic.Header" value="Estatístico" />
+  <add key="Aside.Statistic.Today" value="Hoje: " />
+  <add key="Aside.Supporter.Header" value="Torcedora" />
+  <add key="Aside.Topic.Header" value="Tema" />
+  <add key="Aside.TopView.Header" value="POSTAGENS DE TENDÊNCIAS" />
+  <add key="Banner.CallNow" value="Ligue agora" />
+  <add key="Banner.SeeMore" value="Ver mais" />
+  <add key="Breadcrumb.Home" value="Pagina inicial" />
+  <add key="Contact.Form.Email" value="Por favor insira o email" />
+  <add key="Contact.Form.Fullname" value="Seu nome completo" />
+  <add key="Contact.Form.Header" value="Por favor, deixe sua mensagem, responderemos em breve." />
+  <add key="Contact.Form.Message" value="sua mensagem" />
+  <add key="Contact.Form.Phonenumber" value="Por favor, digite seu número de telefone" />
+  <add key="Contact.Form.Submit" value="Enviar mensagem" />
+  <add key="Emails.ContactForm.ServerBusyPleaseTryLater" value="Parece, nosso servidor de e-mail está muito sobrecarregado, tente novamente mais tarde" />
+  <add key="Emails.Js.ServerBusyPleaseTryLater" value="Parece que o servidor de e-mail está ocupado, tente mais tarde" />
+  <add key="Emails.Js.ThankForYourMessage" value="Obrigado pela sua mensagem" />
+  <add key="Emails.Template.Empty" value="Pode ser que você ainda não tenha configurado o servidor de correio SMTP" />
+  <add key="Emails.Template.Fullname" value="Nome completo: " />
+  <add key="Emails.Template.Header" value="Novo cliente tem mensagem para você:" />
+  <add key="Emails.Template.PhoneNumber" value="Número de telefone: " />
+  <add key="Footer.Column.Contact.Form.Button.Submit" value="Enviar" />
+  <add key="Footer.Column.Contact.Form.Email" value="O email" />
+  <add key="Footer.Column.Contact.Form.Email.Placeholder" value="seu email" />
+  <add key="Footer.Column.Contact.Form.Message" value="mensagem" />
+  <add key="Footer.Column.Contact.Form.Message.Placeholder" value="mensagem" />
+  <add key="Footer.Column.Contact.Form.Name" value="Nome" />
+  <add key="Footer.Column.Contact.Form.Name.Placeholder" value="Por favor, insira seu nome" />
+  <add key="Footer.Column.Contact.Form.Phone" value="telefone" />
+  <add key="Footer.Column.Contact.Form.Phone.Placeholder" value="Por favor, digite seu número de telefone" />
+  <add key="Footer.Socials.Facebook.Href" value="Por favor insira o valor" />
+  <add key="Footer.Socials.Header" value="Nossa Rede Social" />
+  <add key="Footer.Socials.Instagram.Href" value="Por favor insira o valor" />
+  <add key="Footer.Socials.Pinterest.Href" value="Por favor insira o valor" />
+  <add key="Footer.Socials.Twitter.Href" value="Por favor insira o valor" />
+  <add key="Footer.SupporterPhone.Label" value="Venda: " />
+  <add key="Footer2.Column1.Description" value="Atacado e varejo em todo território nacional, com grandes descontos para agentes e lojas." />
+  <add key="Footer2.Column1.Header" value="Contate-me" />
+  <add key="Form.Search.Article.Placeholder" value="encontrar artigo" />
+  <add key="Form.Search.Placeholder" value="encontre seu produto" />
+  <add key="Header.Menu.Brand" value="cms4seo" />
+  <add key="Header.Menu.Contact" value="Contato" />
+  <add key="Header.Search.Button" value="Pesquisa" />
+  <add key="Label.Home" value="Pagina inicial" />
+  <add key="Page.Error.BadRequest.Description" value="Solicitar cabeçalho ou cookie muito grande" />
+  <add key="Page.Error.BadRequest.Header" value="Bad Request" />
+  <add key="Page.Error.GoHome" value="Go Homepage" />
+  <add key="Page.Error.NotFound.Description" value="O URL solicitado não foi encontrado neste servidor." />
+  <add key="Page.Error.NotFound.Header" value="Não encontrado" />
+  <add key="Page.Error.ServerError.Description" value="A página não pode ser exibida porque ocorreu um erro interno do servidor." />
+  <add key="Page.Error.ServerError.Header" value="Erro do Servidor Interno" />
+  <add key="Page.Filter.ByPrice" value="Filtrar por preço" />
+  <add key="Product.Detail.Shopping.Button.Buy" value="Compre Agora" />
+  <add key="Product.Detail.Shopping.Options" value="Small, Medium, Large" />
+  <add key="Product.Detail.Shopping.Property1" value="Tamanho" />
+  <add key="Product.Detail.Shopping.Quantity.Input" value="Um ou dois" />
+  <add key="Product.Detail.Shopping.Quantity.Label" value="Quantidade" />
+  <add key="Product.Edit" value="editar" />
+  <add key="Product.NewProduct" value="Novo produto" />
+  <add key="Product.OutOfStock" value="Fora de estoque" />
+  <add key="Product.Relate" value="Talvez você queira mais" />
+  <add key="Product.SeeDemo" value="Veja demo" />
+  <add key="Products.Card.Price" value="Preço: ligue para mim" />
+  <add key="Products.Header" value="Nosso trabalho recente" />
+  <add key="Products.Search.Message" value="Não encontrado, tente a tag abaixo" />
+  <add key="Section.AboutUs.CallAction" value="Para obter conselhos detalhados sobre nossos produtos e serviços, entre em contato com" />
+  <add key="Section.AboutUs.Description" value="Mais descrições sobre nossa empresa" />
+  <add key="Section.AboutUs.Header" value="Título do Cabeçalho" />
+  <add key="Section.AboutUs.Item1" value="Descrição do item 1" />
+  <add key="Section.AboutUs.Item2" value="Descrição do item 2" />
+  <add key="Section.AboutUs.Item3" value="Descrição do item 3" />
+  <add key="Section.AboutUs.Item4" value="Descrição do item 4" />
+  <add key="Section.AboutUs.Item5" value="Descrição do item 5" />
+  <add key="Section.AboutUs.Item6" value="Descrição do item 6" />
+  <add key="Section.AboutUs.Item7" value="Descrição do item 7" />
+  <add key="Section.Certify1.Description" value="Com tecnologia avançada, com um processo claro, para reduzir custos ao melhor nível." />
+  <add key="Section.Certify1.Header" value="Economia" />
+  <add key="Section.Certify2.Description" value="Com o objetivo de desenvolvimento sustentável, estamos comprometidos com produtos de qualidade." />
+  <add key="Section.Certify2.Header" value="Stablezation" />
+  <add key="Section.Certify3.Description" value="Nossos produtos têm uma variedade de certificações de durabilidade de longo prazo." />
+  <add key="Section.Certify3.Header" value="Qualidade" />
+  <add key="Section.Products.SeeMore" value="ver mais" />
+  <add key="Section.Search.Header" value=" resultados para palavra-chave: " />
+  <add key="Topic.Aside.AuthorsHeader" value="Autores" />
+  <add key="Topic.Aside.TopicHeader" value="Categorias" />
+  <add key="Topic.Header" value="ÚLTIMAS HISTÓRIAS" />
+  <add key="Topic.Trend.Header" value="NOTÍCIAS DE ÚLTIMA HORA" />
+  <add key="Slider.Logo" value="" />
+
+
+
+  <add key="Section.Callout.Button1.Href" value="#" />
+  <add key="Section.Callout.Button1.Text" value="Saber mais" />
+  <add key="Section.Callout.Button2.Href" value="#" />
+  <add key="Section.Callout.Button2.Text" value="Aprenda menos" />
+  <add key="Section.Callout.Description" value="Dada a nossa influência e o processo iterativo pelo qual passamos para chegar tão longe como uma indústria." />
+  <add key="Section.Callout.Header" value="Mudando o mundo por meio do design" />
+  <add key="Section.Intro.Description" value="A fotografia nos permite tocar outras pessoas, não importa onde estejam, não importa sua cultura, religião, cor, período de tempo. Com a fotografia, você pode se conectar, pode ensinar, descobrir, sentir, se relacionar. Para mim, as melhores fotos são essas que me tocam. As fotos que me dão lágrimas, as que me fazem sentir um nó na garganta, um sorriso no rosto ou calor no coração. E essas sensações são o que há de mais bonito na fotografia." />
+  <add key="Section.Intro.Header" value="Mais fotos mais divertidas" />
+  <add key="Section.Intro.Image" value="/Themes/foundationAgency/Assets/Image/intro-picture-750x350.jpg" />
+  <add key="Section.Service1.Description" value="Adobe Photoshop é o software de edição e manipulação de fotos predominante no mercado. Seus usos vão desde a edição completa de grandes lotes de fotos até a criação de pinturas e desenhos digitais intrincados que imitam aqueles feitos à mão." />
+  <add key="Section.Service1.Header" value="Photoshop" />
+  <add key="Section.Service2.Description" value="JavaScript é uma linguagem dinâmica de programação de computador. É leve e mais comumente usado como parte de páginas da web, cujas implementações permitem que o script do lado do cliente interaja com o usuário e crie páginas dinâmicas." />
+  <add key="Section.Service2.Header" value="Javascript" />
+  <add key="Section.Service3.Description" value="Marketing é a atividade, conjunto de instituições e processos para criar, comunicar, entregar e trocar ofertas que tenham valor para clientes, clientes, parceiros e a sociedade em geral." />
+  <add key="Section.Service3.Header" value="Marketing" />
+  <add key="Section.Statistic.Link1.Href" value="#" />
+  <add key="Section.Statistic.Link1.Span" value="Sites" />
+  <add key="Section.Statistic.Link1.Text" value="28" />
+  <add key="Section.Statistic.Link2.Href" value="#" />
+  <add key="Section.Statistic.Link2.Span" value="Apps" />
+  <add key="Section.Statistic.Link2.Text" value="43" />
+  <add key="Section.Statistic.Link3.Href" value="#" />
+  <add key="Section.Statistic.Link3.Span" value="Publicidades" />
+  <add key="Section.Statistic.Link3.Text" value="95" />
+  <add key="Section.Statistic.Link4.Href" value="#" />
+  <add key="Section.Statistic.Link4.Span" value="Bolos" />
+  <add key="Section.Statistic.Link4.Text" value="59" />
+  <add key="Section.Statistic.Link5.Href" value="#" />
+  <add key="Section.Statistic.Link5.Span" value="Logos" />
+  <add key="Section.Statistic.Link5.Text" value="18" />
+  
+</appSettings>

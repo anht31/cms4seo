@@ -1,0 +1,37 @@
+﻿.flip-clock-wrapper ul {
+  width: 16px;
+  height: 24px;
+  margin: 0 1.5px;
+}
+.flip-clock-wrapper ul li {
+  line-height: 24px;
+}
+.flip-clock-wrapper ul li a div div.inn {
+  font-size: 20px;
+}
+.flip-clock-wrapper ul,
+.flip-clock-wrapper ul li a div div.inn {
+  border-radius: 2px;
+    padding: 0;
+}
+.flip-clock-wrapper ul li a div.down {
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+}
+.flip-clock-wrapper ul li a div.up:after {
+  top: 11px;
+}
+.flip-clock-dot.top {
+  top: 7px;
+}
+.flip-clock-dot.bottom {
+  top: 15px;
+}
+.flip-clock-dot {
+  width: 2px;
+  height: 2px;
+  left: 2px;
+}
+.flip-clock-divider {
+  width: 6px;
+}

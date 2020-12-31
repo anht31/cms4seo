@@ -1,0 +1,52 @@
+﻿
+@model IEnumerable<Category>
+
+
+<!-- Start Top Bar -->
+<div class="top-bar @Setting.WebSettings[ShopSettingType.MenuFormatClass]">
+    <div class="top-bar-left">
+        <ul class="dropdown menu" data-dropdown-menu>
+
+            <a @CMS.Attribute("Header.Menu.Brand") href="/" target="_top" class="menu-text">
+                @Setting.Contents["Header.Menu.Brand"]
+            </a>
+
+            @foreach (var item in Model.Where(x => x.IsMenu))
+            {
+                if (item.Children.Count > 0 && !Setting.WebSettings[ShopSettingType.IsHiddenChildMenu].AsBool())
+                {
+                    <li class="has-submenu">
+                        <a href="@(item.Href != "#" ? item.Href : item.Slug)">@item.Name</a>
+                        <ul class="submenu menu vertical" data-submenu>
+                            @foreach (var item2 in item.Children)
+                            {
+                                <li><a href="@(item2.Href != "#" ? item2.Href : item2.Slug)" target="_top">@item2.Name</a></li>
+                            }
+                        </ul>
+                    </li>
+                }
+                else
+                {
+                    <li><a href="@(item.Href != "#" ? item.Href : item.Slug)">@item.Name</a></li>
+                }
+            }
+        </ul>
+    </div>
+    <div class="top-bar-right">
+        @using (Html.BeginForm("Search", "Product", FormMethod.Get))
+        {
+
+            <ul class="menu" id="boxSearch">
+                <li>
+                    <input type="search" name="productSearch" placeholder="Search">
+                </li>
+                <li>
+                    <button @CMS.Attribute("Header.Search.Button") type="submit" class="button">
+                        @Setting.Contents["Header.Search.Button"]
+                    </button>
+                </li>
+            </ul>
+        }
+    </div>
+</div>
+<!-- End Top Bar -->

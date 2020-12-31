@@ -1,0 +1,31 @@
+﻿@model IEnumerable<Category>
+
+
+@foreach (var category in Model)
+{
+
+    <div class="breadcrumb-productSystem">
+        <h4 class="font-weight-bold">
+            <a href="@category.Slug" class="d-inline-bloc">
+                @category.Name
+            </a>
+            <a @CMS.Attribute("Section.Products.SeeMore")
+                href="@category.Slug" class="d-inline-block float-right">
+                <span class="fa fa-link fa-fw"></span>
+                <span class="d-none d-sm-inline-block ">
+                    @Setting.Contents["Section.Products.SeeMore"]
+                </span>
+            </a>
+        </h4>
+    </div>
+
+
+    <div class="row mt-3">
+
+        @foreach (var item in category.GetAllChildProduct().Take(8))
+        {
+            @Html.Partial("_CardProduct", item)
+        }
+
+    </div>
+}

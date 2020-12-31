@@ -1,0 +1,45 @@
+﻿@model dynamic
+
+@{
+    ViewBag.Title = "Migration";
+}
+
+<h2>
+    @AdminResources.Index_cshtmlExecute_Migration_from_old_code_to_new_code__Service_for_cms4seo_Source_Code_
+</h2>
+
+<div class="mt-3">
+    <a class="btn btn-warning" href="@Url.Action("AddSlashBeforeAllLink", "Migration")">
+        @AdminResources.Index_cshtmlExecute_Add_Slash_Before_Model_Slug
+    </a>
+</div>
+
+<div class="mt-3">
+    <a class="btn btn-warning" href="@Url.Action("GuidToProductFirst", "Migration")">
+        @AdminResources.Index_cshtmlExecute_Guid_to_Product_first
+    </a>
+</div>
+
+<div class="mt-3">
+    <a class="btn btn-warning" href="@Url.Action("PhotoPath", "Migration")">
+        @AdminResources.Index_cshtmlExecute_Photo_Path___Entity_Avatar_Path
+    </a>
+</div>
+
+<div class="mt-3">
+    <a class="btn btn-warning" href="@Url.Action("PhotoPathToProjectId", "Migration")">
+        Edit all photo path included avatar img to ProjectId path
+    </a>
+</div>
+
+<div class="mt-3">
+    <a class="btn btn-warning" href="@Url.Action("ProjectIdToUploads", "Migration")">
+        Edit all photo path included avatar img to /Uploads/{ProjectId}/Photo
+    </a>
+</div>
+
+<div class="mt-3">
+    <a class="btn btn-warning" href="@Url.Action("UpdateCurrentKey", "Migration")">
+        Update all key, remove private key, common key
+    </a>
+</div>

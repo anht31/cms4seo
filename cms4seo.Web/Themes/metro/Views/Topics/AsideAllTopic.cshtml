@@ -1,0 +1,33 @@
+﻿@model List<Topic>
+
+
+
+<aside class="card rounded-0 shadow-sm mt-3">
+    <div class="card-header text-center">
+        <b>
+            <span @CMS.Attribute("Aside.Topic.Header")>
+                @Setting.Contents["Aside.Topic.Header"]
+            </span>
+
+        </b>
+    </div>
+    <div class="card-body">
+
+
+        <ul class="nav">
+            @foreach (var item in Model.Where(x => x.IsMenu).ToList())
+            {
+                <li class="w-100">
+                    <a class="font-weight-bold text-danger" href="@(item.Href != "#" ? item.Href : item.Slug)" 
+                       target="_top">@item.Name</a>
+                </li>
+            }
+
+        </ul>
+
+
+
+    </div>
+</aside>
+
+

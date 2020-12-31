@@ -1,0 +1,68 @@
+﻿@{
+    var theme = Setting.WebSettings[WebSettingType.CurrentTheme];
+    Layout = "~/Themes/" + theme + "/Views/Shared/_Layout.cshtml";
+    var bootswatch = Setting.WebSettings[WebSettingType.Bootswatch];
+    DynamicBundles.EnableBootswatch();
+}
+
+@{
+
+    var bundles = BundleTable.Bundles;
+    var baseUrl = string.Concat("~/Themes/" + theme + "/");
+    //Maybe there is a better way to do this, the goal is to make the bundle configurable without having to recompile the code
+    if (!DynamicBundles.BundlesFinalized)
+    {
+        //Note, you need to reset the application pool in order for any changes here to be reloaded
+        // as the BundlesFinalized property is a static field that will only reset to false when the app restarts.
+
+
+        Bundle mainStyles = new StyleBundle("~/Content/css");
+        mainStyles
+            .Include(baseUrl + "Assets/slick/slick-theme.css", new CssRewriteUrlTransform())
+            .Include(
+                !String.IsNullOrWhiteSpace(bootswatch) ? "~/Bootswatch/" + bootswatch
+                    : baseUrl + "Assets/vendor/bootstrap/css/bootstrap.css",
+                baseUrl + "Assets/slick/slick.css",
+                baseUrl + "Assets/flipclock/flipclock.css",
+                baseUrl + "Assets/flipclock/flipclock-size.css",
+                baseUrl + "Assets/fancybox/source/helpers/jquery.fancybox-buttons.css",
+                baseUrl + "Assets/fancybox/source/helpers/jquery.fancybox-thumbs.css",
+                //baseUrl + "Assets/vendor/bootstrap/css/bootstrap.css",
+                baseUrl + "Assets/css/PagedList.css",
+                baseUrl + "Assets/css/custom.css"
+            )
+                .Include(baseUrl + "Assets/fontawesome-5/css/all.min.css", new CssRewriteUrlTransform())
+                .Include(baseUrl + "Assets/fancybox/source/jquery.fancybox.css", new CssRewriteUrlTransform())
+                .Include(baseUrl + "Assets/ContentManager/ContentManager.css", new CssRewriteUrlTransform())
+            ;
+
+
+        //mainStyles.Transforms.Add(new System.Web.Optimization.BundleTransformer.Core.Transformers.CssTransformer());
+        mainStyles.Transforms.Add(new CssMinify());
+        //mainStyles.Orderer = new BundleTransformer.Core.Orderers.NullOrderer();
+        DynamicBundles.RegisterBundle(mainStyles);
+
+
+        Bundle mainScripts = new ScriptBundle("~/Scripts/js");
+        mainScripts.Include(
+            baseUrl + "Assets/jquery/jquery.js",
+            baseUrl + "Assets/slick/slick.min.js",
+            baseUrl + "Assets/js/common.js",
+            baseUrl + "Assets/flipclock/flipclock.js",
+            baseUrl + "Assets/mail/jqBootstrapValidation.js",
+            baseUrl + "Assets/mail/mail.js",
+            baseUrl + "Assets/fancybox/lib/jquery.mousewheel-3.0.6.pack.js",
+            baseUrl + "Assets/fancybox/source/jquery.fancybox.pack.js",
+            baseUrl + "Assets/fancybox/source/helpers/jquery.fancybox-buttons.js",
+            baseUrl + "Assets/fancybox/source/helpers/jquery.fancybox-media.js",
+            baseUrl + "Assets/fancybox/source/helpers/jquery.fancybox-thumbs.js",
+            baseUrl + "Assets/vendor/bootstrap/js/bootstrap.bundle.min.js",
+            baseUrl + "Assets/ContentManager/ContentManager.js"
+        );
+        DynamicBundles.RegisterBundle(mainScripts);
+
+
+        DynamicBundles.FinalizeBundles(); //true = Force Optimizations, false = Force non Optmizations,
+                                          // null = respect web.config which is the same as calling the parameterless constructor.
+    }
+}

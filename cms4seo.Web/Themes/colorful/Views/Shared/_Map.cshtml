@@ -1,0 +1,11 @@
+﻿
+
+
+<div class="map-responsive">
+    @if (Setting.WebSettings[EmbedSettingType.Map] != null 
+         && Setting.WebSettings[EmbedSettingType.Map].Length > 30)
+    {
+        @Html.Raw(Setting.WebSettings[EmbedSettingType.Map])
+    }
+</div>
+

@@ -1,0 +1,60 @@
+﻿@model IEnumerable<string>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+@AntiForgery.GetHtml()
+<div class="card">
+
+    <div class="card-header">
+        <span class="h3">@AdminResources.CommonTag / @AdminResources.CommonIndex</span>
+    </div>
+
+    <!-- /.panel-body -->
+    <div class="card-body table-responsive">
+
+        <table class="table table-striped table-bordered table-hover" id="dataTables-adv">
+            <thead>
+            <tr>
+                <th>
+                    Tag Name
+                </th>
+                <th></th>
+            </tr>
+
+            </thead>
+
+            <tbody>
+            @if (Model.FirstOrDefault() != "")
+            {
+                foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.ActionLink(item, "Edit", new {tag = item})
+                        </td>
+
+                        <td>
+                            @Html.ActionLink("Delete", "Delete", null, new
+                            {
+                                data_action = "delete",
+                                data_model = "tag",
+                                data_value = item,
+                                data_id = item,
+                                @class = "btn btn-danger btn-xs"
+                            })
+                        </td>
+                    </tr>
+                }
+            }
+            </tbody>
+        </table>
+
+    </div>
+    <!-- /.panel-body -->
+
+    <div class="card-footer">
+        <br/>
+    </div>
+</div>

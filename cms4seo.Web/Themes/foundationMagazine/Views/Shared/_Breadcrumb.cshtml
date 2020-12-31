@@ -1,0 +1,36 @@
+﻿@model Category
+
+<div class="grid-x cell">
+    <nav aria-label="You are here:" role="navigation">
+        <ul class="breadcrumbs">
+
+            <li><a href="/" target="_top">Home</a></li>
+
+            @if (Model != null)
+            {
+                if (Model.ParentId != null)
+                {
+                    if (Model.Parent.ParentId != null)
+                    {
+                        <li>
+                            <a href="@Model.Parent.Parent.Slug">
+                                @Model.Parent.Parent.Name
+                            </a>
+                        </li>
+                    }
+                    <li>
+                        <a href="@Model.Parent.Slug">
+                            @Model.Parent.Name
+                        </a>
+                    </li>
+                }
+                <li>
+                    <a href="@Model.Slug">
+                        @Model.Name
+                    </a>
+                </li>
+            }
+
+        </ul>
+    </nav>
+</div>

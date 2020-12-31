@@ -1,0 +1,135 @@
+﻿@model Product
+
+
+<div class="row mt-3 product-simple">
+
+    <div class="col-sm-6">
+        <div>
+
+          
+
+            @if (Model.Photos.Count > 0)
+            {
+                <div class="item">
+                    <a class="fancybox" rel="gallery1" href="@Model.Photos.FirstOrDefault().LgPath" 
+                       title="@Model.Photos.FirstOrDefault().Name">
+
+
+
+                        <div class="out-of-stock-container">
+
+                            @if (Model.IsOutOfStock)
+                            {
+                                <div @CMS.Attribute("Product.OutOfStock") class="out-of-stock">
+                                    @Setting.Contents["Product.OutOfStock"]
+                                </div>
+                            }
+
+
+
+
+                            <img class="img-responsive" src="@Model.Photos.FirstOrDefault().MdPath" alt="@Model.Name" />
+
+
+                            @if (Model.OldPrice > 0 & Model.Price > 0)
+                            {
+                                <div class="notify-badge shadow-lg" style="right: auto; left: 20px;">
+                                    Sale
+                                </div>
+                            }
+
+
+                            @if (!string.IsNullOrWhiteSpace(Setting.WebSettings[ShopSettingType.CardDecorate]))
+                            {
+                                <div class="decorate-badge-2">
+                                    <img class="" src='@Setting.WebSettings[ShopSettingType.CardDecorate]' 
+                                         alt="decorate-@Model.Slug"/>
+                                </div>
+                            }
+
+
+                        </div>
+
+                    </a>
+                </div>
+            }
+
+        </div>
+
+    </div>
+
+
+    <div class="col-sm-6">
+        <h1 class="product-title">
+            @Model.Name
+
+            @if (User.Identity.IsAuthenticated)
+            {
+                <span class="float-right">
+                    <a class="btn btn-warning btn-xs" 
+                       href="@Url.Action("Edit", "Product", new {area = "Admin", id = Model.Id})">
+                        <span @CMS.Attribute("Product.Edit")>
+                            @Setting.Contents["Product.Edit"]
+                        </span>
+                    </a>
+                </span>
+            }
+        </h1>
+
+
+
+        <div class="h5">
+
+
+            @if (Model.OldPrice > 0)
+            {
+                <del class="price-old mr-3">
+                    @(Culture == "vi-VN" ? string.Format("{0:C0}", Model.OldPrice) : 
+                        string.Format("{0:C}", Model.OldPrice))
+                </del>
+            }
+
+            @if (Model.Price > 0)
+            {
+                <div class="price-new badge badge-danger mb-2">
+                    @(Model.Price == 1 ? Setting.Contents["Products.Card.Price"] :
+                        Culture == "vi-VN" ? string.Format("{0:C0}", Model.Price) : string.Format("{0:C}", Model.Price))
+                </div>
+            }
+
+        </div>
+
+
+        @*@Html.Partial("_ShareThis")*@
+
+        <div class="product-summary">
+
+            @if (Model.Summary != null)
+            {
+                @Html.Raw(Model.Summary)
+            }
+            else if (!string.IsNullOrWhiteSpace(Setting.WebSettings[ShopSettingType.ProductDetailSummary]))
+            {
+                @Html.Raw(Setting.WebSettings[ShopSettingType.ProductDetailSummary])
+            }
+
+
+            @if (!string.IsNullOrEmpty(Model.Href))
+            {
+                <a href="@Model.Href" target="_blank" class="btn btn-warning">
+                    <span @CMS.Attribute("Product.SeeDemo")>
+                        @Setting.Contents["Product.SeeDemo"]
+                    </span>
+
+                </a>
+            }
+
+            
+
+        </div>
+
+
+    </div>
+
+</div>
+

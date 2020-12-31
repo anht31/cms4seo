@@ -1,0 +1,67 @@
+﻿@using PagedList.Mvc
+@model PagedList.IPagedList<Product>
+@{
+    ViewBag.Title = Setting.WebSettings[ShopSettingType.HomepageMetaTitle];
+    ViewBag.Description = Setting.WebSettings[ShopSettingType.HomepageMetaDescription];
+    ViewBag.Keywords = Setting.WebSettings[ShopSettingType.HomepageMetaKeywords];
+
+
+    ViewBag.IsHome = true.ToString();
+
+    ViewBag.OgImage = Setting.WebSettings[ShopSettingType.OgImage];
+
+}
+
+
+<!-- Page Content -->
+<div class="">
+    
+    <div class="row mb-4">
+        <div class="col-md-8 col-sm-8">
+            @{
+                Html.RenderAction("Slider", "Home");
+            }
+        </div>
+
+        <div class="col-md-4 col-sm-4 box-cool-product">
+
+            <a @CMS.Attribute("Section.Index.CoolProduct.Image1.Href")
+                href="@Setting.Contents["Section.Index.CoolProduct.Image1.Href"]">
+
+                <img @CMS.Attribute("Section.Index.CoolProduct.Image1")
+                    src="@Setting.Contents["Section.Index.CoolProduct.Image1"]"
+                    class="img-responsive mb-3"/>
+            </a>
+            
+            <a @CMS.Attribute("Section.Index.CoolProduct.Image2.Href")
+                href="@Setting.Contents["Section.Index.CoolProduct.Image2.Href"]">
+
+                <img @CMS.Attribute("Section.Index.CoolProduct.Image2")
+                    src="@Setting.Contents["Section.Index.CoolProduct.Image2"]"
+                    class="img-responsive" />
+            </a>
+
+        </div>
+    </div>
+
+    
+
+
+    @{
+          Html.RenderAction("ProductSystem", "Product");
+    }
+
+
+
+    @*@{
+        Html.RenderAction("AllTag", "ProductTags");
+    }
+
+    <br/>*@
+
+
+    @*@Html.Partial("_AboutUs")*@
+
+
+</div>
+<!-- /.container -->

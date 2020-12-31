@@ -1,0 +1,43 @@
+﻿@using cms4seo.Model.LekimaxType
+@model IEnumerable<ModelMetadata>
+
+<div class="alert alert-warning" role="alert">
+    <h1> debug area</h1>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <td>PropertyName</td>
+                <td>DataTypeName</td>
+                <td>IsComplexType</td>
+                @*<td>ShowForDisplay</td>*@
+                <td>ShowForEdit</td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var property in Model
+                                    //.Where(x => !x.ShowForDisplay && !x.IsComplexType)
+                                    )
+            {
+                <tr>
+                    <td>
+                        @property.PropertyName
+                    </td>
+                    <th class='@(property.DataTypeName == cms4seoDataType.CustomEditor ? "bg-primary text-light" : "")'>
+                        @property.DataTypeName
+                    </th>
+                    <th class='@(property.IsComplexType ? "bg-primary text-light" : "")'>
+                        @property.IsComplexType
+                    </th>
+                    @*<th>
+                        @property.ShowForDisplay
+                    </th>*@
+                    <th class='@(property.ShowForEdit ? "bg-primary text-light" : "")'>
+                        @property.ShowForEdit
+                    </th>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+
+</div>

@@ -1,0 +1,25 @@
+﻿
+@model Category
+
+@if (Model != null)
+{
+    foreach (var category in Model.Children.ToList())
+    {
+
+        <ul class="breadcrumb-style-1">
+            <li>
+                <h3 class="font-weight-bold" style="padding: 15px 30px;margin-bottom: 5px;">
+                    @category.Name
+                </h3>
+            </li>
+        </ul>
+
+
+        <div class="row mt-3 mb-5">
+            @foreach (var item in category.GetAllChildProduct())
+            {
+                @Html.Partial("_CardProduct", item)
+            }
+        </div>
+    }
+}

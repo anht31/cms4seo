@@ -1,0 +1,29 @@
+﻿@model IEnumerable<Topic>
+
+@{
+    var theme = Setting.WebSettings[WebSettingType.CurrentTheme];
+}
+
+<div class="row">
+
+    @foreach (var item in Model)
+    {
+        <div class="col-lg-4 col-sm-6 col-6 mb-4">
+            <div class="card h-100">
+                <a href="@item.Slug" target="_top">
+
+
+                    <img class="img-responsive img-flush"
+                         src='@(string.IsNullOrWhiteSpace(item.Avatar) ? "/Themes/" + theme + "/Assets/img/folder.png" : item.Avatar)' alt="">
+
+                    <div class="card-title text-center font-weight-bold">
+                        @item.Name
+                    </div>
+                </a>
+            </div>
+
+        </div>
+    }
+
+</div>
+

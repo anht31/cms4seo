@@ -1,0 +1,29 @@
+﻿@using PagedList.Mvc
+@model PagedList.IPagedList<Product>
+
+
+<div class="mb-5">
+
+
+
+    <div class="row mb-3">
+
+
+        @foreach (var item in Model)
+        {
+            @Html.Partial("_CardProduct", item)
+        }
+
+    </div>
+
+
+
+    <!-- pagelist ==========================================================================-->
+    <div class="right">
+        @Html.PagedListPager(Model, page => Url.Action("ListByAll", new { page }))
+    </div>
+
+
+
+    
+</div>

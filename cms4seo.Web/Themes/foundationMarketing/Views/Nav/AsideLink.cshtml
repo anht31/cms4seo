@@ -1,0 +1,17 @@
+﻿@model IEnumerable<Category>
+
+<div class="grid-y grid-padding-x" style="height: 100%;">
+    <br>
+    @foreach (var item in Model.Where(x => x.IsAside))
+    {
+
+        <div class="cell shrink">
+            <a href="@item.Slug" target="_top">
+                <h5>@item.Name</h5>
+                <img class="thumbnail" src="@item.Avatar">
+                <p>@item.Description</p>
+            </a>
+        </div>
+
+    }
+</div>

@@ -1,0 +1,80 @@
+﻿@model SetupDatabaseVm
+
+@{
+    ViewBag.Title = "Setup Database";
+    ViewBag.Description = "Connect to exist Database, or Create New Database";
+    Layout = "~/Areas/Admin/Views/Shared/_SetupLayout.cshtml";
+    ViewBag.Step = 1;
+}
+
+@using (Html.BeginForm("Index", "Setup"))
+{
+    foreach (var property in ViewData.ModelMetadata.Properties
+        .Where(
+            x => !x.IsComplexType
+                 && x.DataTypeName != cms4seoDataType.CustomEditor
+                 && !x.ShowForEdit
+        ))
+    {
+        @Html.Hidden(property.PropertyName)
+    }
+
+    
+    <!-- edit ==============================================================================-->
+
+    @*if (ViewBag.Mode == "Local Mode")
+    {
+        
+        <div class="form-group">
+            @Html.LabelFor(model => model.ProjectId)
+            @Html.EditorFor(model => model.ProjectId, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.ProjectId)
+        </div>
+    }
+    else
+    {
+        @Html.HiddenFor(model => model.ProjectId)
+    }*@
+
+
+    <!-- update 2 - always hidden -->
+    @Html.HiddenFor(model => model.ProjectId)
+
+
+    foreach (var property in ViewData.ModelMetadata.Properties.Where(
+        x => !x.IsComplexType
+             && x.DataTypeName != cms4seoDataType.CustomEditor
+             && x.ShowForEdit
+        ))
+    {
+
+        <div class="form-group">
+            <label>
+                @(property.DisplayName ?? property.PropertyName)
+            </label>
+            @if (property.ModelType == typeof(bool))
+            {
+                @Html.CheckBox(property.PropertyName, new { @class = "checkbox" })
+            }
+            else if (property.DataTypeName == DataType.MultilineText.ToString())
+            {
+                @Html.TextArea(property.PropertyName, null, new { @class = "form-control", spellcheck = "false", rows = 5 })
+            }
+            else if (property.DataTypeName == DataType.Password.ToString())
+            {
+                @Html.Editor(property.PropertyName, new { htmlAttributes = new { @class = "form-control", autocomplete = "new-password" } })
+            }
+            else
+            {
+                @Html.TextBox(property.PropertyName, null, new { @class = "form-control" })
+            }
+            @Html.ValidationMessage(property.PropertyName)
+        </div>
+
+    }
+
+    <input type="submit" value="Next" class="btn btn-primary waiting-when-post" />
+
+    @*<input type="submit" value="@AdminResources.CommonSave" class="btn btn-primary" />*@
+    @*@Html.ActionLink(AdminResources.CommonCancel, "Index", null, new { @class = "btn btn-outline-secondary" })*@
+}

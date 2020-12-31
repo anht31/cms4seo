@@ -1,0 +1,19 @@
+﻿<div class="box-social-network">
+    <p @CMS.Attribute("Footer.Socials.Header") class="lead">
+        @Setting.Contents["Footer.Socials.Header"]
+    </p>
+    <ul class="menu vertical">
+        <li><a @CMS.Attribute("Footer.Socials.Twitter.Href") 
+                href="@Setting.Contents["Footer.Socials.Twitter.Href"]"
+                target="_blank"><i class="fi-social-twitter"> </i>Twitter</a></li>
+        <li><a @CMS.Attribute("Footer.Socials.Facebook.Href") 
+                href="@Setting.Contents["Footer.Socials.Facebook.Href"]"
+                target="_blank"><i class="fi-social-facebook"> </i>Facebook</a></li>
+        <li><a @CMS.Attribute("Footer.Socials.Instagram.Href") 
+                href="@Setting.Contents["Footer.Socials.Instagram.Href"]"
+                target="_blank"><i class="fi-social-instagram"> </i>Instagram</a></li>
+        <li><a @CMS.Attribute("Footer.Socials.Pinterest.Href") 
+                href="@Setting.Contents["Footer.Socials.Pinterest.Href"]"
+                target="_blank"><i class="fi-social-pinterest"> </i>Pinterest</a></li>
+    </ul>
+</div>

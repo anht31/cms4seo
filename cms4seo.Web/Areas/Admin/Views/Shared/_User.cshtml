@@ -1,0 +1,39 @@
+﻿@using Microsoft.AspNet.Identity
+@*<li>
+    <a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+</li>
+<li>
+    <a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+</li>
+<li class="divider"></li>
+<li>
+    <a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+</li>*@
+
+
+@*@{
+    Html.RenderPartial("_LoginPartialAdmin");
+}*@
+
+<li>
+    <a href="#">
+        <i class="fa fa-user fa-fw"></i>Hello @User.Identity.GetUserName().Split('@')[0]
+    </a>
+</li>
+<li class="divider"></li>
+<li>
+    <a href="javascript:document.getElementById('logoutForm').submit()">
+        <i class="fa fa-sign-out fa-fw"></i>
+        @AdminResources.User_Logout
+    </a>
+</li>
+
+
+<!-- for js call ====================================-->
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new {id = "logoutForm", @class = ""}))
+    {
+        @Html.AntiForgeryToken()
+    }
+}

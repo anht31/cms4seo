@@ -1,0 +1,20 @@
+﻿@model PagedList.IPagedList<Article>
+@using PagedList.Mvc;
+
+@{
+    var theme = Setting.WebSettings[WebSettingType.CurrentTheme];
+    Layout = "~/Themes/" + theme + "/Views/Shared/_LayoutArticle.cshtml";
+
+    ViewBag.PageHeader = ViewBag.Title;
+}
+
+
+
+@foreach (var item in Model)
+{
+    @Html.Partial("_CardArticle", item)
+}
+
+
+<!-- PagerList -->
+@Html.PagedListPager(Model, page => Url.Action("Index", new { page, size = 10 }))

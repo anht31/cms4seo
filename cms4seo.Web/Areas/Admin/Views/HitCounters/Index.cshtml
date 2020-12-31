@@ -1,0 +1,136 @@
+﻿@model PagedList.IPagedList<HitCounter>
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+@AntiForgery.GetHtml()
+<div class="card">
+    <div class="card-header">
+        <div class="row mt-3">
+            <div class="col-md-4">
+                @using (Html.BeginForm("Search", null, FormMethod.Get,
+                    new { @class = "form-group has-search" }))
+                {
+
+                    <span class="fa fa-search form-control-feedback"></span>
+                    @Html.TextBox("searchItem", null, new { @class = "form-control", placeholder = AdminResources.CommonSearchHitCounter })
+
+                }
+            </div>
+        </div>
+    </div>
+    <!-- /.panel-heading -->
+    <div class="card-body table-responsive">
+        <table class="table table-striped table-bordered table-hover" id="dataTables-adv">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.FirstOrDefault().CounterId)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.FirstOrDefault().AspNetSessionId)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.FirstOrDefault().UserGuid)
+                    </th>
+                    @*<th>
+                            @Html.DisplayNameFor(model => model.FirstOrDefault().IsClient)
+                        </th>*@
+                    <th>
+                        @Html.DisplayNameFor(model => model.FirstOrDefault().OpenTime)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.FirstOrDefault().AccessTime)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.FirstOrDefault().CloseTime)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.FirstOrDefault().Interval)
+                    </th>
+                    @*<th>
+                        @Html.DisplayNameFor(model => model.FirstOrDefault().IsOnline)
+                    </th>*@
+                    <th>
+                        @Html.DisplayNameFor(model => model.FirstOrDefault().IpAddress)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.FirstOrDefault().UserAgent)
+                    </th>
+                    @*<th>
+                        @Html.DisplayNameFor(model => model.FirstOrDefault().CountryName)
+                    </th>*@
+                    <th>
+                        Action
+                    </th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CounterId)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.AspNetSessionId)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.UserGuid)
+                        </td>
+                        @*<td>
+                                @Html.DisplayFor(modelItem => item.IsClient)
+                            </td>*@
+                        <td>
+                            @Html.DisplayFor(modelItem => item.OpenTime)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.AccessTime)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CloseTime)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Interval)
+                        </td>
+                        @*<td>
+                            @Html.DisplayFor(modelItem => item.IsOnline)
+                        </td>*@
+                        <td>
+                            @Html.DisplayFor(modelItem => item.IpAddress)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.UserAgent)
+                        </td>
+                        @*<td>
+                            <a href="@Html.DisplayFor(modelItem => item.CountryName)">
+                                Spy
+                            </a>
+                        </td>*@
+                        <td>
+                            <a href="#" data-href="@Url.Action("Delete")"
+                               id="@item.CounterId" data-action="delete" data-value="@item.CounterId"
+                               class="btn btn-danger btn-xs">
+                                Delete
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+
+        <!-- pagelist ==========================================================================-->
+        <div class="pull-right">
+            @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+        </div>
+
+    </div>
+    <div class="card-footer">
+        @Html.ActionLink(AdminResources.CommonCreate, "Create", null, new { @class = "btn btn-outline-secondary" })
+    </div>
+</div>

@@ -1,0 +1,69 @@
+﻿@model Product
+
+@{
+    ViewBag.Title = Model.Name;
+
+    if (Model != null)
+    {
+        ViewBag.Description = Model.MetaDescription;
+        ViewBag.Keywords = Model.MetaKeyWords;
+        ViewBag.Title = Model.MetaTitle;
+        ViewBag.OgImage = Model.Photos.FirstOrDefault() != null ? Model.Photos.FirstOrDefault().LgPath : "";
+        ViewBag.OgUrl = Request.Url.AbsoluteUri;
+        ViewBag.OgType = "website";
+    }
+
+    ViewBag.HiddenSlogun = "true";
+}
+
+
+
+<div class="">
+
+
+    @Html.Partial("_Breadcrumb")
+
+
+    @*@Html.Partial("_RenderProductSimple")*@
+
+    @Html.Partial("_SectionProductDetail")
+
+
+    @if (Model.Description != null)
+    {
+        <div class="mt-4">
+            @Html.Raw(Model.Description)
+        </div>
+    }
+
+    <br />
+
+    @Html.Partial("_SectionAlertServiceMap")
+
+    @*@Html.Partial("_SectionTablePrice")*@
+
+    @Html.Partial("_SectionTablePriceContact")
+    
+
+    @*@Html.Partial("_SectionAlertServiceMap")*@
+
+    <div class="mt-5">
+        @foreach (var item in Model.ProductTags)
+        {
+            <a href="@Url.Action("ListBy", "ProductTags", new {slug = item.Slug})" class="badge badge-secondary rounded-0 pt-2 pb-2 pr-2 pl-2 mb-2 mr-1">@item.Name</a>
+        }
+    </div>
+
+    <!-- relative ============================================================================================ -->
+    @{
+        Html.RenderAction("RelateProductByTag", "Product", new { id = Model.Id });
+    }
+
+
+</div>
+
+
+
+
+@*@Html.Partial("_AboutUs")*@
+

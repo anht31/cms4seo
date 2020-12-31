@@ -1,0 +1,8 @@
+﻿@model IEnumerable<ArticleTag>
+
+
+@foreach (var item in Model)
+{
+    <a rel="nofollow" href="@Url.Action("ListBy", "ArticleTags", new {slug = item.Slug})" 
+       class="secondary label tag-article">@item.Name</a>
+}

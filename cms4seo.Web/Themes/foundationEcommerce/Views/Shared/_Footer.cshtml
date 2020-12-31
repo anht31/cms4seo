@@ -1,0 +1,44 @@
+﻿
+<footer class="callout large secondary footer-light">
+    <article class="grid-container">
+        <div class="grid-x">
+            <div class="large-4 cell">
+                <h5 @CMS.Attribute("Section.Footer.Header")>
+                    @Setting.Contents["Section.Footer.Header"]
+                </h5>
+                <p @CMS.Attribute("Section.Footer.Description")>
+                    @Setting.Contents["Section.Footer.Description"]
+                </p>
+            </div>
+            <div class="large-4 large-offset-1 cell">
+
+                @Html.Partial("_FooterInfo")
+
+            </div>
+            <div class="large-3 cell">
+                @{
+                    Html.RenderAction("FooterMenu", "Nav");
+                }
+            </div>
+        </div>
+    </article>
+</footer>
+
+
+
+<div class="grid-x">
+
+    <div class="medium-6 cell font-weight-bold">
+        <ul class="menu align-center">
+            <li><a href="#">Legal</a></li>
+            <li><a href="#">Partner</a></li>
+            <li><a href="#">Explore</a></li>
+        </ul>
+    </div>
+
+    <div class="medium-6 cell">
+        <div class="footerPowerBy align-center">
+            &copy; 2020 - power by <a href="http://cms4seo.com" rel="noopener" target="_blank">cms4seo.com</a>
+        </div>
+    </div>
+</div>

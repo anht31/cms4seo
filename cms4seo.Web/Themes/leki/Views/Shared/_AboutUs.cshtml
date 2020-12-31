@@ -1,0 +1,238 @@
+﻿
+<!-- About-->
+<section class="page-section link-decorator" id="about">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">
+                <span @CMS.Attribute("Section.Timeline.Header")>
+                    @Setting.Contents["Section.Timeline.Header"]
+                </span>
+            </h2>
+            <h3 class="section-subheading text-muted">
+                <span @CMS.Attribute("Section.Timeline.Description1")>
+                    @Setting.Contents["Section.Timeline.Description1"]
+                </span>
+
+                <a @CMS.Attribute("Section.Timeline.Description2.Href" , "Section.Timeline.Description2.Text")
+                   href="@Setting.Contents["Section.Timeline.Description2.Href"]" data-toggle="tooltip" title="Tell me more!">
+                    @Setting.Contents["Section.Timeline.Description2.Text"]
+                </a>
+                <span @CMS.Attribute("Section.Timeline.Description2")>
+                    @Setting.Contents["Section.Timeline.Description2"]
+                </span>
+
+                <a @CMS.Attribute("Section.Timeline.Description3.Href", "Section.Timeline.Description3.Text")
+                   href="@Setting.Contents["Section.Timeline.Description3.Href"]" data-toggle="tooltip" title="Tell me more!">
+                    @Setting.Contents["Section.Timeline.Description3.Text"]
+                </a>
+                <span @CMS.Attribute("Section.Timeline.Description3")>
+                    @Setting.Contents["Section.Timeline.Description3"]
+                </span>
+
+                <a @CMS.Attribute("Section.Timeline.Description4.Href", "Section.Timeline.Description4.Text")
+                   href="@Setting.Contents["Section.Timeline.Description4.Href"]" data-toggle="tooltip" title="Tell me more!">
+                    @Setting.Contents["Section.Timeline.Description4.Text"]
+                </a>
+                <span @CMS.Attribute("Section.Timeline.Description4")>
+                    @Setting.Contents["Section.Timeline.Description4"]
+                </span>
+
+                <a @CMS.Attribute("Section.Timeline.Description5.Href", "Section.Timeline.Description5.Text")
+                   href="@Setting.Contents["Section.Timeline.Description5.Href"]" data-toggle="tooltip" title="Tell me more!">
+                    @Setting.Contents["Section.Timeline.Description5.Text"]
+                </a>
+                <span @CMS.Attribute("Section.Timeline.Description5")>
+                    @Setting.Contents["Section.Timeline.Description5"]
+                </span>
+
+                <a @CMS.Attribute("Section.Timeline.Description6.Href", "Section.Timeline.Description6.Text")
+                   href="@Setting.Contents["Section.Timeline.Description6.Href"]" data-toggle="tooltip" title="Tell me more!">
+                    @Setting.Contents["Section.Timeline.Description6.Text"]
+                </a>
+                <span @CMS.Attribute("Section.Timeline.Description6")>
+                    @Setting.Contents["Section.Timeline.Description6"]
+                </span>
+
+            </h3>
+        </div>
+        <ul class="timeline">
+            <li>
+                <div class="timeline-image">
+                    <img @CMS.Attribute("Section.Timeline.Year1.Image") 
+                        src="@Setting.Contents["Section.Timeline.Year1.Image"]" class="rounded-circle img-fluid" alt="size-200x200"/>
+                </div>
+                <div class="timeline-panel">
+                    <div class="timeline-heading">
+                        <h4>
+                            <span @CMS.Attribute("Section.Timeline.Year1.Name")>
+                                @Setting.Contents["Section.Timeline.Year1.Name"]
+                            </span>
+                        </h4>
+                        <h4 class="subheading">
+                            <span @CMS.Attribute("Section.Timeline.Year1.Header")>
+                                @Setting.Contents["Section.Timeline.Year1.Header"]
+                            </span>
+                        </h4>
+                    </div>
+                    <div class="timeline-body">
+                        <p class="text-muted">
+                            <span @CMS.Attribute("Section.Timeline.Year1.Brief")>
+                                @Setting.Contents["Section.Timeline.Year1.Brief"]
+                            </span>
+                        </p>
+                    </div>
+                </div>
+            </li>
+            <li class="timeline-inverted">
+                <div class="timeline-image">
+                    <img @CMS.Attribute("Section.Timeline.Year2.Image")
+                         src="@Setting.Contents["Section.Timeline.Year2.Image"]" class="rounded-circle img-fluid" alt="size-200x200" />
+                </div>
+                <div class="timeline-panel">
+                    <div class="timeline-heading">
+                        <h4>
+                            <span @CMS.Attribute("Section.Timeline.Year2.Name")>
+                                @Setting.Contents["Section.Timeline.Year2.Name"]
+                            </span>
+                        </h4>
+                        <h4 class="subheading">
+                            <span @CMS.Attribute("Section.Timeline.Year2.Header")>
+                                @Setting.Contents["Section.Timeline.Year2.Header"]
+                            </span>
+                        </h4>
+                    </div>
+                    <div class="timeline-body">
+                        <p class="text-muted">
+                            <span @CMS.Attribute("Section.Timeline.Year2.Brief")>
+                                @Setting.Contents["Section.Timeline.Year2.Brief"]
+                            </span>
+                        </p>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="timeline-image">
+                    <img @CMS.Attribute("Section.Timeline.Year3.Image")
+                         src="@Setting.Contents["Section.Timeline.Year3.Image"]" class="rounded-circle img-fluid" alt="size-200x200" />
+                </div>
+                <div class="timeline-panel">
+                    <div class="timeline-heading">
+                        <h4>
+                            <span @CMS.Attribute("Section.Timeline.Year3.Name")>
+                                @Setting.Contents["Section.Timeline.Year3.Name"]
+                            </span>
+                        </h4>
+                        <h4 class="subheading">
+                            <span @CMS.Attribute("Section.Timeline.Year3.Header")>
+                                @Setting.Contents["Section.Timeline.Year3.Header"]
+                            </span>
+                        </h4>
+                    </div>
+                    <div class="timeline-body">
+                        <p class="text-muted">
+                            <span @CMS.Attribute("Section.Timeline.Year3.Brief")>
+                                @Setting.Contents["Section.Timeline.Year3.Brief"]
+                            </span>
+                        </p>
+                    </div>
+                </div>
+            </li>
+            <li class="timeline-inverted">
+                <div class="timeline-image">
+                    <img @CMS.Attribute("Section.Timeline.Year4.Image")
+                         src="@Setting.Contents["Section.Timeline.Year4.Image"]" class="rounded-circle img-fluid" alt="size-200x200" />
+                </div>
+                <div class="timeline-panel">
+                    <div class="timeline-heading">
+                        <h4>
+                            <span @CMS.Attribute("Section.Timeline.Year4.Name")>
+                                @Setting.Contents["Section.Timeline.Year4.Name"]
+                            </span>
+                        </h4>
+                        <h4 class="subheading">
+                            <span @CMS.Attribute("Section.Timeline.Year4.Header")>
+                                @Setting.Contents["Section.Timeline.Year4.Header"]
+                            </span>
+                        </h4>
+                    </div>
+                    <div class="timeline-body">
+                        <p class="text-muted">
+                            <span @CMS.Attribute("Section.Timeline.Year4.Brief")>
+                                @Setting.Contents["Section.Timeline.Year4.Brief"]
+                            </span>
+                        </p>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="timeline-image">
+                    <img @CMS.Attribute("Section.Timeline.Year5.Image")
+                         src="@Setting.Contents["Section.Timeline.Year5.Image"]" class="rounded-circle img-fluid" alt="size-200x200" />
+                </div>
+                <div class="timeline-panel">
+                    <div class="timeline-heading">
+                        <h4>
+                            <span @CMS.Attribute("Section.Timeline.Year5.Name")>
+                                @Setting.Contents["Section.Timeline.Year5.Name"]
+                            </span>
+                        </h4>
+                        <h4 class="subheading">
+                            <span @CMS.Attribute("Section.Timeline.Year5.Header")>
+                                @Setting.Contents["Section.Timeline.Year5.Header"]
+                            </span>
+                        </h4>
+                    </div>
+                    <div class="timeline-body">
+                        <p class="text-muted">
+                            <span @CMS.Attribute("Section.Timeline.Year5.Brief")>
+                                @Setting.Contents["Section.Timeline.Year5.Brief"]
+                            </span>
+                        </p>
+                    </div>
+                </div>
+            </li>
+            <li class="timeline-inverted">
+                <div class="timeline-image">
+                    <img @CMS.Attribute("Section.Timeline.Year6.Image")
+                         src="@Setting.Contents["Section.Timeline.Year6.Image"]" class="rounded-circle img-fluid" alt="size-200x200" />
+                </div>
+                <div class="timeline-panel">
+                    <div class="timeline-heading">
+                        <h4>
+                            <span @CMS.Attribute("Section.Timeline.Year6.Name")>
+                                @Setting.Contents["Section.Timeline.Year6.Name"]
+                            </span>
+                        </h4>
+                        <h4 class="subheading">
+                            <span @CMS.Attribute("Section.Timeline.Year6.Header")>
+                                @Setting.Contents["Section.Timeline.Year6.Header"]
+                            </span>
+                        </h4>
+                    </div>
+                    <div class="timeline-body">
+                        <p class="text-muted">
+                            <span @CMS.Attribute("Section.Timeline.Year6.Brief")>
+                                @Setting.Contents["Section.Timeline.Year6.Brief"]
+                            </span>
+                        </p>
+                    </div>
+                </div>
+            </li>
+            <li class="timeline-inverted">
+                <div class="timeline-image">
+                    <h4>
+                        <span @CMS.Attribute("Section.Timeline.EndYears.Part1")>
+                            @Setting.Contents["Section.Timeline.EndYears.Part1"]
+                        </span><br />
+                        <span @CMS.Attribute("Section.Timeline.EndYears.Part2")>
+                            @Setting.Contents["Section.Timeline.EndYears.Part2"]
+                        </span><br />
+                        <span @CMS.Attribute("Section.Timeline.EndYears.Part3")>
+                            @Setting.Contents["Section.Timeline.EndYears.Part3"]
+                        </span>
+                    </h4>
+                </div>
+            </li>
+        </ul>
+    </div>
+</section>

@@ -1,0 +1,95 @@
+﻿<!-- Top-bar -->
+<nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 shadow">
+    <!-- Sidebar Toggle (Top bar) -->
+    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+        <i class="fa fa-bars"></i>
+    </button>
+
+   
+    
+    @*@Html.Partial("_HeaderSearch")*@
+
+    <!-- Top bar Navbar -->
+    <ul class="navbar-nav ml-auto">
+        
+
+        @*@Html.Partial("_SearchMobile")*@
+
+
+        @*@Html.Partial("_HeaderAlerts")*@
+
+
+        @*@Html.Partial("_HeaderMessages")*@
+
+
+
+
+
+
+
+
+        <li class="nav-item dropdown no-arrow mx-1">
+            <a class="nav-link dropdown-toggle" href="#" id="localizationDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-globe-americas fa-fw">&nbsp;</i>
+                @System.Globalization.CultureInfo.CurrentCulture.NativeName
+            </a>
+            <!-- Dropdown - Messages -->
+
+            <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="localizationDropdown">
+                <h6 class="dropdown-header">
+                    @AdminResources.TopbarLangugeChoose
+                </h6>
+                <a class="dropdown-item d-flex align-items-center" 
+                   onclick="SetCulture('en-US')" href="#">
+                    <h5>English</h5>
+                </a>
+                <a class="dropdown-item d-flex align-items-center"
+                   onclick="SetCulture('vi-VN')" href="#">
+                    <h5>Tiếng Việt</h5>
+                </a>
+
+            </div>
+
+        </li>
+
+
+        <div class="topbar-divider d-none d-sm-block"></div>
+        <!-- Nav Item - User Information -->
+        <li class="nav-item dropdown no-arrow">
+            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small">@User.Identity.Name</span>
+                @*<img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">*@
+                <i class="fa fa-user-circle fa-2x"></i>
+            </a>
+            <!-- Dropdown - User Information -->
+            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+
+                <a class="dropdown-item" href="@Url.Action("Index", "Manage")">
+                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                    @AdminResources.TopbarUserProfile
+                </a>
+
+                @if (User.IsInRole("Developer") || User.IsInRole("Admin"))
+                {
+                    <a class="dropdown-item" href="@Url.Action("Index", "RolesAdmin")">
+                        <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                        @AdminResources.TopbarUserSettings
+                    </a>
+                    <a class="dropdown-item" href="@Url.Action("Index", "Logs")">
+                        <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+                        @AdminResources.TopbarUserActivityLog
+                    </a>
+                }
+
+
+                <div class="dropdown-divider"></div>
+
+                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                    @AdminResources.TopbarLogout
+                </a>
+            </div>
+        </li>
+    </ul>
+</nav>
+<!-- End of Topbar -->

@@ -1,0 +1,80 @@
+﻿
+@model IEnumerable<Slider>
+
+
+
+<header class="simpleSlider">
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        
+        @if (Model.Count() > 1)
+        {
+            <ol class="carousel-indicators">
+
+                @foreach (var slider in Model)
+                {
+                    <li data-target="#carouselExampleIndicators" data-slide-to="@slider.Sort" class="@slider.Active"></li>
+                }
+
+            </ol>
+        }
+        
+
+        <div class="carousel-inner" role="listbox">
+
+
+            @foreach (var slider in Model)
+            {
+                <div class="carousel-item @slider.Active" style="background-image: url('@slider.Avatar')">
+
+
+                    @if (slider.IsCaption)
+                    {
+                        <div class="carousel-caption">
+
+                            @*<div class="black-and-yellow-striped" style="height: 20px;"></div>*@
+
+                            <img @CMS.Attribute("Slider.Logo")
+                                 class="float-left mr-2 pb-4" width="80" alt="png-size-100x100"
+                                 src="@Setting.ImageSource("Slider.Logo")" />
+
+                            <h2>@slider.Text1</h2>
+                            <h5>@slider.Text2</h5>
+                            @if (string.IsNullOrWhiteSpace(slider.Href))
+                            {
+                                <a href="tel:@Setting.WebSettings[AppShop.Hotline].RemoveSpace()"
+                                   class="btn btn-danger btn-lg">
+                                    @slider.Text3
+                                </a>
+                            }
+                            else
+                            {
+                                <a href="@slider.Href"
+                                   class="btn btn-danger btn-lg">
+                                    @slider.Text3
+                                </a>
+                            }
+
+
+                        </div>
+                    }
+
+                </div>
+            }
+
+
+        </div>
+        
+        @if (Model.Count() > 1)
+        {
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        }
+        
+    </div>
+</header>

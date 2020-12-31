@@ -1,0 +1,17 @@
+﻿@model PagedList.IPagedList<Article>
+@using PagedList.Mvc;
+
+
+@{
+    var theme = Setting.WebSettings[WebSettingType.CurrentTheme];
+    Layout = "~/Themes/" + theme + "/Views/Shared/_LayoutArticle.cshtml";
+
+    ViewBag.Title = Setting.Contents["Articles.Section.Header"];
+
+    ViewBag.PageHeader = Setting.Contents["Articles.Section.Header"];
+}
+
+
+@{
+    Html.RenderAction("Newest", "Articles", new { size = 10 });
+}

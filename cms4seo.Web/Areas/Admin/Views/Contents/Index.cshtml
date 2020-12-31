@@ -1,0 +1,119 @@
+﻿@using System.Data
+@model IEnumerable<Content>
+
+@{
+    ViewBag.Title = AdminResources.CommonIndex;
+}
+
+<section class="section-martin-top">
+
+    @Html.ActionLink("Export XML", "ExportXml", null, new { @class = "btn btn-warning mr-2" })
+    @Html.ActionLink("Export Current Theme Language", "ExportCurrentLanguage", null, new { @class = "btn btn-warning mr-2" })
+
+    @if (User.IsInRole("Advance.Developer"))
+    {
+        @Html.ActionLink("Clear Contents", "ClearContents", null, new { @class = "btn btn-danger mr-2" })
+    }
+    
+    <br />
+    <br />
+
+    <!-- see-admin.js for script vertify del ====================== -->
+    @AntiForgery.GetHtml()
+    <div class="card">
+        <div class="card-header">
+            <span class="h3">@AdminResources.CommonSetting / @AdminResources.CommonIndex</span>
+
+            @if (User.IsInRole("Medium.Contents"))
+            {
+                <span class="float-right">
+                    @Html.ActionLink(AdminResources.CommonCreate, "Create", null, new {@class = "btn btn-outline-secondary btn-sm"})
+                </span>
+            }
+
+        </div>
+        <!-- /.panel-heading -->
+        <div class="card-body table-responsive">
+            <table class="table table-striped table-bordered table-hover" id="dataTables-adv">
+                <thead>
+                <tr>
+                    <th>
+                        <b>Key</b>
+                    </th>
+                    <th>
+                        <b>Theme</b>
+                    </th>
+                    <th>
+                        <b>Language</b>
+                    </th>
+                    <th>
+                        <b>Value</b>
+                    </th>
+                    <th>
+                    </th>
+                </tr>
+                </thead>
+
+                <tbody>
+
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.ActionLink(item.Key, "Edit", new {item.Key, item.Theme, item.Language, isEdit = true})</td>
+
+                        
+                        <td>@item.Theme</td>
+                        <td>@item.Language</td>
+                        <td>@item.Value.ShortenText100()</td>
+
+                        @if (User.IsInRole("Medium.Contents"))
+                        {
+                            <td>
+
+                                <a class="btn btn-danger btn-sm @(Setting.WebSettings[WebSettingType.IsLockDeleteSettings].AsBool() ? " disabled" : "")"
+                                   data-action="delete"
+                                   data-id="@item.Key-@item.Theme-@item.Language"
+                                   data-value="@item.Key-@item.Theme-@item.Language"
+                                   href="/Admin/Contents/Delete?deleteId=@item.Key&theme=@item.Theme&language=@item.Language">
+                                    Delete
+                                </a>
+
+                            </td>
+                        }
+
+
+                    </tr>
+                }
+                </tbody>
+            </table>
+        </div>
+        <div class="card-footer">
+
+            @if (User.IsInRole("Medium.Contents"))
+            {
+                @Html.ActionLink(AdminResources.CommonCreate, "Create", null, new {@class = "btn btn-outline-secondary"})
+            }
+
+
+        </div>
+    </div>
+
+
+    @if (User.IsInRole("Medium.Contents") || User.IsInRole("Admin"))
+    {
+        <div class="card">
+            <div class="card-header">
+                @AdminResources.CommonHeaderRestart
+            </div>
+            <!-- /.panel-heading -->
+            <div class="card-body">
+                <a class="btn btn-danger" href="@Url.Action("RestartWebsite", "Contents", new {reason = "language setup change"})">
+                    @AdminResources.CommonRestartNow
+                </a>
+            </div>
+        </div>
+    }
+
+
+</section>

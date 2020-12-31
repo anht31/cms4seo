@@ -1,0 +1,19 @@
+﻿@model string
+
+<ul class="breadcrumb-style-1">
+    <li>
+        <a href="/" target="_top">
+            <span @CMS.Attribute("Breadcrumb.Home")>
+                @Setting.Contents["Breadcrumb.Home"]
+            </span>
+        </a>
+    </li>
+
+
+    <li>
+        <a href="#">
+            @Model
+        </a>
+    </li>
+
+</ul>

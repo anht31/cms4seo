@@ -1,0 +1,30 @@
+﻿@model IEnumerable<Article>
+
+
+<hr>
+
+<div class="text-center">
+    <h4 style="margin: 0;" class="text-center">
+        <span @CMS.Attribute("Topic.Trend.Header")>
+            @Setting.Contents["Topic.Trend.Header"]
+        </span>
+    </h4>
+</div>
+
+<hr>
+<article class="grid-container object-400x370-cover-resize">
+    <div class="grid-x grid-margin-x small-up-3 medium-up-4 large-up-5">
+        
+        @foreach (var item in Model)
+        {
+
+            <div class="cell">
+                <a class="cell-link" href="@item.Slug" target="_top">
+                    <img src="@item.Avatar" alt="@item.Name-size-400x370">
+                </a>
+            </div>
+        }
+
+
+    </div>
+</article>

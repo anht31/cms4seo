@@ -1,0 +1,22 @@
+﻿
+
+
+
+
+<div id="fb-root"></div>
+@*<script src="@Url.Content("~/signalr/hubs")"></script>*@
+
+<!-- zoom img ====================================-->
+<script>
+    $(document)
+        .ready(function() {
+            $(".fancybox")
+                .fancybox({
+                    openEffect: 'none',
+                    closeEffect: 'none'
+                });
+        });
+</script>
+
+
+@Html.Raw(Setting.WebSettings[EmbedSettingType.Scripts])

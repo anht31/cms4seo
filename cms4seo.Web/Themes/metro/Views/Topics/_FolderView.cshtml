@@ -1,0 +1,23 @@
+﻿
+@model Topic
+
+
+<div class="mt-2">
+
+
+    @if (Model != null && Model.Children.Count > 0)
+    {
+
+        @Html.Partial("_SectionGridCardFolder", Model.Children)
+
+    }
+
+    @if (Model != null && Model.Articles.Count > 0)
+    {
+
+        <div class="row">
+            @Html.Partial("_CardArticleList", Model.Articles)
+        </div>
+    }
+
+</div>

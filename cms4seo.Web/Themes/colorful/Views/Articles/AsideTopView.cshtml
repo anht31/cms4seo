@@ -1,0 +1,33 @@
+﻿@model List<Article>
+
+
+<aside class="card rounded-0 shadow-sm mt-3 asideTopView">
+    <div class="card-header">
+        <b>
+            <span @CMS.Attribute("Aside.Articles.Trending")>
+                @Setting.Contents["Aside.Articles.Trending"]
+            </span>
+        </b>
+    </div>
+    <div class="card-body p-0">
+
+        
+            <ul>
+                @foreach (var item in Model)
+                {
+
+                    <li class="p-2">
+                        <a href="@item.Slug" target="_top" title="@item.Name">
+                            <img class="object-fit-vh" src="@item.Avatar" alt="@item.Slug">
+                            <div class="text-ellipsis-2">@item.Name.ShortenText50()</div>
+                            <div class="text-888 text-right pr-3">@item.PostedDate.Value.ToString("dd/MM/yyyy")</div>
+                            
+                        </a>                        
+                    </li>
+
+                }
+            </ul>
+
+
+    </div>
+</aside>

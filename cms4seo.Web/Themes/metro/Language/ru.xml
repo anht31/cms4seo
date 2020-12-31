@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<appSettings>
+  <add key="Article.Detail.DateCreated" value="Создано" />
+  <add key="Article.Detail.Download" value="Скачать" />
+  <add key="Article.Detail.Promote.InstructionPhone" value="Свяжитесь с нашим " />
+  <add key="Article.Detail.Promote.OrEmail" value="или по электронной почте" />
+  <add key="Article.Detail.Promote.Product" value="наш продукт" />
+  <add key="Article.Detail.Promote.Promise" value="Мы посоветуем вам подходящую услугу" />
+  <add key="Article.Detail.Promote.Welcome" value="Когда ты нуждаешься" />
+  <add key="Article.Detail.Viewed" value=", Посмотреть:" />
+  <add key="Article.Header.Readmore" value="Может быть, вы хотите узнать больше ..." />
+  <add key="Article.Relate.Header" value="Может быть, вы хотели бы ..." />
+  <add key="Articles.Card.DateCreated" value="Создано: " />
+  <add key="Articles.Card.SeeMore" value="Узнать больше" />
+  <add key="Articles.Card.Viewed" value=", Посмотреть: " />
+  <add key="Articles.Search.Message" value="Не найдено, пожалуйста, попробуйте etag ниже" />
+  <add key="Articles.Section.Header" value="ПОСЛЕДНИЕ ИСТОРИИ" />
+  <add key="Aside.Articles.Trending" value="В тренде" />
+  <add key="Aside.Callout.SmsBody" value="Расскажите подробнее о вашей продукции" />
+  <add key="Aside.Callout.Span1" value="Вы просто уходите в смс на номер" />
+  <add key="Aside.Callout.Span2" value="Мы Вам перезвоним." />
+  <add key="Aside.Category.Header" value="Домашняя страница" />
+  <add key="Aside.Category.MenuContact" value="Связаться с нами" />
+  <add key="Aside.Links.Header" value="Ссылки" />
+  <add key="Aside.Statistic.Header" value="Статистика" />
+  <add key="Aside.Statistic.Today" value="Cегодня: " />
+  <add key="Aside.Supporter.Header" value="Сторонник" />
+  <add key="Aside.Topic.Header" value="Тема" />
+  <add key="Aside.TopView.Header" value="ТРЕНДУЮЩИЕ ПОСТЫ" />
+  <add key="Banner.CallNow" value="Позвони сейчас" />
+  <add key="Banner.SeeMore" value="Узнать больше" />
+  <add key="Breadcrumb.Home" value="Домашняя страница" />
+  <add key="Contact.Form.Email" value="Пожалуйста, введите адрес электронной почты" />
+  <add key="Contact.Form.Fullname" value="ваше полное имя" />
+  <add key="Contact.Form.Header" value="Пожалуйста, оставьте ваше сообщение, мы ответим вам в ближайшее время." />
+  <add key="Contact.Form.Message" value="твое сообщение" />
+  <add key="Contact.Form.Phonenumber" value="пожалуйста введите ваш номер телефона" />
+  <add key="Contact.Form.Submit" value="Отправить сообщение" />
+  <add key="Emails.ContactForm.ServerBusyPleaseTryLater" value="Кажется, наш почтовый сервер слишком перегружен, повторите попытку позже" />
+  <add key="Emails.Js.ServerBusyPleaseTryLater" value="Кажется, почтовый сервер занят, попробуйте позже" />
+  <add key="Emails.Js.ThankForYourMessage" value="Спасибо за ваше сообщение" />
+  <add key="Emails.Template.Empty" value="Возможно, вы все еще не настроили почтовый сервер SMTP" />
+  <add key="Emails.Template.Fullname" value="Полное имя: " />
+  <add key="Emails.Template.Header" value="У нового клиента есть сообщение для вас:" />
+  <add key="Emails.Template.PhoneNumber" value="Телефонный номер: " />
+  <add key="Footer.Column.Contact.Form.Button.Submit" value="Разместить" />
+  <add key="Footer.Column.Contact.Form.Email" value="Эл. адрес" />
+  <add key="Footer.Column.Contact.Form.Email.Placeholder" value="ваш адрес электронной почты" />
+  <add key="Footer.Column.Contact.Form.Message" value="Сообщение" />
+  <add key="Footer.Column.Contact.Form.Message.Placeholder" value="Сообщение" />
+  <add key="Footer.Column.Contact.Form.Name" value="имя" />
+  <add key="Footer.Column.Contact.Form.Name.Placeholder" value="Пожалуйста, введите Ваше имя" />
+  <add key="Footer.Column.Contact.Form.Phone" value="Телефон" />
+  <add key="Footer.Column.Contact.Form.Phone.Placeholder" value="пожалуйста введите ваш номер телефона" />
+  <add key="Footer.Socials.Facebook.Href" value="Пожалуйста, введите значение" />
+  <add key="Footer.Socials.Header" value="Наша социальная сеть" />
+  <add key="Footer.Socials.Instagram.Href" value="Пожалуйста, введите значение" />
+  <add key="Footer.Socials.Pinterest.Href" value="Пожалуйста, введите значение" />
+  <add key="Footer.Socials.Twitter.Href" value="Пожалуйста, введите значение" />
+  <add key="Footer.SupporterPhone.Label" value="распродажа: " />
+  <add key="Footer2.Column1.Description" value="Оптом и в розницу по всей стране, с большими скидками для агентов и магазинов." />
+  <add key="Footer2.Column1.Header" value="Свяжитесь со мной" />
+  <add key="Form.Search.Article.Placeholder" value="найти статью" />
+  <add key="Form.Search.Placeholder" value="найди свой продукт" />
+  <add key="Header.Menu.Brand" value="cms4seo" />
+  <add key="Header.Menu.Contact" value="Связаться с нами" />
+  <add key="Header.Search.Button" value="Поиск" />
+  <add key="Label.Home" value="Домашняя страница" />
+  <add key="Page.Error.BadRequest.Description" value="размер заголовка запроса или куки слишком велик" />
+  <add key="Page.Error.BadRequest.Header" value="Bad Request" />
+  <add key="Page.Error.GoHome" value="перейти на главную" />
+  <add key="Page.Error.NotFound.Description" value="Запрошенный URL не был найден на этом сервере." />
+  <add key="Page.Error.NotFound.Header" value="не обнаружена" />
+  <add key="Page.Error.ServerError.Description" value="Страница не может быть отображена из-за внутренней ошибки сервера." />
+  <add key="Page.Error.ServerError.Header" value="Внутренняя ошибка сервера" />
+  <add key="Page.Filter.ByPrice" value="Фильтровать по цене" />
+  <add key="Product.Detail.Shopping.Button.Buy" value="купить сейчас" />
+  <add key="Product.Detail.Shopping.Options" value="Небольшой, Средняя, Большой" />
+  <add key="Product.Detail.Shopping.Property1" value="Размер" />
+  <add key="Product.Detail.Shopping.Quantity.Input" value="Один или два" />
+  <add key="Product.Detail.Shopping.Quantity.Label" value="Количество" />
+  <add key="Product.Edit" value="редактировать" />
+  <add key="Product.NewProduct" value="Новый продукт" />
+  <add key="Product.OutOfStock" value="Нет на складе" />
+  <add key="Product.Relate" value="Может ты хочешь большего" />
+  <add key="Product.SeeDemo" value="Посмотреть демо" />
+  <add key="Products.Card.Price" value="Цена: позвоните мне" />
+  <add key="Products.Header" value="Наши последние работы" />
+  <add key="Products.Search.Message" value="Не найдено, попробуйте использовать тег ниже" />
+  <add key="Section.AboutUs.CallAction" value="Для получения подробной информации о наших продуктах и услугах, пожалуйста, свяжитесь с" />
+  <add key="Section.AboutUs.Description" value="Подробнее о нашей компании" />
+  <add key="Section.AboutUs.Header" value="Заголовок заголовка" />
+  <add key="Section.AboutUs.Item1" value="Описание позиции 1" />
+  <add key="Section.AboutUs.Item2" value="Пункт Описание 2" />
+  <add key="Section.AboutUs.Item3" value="Описание позиции 3" />
+  <add key="Section.AboutUs.Item4" value="Описание позиции 4" />
+  <add key="Section.AboutUs.Item5" value="Описание позиции 5" />
+  <add key="Section.AboutUs.Item6" value="Пункт Описание 6" />
+  <add key="Section.AboutUs.Item7" value="Пункт Описание 7" />
+  <add key="Section.Certify1.Description" value="С передовыми технологиями, с четким процессом, чтобы сократить расходы на лучшем уровне." />
+  <add key="Section.Certify1.Header" value="Экономика" />
+  <add key="Section.Certify2.Description" value="С целью устойчивого развития мы стремимся к качеству продукции." />
+  <add key="Section.Certify2.Header" value="Стабилизация" />
+  <add key="Section.Certify3.Description" value="Наша продукция имеет ряд сертификатов на долговечность." />
+  <add key="Section.Certify3.Header" value="Качественный" />
+  <add key="Section.Products.SeeMore" value="узнать больше" />
+  <add key="Section.Search.Header" value=" результаты по ключевому слову: " />
+  <add key="Topic.Aside.AuthorsHeader" value="Авторы" />
+  <add key="Topic.Aside.TopicHeader" value="Категории" />
+  <add key="Topic.Header" value="ПОСЛЕДНИЕ ИСТОРИИ" />
+  <add key="Topic.Trend.Header" value="ПОСЛЕДНИЕ НОВОСТИ" />
+  <add key="Slider.Logo" value="" />
+
+
+
+  <add key="Section.Header.Logo" value="/Themes/metro/Assets/Image/cms4seo.png" />
+  <add key="Section.Index.CoolProduct.Image1" value="/Themes/metro/Assets/Image/cool-product-1.jpg" />
+  <add key="Section.Index.CoolProduct.Image1.Href" value="/" />
+  <add key="Section.Index.CoolProduct.Image2" value="/Themes/metro/Assets/Image/cool-product-2.jpg" />
+  <add key="Section.Index.CoolProduct.Image2.Href" value="/" />
+  
+</appSettings>

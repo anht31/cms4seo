@@ -1,0 +1,13 @@
+﻿@model IEnumerable<string>
+
+@if (Model.FirstOrDefault() != "")
+{
+    foreach (var tag in Model)
+    {
+        if (tag != "")
+        {
+            @Html.ActionLink(tag, "ListByTag", new { controller = "Articles", tag }, new { @class = "badge-article-tag" })
+            <span></span>
+        }
+    }
+}

@@ -1,0 +1,186 @@
+﻿@using System.Text.RegularExpressions;
+@using Microsoft.Ajax.Utilities
+@model Product
+
+@{
+    ViewBag.Title = Model.Name;
+
+    var photoAvatar = Model.Photos.FirstOrDefault(x => x.SmPath == Model.Avatar);
+
+    if (Model != null)
+    {
+        ViewBag.Description = Model.MetaDescription;
+        ViewBag.Keywords = Model.MetaKeyWords;
+        ViewBag.Title = Model.MetaTitle;
+    }
+
+    if (photoAvatar != null)
+    {
+        ViewBag.OgImage = photoAvatar.LgPath;
+        ViewBag.OgUrl = Request.Url.AbsoluteUri;
+        ViewBag.OgType = "website";
+    }
+
+    ViewBag.HiddenSlogun = "true";
+}
+
+
+
+
+<br>
+<article class="grid-container">
+
+    @Html.Partial("_Breadcrumb", Model.Category)
+
+    @if (!Setting.WebSettings[ShopSettingType.IsHiddenProductSummary].AsBool())
+    {
+        <div class="grid-x grid-margin-x">
+            <div class="medium-6 cell">
+
+                <a class="fancybox" rel="gallery1" href="@photoAvatar.LgPath" title="@photoAvatar.AltAttribute">
+                    <img class="thumbnail" src="@photoAvatar.MdPath" alt="@photoAvatar.AltAttribute">
+                </a>
+
+                <div class="grid-x grid-padding-x small-up-4">
+
+                    @foreach (var photo in Model.Photos)
+                    {
+                        <a class="cell fancybox" rel="gallery1" href="@photo.LgPath" title="@photo.AltAttribute">
+                            <img src="@photo.SmPath" alt="@photo.AltAttribute" />
+                        </a>
+                    }
+                
+                </div>
+            </div>
+            <div class="medium-6 large-5 cell large-offset-1">
+                <h3>@Model.Name</h3>
+                <div>
+                    @if (Model.Summary != null)
+                    {
+                        @Html.Raw(Model.Summary)
+                    }
+                    else if (!Setting.WebSettings[ShopSettingType.ProductDetailSummary].IsNullOrWhiteSpace())
+                    {
+                        @Html.Raw(Setting.WebSettings[ShopSettingType.ProductDetailSummary])
+                    }
+
+                </div>
+            
+
+                <label>
+                    <span @CMS.Attribute("Product.Detail.Shopping.Property1")>
+                        @Setting.Contents["Product.Detail.Shopping.Property1"]
+                    </span>
+
+                    <select name="Size" @CMS.Attribute("Product.Detail.Shopping.Options")>
+                        @foreach (var item in (Setting.Contents["Product.Detail.Shopping.Options"]).ToOptions())
+                        {
+                            <option value="@item">@item</option>
+                        }
+                    </select>
+                </label>
+
+                <div class="grid-x">
+                    <div class="small-3 cell">
+                        <label for="middle-label" class="middle">
+                            <span @CMS.Attribute("Product.Detail.Shopping.Quantity.Label")>
+                                @Setting.Contents["Product.Detail.Shopping.Quantity.Label"]
+                            </span>
+                        </label>
+                    </div>
+                    <div class="small-9 cell">
+                        <input type="text" id="middle-label"
+                               @CMS.Attribute("Product.Detail.Shopping.Quantity.Input")
+                               placeholder="@Setting.Contents["Product.Detail.Shopping.Quantity.Input"]">
+                    </div>
+                </div>
+
+                <a href="#" @CMS.Attribute("Product.Detail.Shopping.Button.Buy") class="button large expanded">
+                    @Setting.Contents["Product.Detail.Shopping.Button.Buy"]
+                </a>
+
+                <div class="small secondary expanded button-group">
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=@Request.Url.AbsoluteUri" target="_blank" class="button">Facebook</a>
+                    <a href="http://twitter.com/share?text=Im%20Sharing%20on%20Twitter&url=@Request.Url.AbsoluteUri&hashtags=@Request.Url.Host,@Model.Category.Name" target="_blank" class="button">Twitter</a>
+                    <a href="https://www.linkedin.com/shareArticle?mini=true&url=@Request.Url.AbsoluteUri&title=@Model.Name" target="_blank" class="button">Linkedin</a>
+                </div>
+            </div>
+        </div>
+    
+    }
+
+
+
+    @if (Model.Description != null)
+    {
+        <div class="margin-bottom-3">
+            @Html.Raw(Model.Description)
+        </div>
+    }
+    
+    
+    
+    @if (!string.IsNullOrWhiteSpace(Setting.WebSettings[EmbedSettingType.Comment])
+         && Setting.WebSettings[EmbedSettingType.Comment].Contains("data-href=")
+         && Setting.WebSettings[ShopSettingType.IsShowProductComment].AsBool())
+    {
+        var dataHref = "data-href=\"" + Request.Url.AbsoluteUri + "\"";
+        var embed = Setting.WebSettings[EmbedSettingType.Comment];
+        var embedComments = Regex.Replace(embed, "data-href=\"(.*)\"",
+            dataHref, RegexOptions.Multiline | RegexOptions.IgnoreCase);
+        @Html.Raw(embedComments);
+    }
+    
+    
+    
+    @{
+        Html.RenderAction(Model.ProductTags.Any() ? "RelateProductByTag" : "RelateProduct"
+            , "Product", new { id = Model.Id });
+    }
+
+</article>
+
+
+
+@*<div class="">
+
+
+    @Html.Partial("_Breadcrumb")
+
+
+
+    @Html.Partial("_SectionProductDetail")
+
+
+    @if (Model.Description != null)
+    {
+        <div class="mt-4">
+            @Html.Raw(Model.Description)
+        </div>
+    }
+
+    <br />
+
+    @Html.Partial("_SectionAlertServiceMap")
+
+
+    @Html.Partial("_SectionTablePriceContact")
+
+
+    <div class="mt-5">
+        @foreach (var item in Model.ProductTags)
+        {
+            <a href="@Url.Action("ListBy", "ProductTags", new {slug = item.Slug})"
+               class="badge badge-secondary rounded-0 pt-2 pb-2 pr-2 pl-2 mb-2 mr-1">@item.Name</a>
+        }
+    </div>
+    
+    @{
+        Html.RenderAction(Model.ProductTags.Any() ? "RelateProductByTag" : "RelateProduct"
+            , "Product", new { id = Model.Id });
+    }
+
+</div>*@
+
+
+

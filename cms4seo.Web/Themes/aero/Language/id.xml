@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<appSettings>
+  <add key="Article.Detail.DateCreated" value="Dibuat" />
+  <add key="Article.Detail.Download" value="Unduh" />
+  <add key="Article.Detail.Promote.InstructionPhone" value="Silahkan hubungi kami" />
+  <add key="Article.Detail.Promote.OrEmail" value="atau email" />
+  <add key="Article.Detail.Promote.Product" value="produk kami" />
+  <add key="Article.Detail.Promote.Promise" value="Kami akan menyarankan layanan yang tepat untuk Anda" />
+  <add key="Article.Detail.Promote.Welcome" value="Saat Anda membutuhkan" />
+  <add key="Article.Detail.Viewed" value=", Lihat:" />
+  <add key="Article.Header.Readmore" value="Mungkin Anda ingin membaca lebih lanjut ..." />
+  <add key="Article.Relate.Header" value="Mungkin Anda ingin..." />
+  <add key="Articles.Card.DateCreated" value="Dibuat: " />
+  <add key="Articles.Card.SeeMore" value="Lihat lebih banyak" />
+  <add key="Articles.Card.Viewed" value=", Melihat: " />
+  <add key="Articles.Search.Message" value="Tidak ditemukan, silakan coba etag di bawah" />
+  <add key="Articles.Section.Header" value="CERITA TERBARU" />
+  <add key="Aside.Articles.Trending" value="Trending" />
+  <add key="Aside.Callout.SmsBody" value="Tolong ceritakan lebih banyak tentang produk Anda" />
+  <add key="Aside.Callout.Span1" value="Anda tinggal meninggalkan SMS di nomor tersebut" />
+  <add key="Aside.Callout.Span2" value="Kami akan segera menghubungi Anda kembali." />
+  <add key="Aside.Category.Header" value="Beranda" />
+  <add key="Aside.Category.MenuContact" value="Kontak" />
+  <add key="Aside.Links.Header" value="Tautan" />
+  <add key="Aside.Statistic.Header" value="Statistik" />
+  <add key="Aside.Statistic.Today" value="Hari ini: " />
+  <add key="Aside.Supporter.Header" value="Pendukung" />
+  <add key="Aside.Topic.Header" value="Tema" />
+  <add key="Aside.TopView.Header" value="POSTING TREN" />
+  <add key="Banner.CallNow" value="Telepon sekarang" />
+  <add key="Banner.SeeMore" value="Lihat lebih banyak" />
+  <add key="Breadcrumb.Home" value="Beranda" />
+  <add key="Contact.Form.Email" value="Silakan masukkan email" />
+  <add key="Contact.Form.Fullname" value="nama lengkap Anda" />
+  <add key="Contact.Form.Header" value="Silakan tinggalkan pesan Anda, kami akan membalas Anda segera." />
+  <add key="Contact.Form.Message" value="pesan Anda" />
+  <add key="Contact.Form.Phonenumber" value="Masukkan nomor telepon anda" />
+  <add key="Contact.Form.Submit" value="Mengirim pesan" />
+  <add key="Emails.ContactForm.ServerBusyPleaseTryLater" value="Sepertinya Mail Server Kami terlalu overload, silakan coba lagi nanti" />
+  <add key="Emails.Js.ServerBusyPleaseTryLater" value="Sepertinya server email sedang sibuk, silakan coba nanti" />
+  <add key="Emails.Js.ThankForYourMessage" value="Terima kasih untuk pesan Anda" />
+  <add key="Emails.Template.Empty" value="Mungkin Anda masih belum menyiapkan Server Email SMTP" />
+  <add key="Emails.Template.Fullname" value="Nama lengkap: " />
+  <add key="Emails.Template.Header" value="Pelanggan Baru memiliki pesan untuk Anda:" />
+  <add key="Emails.Template.PhoneNumber" value="Nomor telepon: " />
+  <add key="Footer.Column.Contact.Form.Button.Submit" value="Kirimkan" />
+  <add key="Footer.Column.Contact.Form.Email" value="Surel" />
+  <add key="Footer.Column.Contact.Form.Email.Placeholder" value="email mu" />
+  <add key="Footer.Column.Contact.Form.Message" value="Pesan" />
+  <add key="Footer.Column.Contact.Form.Message.Placeholder" value="Pesan" />
+  <add key="Footer.Column.Contact.Form.Name" value="Name" />
+  <add key="Footer.Column.Contact.Form.Name.Placeholder" value="Please enter your name" />
+  <add key="Footer.Column.Contact.Form.Phone" value="Telepon" />
+  <add key="Footer.Column.Contact.Form.Phone.Placeholder" value="Masukkan nomor telepon anda" />
+  <add key="Footer.Socials.Facebook.Href" value="Harap masukkan nilai" />
+  <add key="Footer.Socials.Header" value="Jejaring Sosial Kami" />
+  <add key="Footer.Socials.Instagram.Href" value="Harap masukkan nilai" />
+  <add key="Footer.Socials.Pinterest.Href" value="Harap masukkan nilai" />
+  <add key="Footer.Socials.Twitter.Href" value="Harap masukkan nilai" />
+  <add key="Footer.SupporterPhone.Label" value="Sale: " />
+  <add key="Footer2.Column1.Description" value="Grosir dan eceran nasional, dengan diskon tinggi untuk agen dan toko." />
+  <add key="Footer2.Column1.Header" value="Hubungi saya" />
+  <add key="Form.Search.Article.Placeholder" value="cari artikel" />
+  <add key="Form.Search.Placeholder" value="temukan produk Anda" />
+  <add key="Header.Menu.Brand" value="cms4seo" />
+  <add key="Header.Menu.Contact" value="Kontak" />
+  <add key="Header.Search.Button" value="Cari" />
+  <add key="Label.Home" value="Beranda" />
+  <add key="Page.Error.BadRequest.Description" value="Header atau Cookie Permintaan Terlalu Besar" />
+  <add key="Page.Error.BadRequest.Header" value="Bad Request" />
+  <add key="Page.Error.GoHome" value="Buka Beranda" />
+  <add key="Page.Error.NotFound.Description" value="URL yang diminta tidak ditemukan di server ini." />
+  <add key="Page.Error.NotFound.Header" value="Tidak ditemukan" />
+  <add key="Page.Error.ServerError.Description" value="Halaman tidak dapat ditampilkan karena telah terjadi kesalahan server internal." />
+  <add key="Page.Error.ServerError.Header" value="Kesalahan server dari dalam" />
+  <add key="Page.Filter.ByPrice" value="Filter berdasarkan harga" />
+  <add key="Product.Detail.Shopping.Button.Buy" value="Beli sekarang" />
+  <add key="Product.Detail.Shopping.Options" value="Kecil, Medium, Besar" />
+  <add key="Product.Detail.Shopping.Property1" value="Ukuran" />
+  <add key="Product.Detail.Shopping.Quantity.Input" value="Satu atau dua" />
+  <add key="Product.Detail.Shopping.Quantity.Label" value="Kuantitas" />
+  <add key="Product.Edit" value="edit" />
+  <add key="Product.NewProduct" value="Produk baru" />
+  <add key="Product.OutOfStock" value="Kehabisan persediaan" />
+  <add key="Product.Relate" value="Mungkin Anda menginginkan lebih" />
+  <add key="Product.SeeDemo" value="Lihat demo" />
+  <add key="Products.Card.Price" value="Harga: hubungi saya" />
+  <add key="Products.Header" value="Pekerjaan Terbaru Kami" />
+  <add key="Products.Search.Message" value="Tidak ditemukan, coba beri tag di bawah" />
+  <add key="Section.AboutUs.CallAction" value="Untuk saran rinci tentang produk dan layanan kami, silakan hubungi" />
+  <add key="Section.AboutUs.Description" value="Penjelasan lebih lanjut tentang perusahaan kami" />
+  <add key="Section.AboutUs.Header" value="Judul Header" />
+  <add key="Section.AboutUs.Item1" value="Deskripsi Item 1" />
+  <add key="Section.AboutUs.Item2" value="Deskripsi Item 2" />
+  <add key="Section.AboutUs.Item3" value="Deskripsi Item 3" />
+  <add key="Section.AboutUs.Item4" value="Deskripsi Item 4" />
+  <add key="Section.AboutUs.Item5" value="Deskripsi Item 5" />
+  <add key="Section.AboutUs.Item6" value="Deskripsi Item 6" />
+  <add key="Section.AboutUs.Item7" value="Deskripsi Item 7" />
+  <add key="Section.Certify1.Description" value="Dengan teknologi canggih, dengan proses yang jelas, untuk mengurangi biaya di tingkat terbaik." />
+  <add key="Section.Certify1.Header" value="Ekonomi" />
+  <add key="Section.Certify2.Description" value="Dengan tujuan pembangunan berkelanjutan, kami berkomitmen pada produk berkualitas." />
+  <add key="Section.Certify2.Header" value="Stabilisasi" />
+  <add key="Section.Certify3.Description" value="Produk kami memiliki berbagai sertifikasi ketahanan jangka panjang." />
+  <add key="Section.Certify3.Header" value="Kualitas" />
+  <add key="Section.Products.SeeMore" value="lihat lebih banyak" />
+  <add key="Section.Search.Header" value=" hasil untuk kata kunci: " />
+  <add key="Topic.Aside.AuthorsHeader" value="Penulis" />
+  <add key="Topic.Aside.TopicHeader" value="Kategori" />
+  <add key="Topic.Header" value="CERITA TERBARU" />
+  <add key="Topic.Trend.Header" value="BREAKING NEWS" />
+  <add key="Slider.Logo" value="" />
+
+
+
+  <add key="Section.Index.Alert" value="Grosir dan eceran nasional, dengan diskon tinggi untuk agen dan toko." />
+  <add key="Section.Section.Contact" value="/Themes/aero/Assets/Image/bg-contact.jpg" />
+  <add key="Section.Section.Specify1" value="Terbang Lebih Jauh" />
+  <add key="Section.Section.Specify2" value="Tidak Ada Benjolan dan Goresan" />
+  <add key="Section.Section.Specify3" value="Arahkan kursor ke presisi" />
+  <add key="Section.Specify.Image" value="/Themes/aero/Assets/Image/specification.png" />
+  <add key="Section.Section.Specify4" value="Tetap terbang lebih lama" />
+  <add key="Section.Section.Specify5" value="Eksperimen yang menarik" />
+  <add key="Section.Section.Specify6" value="Video 4K ultra HD" />
+  <add key="Section.Certify1.Image" value="/Themes/aero/Assets/Image/stable.png" />
+  <add key="Section.Certify2.Image" value="/Themes/aero/Assets/Image/certificate.png" />
+  <add key="Section.Certify3.Image" value="/Themes/aero/Assets/Image/inovation.png" />
+  
+</appSettings>

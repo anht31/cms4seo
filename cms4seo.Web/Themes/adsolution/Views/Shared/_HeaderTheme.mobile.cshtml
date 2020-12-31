@@ -1,0 +1,28 @@
+﻿
+<header class="container-banner">
+    <img class="img-responsive" src="@ViewBag.ThemeImageMobile" alt="@ViewBag.ThemeTitle" />
+    @if (ViewBag.ThemeTitle != null)
+    {
+        <div class="centered banner-caption">
+            <h2>@ViewBag.ThemeTitle</h2>
+            <h5>@ViewBag.ThemeDescription</h5>
+            @if (string.IsNullOrWhiteSpace(ViewBag.ThemeHref))
+            {
+                <a href="tel:@Setting.WebSettings[AppShop.Hotline].RemoveSpace()"
+                   class="btn btn-danger btn-lg">
+                    <span @CMS.Attribute("Banner.CallNow")>
+                        @Setting.Contents["Banner.CallNow"]
+                    </span>
+                </a>
+            }
+            else
+            {
+                <a @CMS.Attribute("Banner.SeeMore")
+                    href="@ViewBag.ThemeHref" class="btn btn-danger btn-lg">
+                    @Setting.Contents["Banner.SeeMore"]
+                </a>
+            }
+        </div>
+    }
+
+</header>

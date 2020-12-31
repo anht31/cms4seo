@@ -1,0 +1,132 @@
+﻿@using cms4seo.Common.Culture
+@model WebSettingVm
+
+@{
+    ViewBag.Title = AdminResources.CommonAdminSettings;
+}
+
+
+@using (Html.BeginForm("WebSettings", "Config"))
+{
+    <div class="card">
+        <div class="card-header">
+            <span class="h3">
+                @ViewBag.Title
+            </span>
+
+            <span class="float-right">
+                <input type="submit" value="@AdminResources.CommonSave" class="btn btn-primary btn-sm" />
+            </span>
+
+            <span class="float-right mr-2">
+                @Html.ActionLink(AdminResources.CommonCancel, "Index", null, new { @class = "btn btn-outline-secondary btn-sm" })
+            </span>
+        </div>
+
+        <div class="card-body">
+
+
+            @foreach (var property in ViewData.ModelMetadata.Properties
+                    .Where(
+                        x => !x.IsComplexType
+                        && x.DataTypeName != cms4seoDataType.CustomEditor
+                        && !x.ShowForEdit
+                ))
+            {
+                @Html.Hidden(property.PropertyName)
+            }
+
+
+            <!-- custom property ============================================================================-->
+            
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.AdminLanguages)
+                @Html.DropDownListFor(model => model.AdminLanguages,
+                    CultureHelper._cultures.Select(x => new SelectListItem() { Value = x, Text = x }).ToList(),
+                    new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.AdminLanguages)
+            </div>
+            
+            
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.RedirectMode)
+                @Html.DropDownListFor(model => model.RedirectMode,
+                    new SelectList(Model.RedirectModes, "Key", "Value"),
+                    new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.RedirectMode)
+            </div>
+
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.FlatterSiteArchitecture)
+                @Html.DropDownListFor(model => model.FlatterSiteArchitecture,
+                    new SelectList(Model.FlatterSiteArchitectures, "Key", "Value"),
+                    new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.FlatterSiteArchitecture)
+            </div>
+            
+
+            @*<div class="form-group">
+                @Html.LabelFor(model => model.Bootswatch)
+                @Html.DropDownListFor(model => model.Bootswatch,
+                    new SelectList(Model.BootswatchList, "Key", "Value", "Default"),
+                    new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Bootswatch)
+            </div>*@
+            
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.CurrentTheme)
+                @Html.DropDownListFor(model => model.CurrentTheme,
+                    new SelectList(Model.ThemeList, "Key", "Value"),
+                    new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.CurrentTheme)
+            </div>
+            
+
+
+
+            <!-- edit ==============================================================================-->
+
+            @foreach (var property in ViewData.ModelMetadata.Properties.Where(
+                    x => !x.IsComplexType
+                    && x.DataTypeName != cms4seoDataType.CustomEditor
+                    && x.ShowForEdit
+                ))
+            {
+
+                <div class="form-group">
+                    <label>
+                        @(property.DisplayName ?? property.PropertyName)
+                    </label>
+                    @if (property.ModelType == typeof(bool))
+                    {
+                        @Html.CheckBox(property.PropertyName, new { @class = "checkbox" })
+                    }
+                    else if (property.DataTypeName == DataType.MultilineText.ToString())
+                    {
+                        @Html.TextArea(property.PropertyName, null, new { @class = "form-control", spellcheck = "false", rows = 5 })
+                    }
+                    else if (property.DataTypeName == DataType.Password.ToString())
+                    {
+                        @Html.Editor(property.PropertyName, new { htmlAttributes = new { @class = "form-control" } })
+                    }
+                    else
+                    {
+                        @Html.TextBox(property.PropertyName, null, new { @class = "form-control" })
+                    }
+                    @Html.ValidationMessage(property.PropertyName)
+                </div>
+
+            }
+
+
+        </div>
+        <div class="card-footer">
+            <input type="submit" value="@AdminResources.CommonSave" class="btn btn-primary" />
+            @Html.ActionLink(AdminResources.CommonCancel, "Index", null, new { @class = "btn btn-outline-secondary" })
+        </div>
+    </div>
+}

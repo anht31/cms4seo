@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<appSettings>
+  <add key="Article.Detail.DateCreated" value="已建立" />
+  <add key="Article.Detail.Download" value="下载" />
+  <add key="Article.Detail.Promote.InstructionPhone" value="请联系我们 " />
+  <add key="Article.Detail.Promote.OrEmail" value="或电子邮件" />
+  <add key="Article.Detail.Promote.Product" value="我们的产品" />
+  <add key="Article.Detail.Promote.Promise" value="我们将为您提供正确的服务" />
+  <add key="Article.Detail.Promote.Welcome" value="何时需要" />
+  <add key="Article.Detail.Viewed" value="，查看： " />
+  <add key="Article.Header.Readmore" value="也许您想了解更多..." />
+  <add key="Article.Relate.Header" value="也许你想要..." />
+  <add key="Articles.Card.DateCreated" value="创建时间：" />
+  <add key="Articles.Card.SeeMore" value="查看更多" />
+  <add key="Articles.Card.Viewed" value="，查看：" />
+  <add key="Articles.Search.Message" value="找不到，请尝试使用etag波纹管" />
+  <add key="Articles.Section.Header" value="最新故事" />
+  <add key="Aside.Articles.Trending" value="趋向" />
+  <add key="Aside.Callout.SmsBody" value="请告诉我更多有关您的产品的信息" />
+  <add key="Aside.Callout.Span1" value="您只需在号码上留下短信即可" />
+  <add key="Aside.Callout.Span2" value="我们会尽快给您回电。" />
+  <add key="Aside.Category.Header" value="家" />
+  <add key="Aside.Category.MenuContact" value="联系" />
+  <add key="Aside.Links.Header" value="链接" />
+  <add key="Aside.Statistic.Header" value="统计" />
+  <add key="Aside.Statistic.Today" value="今天：" />
+  <add key="Aside.Supporter.Header" value="支持者" />
+  <add key="Aside.Topic.Header" value="话题" />
+  <add key="Aside.TopView.Header" value="趋势发布" />
+  <add key="Banner.CallNow" value="现在打电话" />
+  <add key="Banner.SeeMore" value="查看更多" />
+  <add key="Breadcrumb.Home" value="主页" />
+  <add key="Contact.Form.Email" value="请输入电子邮件" />
+  <add key="Contact.Form.Fullname" value="你的全名" />
+  <add key="Contact.Form.Header" value="请留下您的信息，我们将尽快回复您。" />
+  <add key="Contact.Form.Message" value="你的信息" />
+  <add key="Contact.Form.Phonenumber" value="请输入您的电话号码" />
+  <add key="Contact.Form.Submit" value="发信息" />
+  <add key="Emails.ContactForm.ServerBusyPleaseTryLater" value="似乎，我们的邮件服务器太重载，请稍后再试" />
+  <add key="Emails.Js.ServerBusyPleaseTryLater" value="电子邮件服务器似乎很忙，请稍后再试" />
+  <add key="Emails.Js.ThankForYourMessage" value="感谢您的留言" />
+  <add key="Emails.Template.Empty" value="可能是您仍未设置SMTP邮件服务器" />
+  <add key="Emails.Template.Fullname" value="全名：" />
+  <add key="Emails.Template.Header" value="新客户为您提供消息：" />
+  <add key="Emails.Template.PhoneNumber" value="电话号码：" />
+  <add key="Footer.Column.Contact.Form.Button.Submit" value="提交" />
+  <add key="Footer.Column.Contact.Form.Email" value="电子邮件" />
+  <add key="Footer.Column.Contact.Form.Email.Placeholder" value="你的邮件" />
+  <add key="Footer.Column.Contact.Form.Message" value="信息" />
+  <add key="Footer.Column.Contact.Form.Message.Placeholder" value="信息" />
+  <add key="Footer.Column.Contact.Form.Name" value="名称" />
+  <add key="Footer.Column.Contact.Form.Name.Placeholder" value="请输入你的名字" />
+  <add key="Footer.Column.Contact.Form.Phone" value="电话" />
+  <add key="Footer.Column.Contact.Form.Phone.Placeholder" value="请输入您的电话号码" />
+  <add key="Footer.Socials.Facebook.Href" value="请输入值" />
+  <add key="Footer.Socials.Header" value="我们的社交网络" />
+  <add key="Footer.Socials.Instagram.Href" value="请输入值" />
+  <add key="Footer.Socials.Pinterest.Href" value="请输入值" />
+  <add key="Footer.Socials.Twitter.Href" value="请输入值" />
+  <add key="Footer.SupporterPhone.Label" value="销售：" />
+  <add key="Footer2.Column1.Description" value="全国批发和零售，代理商和商店享有很高的折扣。" />
+  <add key="Footer2.Column1.Header" value="联络我" />
+  <add key="Form.Search.Article.Placeholder" value="查找文章" />
+  <add key="Form.Search.Placeholder" value="找到你的产品" />
+  <add key="Header.Menu.Brand" value="cms4seo" />
+  <add key="Header.Menu.Contact" value="联系" />
+  <add key="Header.Search.Button" value="搜索" />
+  <add key="Label.Home" value="Go Homepage" />
+  <add key="Page.Error.BadRequest.Description" value="请求标题或Cookie太大" />
+  <add key="Page.Error.BadRequest.Header" value="Bad Request" />
+  <add key="Page.Error.GoHome" value="" />
+  <add key="Page.Error.NotFound.Description" value="在此服务器上找不到请求的URL。" />
+  <add key="Page.Error.NotFound.Header" value="未找到" />
+  <add key="Page.Error.ServerError.Description" value="由于发生内部服务器错误，因此无法显示该页面。" />
+  <add key="Page.Error.ServerError.Header" value="内部服务器错误" />
+  <add key="Page.Filter.ByPrice" value="按价格筛选" />
+  <add key="Product.Detail.Shopping.Button.Buy" value="立即购买" />
+  <add key="Product.Detail.Shopping.Options" value="小, 中, 大" />
+  <add key="Product.Detail.Shopping.Property1" value="尺寸" />
+  <add key="Product.Detail.Shopping.Quantity.Input" value="一个或两个" />
+  <add key="Product.Detail.Shopping.Quantity.Label" value="数量" />
+  <add key="Product.Edit" value="编辑" />
+  <add key="Product.NewProduct" value="新产品" />
+  <add key="Product.OutOfStock" value="缺货" />
+  <add key="Product.Relate" value="也许你想要更多" />
+  <add key="Product.SeeDemo" value="观看演示" />
+  <add key="Products.Card.Price" value="价格：给我打电话" />
+  <add key="Products.Header" value="我们最近的工作" />
+  <add key="Products.Search.Message" value="找不到，请尝试以下标签" />
+  <add key="Section.AboutUs.CallAction" value="有关我们产品和服务的详细建议，请联系" />
+  <add key="Section.AboutUs.Description" value="关于我们公司的更多描述" />
+  <add key="Section.AboutUs.Header" value="标头标题" />
+  <add key="Section.AboutUs.Item1" value="项目说明1" />
+  <add key="Section.AboutUs.Item2" value="项目说明2" />
+  <add key="Section.AboutUs.Item3" value="项目说明3" />
+  <add key="Section.AboutUs.Item4" value="项目说明4" />
+  <add key="Section.AboutUs.Item5" value="项目说明5" />
+  <add key="Section.AboutUs.Item6" value="项目说明6" />
+  <add key="Section.AboutUs.Item7" value="项目说明7" />
+  <add key="Section.Certify1.Description" value="借助先进的技术和清晰的流程，可以最大程度地降低成本。" />
+  <add key="Section.Certify1.Header" value="经济" />
+  <add key="Section.Certify2.Description" value="以可持续发展为目标，我们致力于提供优质的产品。" />
+  <add key="Section.Certify2.Header" value="稳定化" />
+  <add key="Section.Certify3.Description" value="我们的产品具有各种长期耐用性认证。" />
+  <add key="Section.Certify3.Header" value="质量" />
+  <add key="Section.Products.SeeMore" value="查看更多" />
+  <add key="Section.Search.Header" value=" 关键字结果： " />
+  <add key="Topic.Aside.AuthorsHeader" value="作家" />
+  <add key="Topic.Aside.TopicHeader" value="分类目录" />
+  <add key="Topic.Header" value="最新故事" />
+  <add key="Topic.Trend.Header" value="爆炸新闻" />
+  <add key="Slider.Logo" value="" />
+
+
+
+  <add key="Section.Header.Logo" value="/Themes/adsolution/Assets/logo/cms4seo.png" />
+  <add key="Section.HeaderBanner.Image" value="/Themes/adsolution/Assets/Image/banner.jpg" />
+  
+</appSettings>

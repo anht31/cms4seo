@@ -1,0 +1,32 @@
+﻿@model List<Topic>
+
+@*@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}*@
+
+@Html.Partial("_BreadcrumbInfo", (string)ViewBag.Title)
+
+<br/>
+
+@*<img class="img-responsive" src="~/Assets/image/Horizontal_decoration.png" />*@
+
+<img class="img-responsive" src="~/Assets/image/banner-1.jpg"/>
+
+<div class="">
+    
+    @if (Model != null)
+    {
+        @Html.Partial("_renderTopics", Model)
+    }
+
+    @*@if ((int)ViewBag.Location == 1)
+        {
+            @Html.Partial("_renderTopics", Model)
+        }*@
+
+
+    @*@if ((int)ViewBag.Location == 2)
+        {
+            @Html.Partial("_renderArticlesStyle2", Model)
+        }*@
+</div>

@@ -1,0 +1,13 @@
+﻿
+
+<div class="container-bg-image sectionContact mt-5">
+    <img @CMS.Attribute("Section.Section.Contact")
+         src="@Setting.Contents["Section.Section.Contact"]"
+         class="img-responsive bg-contact-image" alt="size-1920-720" />
+
+    <div class="row">
+        <div class="col-lg-6 col-11 mx-auto centered boxContact">
+            @Html.Partial("_ContactForm")
+        </div>
+    </div>
+</div>

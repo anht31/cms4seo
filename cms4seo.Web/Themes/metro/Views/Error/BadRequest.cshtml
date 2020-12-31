@@ -1,0 +1,28 @@
+﻿@{
+    var theme = Setting.WebSettings[WebSettingType.CurrentTheme];
+    Layout = "~/Themes/" + theme + "/Views/Shared/_LayoutArticle.cshtml";
+
+    ViewBag.Title = "Bad Request";
+}
+
+
+<div class="statusCode container-light">
+    <div class="statusCode-header">
+        <h1>400</h1>
+    </div>
+    <h2>
+        <span @CMS.Attribute("Page.Error.BadRequest.Header")>
+            @Setting.Contents["Page.Error.BadRequest.Header"]
+        </span>
+    </h2>
+    <p>
+        <span @CMS.Attribute("Page.Error.BadRequest.Description")>
+            @Setting.Contents["Page.Error.BadRequest.Description"]
+        </span>
+    </p>
+    <a href="/" target="_top">
+        <span @CMS.Attribute("Page.Error.GoHome")>
+            @Setting.Contents["Page.Error.GoHome"]
+        </span>
+    </a>
+</div>

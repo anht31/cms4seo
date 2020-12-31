@@ -1,0 +1,23 @@
+﻿@model List<Category>
+
+<aside class="asideSupporter card rounded-0 shadow-sm">
+    <div class="card-header bg-success rounded-0 text-white">
+        <b>
+            <span class="fa fa-link fa-fw"></span>
+            <span @CMS.Attribute("Aside.Links.Header")>
+                @Setting.Contents["Aside.Links.Header"]
+            </span>
+        </b>
+    </div>
+    <div class="card-body p-0">
+
+        @foreach (var item in Model.Where(x => x.Avatar != null))
+        {
+            <a target="_top" href="@(item.Href != "#" ? item.Href : item.Slug)"
+               data-toggle="tooltip" title="@item.Name">
+                <img class="img-responsive mb-1" src="@item.Avatar"/>
+            </a>
+        }
+
+    </div>
+</aside>

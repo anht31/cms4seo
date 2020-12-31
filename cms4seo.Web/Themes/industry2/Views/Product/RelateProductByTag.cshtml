@@ -1,0 +1,34 @@
+﻿@using PagedList
+@model IEnumerable<Product>
+@{
+    Layout = null;
+}
+
+@if (Model.Any())
+{
+
+    <div class="mt-4">
+        <ul class="breadcrumb-style-1">
+            <li>
+                <a class="current">
+                    <span @CMS.Attribute("Product.Relate")>
+                        @Setting.Contents["Product.Relate"]
+                    </span>
+                </a>
+            </li>
+        </ul>
+
+
+
+        <div class="row mt-3">
+
+
+            @foreach (var item in Model)
+            {
+                @Html.Partial("_CardProduct", item)
+            }
+
+
+        </div>
+    </div>
+}

@@ -1,0 +1,67 @@
+﻿
+
+<!-- Contact-->
+<section class="page-section" id="contact">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">
+                <span @CMS.Attribute("Contact.Form.Header")>
+                    @Setting.Contents["Contact.Form.Header"]
+                </span>
+            </h2>
+            <h3 class="section-subheading text-light">
+                <span @CMS.Attribute("Contact.Form.Description")>
+                    @Setting.Contents["Contact.Form.Description"]
+                </span>
+            </h3>
+        </div>
+        <form id="contactForm" name="sentMessage" novalidate="novalidate">
+            <div class="row align-items-stretch mb-5">
+                <div class="col-md-6">
+
+                    <div class="form-group">
+                        <input @CMS.Attribute("Contact.Form.Fullname")
+                               placeholder="@Setting.Contents["Contact.Form.Fullname"]"
+                               type="text" class="form-control" id="name" aria-label="Name"
+                               required data-validation-required-message="@Setting.Contents["Contact.Form.Fullname.Required"]">
+                        <p class="help-block text-danger"></p>
+                    </div>
+
+                    <div class="form-group">
+                        <input @CMS.Attribute("Contact.Form.Email")
+                               placeholder="@Setting.Contents["Contact.Form.Email"]"
+                               type="email" class="form-control" id="email" aria-label="Email"
+                               required data-validation-required-message="@Setting.Contents["Contact.Form.Email.Required"]">
+                        <p class="help-block text-danger"></p>
+                    </div>
+
+                    <div class="form-group mb-md-0">
+                        <input @CMS.Attribute("Contact.Form.Phonenumber")
+                               placeholder="@Setting.Contents["Contact.Form.Phonenumber"]"
+                               type="tel" class="form-control" id="phone"
+                               required data-validation-required-message="@Setting.Contents["Contact.Form.Phonenumber.Required"]" aria-label="Phone">
+                        <p class="help-block text-danger"></p>
+                    </div>
+
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group form-group-textarea mb-md-0">
+                        <textarea @CMS.Attribute("Contact.Form.Message")
+                                  placeholder="@Setting.Contents["Contact.Form.Message"]"
+                                  class="form-control" id="message" aria-label="Message"
+                                  required data-validation-required-message="@Setting.Contents["Contact.Form.Message.Required"]"></textarea>
+                        <p class="help-block text-danger"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center">
+                <div id="success"></div>
+                <button class="btn btn-primary btn-xl text-uppercase" id="sendMessageButton" type="submit">
+                    <span @CMS.Attribute("Contact.Form.Submit")>
+                        @Setting.Contents["Contact.Form.Submit"]
+                    </span>
+                </button>
+            </div>
+        </form>
+    </div>
+</section>

@@ -1,0 +1,52 @@
+﻿
+
+<div class="container header-style">
+    <div class="border-style">
+        <div class="row">
+
+            <div class="col-lg-4 col-md-3 col-4 logo-container">
+
+                <img @CMS.Attribute("Section.Header.Logo")
+                    src="@Setting.Contents["Section.Header.Logo"]" 
+                    class="" alt="logo-size-120x120"/>
+            </div>
+            
+
+            
+
+            <div class="col-lg-4 col-md-3 col-8 order-lg-2 order-md-2">
+
+                <div class="header-action pull-right">
+
+                    @*<a href="#" target="_top" class="action-shopingcart">
+                        <span class="fa fa-shopping-cart"></span>
+                        <span class="cart-detail">
+                            Cart
+                            Empty
+                        </span>
+                    </a>*@
+
+
+                    <a href="tel:@Setting.WebSettings[AppShop.Hotline].RemoveSpace()"
+                       class="header-phone"
+                       data-toggle="tooltip" title="Call">
+
+                        <span @CMS.Attribute(AppShop.Hotline)>
+                            @Setting.WebSettings[AppShop.Hotline]
+                        </span>
+                    </a>
+                </div>
+
+            </div>
+            
+            
+            <div class="col-lg-4 col-md-6 order-lg-1 order-md-1">
+                <div class="header-search-box">
+                    @Html.Partial("_ArticleFormSearch")
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>

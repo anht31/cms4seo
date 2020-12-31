@@ -1,0 +1,20 @@
+﻿
+@model IEnumerable<Slider>
+
+
+<div class="row column">
+    <div class="orbit" role="region" aria-label="Favorite Space Pictures" data-orbit>
+        <ul class="orbit-container">
+            <button class="orbit-previous" aria-label="previous"><span class="show-for-sr">Previous Slide</span>&#9664;</button>
+            <button class="orbit-next" aria-label="next"><span class="show-for-sr">Next Slide</span>&#9654;</button>
+
+            @foreach (var slider in Model.OrderBy(x => x.Sort))
+            {
+                <li class='orbit-slide @(slider.Active == "active" ? "is-active" : "")'>
+                    <img src="@slider.Avatar" alt="@slider.Alt-1200x450">
+                </li>
+            }
+
+        </ul>
+    </div>
+</div>

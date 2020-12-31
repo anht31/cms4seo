@@ -1,0 +1,4 @@
+{
+  "Connection": "Data Source=.\\sqlexpress;Initial Catalog=vwbinhduong_vn_db;Integrated Security=False;User ID=anht31;Password=234",
+  "Setup": "False"
+}

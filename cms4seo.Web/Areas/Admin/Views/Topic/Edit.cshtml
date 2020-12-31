@@ -1,0 +1,126 @@
+﻿
+@model Topic
+
+@{
+    ViewBag.Title = AdminResources.CommonEdit;
+}
+
+
+<!-- partial-photo ===================================================================-->
+
+<div class="row">
+    <div class="col-sm-8">
+
+
+        @using (Html.BeginForm("Edit", "Topic"))
+        {
+            <div class="card">
+                <div class="card-header">
+                    @if (Model.IsCreate)
+                    {
+
+                        <span class="h3">@AdminResources.CommonTopic / @AdminResources.CommonCreateHeader</span>
+                    }
+                    else
+                    {
+                        <span class="h3">@AdminResources.CommonTopic / @AdminResources.CommonEdit / @Model.Name</span>
+                    }
+
+
+                    <span class="float-right">
+                        <input type="submit" value="@AdminResources.CommonSave" class="btn btn-primary btn-sm"/>
+                    </span>
+                    <span class="float-right" style="margin-right: 5px;">
+                        @Html.ActionLink(AdminResources.CommonCancel, "Index", null, new {@class = "btn btn-outline-secondary btn-sm"})
+                    </span>
+                </div>
+
+                @Html.AntiForgeryToken()
+
+                <div class="card-body">
+                    <!--<h4>Topic</h4>-->
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    
+                    @foreach (var property in ViewData.ModelMetadata.Properties
+                        .Where( x => !x.IsComplexType                            
+                                 && x.DataTypeName != cms4seoDataType.CustomEditor
+                                 && !x.ShowForEdit
+                    )){
+                        @Html.Hidden(property.PropertyName)
+                    }
+
+
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.IsHome)
+                        @Html.EditorFor(model => model.IsHome)
+                        @Html.ValidationMessageFor(model => model.IsHome, "", new { @class = "text-danger" })
+                    </div>
+
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.IsMenu)
+                        @Html.EditorFor(model => model.IsMenu)
+                        @Html.ValidationMessageFor(model => model.IsMenu, "", new { @class = "text-danger" })
+                    </div>
+
+
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.ParentId)                        
+                        @Html.DropDownList("ParentId", null, "--root--", new {@class = "form-control"})
+                        @Html.ValidationMessageFor(model => model.ParentId, "", new { @class = "text-danger" })
+                    </div>
+
+
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Location)
+                        @Html.DropDownListFor(model => model.Location, new SelectList(
+                            Model.LocationRule, "Key", "Value"), new {@class = "form-control"})
+                        @Html.ValidationMessageFor(model => model.Location, "", new {@class = "text-danger"})
+                    </div>
+
+                    <!-- edit ==============================================================================-->
+                    @foreach (var property in ViewData.ModelMetadata.Properties.Where(
+                        x => !x.IsComplexType
+                             && x.DataTypeName != cms4seoDataType.CustomEditor
+                             && x.ShowForEdit
+                    )){
+                        
+                        <div class="form-group">
+                            <label>
+                                @(property.DisplayName ?? property.PropertyName)
+                            </label>
+                            @if (property.PropertyName == "Description")
+                            {
+                                <p class="remainCharacters">155</p>
+                                @Html.TextArea(property.PropertyName, null, new { @class = "form-control counterCharacter", rows = 5 })
+                            }
+                            else
+                            {
+                                @Html.TextBox(property.PropertyName, null, new { @class = "form-control" })
+                            }
+                            @Html.ValidationMessage(property.PropertyName)
+                        </div>
+                        
+                    }
+
+
+
+                </div>
+
+                <div class="card-footer">
+                    <input type="submit" value="@AdminResources.CommonSave" class="btn btn-primary" />
+                    @Html.ActionLink(AdminResources.CommonCancel, "Index", null, new { @class = "btn btn-outline-secondary" })
+                </div>
+            </div>
+        }
+
+
+
+    </div>
+    <div class="col-sm-4">
+        @Html.Partial("_UploadPhoto", cms4seoEntityType.Topic)
+    </div>
+</div>

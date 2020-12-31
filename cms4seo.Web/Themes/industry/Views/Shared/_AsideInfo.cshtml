@@ -1,0 +1,13 @@
+﻿<div class="alert alert-success rounded-0 mb-0">
+    <span @CMS.Attribute("Aside.Callout.Span1")>
+        @Setting.Contents["Aside.Callout.Span1"]
+    </span>
+    <strong @CMS.Attribute("Aside.Callout.SmsBody") class="d-block w-100 text-center">
+        <a href="sms:@Setting.WebSettings[AppShop.Hotline];?&body=@Setting.Contents["Aside.Callout.SmsBody"]">
+            @Setting.WebSettings[AppShop.Hotline]
+        </a>
+    </strong>
+    <span @CMS.Attribute("Aside.Callout.Span2")>
+        @Setting.Contents["Aside.Callout.Span2"]
+    </span>
+</div>
