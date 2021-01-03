@@ -2670,6 +2670,7 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="LICENSE.MD" />
     <None Include="Properties\PublishProfiles\cms4seo.pubxml" />
     <Content Include="Themes\colorful\Assets\flipclock\flipclock.less" />
     <Content Include="Themes\colorful\Assets\slick\config.rb" />
