@@ -1,4 +1,0 @@
-{
-  "Connection": "Data Source=localhost;Initial Catalog=laptopcamera_vn_db;Integrated Security=False;User ID=anht31;Password=456",
-  "Setup": "False"
-}
