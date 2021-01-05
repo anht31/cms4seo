@@ -92,8 +92,17 @@ Right click on cms4seo.Web project and select Publish. After later, you see Rele
 > On tag publishUrl, you enter one specify location.
 
 
-##### <span style="color:tomato">! Please dont't delete this file (cms4seo.pubxml), or remove Publish profiles, this profiles have some command to make sure Solution build in right way.</span>
 
+![#f03c15](https://via.placeholder.com/15/f03c15/000000?text=+) Please dont't delete this file (cms4seo.pubxml), or remove Publish profiles, this profiles have some command to make sure Solution build in right way.
+
+
+```diff
+- text in red
++ text in green
+! text in orange
+# text in gray
+@@ text in purple (and bold)@@
+```
 
 #### For Https, add this lines to Web.config
 
