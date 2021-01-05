@@ -3,7 +3,9 @@
 * [General info](#general-info)
 * [Technologies](#technologies)
 * [Features](#features)
+* [cms4seo Types](#cms4seo-types)
 * [Setup](#setup)
+* [Publish](#publish)
 * [Requirements](#requirements)
 * [Caution](#caution)
 * [Release History](#release-history)
@@ -26,7 +28,6 @@ This is Powerful Opensource Website For SEO, write by asp.net MVC5
 * New Upload image support drag & drop
 * Support Photo Browser	
 * Async controller with db provider in controller
-* Remove all repository
 * Update XML Setting productiviy
 * fix hitcounter with signalR
 * Support sitemap.xml & sitemap.html create
@@ -46,33 +47,55 @@ Project is created with:
 * Boostrap 4
 * Generic Program
 * mozjpeg compression
-* bundle compression
+* Dynamic bundle compression
 * dmuploader.js - Jquery File Uploader
 * ckeditor 4 
 * Genneric HtmlEditor
+
+## cms4seo Types
+
 * Default [IsComplexType] will not display
 * use [ScaffoldColumn(false)] dataannotations to hidden field (etc: Id)
 * use [DataType(cms4seo.CustomEditor)] dataannotations for custom design field (etc: Category Selector)
 * other field will default for normaly display
 * @Html.Partial("_UploadPhoto", cms4seoEntityType.Article) to binding Many-to-Many ArticlePhotoes
-	
+
+
 ## Setup
-To run this project, restore Nuget Package, in visual studio, set cms4seo.Web as StartUp Project, and enter command (Package Manager Console) using follow step:
 
-```
-$ Enable-Migrations
-$ Add-migration Initial 
-$ Update-database
-```
+To run this project, restore **Nuget Package**, in visual studio, set cms4seo.Web as **StartUp Project**
+
+#### 1. Set Startup Project
+
+Right click on **cms4seo.Web** project and select **Set as Startup Project** in context menu.
+
+#### 2. Make sure Package fully Restore
 
 
-Note: if Nuget Package not full load, enter command (Package Manager Console)
+If Nuget Package not full load, enter command (Package Manager Console)
 
 ```
 $ Update-Package -reinstall
 ```
 
-For Https, add this lines to 
+> ##### Note: in localhost, ProjectId will control which Project will be load. You can find ProjectId in Web.config > appSettings 
+
+
+
+## Publish
+
+Right click on cms4seo.Web project and select Publish. After later, you see Release files on [SolutionFolder]\Publish
+
+
+> Note: If you want fixed folder to publish, please edit cms4seo.pubxml 
+> in **cms4seo.Web\PublishProfiles\Properties\cms4seo.pubxml**.
+> On tag publishUrl, you enter one specify location.
+
+
+##### <span style="color:tomato">! Please dont't delete this file (cms4seo.pubxml), or remove Publish profiles, this profiles have some command to make sure Solution build in right way.</span>
+
+
+#### For Https, add this lines to Web.config
 
 ```
   <system.webServer>
