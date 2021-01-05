@@ -1,4 +1,4 @@
-
+﻿
 ## Table of contents
 * [General info](#general-info)
 * [Technologies](#technologies)
@@ -91,13 +91,13 @@ Right click on cms4seo.Web project and select Publish. After later, you see Rele
 > in **cms4seo.Web\PublishProfiles\Properties\cms4seo.pubxml**.
 > On tag publishUrl, you enter one specify location.
 
+ 
+ 
 
 
+##### ⚠️ Please dont't delete this file (cms4seo.pubxml), or remove Publish profiles, this profiles have some command to make sure Solution build in right way. ⚠️
 
-```diff
-! Please dont't delete this file (cms4seo.pubxml), or remove Publish profiles, 
-! this profiles have some command to make sure Solution build in right way.
-```
+<p>&nbsp;</p>
 
 #### For Https, add this lines to Web.config
 
