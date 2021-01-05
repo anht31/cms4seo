@@ -248,3 +248,4 @@ ModelManifest.xml
 # cms4seo
 /cms4seo.Web/Themes/leki
 /cms4seo.Web/App_Data/*.txt
+/cms4seo.Web/App_Data/*.csv
