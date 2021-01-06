@@ -114,3 +114,19 @@
         @Html.ActionLink(AdminResources.CommonCreate, "Create", null, new {@class = "btn btn-success"})
     </div>
 </div>
+
+
+<!-- render-script =============================================================================-->
+@section Scripts {
+
+    @if (TempData[MessageType.Warning] != null)
+    {
+        <script>
+            $(document)
+                .ready(function () {
+                    LobiboxMessage('warning', '@Html.Raw(TempData[MessageType.Warning])' );
+                });
+        </script>
+    }
+
+}

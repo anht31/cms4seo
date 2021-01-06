@@ -102,6 +102,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Behaviour\PhoneExtensions.cs" />
+    <Compile Include="Behaviour\TorChecker.cs" />
     <Compile Include="Binders\ArticleModelBinder.cs" />
     <Compile Include="Binders\CartModelBinder.cs" />
     <Compile Include="Binders\ProductModelBinder.cs" />

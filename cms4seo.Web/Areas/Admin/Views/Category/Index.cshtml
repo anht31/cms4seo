@@ -1,4 +1,5 @@
-﻿@model IEnumerable<Category>
+﻿@using cms4seo.Common.Culture
+@model IEnumerable<Category>
 
 @{
     ViewBag.Title = "Index";
@@ -122,12 +123,32 @@
 
 
                     <td>
+                        
+                        @*@if (item.Children.Count > 0)
+                        {
+                            <span>Parent Category</span>
+                        }
+                        else if (item.Products != null && item.Products.Count > 0)
+                        {
+                            <span>@item.Products.Count Products</span>
+                        }
+                        else
+                        {
+                            @Html.ActionLink("Delete", "Delete", new {deleteId = item.Id}, new
+                            {
+                                data_action = "delete",
+                                data_value = item.Name,
+                                @class = "btn btn-danger btn-xs"
+                            })
+                        }*@
+                        
                         @Html.ActionLink("Delete", "Delete", new {deleteId = item.Id}, new
                         {
                             data_action = "delete",
                             data_value = item.Name,
                             @class = "btn btn-danger btn-xs"
                         })
+                        
                     </td>
                 </tr>
             }
@@ -143,3 +164,20 @@
         @Html.ActionLink(AdminResources.CommonCreate, "Create", null, new {@class = "btn btn-success"})
     </div>
 </div>
+
+
+
+<!-- render-script =============================================================================-->
+@section Scripts {
+    
+    @if (TempData[MessageType.Warning] != null)
+    {
+        <script>
+            $(document)
+                .ready(function () {
+                    LobiboxMessage('warning', '@Html.Raw(TempData[MessageType.Warning])' );
+                });
+        </script>
+    }
+
+}

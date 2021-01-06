@@ -4,6 +4,7 @@ using cms4seo.Data;
 using cms4seo.Model.Entities;
 using cms4seo.Service.Resolver;
 using cms4seo.Data.IdentityModels;
+using cms4seo.Service.Behaviour;
 using cms4seo.Service.Email;
 using cms4seo.Service.Provider;
 
@@ -30,18 +31,31 @@ namespace cms4seo.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                //contact.Slug = contact.Name.MakeUrlFriendly();
+                
                 contact.PostDate = DateTime.Now;
 
-                db.Contacts.Add(contact);
-                db.SaveChanges();
 
-                // send mail
-                var message = mailProcessor.ProcessContact(contact.FullName, contact.Email, contact.Phone, contact.Message);
+                // Tor Exit Node
+                var ipAddress = Request.ServerVariables["REMOTE_ADDR"];
+                var checker = new TorChecker();
+                var clientIsUsingTor = checker.IsUsingTor(ipAddress);
 
-                if(message != null)
-                    return Json(new { success = false, responseText = message },
-                        JsonRequestBehavior.AllowGet);
+                bool isValidPhone = contact.Phone.ValidatePhoneNumber(true);
+
+                // send mail & save message
+                if (!clientIsUsingTor & isValidPhone)
+                {
+                    db.Contacts.Add(contact);
+                    db.SaveChanges();
+
+                    // send mail
+                    var message = mailProcessor.ProcessContact(contact.FullName, contact.Email, contact.Phone, contact.Message);
+
+                    if (message != null)
+                        return Json(new { success = false, responseText = message },
+                            JsonRequestBehavior.AllowGet);
+                }
+
 
                 //  Success
                 return Json(new {success = true}, JsonRequestBehavior.AllowGet);

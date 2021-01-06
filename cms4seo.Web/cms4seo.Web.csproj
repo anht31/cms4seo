@@ -236,7 +236,6 @@
     <Compile Include="Controllers\ArticleTagsController.cs" />
     <Compile Include="Controllers\ProductTagsController.cs" />
     <Compile Include="Controllers\TopicsController.cs" />
-    <None Include="App_Data\info.md" />
     <Content Include="Assets\Images\WebsiteUnderConstruction.png" />
     <Content Include="Bootswatch\bootstrap.min.css" />
     <Content Include="Bootswatch\cms4seo.bootstrap.min.css" />
@@ -2671,7 +2670,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="LICENSE.MD" />
-    <None Include="Properties\PublishProfiles\cms4seo.pubxml" />
+    <Content Include="App_Data\info.md" />
+    <None Include="Properties\PublishProfiles\cms4seo.pubxml">
+      <SubType>Designer</SubType>
+    </None>
     <Content Include="Themes\colorful\Assets\flipclock\flipclock.less" />
     <Content Include="Themes\colorful\Assets\slick\config.rb" />
     <Content Include="Themes\colorful\Assets\slick\fonts\slick.eot" />
