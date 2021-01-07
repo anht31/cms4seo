@@ -361,6 +361,9 @@ table td {
     color: #fff;
 }
 
+.navbar-nav .dropdown-menu {
+    margin-top: 0px;
+}
 
 .menu-color .navbar-nav > li > a:hover,
 .menu-color .navbar-nav > li > a:focus {
