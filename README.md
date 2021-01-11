@@ -4,7 +4,7 @@
 * [Technologies](#technologies)
 * [Features](#features)
 * [cms4seo Types](#cms4seo-types)
-* [Setup](#setup)
+* [Setup & Run](#setup-run)
 * [Publish](#publish)
 * [Requirements](#requirements)
 * [Caution](#caution)
@@ -17,8 +17,12 @@ This is Powerful Opensource Website For SEO, write by asp.net MVC5
 
 ## Features
 
+* Setup step guide.
 * Optimize Google pagespeed test above 95 point
 * Owesome Comppress Image with mozjpeg
+* 13 themes build-in
+* 1 sample product build-in
+* 9 language translation.
 * Easy set permission with Group Roles
 * Dynamic display for Header Title
 * Redirect url list by csv file
@@ -61,24 +65,20 @@ Project is created with:
 * @Html.Partial("_UploadPhoto", cms4seoEntityType.Article) to binding Many-to-Many ArticlePhotoes
 
 
-## Setup
+## Setup & Run
 
-To run this project, restore **Nuget Package**, in visual studio, set cms4seo.Web as **StartUp Project**
-
-#### 1. Set Startup Project
-
-Right click on **cms4seo.Web** project and select **Set as Startup Project** in context menu.
-
-#### 2. Make sure Package fully Restore
+Right click on **cms4seo.Web** project and select **Set as Startup Project** in context menu. 
+Right click on this Project and choose **Build**, take a time for Project restore Package automatic
 
 
-If Nuget Package not full load, enter command (Package Manager Console)
+
+> If Nuget Package not full load, enter command (Package Manager Console)
 
 ```
 $ Update-Package -reinstall
 ```
 
-> ##### Note: in localhost, ProjectId will control which Project will be load. You can find ProjectId in Web.config > appSettings 
+> Note: in localhost, **ProjectId** will control which Project will be load. You can find ProjectId in **Web.config > appSettings**
 
 
 
@@ -140,7 +140,7 @@ Right click on cms4seo.Web project and select Publish. After later, you see Rele
 
 - Set cms4seo.Web as Main Project
 - For ReSharper User - Path Mapping: [Areas/Admin] to [cms4seo.Admin]
-- Project cms4seo.Data must don't have any Migration Point, if you create new add-migration, you must delete it before publish. It cause of not create table on setup mode.
+- If you want use Migration, please add Migration in Project cms4seo.Data
 
 ## Future Plan
 
@@ -150,20 +150,14 @@ Right click on cms4seo.Web project and select Publish. After later, you see Rele
 
 ## Release History
 
-### 1.0.0 Change to cms4seo
 
 
+#### 1.0.0.8 Update contact
 
-#### 2.0.0
-* Using bootstrap 4
-* upload photo by Create Product First
-* Support Url database driven
-* 301 redirect list
-* Hardcode 400, 500 error
+* Update contact form post.
+* fix dropdown menu lost focus.
 
-#### 1.0.0
-* Using bootstrap 3
-* photo upload by session variable
+#### 1.0.0.7 First publish
 
 ## Acknowledgments
 
@@ -179,5 +173,5 @@ Right click on cms4seo.Web project and select Publish. After later, you see Rele
 
 ## License
 
-(C) Power by cms4seo.
-License under the [GPLv3 License](LICENSE.MD).
+Power by cms4seo.
+License under the [GPLv3 License](LICENSE).
