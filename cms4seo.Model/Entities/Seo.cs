@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Web.Mvc;
 using Admin.Resources;
 using cms4seo.Model.LekimaxType;
 using Newtonsoft.Json;
@@ -16,6 +17,7 @@ namespace cms4seo.Model.Entities
         // BaseEntity class has been property Id
 
         // seo ===========================================================
+        [AllowHtml] // fix something containing < or > in a page
         [ScaffoldColumn(false)]
         [Display(Name = "SeoModelSearchContent", ResourceType = typeof(AdminResources))]
         public string UnsignContent { get; set; }
