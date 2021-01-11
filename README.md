@@ -4,7 +4,7 @@
 * [Technologies](#technologies)
 * [Features](#features)
 * [cms4seo Types](#cms4seo-types)
-* [Setup & Run](#setup-run)
+* [Setup](#setup)
 * [Publish](#publish)
 * [Requirements](#requirements)
 * [Caution](#caution)
@@ -65,7 +65,7 @@ Project is created with:
 * @Html.Partial("_UploadPhoto", cms4seoEntityType.Article) to binding Many-to-Many ArticlePhotoes
 
 
-## Setup & Run
+## Setup
 
 Right click on **cms4seo.Web** project and select **Set as Startup Project** in context menu. 
 Right click on this Project and choose **Build**, take a time for Project restore Package automatic
