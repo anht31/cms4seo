@@ -1,5 +1,5 @@
 	
-    cms4seo theme v1.0.0.7 (https://cms4seo.com)
+    cms4seo theme v1.0.0.8 (https://cms4seo.com)
     Copyright (C) 2020  Tran Anh
 
     This program is free software: you can redistribute it and/or modify
@@ -15,11 +15,4 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 	
-		
-    Additional cms4seo terms:
-    However, in addition to the other notice obligations, (1) all copies 
-    of the Program in Source Code form must, as a form of attribution of 
-    the original author and (2) all derivative works and copies of 
-    derivative works of the Covered Code in Source Code form must 
-    attribution of the original author.
 
