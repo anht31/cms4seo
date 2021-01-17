@@ -524,7 +524,8 @@ namespace cms4seo.Admin.Controllers
         /// <returns>Redirect to Done ViewResult</returns>
         public ActionResult Domain(string id)
         {
-            if (Request.Url?.Host.ToLower() != "localhost")
+            if (Request.Url?.Host.ToLower() != "localhost"
+                || !Request.Url.Host.ToLower().EndsWith("localhost"))
             {
                 TempData[MessageType.Danger] =
                     "This function for Develop Time only " +

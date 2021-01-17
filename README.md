@@ -4,7 +4,7 @@
 * [Technologies](#technologies)
 * [Features](#features)
 * [cms4seo Types](#cms4seo-types)
-* [Setup](#setup)
+* [Run Project](#run-project)
 * [Publish](#publish)
 * [Requirements](#requirements)
 * [Caution](#caution)
@@ -65,7 +65,7 @@ Project is created with:
 * @Html.Partial("_UploadPhoto", cms4seoEntityType.Article) to binding Many-to-Many ArticlePhotoes
 
 
-## Setup
+## Run Project
 
 Right click on **cms4seo.Web** project and select **Set as Startup Project** in context menu. 
 Right click on this Project and choose **Build**, take a time for Project restore Package automatic
@@ -85,11 +85,16 @@ $ Update-Package -reinstall
 ## Publish
 
 Right click on cms4seo.Web project and select Publish. After later, you see Release files on [SolutionFolder]\Publish
+. In this Mode whenever you edit idividual files, you mustbe publish all whole solution folder
+. If you want to select individual files and export you, you have to set a fixed foder
+. This does not apply to the Assets and View in the cms4seo.Admin project, to export these idividual files
+, you must publish the entire solution.
 
 
-> Note: If you want fixed folder to publish, please edit cms4seo.pubxml 
-> in **cms4seo.Web\PublishProfiles\Properties\cms4seo.pubxml**.
-> On tag publishUrl, you enter one specify location.
+
+If you want fixed folder to publish, please edit cms4seo.pubxml 
+ in **cms4seo.Web\PublishProfiles\Properties\cms4seo.pubxml**.
+ On tag publishUrl (with comment out specify location), you enter one specify location.
 
  
  
@@ -150,7 +155,10 @@ Right click on cms4seo.Web project and select Publish. After later, you see Rele
 
 ## Release History
 
+#### 1.0.0.9 Upload config ProjectId
 
+* Support tail .localhost in /setup/domain
+* Support message in /setup/domain
 
 #### 1.0.0.8 Update contact
 
