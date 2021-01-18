@@ -51,7 +51,17 @@ namespace cms4seo.Admin.Controllers
             }
 
 
-            ViewBag.Mode = _projectId == "config" ? "Release Mode" : "Local Mode";
+            if (Request.Url?.Host.ToLower() != "localhost"
+                && !Request.Url.Host.ToLower().EndsWith(".localhost"))
+            {
+                ViewBag.Mode = "Release Mode";
+            }
+            else
+            {
+                ViewBag.Mode = "Local Mode";
+            }
+
+            
 
             return View(new SetupDatabaseVm() {ProjectId = _projectId, TryCreateDatabase = true, ForceSeedAdmin = true});
         }
@@ -103,6 +113,14 @@ namespace cms4seo.Admin.Controllers
                 TempData[MessageType.Warning] = "Database not exist, if you want create Database" +
                                                 ", please checked 'Try Create Database' Checkbox";
                 return View();
+            }
+
+
+            // set projectId (local mode only)
+            if (Request.Url?.Host.ToLower() == "localhost"
+                || Request.Url.Host.ToLower().EndsWith(".localhost"))
+            {
+                ConnectionStringProvider.SetDomain(setupDatabaseVm.ProjectId);
             }
 
 
@@ -525,7 +543,7 @@ namespace cms4seo.Admin.Controllers
         public ActionResult Domain(string id)
         {
             if (Request.Url?.Host.ToLower() != "localhost"
-                || !Request.Url.Host.ToLower().EndsWith("localhost"))
+                && !Request.Url.Host.ToLower().EndsWith(".localhost"))
             {
                 TempData[MessageType.Danger] =
                     "This function for Develop Time only " +

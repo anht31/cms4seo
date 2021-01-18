@@ -247,49 +247,6 @@ namespace cms4seo.Data.ConnectionString
         /// <returns>return null if success</returns>
         public static string Set(SetupDatabaseVm setupDatabaseVm)
         {
-            //// Translate '.' to '-'
-            //if (setupDatabaseVm.ProjectId != null && setupDatabaseVm.ProjectId.Contains("."))
-            //    setupDatabaseVm.ProjectId = setupDatabaseVm.ProjectId.Translate();
-
-
-            // set projectId (local mode only)
-            if (_projectId != "config" && setupDatabaseVm.ProjectId != _projectId)
-            {
-                try
-                {
-
-                    //Helps to open the Root level web.config file.
-                    Configuration webConfigApp = WebConfigurationManager.OpenWebConfiguration("~");
-
-                    if (webConfigApp.AppSettings.Settings["ProjectId"] != null)
-                    {
-                        //Modifying the AppKey from AppValue to AppValue1
-                        webConfigApp.AppSettings.Settings["ProjectId"].Value = setupDatabaseVm.ProjectId;
-                    }
-                    else
-                    {
-                        webConfigApp.AppSettings.Settings.Add("ProjectId", setupDatabaseVm.ProjectId);
-                    }
-                    
-
-                    //Save the Modified settings of AppSettings.
-                    webConfigApp.Save();
-
-                    // Next read wil be in hard disk
-                    //ConfigurationManager.RefreshSection("appSettings"); // not work
-
-
-                    // Update static _projectId
-                    _projectId = setupDatabaseVm.ProjectId;
-                }
-                catch (Exception e)
-                {
-                    LogHelper.Write("ConnectionStringProvider/Set", e.Message);
-                    return e.Message;
-                }
-                
-            }
-
 
             // save connection String
             string path = Path.Combine(
@@ -337,7 +294,7 @@ namespace cms4seo.Data.ConnectionString
             //    domain = domain.Translate();
 
             // check current appSetting ProjectId & set new ProjectId
-            if (_projectId != "config" && domain != _projectId)
+            if (domain != _projectId)
             {
                 try
                 {
@@ -346,7 +303,10 @@ namespace cms4seo.Data.ConnectionString
                     Configuration webConfigApp = WebConfigurationManager.OpenWebConfiguration("~");
 
                     //Modifying the AppKey from AppValue to AppValue1
-                    webConfigApp.AppSettings.Settings["ProjectId"].Value = domain;
+                    if (webConfigApp.AppSettings.Settings["ProjectId"] != null)
+                        webConfigApp.AppSettings.Settings["ProjectId"].Value = domain;
+                    else
+                        webConfigApp.AppSettings.Settings.Add("ProjectId", domain);
 
                     //Save the Modified settings of AppSettings.
                     webConfigApp.Save();
@@ -356,6 +316,8 @@ namespace cms4seo.Data.ConnectionString
 
                     // Update static _projectId
                     _projectId = domain;
+
+                    return true;
                 }
                 catch (Exception e)
                 {
@@ -366,8 +328,7 @@ namespace cms4seo.Data.ConnectionString
             }
 
 
-
-            return true;
+            return false;
         }
 
 
