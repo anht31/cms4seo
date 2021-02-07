@@ -151,7 +151,6 @@ If you want fixed folder to publish, please edit cms4seo.pubxml
 
 - I18N support
 - Shopping Cart
-- Support Plugin
 
 ## Release History
 
