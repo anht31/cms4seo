@@ -156,15 +156,13 @@ If you want fixed folder to publish, please edit cms4seo.pubxml
 
 #### 1.1.0.0
 
+* **Plugin Architecture** Support Beta 1
 * Display proper size of H1 - H6 title in ckeditor
+* Fix fontawesome 5 for slick css next, pre arrow
 * Fix Space error in 301.csv when redirect
 * Fix label in Photo Upload Partile
-* Plugin Architecture Support Beta 1
 
-#### 1.0.0.10
 
-* Scale size heading tag on ckeditor
-* Fix fontawesome 5 for slick css next, pre arrow
 
 #### 1.0.0.9 Upload config ProjectId
 
