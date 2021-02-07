@@ -2662,6 +2662,7 @@
     <Compile Include="Controllers\NavController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\UploadApiController.cs" />
+    <Compile Include="Controllers\WidgetsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -3292,6 +3293,8 @@
     <Content Include="Themes\metro\LICENSE.MD" />
     <Content Include="Themes\moderniness\LICENSE.MD" />
     <Content Include="Themes\rectangle\LICENSE.MD" />
+    <Content Include="Views\Widgets\Index.cshtml" />
+    <Content Include="Views\web.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -3318,6 +3321,7 @@
     <Folder Include="Themes\moderniness\Views\Tag\" />
     <Folder Include="Themes\rectangle\Views\Download\" />
     <Folder Include="Themes\rectangle\Views\Tag\" />
+    <Folder Include="Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
@@ -3341,6 +3345,9 @@
       <Name>cms4seo.Service</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -3360,7 +3367,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>3456</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:3535</IISUrl>
+          <IISUrl>http://localhost:53535</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

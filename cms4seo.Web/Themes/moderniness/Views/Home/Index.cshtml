@@ -1,4 +1,5 @@
-﻿@using PagedList.Mvc
+﻿@using System.ServiceModel
+@using PagedList.Mvc
 @model PagedList.IPagedList<Product>
 @{
     ViewBag.Title = Setting.WebSettings[ShopSettingType.HomepageMetaTitle];
@@ -15,7 +16,11 @@
 
 <!-- Page Content -->
 <div class="">
-
+    
+    @{
+        Html.RenderAction("Index","Widgets", new { zone = "page" });
+    }
+    
 
     @{
         Html.RenderAction("ProductSystem", "Product");

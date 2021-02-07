@@ -3,6 +3,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Hosting;
 using System.Web.Mvc;
+using System.Web.Mvc.Html;
 using System.Web.Optimization;
 
 namespace cms4seo.Common.Helpers
@@ -56,9 +57,37 @@ namespace cms4seo.Common.Helpers
 
             return new HtmlString(htmlTag);
         }
+
+        public static IHtmlString InlinePlatformStyle(this HtmlHelper htmlHelper, string path)
+        {
+            var content = File.ReadAllText(HostingEnvironment.MapPath(path));
+
+            string htmlTag = string.Format("<{0}>{1}</{0}>", "style", content);
+
+            return new HtmlString(htmlTag);
+        }
+
+        public static IHtmlString InlinePlatformScript(this HtmlHelper htmlHelper, string path)
+        {
+            var content = File.ReadAllText(HostingEnvironment.MapPath(path));
+
+            string htmlTag = string.Format("<{0}>{1}</{0}>", "script", content);
+
+            return new HtmlString(htmlTag);
+        }
+
+
+
+        //public static void Widgets(this HtmlHelper htmlHelper, string zone)
+        //{
+        //    foreach (var widget in PluginHelpers.Widgets)
+        //    {
+        //        if(widget.Zone == zone)
+        //            htmlHelper.RenderAction(widget.Action, widget.Controller, new { area = widget.Area });
+        //    }
+
+        //}
+
     }
-
-
-
 
 }

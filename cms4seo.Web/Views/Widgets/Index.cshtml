@@ -1,0 +1,15 @@
+﻿@using cms4seo.Common.Plugins
+@model List<Widget>
+
+@foreach (var widget in Model)
+{
+    try
+    {
+        <div>@widget.Area</div>
+        Html.RenderAction(widget.Action, widget.Controller, new { area = widget.Area });
+    }
+    catch (Exception ex)
+    {
+        <!-- Load Plugin [@widget.Area] Fail, Message: @ex.Message -->
+    }
+}

@@ -1706,4 +1706,7 @@
   <data name="SearchOptimizeController_ReseedPermalink_Just_support_3000_Record" xml:space="preserve">
     <value>Bạn có tổng số: {0} liên kết, số lượng liên kết quá lớn, hệ thống chỉ hỗ trợ dưới 3000 liên kết.</value>
   </data>
+  <data name="UploadPhoto_ListTable_HeaderLgPath" xml:space="preserve">
+    <value>Ảnh lớn</value>
+  </data>
 </root>

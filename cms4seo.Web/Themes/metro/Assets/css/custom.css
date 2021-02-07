@@ -1502,7 +1502,8 @@ table td {
 }
 
 .slick-prev:before, .slick-next:before {
-    font-family: FontAwesome;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
     font-size: 30px;
     line-height: 1;
     /*color: red;*/

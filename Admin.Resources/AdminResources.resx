@@ -1701,4 +1701,7 @@
   <data name="SearchOptimizeController_ReseedPermalink_Just_support_3000_Record" xml:space="preserve">
     <value>You have total: {0} links, amount of links too large, system just support bellow 3000 links.</value>
   </data>
+  <data name="UploadPhoto_ListTable_HeaderLgPath" xml:space="preserve">
+    <value>Large Image</value>
+  </data>
 </root>

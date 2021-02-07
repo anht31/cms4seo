@@ -19,6 +19,8 @@
     @Html.Partial("_TagManager")
 
     @Html.Raw(Setting.WebSettings[EmbedSettingType.GoogleAnalytics])
+    
+    @RenderSection("PluginStyles", false)
 
 </head>
 
@@ -213,6 +215,8 @@
 
     @Scripts.Render("~/Scripts/js")
     @RenderSection("scripts", false)
+
+    @RenderSection("PluginScripts", false)
 
     @Html.Partial("_Scripts")
 

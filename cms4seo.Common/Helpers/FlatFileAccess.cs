@@ -20,7 +20,7 @@ namespace cms4seo.Common.Helpers
                     while ((line = sr.ReadLine()) != null)
                     {
                         string[] columns = line.Split(',');
-                        redirect_dict.Add(columns[0], columns[1]);
+                        redirect_dict.Add(columns[0].Trim(), columns[1].Trim());
                     }
                     return redirect_dict;
                 }

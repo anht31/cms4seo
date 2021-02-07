@@ -4540,6 +4540,15 @@ namespace Admin.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Large Image.
+        /// </summary>
+        public static string UploadPhoto_ListTable_HeaderLgPath {
+            get {
+                return ResourceManager.GetString("UploadPhoto_ListTable_HeaderLgPath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Click to open the file Browser.
         /// </summary>
         public static string UploadPhotoClickToOpenFileBrowser {
