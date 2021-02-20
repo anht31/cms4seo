@@ -1,4 +1,7 @@
-﻿
+﻿@{
+    var theme = Setting.WebSettings[WebSettingType.CurrentTheme];
+}
+
 <header class="container-fluid p-0">
     
     <div class="container-bg-image header-1">
@@ -47,13 +50,13 @@
                     @*<div class="pull-right internation pt-1 pr-4">
                         <span>
                             <a href="#">
-                                <img src="~/Themes/modern-business/img/vi.png" />
+                                <img src="~/Themes/@theme/img/vi.png" />
                             </a>
 
                         </span>
                         <span>
                             <a href="#">
-                                <img src="~/Themes/modern-business/img/en.png" />
+                                <img src="~/Themes/@theme/img/en.png" />
                             </a>
 
                         </span>

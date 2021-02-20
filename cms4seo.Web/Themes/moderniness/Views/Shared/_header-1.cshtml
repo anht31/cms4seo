@@ -1,4 +1,8 @@
 ﻿
+@{
+    var theme = Setting.WebSettings[WebSettingType.CurrentTheme];
+}
+
 <header class="container">
     <div class="header-1">
 
@@ -25,13 +29,13 @@
                 <div class="pull-right internation pt-1 pr-4">
                     <span>
                         <a href="#">
-                            <img src="~/Themes/moderniness/Assets/img/vi.png" />
+                            <img src="~/Themes/@theme/Assets/img/vi.png" />
                         </a>
 
                     </span>
                     <span>
                         <a href="#">
-                            <img src="~/Themes/moderniness/Assets/img/en.png" />
+                            <img src="~/Themes/@theme/Assets/img/en.png" />
                         </a>
 
                     </span>

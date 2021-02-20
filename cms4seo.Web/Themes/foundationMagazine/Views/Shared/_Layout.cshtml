@@ -51,6 +51,8 @@
     @{
         Html.RenderAction("CmsSwitcher", "Home");
     }
+    
+    @Html.Raw(Setting.WebSettings[EmbedSettingType.Scripts])
 
 </body>
 </html>

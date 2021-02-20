@@ -41,6 +41,7 @@ This is Powerful Opensource Website For SEO, write by asp.net MVC5
 * Display slider Adaptation with mobile
 * Lazy loading
 * Quick Edit Content
+* Support Plugin Architecture
 
 
 ## Technologies
@@ -155,6 +156,9 @@ If you want fixed folder to publish, please edit cms4seo.pubxml
 ## Release History
 
 #### v1.1.0.1
+
+* fix image source path when copy new theme
+* support embed Styles and Scripts on foundation themes
 * fix level 3 menu in sidebar link
 * fix message when add new product
 * friendly treeview for category dropdown list
@@ -193,6 +197,7 @@ If you want fixed folder to publish, please edit cms4seo.pubxml
 * ckeditor 4 with codemirror
 * Nadeem Afana for i18n StrongType & client side https://afana.me/
 * John Atten for his Implementing Group-Based Permissions Management http://johnatten.com/2014/08/10/asp-net-identity-2-0-implementing-group-based-permissions-management
+* Shannon Deminick for Developing a plugin framework in ASP.NET MVC with medium trust https://shazwazza.com/post/developing-a-plugin-framework-in-aspnet-with-medium-trust/
 
 ## License
 
