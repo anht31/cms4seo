@@ -115,7 +115,7 @@ namespace cms4seo.Admin.Controllers
 
             var parentTopic = db.Topics.Find(topic.ParentId);
 
-            if (parentTopic.HowDeepTopicSiteArchitecture() >= 2)
+            if (parentTopic.HowDeepTopicSiteArchitecture() >= 3)
             {
                 ModelState.AddModelError("ParentId", 
                     AdminResources.Admin_TopicController_YouNotAllowSelect2ndLevelTopic);

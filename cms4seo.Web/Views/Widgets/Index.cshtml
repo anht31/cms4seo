@@ -5,7 +5,7 @@
 {
     try
     {
-        <div>@widget.Area</div>
+        <!-- Load Plugin [@widget.Area] -->
         Html.RenderAction(widget.Action, widget.Controller, new { area = widget.Area });
     }
     catch (Exception ex)

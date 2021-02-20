@@ -227,7 +227,7 @@ namespace cms4seo.Admin.Controllers
 
 
 
-                TempData[MessageType.Warning] = string.Format(AdminResources.InfoControllerEdit__0___has__been__saved, info.Name);
+                TempData[MessageType.Success] = string.Format(AdminResources.InfoControllerEdit__0___has__been__saved, info.Name);
                 return RedirectToAction("Index");
             }
 

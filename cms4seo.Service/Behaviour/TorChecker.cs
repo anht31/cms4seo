@@ -25,7 +25,9 @@ namespace cms4seo.Service.Behaviour
             this.exitAddressesUrl = DefaultTorProjectExitAddressesUrl;
         }
 
+#pragma warning disable 1998
         public async Task<HashSet<string>> ListIpAsync()
+#pragma warning restore 1998
         {
             Exception lastException = null;
             int retry = 0;

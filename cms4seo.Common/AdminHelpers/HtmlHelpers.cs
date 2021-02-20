@@ -60,7 +60,8 @@ namespace cms4seo.Common.AdminHelpers
             Func<T, T, bool> parentChildAssociationPredicate,
             string dataValueField,
             string dataTextField,
-            string defaultText)
+            string defaultText,
+            int deepLevel = 3)
         {            
             var html = new StringBuilder("<select name='" + name + "' id='" + name + "' class='form-control'>");
 
@@ -95,7 +96,7 @@ namespace cms4seo.Common.AdminHelpers
 
                     html.Append(
                         $"<option class='child-item' value=\"{childType.GetProperty(dataValueField).GetValue(child, null)}\" " + select + ">" +
-                            $".../{childType.GetProperty(dataTextField).GetValue(child, null)}" + 
+                            $"... / {childType.GetProperty(dataTextField).GetValue(child, null)}" + 
                         "</option>");
 
                     foreach (var child_lv3 in enumerable.Where(x => parentChildAssociationPredicate(x, child)))
@@ -105,10 +106,11 @@ namespace cms4seo.Common.AdminHelpers
                             ? "selected='selected'"
                             : "";
 
-                        html.Append(
-                            $"<option class='child-item' value=\"{child_lv3Type.GetProperty(dataValueField).GetValue(child_lv3, null)}\" " + select + ">" +
-                            $".../.../{child_lv3Type.GetProperty(dataTextField).GetValue(child_lv3, null)}" +
-                            "</option>");
+                        if(deepLevel == 3)
+                            html.Append(
+                                $"<option class='child-item' value=\"{child_lv3Type.GetProperty(dataValueField).GetValue(child_lv3, null)}\" " + select + ">" +
+                                    $"... / ... / {child_lv3Type.GetProperty(dataTextField).GetValue(child_lv3, null)}" +
+                                "</option>");
                     }
                 }
 

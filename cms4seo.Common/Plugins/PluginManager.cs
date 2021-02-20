@@ -40,73 +40,83 @@ namespace cms4seo.Common.Plugins
 
         public static void Initialize()
         {
-            Directory.CreateDirectory(ShadowCopyFolder.FullName);
 
-            //clear out plugins)
-            foreach (FileInfo f in ShadowCopyFolder.GetFiles("*.dll", SearchOption.AllDirectories))
+            try
             {
-                f.Delete();
+                Directory.CreateDirectory(ShadowCopyFolder.FullName);
+
+                //clear out plugins)
+                foreach (FileInfo f in ShadowCopyFolder.GetFiles("*.dll", SearchOption.AllDirectories))
+                {
+                    f.Delete();
+                }
+
+                //shadow copy files
+                foreach (FileInfo plug in PluginFolder.GetFiles("*.dll", SearchOption.AllDirectories))
+                {
+                    DirectoryInfo di = Directory.CreateDirectory(Path.Combine(ShadowCopyFolder.FullName, plug.Directory.Name));
+                    // NOTE: You cannot rename the plugin DLL to a different name, it will fail because the assembly name is part if it's manifest
+                    // (a reference to how assemblies are loaded: http://msdn.microsoft.com/en-us/library/yx7xezcf )
+                    File.Copy(plug.FullName, Path.Combine(di.FullName, plug.Name), true);
+                }
+
+                // Now, we need to tell the BuildManager that our plugin DLLs exists and to reference them.
+                // There are different Assembly Load Contexts that we need to take into account which 
+                // are defined in this article here:
+                // http://blogs.msdn.com/b/suzcook/archive/2003/05/29/57143.aspx
+
+
+                #region Assembly Resolver
+                // * This will put the plugin assemblies in the 'Load' context
+                // This works but requires a 'probing' folder be defined in the web.config
+
+                FileInfo[] fileInfos = ShadowCopyFolder.GetFiles("*.dll", SearchOption.AllDirectories);
+
+
+                // cms4seo modified
+                // Use an AssemblyResolver instead probing privatePath
+                foreach (var fileInfo in fileInfos)
+                {
+                    AssemblyResolver.Hook(fileInfo.DirectoryName, @"\CommonReferences");
+                    //AssemblyResolver.Hook(fileInfo.Name, fileInfo.DirectoryName);
+                }
+
+
+                IEnumerable<AssemblyName> assemblyNames = fileInfos.Select(x => AssemblyName.GetAssemblyName(x.FullName));
+                IEnumerable<Assembly> assemblies = assemblyNames.Select(x => Assembly.Load(x.FullName));
+
+                foreach (Assembly assembly in assemblies)
+                {
+                    BuildManager.AddReferencedAssembly(assembly);
+                }
+
+                #endregion
+
+
+
+                #region for test import widget only
+
+                Widget widget = new Widget("Index", "Test", "PluginTest"
+                    , "page", string.Empty);
+
+                PluginHelpers.Widgets.Add(widget);
+
+                //foreach (Assembly assembly in assemblies)
+                //{
+                //    Widget widget = new Widget(assembly,);
+                //    PluginHelpers.Widgets.Add(widget);
+                //}
+
+
+                #endregion
+
+            }
+            catch (Exception e)
+            {
+                LogHelper.Write("PluginManager.Initialize()", e.Message);
             }
 
-            //shadow copy files
-            foreach (FileInfo plug in PluginFolder.GetFiles("*.dll", SearchOption.AllDirectories))
-            {
-                DirectoryInfo di = Directory.CreateDirectory(Path.Combine(ShadowCopyFolder.FullName, plug.Directory.Name));
-                // NOTE: You cannot rename the plugin DLL to a different name, it will fail because the assembly name is part if it's manifest
-                // (a reference to how assemblies are loaded: http://msdn.microsoft.com/en-us/library/yx7xezcf )
-                File.Copy(plug.FullName, Path.Combine(di.FullName, plug.Name), true);
-            }
-
-            // Now, we need to tell the BuildManager that our plugin DLLs exists and to reference them.
-            // There are different Assembly Load Contexts that we need to take into account which 
-            // are defined in this article here:
-            // http://blogs.msdn.com/b/suzcook/archive/2003/05/29/57143.aspx
-
-
-            #region Assembly Resolver
-            // * This will put the plugin assemblies in the 'Load' context
-            // This works but requires a 'probing' folder be defined in the web.config
-
-            FileInfo[] fileInfos = ShadowCopyFolder.GetFiles("*.dll", SearchOption.AllDirectories);
-
-
-            // cms4seo modified
-            // Use an AssemblyResolver instead probing privatePath
-            foreach (var fileInfo in fileInfos)
-            {
-                AssemblyResolver.Hook(fileInfo.DirectoryName, @"\CommonReferences");
-                //AssemblyResolver.Hook(fileInfo.Name, fileInfo.DirectoryName);
-            }
-
-
-            IEnumerable<AssemblyName> assemblyNames = fileInfos.Select(x => AssemblyName.GetAssemblyName(x.FullName));
-            IEnumerable<Assembly> assemblies = assemblyNames.Select(x => Assembly.Load(x.FullName));
-
-            foreach (Assembly assembly in assemblies)
-            {
-                BuildManager.AddReferencedAssembly(assembly);
-            }
-
-            #endregion
-
-
-
-            #region for test import widget only
-
-            Widget widget = new Widget("Index", "Test", "PluginTest"
-                , "page", string.Empty);
-
-            PluginHelpers.Widgets.Add(widget);
-
-            //foreach (Assembly assembly in assemblies)
-            //{
-            //    Widget widget = new Widget(assembly,);
-            //    PluginHelpers.Widgets.Add(widget);
-            //}
-
-
-            #endregion
-
+            
 
 
 

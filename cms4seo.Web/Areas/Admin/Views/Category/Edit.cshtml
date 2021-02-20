@@ -105,7 +105,7 @@
                         @Html.LabelFor(model => model.ParentId)
                         @Html.DropDownGroupList("ParentId", (int)ViewBag.SelectedCategory, (List<Category>)ViewBag.Categories, 
                             x => !x.ParentId.HasValue, (x, y) => x.ParentId.Equals(y.Id), 
-                            "Id", "Name", "--root--")
+                            "Id", "Name", "--root--", 2)
 
                         @*@Html.DropDownList("ParentId", null, "--root--", new { @class = "form-control" })*@
                         @Html.ValidationMessageFor(model => model.ParentId, "", new { @class = "text-danger" })

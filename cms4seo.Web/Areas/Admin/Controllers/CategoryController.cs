@@ -72,7 +72,7 @@ namespace cms4seo.Admin.Controllers
 
             // group selector
             ViewBag.Categories = await CategoriesValidation.Where(x => 
-                x.Id != category.Id && x.ParentId == null).ToListAsync();
+                x.Id != category.Id).ToListAsync();
 
             ViewBag.SelectedCategory = category.ParentId ?? 0;
 
@@ -102,7 +102,7 @@ namespace cms4seo.Admin.Controllers
 
             // group selecter
             ViewBag.Categories = await CategoriesValidation.Where(x => 
-                x.Id != category.Id && x.ParentId == null).ToListAsync();
+                x.Id != category.Id).ToListAsync();
             ViewBag.SelectedCategory = category.ParentId ?? 0;
 
             return View(category);
@@ -119,7 +119,7 @@ namespace cms4seo.Admin.Controllers
 
             var parentCategory = db.Categories.Find(category.ParentId);
 
-            if (parentCategory.HowDeepCategorySiteArchitecture() >= 2)
+            if (parentCategory.HowDeepCategorySiteArchitecture() >= 3)
             {
                 ModelState.AddModelError("ParentId", AdminResources.Admin_CategoryController_Edit_YouNotAllowSelectSecondLevelCategory);
                 TempData[MessageType.Warning] =
@@ -259,7 +259,7 @@ namespace cms4seo.Admin.Controllers
                     db.Entry(category).State = EntityState.Modified;
                     db.SaveChanges();
 
-                    TempData[MessageType.Warning] = string.Format(AdminResources.CategoryControllerEdit__0___has__been__saved, category.Name);
+                    TempData[MessageType.Success] = string.Format(AdminResources.CategoryControllerEdit__0___has__been__saved, category.Name);
                 }
 
 
@@ -272,7 +272,7 @@ namespace cms4seo.Admin.Controllers
 
             // group selecter
             ViewBag.Categories = await CategoriesValidation.Where(x => 
-                x.Id != category.Id && x.ParentId == null).ToListAsync();
+                x.Id != category.Id).ToListAsync();
 
             ViewBag.SelectedCategory = category.ParentId ?? 0;
 

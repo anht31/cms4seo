@@ -154,6 +154,12 @@ If you want fixed folder to publish, please edit cms4seo.pubxml
 
 ## Release History
 
+#### v1.1.0.1
+* fix level 3 menu in sidebar link
+* fix message when add new product
+* friendly treeview for category dropdown list
+* support 3 level category
+
 #### 1.1.0.0
 
 * **Plugin Architecture** Support Beta 1

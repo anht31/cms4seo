@@ -38,7 +38,7 @@
                         foreach (var itemChildLv3 in itemChild.Children.Where(x => x.IsAside))
                         {
 
-                            <a target="_top" href="@(itemChildLv3.Href != "#" ? itemChildLv3.Href : itemChildLv3.Slug))" class="list-group-item list-group-item-action list-group-item-lv3">
+                            <a target="_top" href="@(itemChildLv3.Href != "#" ? itemChildLv3.Href : itemChildLv3.Slug)" class="list-group-item list-group-item-action list-group-item-lv3">
                                 @itemChildLv3.Name
                             </a>
                         }
