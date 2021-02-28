@@ -19,8 +19,13 @@
     @Html.Raw(Setting.WebSettings[EmbedSettingType.FacebookScript])
 
     @Html.Partial("_UnderConstruction")
+    
 
-    @Html.Partial("_Header")
+@{
+    Html.RenderAction("Index", "Widgets", new { zone = "layout" });
+}
+
+@Html.Partial("_Header")
 
 
     @{

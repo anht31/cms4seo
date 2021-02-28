@@ -42,7 +42,11 @@ namespace cms4seo.Model.Entities
 
 
         // old-code
-        [ScaffoldColumn(false)]
+        /// <summary>
+        /// temp use for Zone helper Plugins
+        /// </summary>
+        [Display(Name = "Zone")]
+        //[ScaffoldColumn(false)]
         public string PhotosDelimiter { get; set; }
 
 

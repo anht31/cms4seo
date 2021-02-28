@@ -266,7 +266,9 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\ArticlesController.cs" />
     <Compile Include="Controllers\HitCounterController.cs" />
-    <Content Include="packages.config" />
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Sample\general\en.sql" />
     <Content Include="Sample\general\Photo\Articles\align-center-vertical-object.png" />
     <Content Include="Sample\general\Photo\Articles\allie-th3ax0oeix0-unsplash-lg.jpg" />
@@ -3295,6 +3297,7 @@
     <Content Include="Themes\rectangle\LICENSE.MD" />
     <Content Include="Views\Widgets\Index.cshtml" />
     <Content Include="Views\web.config" />
+    <Content Include="Views\Shared\_WidgetPartial.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -3321,7 +3324,6 @@
     <Folder Include="Themes\moderniness\Views\Tag\" />
     <Folder Include="Themes\rectangle\Views\Download\" />
     <Folder Include="Themes\rectangle\Views\Tag\" />
-    <Folder Include="Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />

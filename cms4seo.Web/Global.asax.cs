@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.Entity;
 using System.Data.SqlClient;
 using System.Globalization;
 using System.IO;
@@ -15,12 +16,15 @@ using System.Web.Optimization;
 using System.Web.Routing;
 using cms4seo.Common.Culture;
 using cms4seo.Common.Helpers;
+using cms4seo.Common.Plugins;
+using cms4seo.Data;
 using cms4seo.Data.ConnectionString;
 using cms4seo.Model.Entities;
 using cms4seo.Web;
 using cms4seo.Model.LekimaxType;
 using cms4seo.Service.Binders;
 using cms4seo.Service.Provider;
+using cms4seo.Service.Seo;
 using cms4seo.Service.Themeable;
 
 namespace IdentitySample
@@ -29,14 +33,7 @@ namespace IdentitySample
     // visit http://go.microsoft.com/?LinkId=301868
     public class MvcApplication : HttpApplication
     {
-        private readonly string connectionString =
-        //ConnectionStringProvider.Build(@".\sqlexpress", "lekimax_net_v3_db",
-        //    "anht31", "234", false);
-        ConnectionStringProvider.Get();
-        //ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
-        //@"Data Source=.\sqlexpress;Initial Catalog=lekimax_net_v3_db; User ID=anht31; Password=234;Integrated Security=false;";
-
-
+        private readonly string connectionString = ConnectionStringProvider.Get();
 
         protected void Application_Start()
         {
@@ -59,14 +56,10 @@ namespace IdentitySample
             ViewEngines.Engines.Add(new ThemeableRazorViewEngine());
 
 
-            //// for purpose first run app
-            //using (var db = new ApplicationDbContext())
-            //{
-            //    // Access Entity to init ApplicationDbInitializer
-            //    if (!db.Users.Any())
-            //    {
-            //    }
-            //}
+
+            // plugins job
+            PluginJobs();
+            
 
 
             // binding cart 
@@ -110,6 +103,50 @@ namespace IdentitySample
             }
 
             LogHelper.Write("Application_Start", "try turn on Trace");
+        }
+
+
+        private void PluginJobs()
+        {
+            foreach (Widget item in PluginHelpers.Widgets)
+            {
+                if (!string.IsNullOrWhiteSpace(item.Page))
+                {
+                    using (var db = new ApplicationDbContext())
+                    {
+
+                        if (!db.Infos.Any(x => x.Slug.Contains(item.Page)))
+                        {
+                            var info = new Info
+                            {
+                                Name = item.Page,
+                                Slug = "/" + item.Page,
+                                PhotosDelimiter = item.Zone, // use PhotosDelimiter like Zone
+                                IsCreate = true
+                            };
+                            db.Infos.Add(info);
+                            db.SaveChanges();
+
+
+                            var permalinkProvider = new PermalinkProvider();
+
+                            info.Slug = permalinkProvider.Set(info.Id, cms4seoEntityType.Info,
+                                null,
+                                null,
+                                info.Name,
+                                info.IsCreate);
+
+
+                            // update if duplicate slug
+                            if (info.Slug != "/" + item.Page)
+                            {
+                                db.Entry(info).State = EntityState.Modified;
+                                db.SaveChanges();
+                            }
+                        }
+                    }
+                }
+            }
         }
 
         // default-culture =======================================================

@@ -143,14 +143,6 @@ namespace cms4seo.Service.Themeable
 
             string areaName = GetAreaName(controllerContext.RouteData);
 
-            //little hack to get nop's admin area to be in /Administration/ instead of /Nop/Admin/ or Areas/Admin/
-            //if (!string.IsNullOrEmpty(areaName) && areaName.Equals("admin", StringComparison.InvariantCultureIgnoreCase))
-            //{
-            //    var newLocations = areaLocations.ToList();
-            //    newLocations.Insert(0, "~/Administration/Views/{1}/{0}.cshtml");
-            //    newLocations.Insert(0, "~/Administration/Views/Shared/{0}.cshtml");
-            //    areaLocations = newLocations.ToArray();
-            //}
 
             bool usingAreas = !String.IsNullOrEmpty(areaName);
             List<ViewLocation> viewLocations = GetViewLocations(locations, (usingAreas) ? areaLocations : null);

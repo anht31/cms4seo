@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
@@ -8,6 +9,8 @@ using System.Threading;
 using System.Threading.Tasks;
 using cms4seo.Service.Content;
 using cms4seo.Service.Provider;
+using Newtonsoft.Json;
+using cms4seo.Common.Plugins;
 
 namespace TestConsole
 {
@@ -19,16 +22,197 @@ namespace TestConsole
 
         static void Main(string[] args)
         {
+            Widget widget = new Widget("Index", "Test", "PluginTest"
+                , "testzone", string.Empty, "test-zone", "true");
+
+            Widget widget2 = new Widget("Index", "Test2", "PluginTest2"
+                , "testzone2", string.Empty, "test-zone-2", "true");
+
+            var widgets = new List<Widget>();
+            widgets.Add(widget);
+            widgets.Add(widget2);
+
+            Console.WriteLine(widget.Action);
+
+
+            string path = Path.Combine(
+                AppDomain.CurrentDomain.BaseDirectory, $"widgets.json");
+
+            //// Write the list of Widget objects to file.
+            //WriteToJsonFile<List<Widget>>(path, widgets);
+
+
+            // way 2 with pretty print json
+            SaveWidget(path,widgets);
+
+
+            // Read the list of Widget objects from the file back into a variable.
+            List<Widget> importWidgets = ReadFromJsonFile<List<Widget>>(path);
+
+            Console.WriteLine();
+            Console.WriteLine("Output ------------");
+            foreach (var item in importWidgets)
+            {
+                Console.WriteLine(widget.Zone);
+            }
+            
+
+            Console.ReadLine();
+
+
+
+
             //var task = Main4();
             //Task.WaitAll(task);
 
 
-            DoMain().Wait();
-
-            Console.ReadLine();
+            //DoMain().Wait();
         }
 
 
+
+
+        public static void SaveWidget(string path, List<Widget> widgets)
+        {
+
+            StringBuilder stringBuilder = new StringBuilder();
+            StringWriter stringWriter = new StringWriter(stringBuilder);
+
+            lock (_locker)
+            {
+                using (JsonWriter writer = new JsonTextWriter(stringWriter))
+                {
+                    writer.Formatting = Formatting.Indented;
+
+                    writer.WriteStartArray();
+
+                    foreach (var widget in widgets)
+                    {
+                        writer.WriteStartObject();
+
+                        writer.WritePropertyName("Action");
+                        writer.WriteValue(widget.Action);
+
+                        writer.WritePropertyName("Controller");
+                        writer.WriteValue(widget.Controller);
+
+                        writer.WritePropertyName("Area");
+                        writer.WriteValue(widget.Area);
+
+                        writer.WritePropertyName("Zone");
+                        writer.WriteValue(widget.Zone);
+
+                        writer.WritePropertyName("RouteValues");
+                        writer.WriteValue(widget.RouteValues);
+
+                        writer.WritePropertyName("Page");
+                        writer.WriteValue(widget.Page);
+
+                        writer.WritePropertyName("Active");
+                        writer.WriteValue(widget.Active);
+
+                        writer.WriteEndObject();
+                    }
+
+                    writer.WriteEndArray();
+
+                    
+                }
+
+                string json = stringWriter.ToString();
+
+                // write to file
+                using (StreamWriter streamWriter = new StreamWriter(path, false))
+                {
+                    streamWriter.Write(json);
+                }
+            }
+
+        }
+
+
+        public static void Save(string path, Dictionary<string, string> data)
+        {
+
+            StringBuilder stringBuilder = new StringBuilder();
+            StringWriter stringWriter = new StringWriter(stringBuilder);
+
+            lock (_locker)
+            {
+                using (JsonWriter writer = new JsonTextWriter(stringWriter))
+                {
+                    writer.Formatting = Formatting.Indented;
+
+                    writer.WriteStartObject();
+
+                    foreach (var item in data)
+                    {
+                        writer.WritePropertyName(item.Key);
+                        writer.WriteValue(item.Value);
+                    }
+
+                    writer.WriteEndObject();
+                }
+
+                string json = stringWriter.ToString();
+
+                // write to file
+                using (StreamWriter streamWriter = new StreamWriter(path, false))
+                {
+                    streamWriter.Write(json);
+                }
+            }
+
+        }
+
+        /// <summary>
+        /// Writes the given object instance to a Json file.
+        /// <para>Object type must have a parameterless constructor.</para>
+        /// <para>Only Public properties and variables will be written to the file. These can be any type though, even other classes.</para>
+        /// <para>If there are public properties/variables that you do not want written to the file, decorate them with the [JsonIgnore] attribute.</para>
+        /// </summary>
+        /// <typeparam name="T">The type of object being written to the file.</typeparam>
+        /// <param name="filePath">The file path to write the object instance to.</param>
+        /// <param name="objectToWrite">The object instance to write to the file.</param>
+        /// <param name="append">If false the file will be overwritten if it already exists. If true the contents will be appended to the file.</param>
+        public static void WriteToJsonFile<T>(string filePath, T objectToWrite, bool append = false) where T : new()
+        {
+            TextWriter writer = null;
+            try
+            {
+                var contentsToWriteToFile = JsonConvert.SerializeObject(objectToWrite);
+                writer = new StreamWriter(filePath, append);
+                writer.Write(contentsToWriteToFile);
+            }
+            finally
+            {
+                if (writer != null)
+                    writer.Close();
+            }
+        }
+
+        /// <summary>
+        /// Reads an object instance from an Json file.
+        /// <para>Object type must have a parameterless constructor.</para>
+        /// </summary>
+        /// <typeparam name="T">The type of object to read from the file.</typeparam>
+        /// <param name="filePath">The file path to read the object instance from.</param>
+        /// <returns>Returns a new instance of the object read from the Json file.</returns>
+        public static T ReadFromJsonFile<T>(string filePath) where T : new()
+        {
+            TextReader reader = null;
+            try
+            {
+                reader = new StreamReader(filePath);
+                var fileContents = reader.ReadToEnd();
+                return JsonConvert.DeserializeObject<T>(fileContents);
+            }
+            finally
+            {
+                if (reader != null)
+                    reader.Close();
+            }
+        }
 
 
         #region await test

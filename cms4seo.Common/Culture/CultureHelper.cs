@@ -59,6 +59,12 @@ namespace cms4seo.Common.Culture
         {
             return _cultures[0]; // return Default culture
         }
+
+        public static CultureInfo CurrentCulture()
+        {
+            return Thread.CurrentThread.CurrentCulture;
+        }
+
         public static string GetCurrentCulture()
         {
             return Thread.CurrentThread.CurrentCulture.Name;
@@ -67,6 +73,9 @@ namespace cms4seo.Common.Culture
         {
             return GetNeutralCulture(Thread.CurrentThread.CurrentCulture.Name);
         }
+
+        public static string Current => GetCurrentNeutralCulture();
+
         public static string GetNeutralCulture(string name)
         {
             if (!name.Contains("-")) return name;

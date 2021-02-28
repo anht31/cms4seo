@@ -10,5 +10,17 @@ namespace cms4seo.Plugins.Test.Controllers
             return View();
         }
 
+        [ChildActionOnly]
+        public ActionResult Sub()
+        {
+            return View();
+        }
+
+
+        public ActionResult Query()
+        {
+            return View();
+        }
+
     }
 }

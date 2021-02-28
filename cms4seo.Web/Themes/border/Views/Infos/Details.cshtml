@@ -11,6 +11,12 @@
 
 <div class="mt-4">
 
+    @*PhotosDelimiter temp use like Zone*@
+    @if (Model.PhotosDelimiter == "page")
+    {
+        Html.RenderAction("Index", "Widgets",
+            new { zone = Model.PhotosDelimiter, page = Model.Name });
+    }
 
     @if (Model.Location == 1)
     {

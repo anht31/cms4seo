@@ -18,7 +18,7 @@ namespace cms4seo.Plugins.Test
 
             // Default route =============================================
             context.MapRoute(
-                "Test_route",
+                "PluginTest",
                 "PluginTest/{controller}/{action}/{id}",
                 new { controller = "Home", action = "Index", id = UrlParameter.Optional },
                 new[] { "cms4seo.Plugins.Test.Controllers" }
@@ -26,7 +26,7 @@ namespace cms4seo.Plugins.Test
 
             // Default Test area =============================================
             context.MapRoute(
-                "Test_default",
+                "PluginTest_default",
                 "PluginTest/{controller}/{action}/{id}",
                 new { action = "Index", id = UrlParameter.Optional },
                 new[] { "cms4seo.Plugins.Test.Controllers" }

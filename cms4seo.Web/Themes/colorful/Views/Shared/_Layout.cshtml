@@ -22,6 +22,10 @@
 
     @*@Html.Partial("_header-1")*@
 
+    
+@{
+    Html.RenderAction("Index", "Widgets", new { zone = "layout" });
+}
 
 
     <div class="container">

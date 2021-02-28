@@ -4,10 +4,28 @@ namespace cms4seo.Model.Entities
 {
     public class ShippingDetails
     {
-        [Required(ErrorMessage = "Please enter a name")]
+
+        [Display(Name = "Họ Tên")]
+        [Required(ErrorMessage = "Vui lòng nhập họ tên")]
         public string Name { get; set; }
 
-        [Required(ErrorMessage = "Please enter the first address line")]
+        [Display(Name = "Địa chỉ")]
+        [Required(ErrorMessage = "Vui lòng nhập địa chỉ")]
+        public string Address { get; set; }
+
+
+        [Display(Name = "Số điện thoại")]
+        [Required(ErrorMessage = "Vui lòng nhập số điện thoại")]
+        public string Phone { get; set; }
+
+        [Display(Name = "Địa chỉ email")]
+        [Required(ErrorMessage = "Vui lòng nhập địa chỉ email")]
+        public string Email { get; set; }
+
+
+
+
+        
         [Display(Name = "Line 1")]
         public string Line1 { get; set; }
 
@@ -17,15 +35,12 @@ namespace cms4seo.Model.Entities
         [Display(Name = "Line 3")]
         public string Line3 { get; set; }
 
-        [Required(ErrorMessage = "Please enter a city name")]
         public string City { get; set; }
 
-        [Required(ErrorMessage = "Please enter a state name")]
         public string State { get; set; }
 
         public string Zip { get; set; }
 
-        [Required(ErrorMessage = "Please enter a country name")]
         public string Country { get; set; }
 
         public bool GiftWrap { get; set; }

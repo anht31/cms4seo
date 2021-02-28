@@ -155,6 +155,12 @@ If you want fixed folder to publish, please edit cms4seo.pubxml
 
 ## Release History
 
+#### v1.2.0.1
+
+* Shopping Card Plugin support
+* Widget update
+* fix plugin manager & assembly load
+
 #### v1.1.0.1
 
 * fix image source path when copy new theme

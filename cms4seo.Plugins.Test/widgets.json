@@ -1,0 +1,20 @@
+[
+  {
+    "Action": "Index",
+    "Controller": "Test",
+    "Area": "PluginTest",
+    "Zone": "page",
+    "RouteValues": null,
+    "Page": "test-zone",
+    "Active": "true"
+  },
+  {
+    "Action": "Sub",
+    "Controller": "Test",
+    "Area": "PluginTest",
+    "Zone": "page",
+    "RouteValues": null,
+    "Page": "test-zone",
+    "Active": "true"
+  }
+]

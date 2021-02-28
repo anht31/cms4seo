@@ -15,13 +15,22 @@ namespace cms4seo.Common.Plugins
         public string Zone { get; private set; }
         public object RouteValues { get; private set; }
 
-        public Widget(string action, string controller, string area, string zone, object routeValues)
+        /// <summary>
+        /// page slug need for Model job
+        /// </summary>
+        public string Page { get; private set; }
+        public string Active { get; private set; }
+
+        public Widget(string action, string controller, string area, 
+            string zone, object routeValues, string page, string active)
         {
             Action = action;
             Controller = controller;
             Area = area;
             Zone = zone;
             RouteValues = RouteValues;
+            Page = page;
+            Active = active;
         }
     }
 

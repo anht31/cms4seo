@@ -1,0 +1,11 @@
+﻿
+@model Product
+
+@{
+    foreach (var widget in PluginHelpers.Widgets
+        .Where(x => x.Zone == (string)ViewData["zone"]))
+    {
+        @Html.Partial("~/Plugins/" + widget.Area + "/Views/"
+            + widget.Controller + "/" + widget.Action + ".cshtml")
+    }
+}

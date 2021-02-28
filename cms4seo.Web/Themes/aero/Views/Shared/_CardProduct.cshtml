@@ -73,6 +73,10 @@
         {
             <p class="card-text">@Model.Brief</p>
         }
+        
+        
+        @Html.Partial("_WidgetPartial", Model,
+            new ViewDataDictionary { { "zone", "card_product" } })
 
     </div>
 </div>

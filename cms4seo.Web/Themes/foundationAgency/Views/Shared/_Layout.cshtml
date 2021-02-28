@@ -10,7 +10,8 @@
 </head>
 <body class="@(Setting.WebSettings[ShopSettingType.IsDisallowCopy].AsBool() ? "noselect" : "")">
 
-    @if (!(ViewBag.OverrideMenu ?? false))
+
+@if (!(ViewBag.OverrideMenu ?? false))
     {
         Html.RenderAction("HeaderMenu", "Nav");
     }

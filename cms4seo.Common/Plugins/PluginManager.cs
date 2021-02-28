@@ -6,6 +6,7 @@ using System.IO;
 using System.Web.Hosting;
 using System.Web.Compilation;
 using System.Reflection;
+using System.Web.WebPages;
 using cms4seo.Common.Helpers;
 
 [assembly: PreApplicationStartMethod(typeof(cms4seo.Common.Plugins.PluginManager), "Initialize")]
@@ -19,10 +20,13 @@ namespace cms4seo.Common.Plugins
     public class PluginManager
     {
 
+        private const string PluginsPath = "~/plugins";
+        private const string WidgetsPath = @"\\widgets.json";
+
         static PluginManager()
         {
-            PluginFolder = new DirectoryInfo(HostingEnvironment.MapPath("~/plugins"));
-            ShadowCopyFolder = new DirectoryInfo(HostingEnvironment.MapPath("~/plugins/temp"));
+            PluginFolder = new DirectoryInfo(HostingEnvironment.MapPath(PluginsPath));
+            ShadowCopyFolder = new DirectoryInfo(HostingEnvironment.MapPath($"{PluginsPath}/temp"));
         }
 
         /// <summary>
@@ -54,10 +58,12 @@ namespace cms4seo.Common.Plugins
                 //shadow copy files
                 foreach (FileInfo plug in PluginFolder.GetFiles("*.dll", SearchOption.AllDirectories))
                 {
-                    DirectoryInfo di = Directory.CreateDirectory(Path.Combine(ShadowCopyFolder.FullName, plug.Directory.Name));
+                    //DirectoryInfo di = Directory.CreateDirectory(Path.Combine(ShadowCopyFolder.FullName, plug.Directory.Name));
+
                     // NOTE: You cannot rename the plugin DLL to a different name, it will fail because the assembly name is part if it's manifest
                     // (a reference to how assemblies are loaded: http://msdn.microsoft.com/en-us/library/yx7xezcf )
-                    File.Copy(plug.FullName, Path.Combine(di.FullName, plug.Name), true);
+
+                    File.Copy(plug.FullName, Path.Combine(ShadowCopyFolder.FullName, plug.Name), true);
                 }
 
                 // Now, we need to tell the BuildManager that our plugin DLLs exists and to reference them.
@@ -66,7 +72,8 @@ namespace cms4seo.Common.Plugins
                 // http://blogs.msdn.com/b/suzcook/archive/2003/05/29/57143.aspx
 
 
-                #region Assembly Resolver
+
+                #region Assembly Resolver way 2
                 // * This will put the plugin assemblies in the 'Load' context
                 // This works but requires a 'probing' folder be defined in the web.config
 
@@ -74,19 +81,14 @@ namespace cms4seo.Common.Plugins
 
 
                 // cms4seo modified
-                // Use an AssemblyResolver instead probing privatePath
+                // Use an AssemblyResolver instead probing privatePath, load, Reference
                 foreach (var fileInfo in fileInfos)
                 {
                     AssemblyResolver.Hook(fileInfo.DirectoryName, @"\CommonReferences");
-                    //AssemblyResolver.Hook(fileInfo.Name, fileInfo.DirectoryName);
-                }
 
+                    AssemblyName assemblyName = AssemblyName.GetAssemblyName(fileInfo.FullName);
+                    Assembly assembly = Assembly.Load(assemblyName.FullName);
 
-                IEnumerable<AssemblyName> assemblyNames = fileInfos.Select(x => AssemblyName.GetAssemblyName(x.FullName));
-                IEnumerable<Assembly> assemblies = assemblyNames.Select(x => Assembly.Load(x.FullName));
-
-                foreach (Assembly assembly in assemblies)
-                {
                     BuildManager.AddReferencedAssembly(assembly);
                 }
 
@@ -94,12 +96,52 @@ namespace cms4seo.Common.Plugins
 
 
 
+                //#region Assembly Resolver
+                //// * This will put the plugin assemblies in the 'Load' context
+                //// This works but requires a 'probing' folder be defined in the web.config
+
+                //FileInfo[] fileInfos = ShadowCopyFolder.GetFiles("*.dll", SearchOption.AllDirectories);
+
+
+                //// cms4seo modified
+                //// Use an AssemblyResolver instead probing privatePath
+                //foreach (var fileInfo in fileInfos)
+                //{
+                //    AssemblyResolver.Hook(fileInfo.DirectoryName, @"\CommonReferences");
+                //    //AssemblyResolver.Hook(fileInfo.Name, fileInfo.DirectoryName);
+                //}
+
+
+                //IEnumerable<AssemblyName> assemblyNames = fileInfos.Select(x => AssemblyName.GetAssemblyName(x.FullName));
+                //IEnumerable<Assembly> assemblies = assemblyNames.Select(x => Assembly.Load(x.FullName));
+
+                //foreach (Assembly assembly in assemblies)
+                //{
+                //    BuildManager.AddReferencedAssembly(assembly);
+                //}
+
+                //#endregion
+
+            }
+            catch (Exception e)
+            {
+                LogHelper.Write("PluginManager.Initialize()", e.Message);
+            }
+
+
+
+
+            try
+            {
+
                 #region for test import widget only
 
-                Widget widget = new Widget("Index", "Test", "PluginTest"
-                    , "page", string.Empty);
+                //Widget widget = new Widget("Index", "Test", "PluginTest"
+                //    , "testzone", string.Empty, "test-zone", "true");
 
-                PluginHelpers.Widgets.Add(widget);
+                //PluginHelpers.Widgets.Add(widget);
+
+                // one plugin have multiple widgets, multiple zone.
 
                 //foreach (Assembly assembly in assemblies)
                 //{
@@ -110,13 +152,39 @@ namespace cms4seo.Common.Plugins
 
                 #endregion
 
+
+                string pluginPaths = HostingEnvironment.MapPath(PluginsPath);
+                var directories = Directory.GetDirectories(pluginPaths);
+
+                foreach (var directory in directories)
+                {
+                    if(directory.Contains(@"\plugins\temp"))
+                        continue;
+
+                    if (Directory.Exists(directory))
+                    {
+                        if (File.Exists(directory + WidgetsPath))
+                        {
+                            List<Widget> importWidgets = JsonHelpers
+                                .ReadFromJsonFile<List<Widget>>(directory + WidgetsPath);
+
+                            var activePlugins = importWidgets.Where(x => x.Active.AsBool());
+
+                            PluginHelpers.Widgets.AddRange(activePlugins);
+                        }
+                    }
+                }
+
+                // some plugins jobs, like add page in Global.asax.cs
+
+
             }
             catch (Exception e)
             {
                 LogHelper.Write("PluginManager.Initialize()", e.Message);
             }
 
-            
+
 
 
 

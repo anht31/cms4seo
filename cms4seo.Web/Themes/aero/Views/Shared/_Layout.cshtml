@@ -19,6 +19,10 @@
 
     @Html.Partial("_UnderConstruction")
 
+    
+@{
+    Html.RenderAction("Index", "Widgets", new { zone = "layout" });
+}
 
 
     <div class="">
