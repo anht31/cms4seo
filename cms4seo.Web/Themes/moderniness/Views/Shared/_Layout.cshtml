@@ -17,10 +17,12 @@
 
 
     @Html.Partial("_TagManager")
+    
+    @RenderSection("Styles", false)
 
     @Html.Raw(Setting.WebSettings[EmbedSettingType.GoogleAnalytics])
     
-    @RenderSection("PluginStyles", false)
+    
 
 </head>
 
@@ -33,10 +35,7 @@
     @*@Html.Partial("_header-1")*@
 
     
-@{
-    Html.RenderAction("Index", "Widgets", new { zone = "layout" });
-}
-
+@Html.Partial("_WidgetAction", "layout", null)
 
     <div class="container">
         @{
@@ -220,9 +219,7 @@
     @Scripts.Render("~/Scripts/js")
     @RenderSection("scripts", false)
 
-    @RenderSection("PluginScripts", false)
-
-    @Html.Partial("_Scripts")
+@Html.Partial("_Scripts")
 
 
 

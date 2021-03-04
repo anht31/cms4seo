@@ -15,9 +15,7 @@ namespace cms4seo.Service.Themeable
                                               "~/Areas/Admin/Views/{1}/{0}.cshtml",
                                               "~/Areas/Admin/Views/Shared/{0}.cshtml",
 
-                                              //plugin demo
-                                              "~/Plugins/{2}/Views/{1}/{0}.cshtml",
-                                              "~/Plugins/{2}/Views/Shared/{0}.cshtml",
+                                              
 
                                           };
 
@@ -28,9 +26,7 @@ namespace cms4seo.Service.Themeable
                                                 "~/Areas/Admin/Views/{1}/{0}.cshtml",
                                                 "~/Areas/Admin/Views/Shared/{0}.cshtml",
 
-                                                //plugin demo
-                                                "~/Plugins/{2}/Views/{1}/{0}.cshtml",
-                                                "~/Plugins/{2}/Views/Shared/{0}.cshtml",
+                                                
                                             };
 
             AreaPartialViewLocationFormats = new[]
@@ -40,9 +36,7 @@ namespace cms4seo.Service.Themeable
                                                     "~/Areas/Admin/Views/{1}/{0}.cshtml",
                                                     "~/Areas/Admin/Views/Shared/{0}.cshtml",
 
-                                                    //plugin
-                                                    "~/Plugins/{2}/Views/{1}/{0}.cshtml",
-                                                    "~/Plugins/{2}/Views/Shared/{0}.cshtml",
+                                                    
                                                  };
 
 
@@ -58,7 +52,12 @@ namespace cms4seo.Service.Themeable
                                             "~/Views/{1}/{0}.cshtml",
                                             "~/Views/Shared/{0}.cshtml",
 
+                                            //plugin demo
+                                            //"~/Plugins/{2}/Views/{1}/{0}.cshtml",
+                                            //"~/Plugins/{2}/Views/Shared/{0}.cshtml",
 
+                                            //"~/Plugins/PluginTest/Views/{1}/{0}.cshtml",
+                                            //"~/Plugins/PluginTest/Views/Shared/{0}.cshtml",
                                       };
 
             MasterLocationFormats = new[]
@@ -69,7 +68,14 @@ namespace cms4seo.Service.Themeable
 
                                             //default
                                             "~/Views/{1}/{0}.cshtml",
-                                            "~/Views/Shared/{0}.cshtml"
+                                            "~/Views/Shared/{0}.cshtml",
+
+                                            //plugin demo
+                                            //"~/Plugins/{2}/Views/{1}/{0}.cshtml",
+                                            //"~/Plugins/{2}/Views/Shared/{0}.cshtml",
+
+                                            //"~/Plugins/PluginTest/Views/{1}/{0}.cshtml",
+                                            //"~/Plugins/PluginTest/Views/Shared/{0}.cshtml",
                                         };
 
             PartialViewLocationFormats = new[]
@@ -82,6 +88,12 @@ namespace cms4seo.Service.Themeable
                                                 "~/Views/{1}/{0}.cshtml",
                                                 "~/Views/Shared/{0}.cshtml",
 
+                                                //plugin
+                                                //"~/Plugins/{2}/Views/{1}/{0}.cshtml",
+                                                //"~/Plugins/{2}/Views/Shared/{0}.cshtml",
+
+                                                //"~/Plugins/PluginTest/Views/{1}/{0}.cshtml",
+                                                //"~/Plugins/PluginTest/Views/Shared/{0}.cshtml",
                                              };
 
             FileExtensions = new[] { "cshtml" };

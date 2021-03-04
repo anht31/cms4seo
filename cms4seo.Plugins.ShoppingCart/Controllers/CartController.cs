@@ -169,7 +169,6 @@ namespace cms4seo.Plugins.ShoppingCart.Controllers
         [HttpPost]
         public ActionResult Checkout(ShippingDetails shippingDetails)
         {
-            
 
             var cart = GetCart();
 
@@ -177,16 +176,17 @@ namespace cms4seo.Plugins.ShoppingCart.Controllers
 
             if (!cart.Lines.Any())
             {
-                ModelState.AddModelError("", "Sorry,  your  cart  is empty!");
+                // no need
+                //ModelState.AddModelError("", "Sorry,  your  cart  is empty!");
 
-                // mặc dù đơn hàng rỗng, nhưng vẫn lấy thông tin khách hàng
+                // although cart is empty, just get customer info.
                 orderProcessor.ProcessContact(shippingDetails.Name, shippingDetails.Email, shippingDetails.Phone,
-                    "Tin nhắn từ congtyyensao.com: Khách hàng chưa thêm sản phẩm vào giỏ hàng (hoặc đã quá thời gian giao dịch). Địa chỉ: "
+                    "Khách hàng chưa thêm sản phẩm vào giỏ hàng (hoặc đã quá thời gian giao dịch). Địa chỉ: "
                     + shippingDetails.Address
                     );
 
                 // virtual path to completed page like shopping-cart-completed
-                return Redirect("/cart-completed");
+                return RedirectToAction("Completed");
             }
             if (ModelState.IsValid)
             {
@@ -194,13 +194,11 @@ namespace cms4seo.Plugins.ShoppingCart.Controllers
                 cart.Clear();
 
                 // virtual path to completed page like shopping-cart-completed
-                return Redirect("/cart-completed");
+                return RedirectToAction("Completed");
 
             }
 
-            // rarely reach here, because clients browser support
-            // see, https://caniuse.com/form-validation
-            return Redirect("/cart-checkout");
+            return View(shippingDetails);
 
         }
 

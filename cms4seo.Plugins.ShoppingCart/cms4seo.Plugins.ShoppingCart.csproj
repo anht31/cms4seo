@@ -87,7 +87,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\CartController.cs" />
-    <Compile Include="ShoppingCartAreaRegistration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -129,8 +128,8 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>xcopy /E /Y "$(ProjectDir)bin\Temp\cms4seo.Plugins.ShoppingCart.dll" "$(SolutionDir)cms4seo.Web\Plugins\ShoppingCart\"
-xcopy /E /Y "$(ProjectDir)widgets.json" "$(SolutionDir)cms4seo.Web\Plugins\ShoppingCart\"
+    <PostBuildEvent>xcopy /Y "$(ProjectDir)bin\Temp\cms4seo.Plugins.ShoppingCart.dll" "$(SolutionDir)cms4seo.Web\Plugins\ShoppingCart\"
+xcopy /Y "$(ProjectDir)widgets.json" "$(SolutionDir)cms4seo.Web\Plugins\ShoppingCart\"
 xcopy /E /Y "$(ProjectDir)Views" "$(SolutionDir)cms4seo.Web\Plugins\ShoppingCart\Views\"
 xcopy /E /Y "$(ProjectDir)Assets" "$(SolutionDir)cms4seo.Web\Plugins\ShoppingCart\Assets\"</PostBuildEvent>
   </PropertyGroup>

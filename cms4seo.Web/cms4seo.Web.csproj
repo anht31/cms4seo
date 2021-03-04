@@ -791,7 +791,6 @@
     <Content Include="Themes\adsolution\Views\Articles\_renderTags.cshtml" />
     <Content Include="Themes\adsolution\Views\ArticleTags\AllTag.cshtml" />
     <Content Include="Themes\adsolution\Views\ArticleTags\ListBy.cshtml" />
-    <Content Include="Themes\adsolution\Views\Cart\Summary.cshtml" />
     <Content Include="Themes\adsolution\Views\Categories\Details.cshtml" />
     <Content Include="Themes\adsolution\Views\Error\BadRequest.cshtml" />
     <Content Include="Themes\adsolution\Views\Error\NotFound.cshtml" />
@@ -968,7 +967,6 @@
     <Content Include="Themes\aero\Views\Articles\_renderTags.cshtml" />
     <Content Include="Themes\aero\Views\ArticleTags\AllTag.cshtml" />
     <Content Include="Themes\aero\Views\ArticleTags\ListBy.cshtml" />
-    <Content Include="Themes\aero\Views\Cart\Summary.cshtml" />
     <Content Include="Themes\aero\Views\Categories\Details.cshtml" />
     <Content Include="Themes\aero\Views\Error\BadRequest.cshtml" />
     <Content Include="Themes\aero\Views\Error\NotFound.cshtml" />
@@ -2198,7 +2196,6 @@
     <Content Include="Themes\industry\Views\Articles\_renderTags.cshtml" />
     <Content Include="Themes\industry\Views\ArticleTags\AllTag.cshtml" />
     <Content Include="Themes\industry\Views\ArticleTags\ListBy.cshtml" />
-    <Content Include="Themes\industry\Views\Cart\Summary.cshtml" />
     <Content Include="Themes\industry\Views\Categories\Details.cshtml" />
     <Content Include="Themes\industry\Views\Error\BadRequest.cshtml" />
     <Content Include="Themes\industry\Views\Error\NotFound.cshtml" />
@@ -2496,7 +2493,6 @@
     <Content Include="Themes\moderniness\Views\Articles\_renderTags.cshtml" />
     <Content Include="Themes\moderniness\Views\ArticleTags\AllTag.cshtml" />
     <Content Include="Themes\moderniness\Views\ArticleTags\ListBy.cshtml" />
-    <Content Include="Themes\moderniness\Views\Cart\Summary.cshtml" />
     <Content Include="Themes\moderniness\Views\Categories\Details.cshtml" />
     <Content Include="Themes\moderniness\Views\Error\BadRequest.cshtml" />
     <Content Include="Themes\moderniness\Views\Error\NotFound.cshtml" />
@@ -2664,7 +2660,6 @@
     <Compile Include="Controllers\NavController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\UploadApiController.cs" />
-    <Compile Include="Controllers\WidgetsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -2708,7 +2703,6 @@
     <Content Include="Themes\colorful\Views\Articles\Search.cshtml" />
     <Content Include="Themes\colorful\Views\ArticleTags\AllTag.cshtml" />
     <Content Include="Themes\colorful\Views\ArticleTags\ListBy.cshtml" />
-    <Content Include="Themes\colorful\Views\Cart\Summary.cshtml" />
     <Content Include="Themes\colorful\Views\Categories\Details.cshtml" />
     <Content Include="Themes\colorful\Views\Error\BadRequest.cshtml" />
     <Content Include="Themes\colorful\Views\Error\NotFound.cshtml" />
@@ -2799,7 +2793,6 @@
     <Content Include="Themes\border\Views\Articles\Search.cshtml" />
     <Content Include="Themes\border\Views\ArticleTags\AllTag.cshtml" />
     <Content Include="Themes\border\Views\ArticleTags\ListBy.cshtml" />
-    <Content Include="Themes\border\Views\Cart\Summary.cshtml" />
     <Content Include="Themes\border\Views\Categories\Details.cshtml" />
     <Content Include="Themes\border\Views\Error\BadRequest.cshtml" />
     <Content Include="Themes\border\Views\Error\NotFound.cshtml" />
@@ -2889,7 +2882,6 @@
     <Content Include="Themes\rectangle\Views\Articles\Search.cshtml" />
     <Content Include="Themes\rectangle\Views\ArticleTags\AllTag.cshtml" />
     <Content Include="Themes\rectangle\Views\ArticleTags\ListBy.cshtml" />
-    <Content Include="Themes\rectangle\Views\Cart\Summary.cshtml" />
     <Content Include="Themes\rectangle\Views\Categories\Details.cshtml" />
     <Content Include="Themes\rectangle\Views\Error\BadRequest.cshtml" />
     <Content Include="Themes\rectangle\Views\Error\NotFound.cshtml" />
@@ -3047,7 +3039,6 @@
     <Content Include="Themes\metro\Views\Articles\Search.cshtml" />
     <Content Include="Themes\metro\Views\ArticleTags\AllTag.cshtml" />
     <Content Include="Themes\metro\Views\ArticleTags\ListBy.cshtml" />
-    <Content Include="Themes\metro\Views\Cart\Summary.cshtml" />
     <Content Include="Themes\metro\Views\Categories\Details.cshtml" />
     <Content Include="Themes\metro\Views\Error\BadRequest.cshtml" />
     <Content Include="Themes\metro\Views\Error\NotFound.cshtml" />
@@ -3295,9 +3286,9 @@
     <Content Include="Themes\metro\LICENSE.MD" />
     <Content Include="Themes\moderniness\LICENSE.MD" />
     <Content Include="Themes\rectangle\LICENSE.MD" />
-    <Content Include="Views\Widgets\Index.cshtml" />
     <Content Include="Views\web.config" />
     <Content Include="Views\Shared\_WidgetPartial.cshtml" />
+    <Content Include="Views\Shared\_WidgetAction.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -3306,6 +3297,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Plugins\" />
     <Folder Include="Themes\adsolution\Views\Download\" />
     <Folder Include="Themes\adsolution\Views\Tag\" />
     <Folder Include="Themes\aero\Views\Download\" />

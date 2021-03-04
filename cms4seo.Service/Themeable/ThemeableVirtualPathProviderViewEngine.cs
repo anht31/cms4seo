@@ -6,9 +6,12 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 using System.Web.WebPages;
+using cms4seo.Common.Helpers;
+using cms4seo.Common.Plugins;
 using cms4seo.Data.Repositories;
 using cms4seo.Model.LekimaxType;
 using cms4seo.Service.Provider;
+using Microsoft.Ajax.Utilities;
 
 namespace cms4seo.Service.Themeable
 {
@@ -144,6 +147,27 @@ namespace cms4seo.Service.Themeable
             string areaName = GetAreaName(controllerContext.RouteData);
 
 
+            // cms4seo edited: add plugins Search
+            if (PluginHelpers.Widgets.Any())
+            {
+                var newLocations = locations.ToList();
+
+                var pluginLocations = PluginHelpers.Widgets.Select(x => x.Area).Distinct().ToList();
+                foreach (string pluginLocation in pluginLocations)
+                {
+                    if (!string.IsNullOrWhiteSpace(pluginLocation))
+                    {
+                        newLocations.Add("~/Plugins/" + pluginLocation + "/Views/{1}/{0}.cshtml");
+                        newLocations.Add("~/Plugins/" + pluginLocation + "/Views/Shared/{0}.cshtml");
+                    }
+                }
+
+
+                locations = newLocations.ToArray();
+            }
+            
+
+
             bool usingAreas = !String.IsNullOrEmpty(areaName);
             List<ViewLocation> viewLocations = GetViewLocations(locations, (usingAreas) ? areaLocations : null);
 
@@ -176,6 +200,9 @@ namespace cms4seo.Service.Themeable
                         {
                             controllerContext.DisplayMode = displayMode;
                         }
+
+                        // for test mode only
+                        LogHelper.Write("ThemeableVirtualPathProviderViewEngine", $"found cachedLocation {cachedLocation}");
 
                         return cachedLocation;
                     }

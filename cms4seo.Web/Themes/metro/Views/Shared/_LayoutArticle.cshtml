@@ -9,6 +9,8 @@
 
 
     @Html.Partial("_TagManager")
+    
+    @RenderSection("Styles", false)
 
     @Html.Raw(Setting.WebSettings[EmbedSettingType.GoogleAnalytics])
 

@@ -1,5 +1,9 @@
-﻿@{
+﻿@using cms4seo.Model.LekimaxType
+@using cms4seo.Service.Provider
+@{
     ViewBag.Title = "Xác nhận đơn hàng";
+    var theme = Setting.WebSettings[WebSettingType.CurrentTheme];
+    Layout = "~/Themes/" + theme + "/Views/Shared/_Layout.cshtml";
 }
 
 <div>

@@ -1,7 +1,11 @@
-﻿@model cms4seo.Model.Entities.ShippingDetails
+﻿@using cms4seo.Model.LekimaxType
+@using cms4seo.Service.Provider
+@model cms4seo.Model.Entities.ShippingDetails
 
 @{
     ViewBag.Title = "Thanh toán";
+    var theme = Setting.WebSettings[WebSettingType.CurrentTheme];
+    Layout = "~/Themes/" + theme + "/Views/Shared/_Layout.cshtml";
 }
 
 
@@ -20,7 +24,7 @@
 
 
 
-        <form id="checkoutForm" action="/ShoppingCart/Cart/Checkout" method="post" >
+        <form id="checkoutForm" action="/Plugins/Cart/Checkout" method="post" >
 
 
             <div class="form-group">

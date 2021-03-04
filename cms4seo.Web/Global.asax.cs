@@ -57,11 +57,6 @@ namespace IdentitySample
 
 
 
-            // plugins job
-            PluginJobs();
-            
-
-
             // binding cart 
             ModelBinders.Binders.Add(typeof(Cart), new CartModelBinder());
 
@@ -106,48 +101,6 @@ namespace IdentitySample
         }
 
 
-        private void PluginJobs()
-        {
-            foreach (Widget item in PluginHelpers.Widgets)
-            {
-                if (!string.IsNullOrWhiteSpace(item.Page))
-                {
-                    using (var db = new ApplicationDbContext())
-                    {
-
-                        if (!db.Infos.Any(x => x.Slug.Contains(item.Page)))
-                        {
-                            var info = new Info
-                            {
-                                Name = item.Page,
-                                Slug = "/" + item.Page,
-                                PhotosDelimiter = item.Zone, // use PhotosDelimiter like Zone
-                                IsCreate = true
-                            };
-                            db.Infos.Add(info);
-                            db.SaveChanges();
-
-
-                            var permalinkProvider = new PermalinkProvider();
-
-                            info.Slug = permalinkProvider.Set(info.Id, cms4seoEntityType.Info,
-                                null,
-                                null,
-                                info.Name,
-                                info.IsCreate);
-
-
-                            // update if duplicate slug
-                            if (info.Slug != "/" + item.Page)
-                            {
-                                db.Entry(info).State = EntityState.Modified;
-                                db.SaveChanges();
-                            }
-                        }
-                    }
-                }
-            }
-        }
 
         // default-culture =======================================================
 

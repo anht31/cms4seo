@@ -9,6 +9,8 @@
 
 
     @Html.Partial("_TagManager")
+    
+    @RenderSection("Styles", false)
 
     @Html.Raw(Setting.WebSettings[EmbedSettingType.GoogleAnalytics])
 
@@ -23,9 +25,7 @@
     @*@Html.Partial("_header-1")*@
 
     
-@{
-    Html.RenderAction("Index", "Widgets", new { zone = "layout" });
-}
+@Html.Partial("_WidgetAction", "layout", null)
 
 
     <div class="container">

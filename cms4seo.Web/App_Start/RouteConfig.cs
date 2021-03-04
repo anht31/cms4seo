@@ -127,6 +127,14 @@ namespace IdentitySample
 
 
 
+            routes.MapRoute(
+                "Plugins",
+                "Plugins/{controller}/{action}/{id}",
+                new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                //, new[] { "cms4seo.Plugins.Controllers" } // better, avoid Multiple matching controllers
+            );
+
+
             //routes.MapLocalizedRoute(
             //    "SeoFriendlyUrl",
             //    "{SeoFriendlyName}/{page}",

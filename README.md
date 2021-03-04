@@ -155,6 +155,13 @@ If you want fixed folder to publish, please edit cms4seo.pubxml
 
 ## Release History
 
+#### v1.2.1.1
+
+* plugins architecture version 2
+* plugins shopping cart version 2
+* Partial _WidgetAction
+* all theme bootstrap support Plugin v2
+
 #### v1.2.0.1
 
 * Shopping Card Plugin support

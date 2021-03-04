@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.Hosting;
 using System.Web.UI.WebControls;
 using cms4seo.Common.Culture;
+using cms4seo.Common.Helpers;
 using cms4seo.Common.Security;
 using cms4seo.Data.Repositories;
 using cms4seo.Model.Entities;
@@ -80,134 +81,142 @@ namespace cms4seo.Service.Email
 
         public void ProcessOrder(Cart cart, ShippingDetails shippingDetails)
         {
-            EmailSettings emailSettings = new EmailSettings();
-
-            using (var smtpClient = new SmtpClient())
+            try
             {
-                smtpClient.EnableSsl = emailSettings.UseSsl;
-                smtpClient.Host = emailSettings.ServerName;
-                smtpClient.Port = emailSettings.ServerPort;
-                smtpClient.UseDefaultCredentials = false;
-                smtpClient.Credentials
-                = new NetworkCredential(emailSettings.Username,
-                emailSettings.Password);
-                if (emailSettings.WriteAsFile)
+                EmailSettings emailSettings = new EmailSettings();
+
+                using (var smtpClient = new SmtpClient())
                 {
-                    smtpClient.DeliveryMethod
-                    = SmtpDeliveryMethod.SpecifiedPickupDirectory;
-                    smtpClient.PickupDirectoryLocation =
-                    emailSettings.FileLocation;
-                    smtpClient.EnableSsl = false;
+                    smtpClient.EnableSsl = emailSettings.UseSsl;
+                    smtpClient.Host = emailSettings.ServerName;
+                    smtpClient.Port = emailSettings.ServerPort;
+                    smtpClient.UseDefaultCredentials = false;
+                    smtpClient.Credentials
+                    = new NetworkCredential(emailSettings.Username,
+                    emailSettings.Password);
+                    if (emailSettings.WriteAsFile)
+                    {
+                        smtpClient.DeliveryMethod
+                        = SmtpDeliveryMethod.SpecifiedPickupDirectory;
+                        smtpClient.PickupDirectoryLocation =
+                        emailSettings.FileLocation;
+                        smtpClient.EnableSsl = false;
+                    }
+
+                    // body
+                    StringBuilder body = new StringBuilder()
+                    .AppendLine("<div>Một đơn hàng mới được đặt, chi tiết như sau:<br>")
+                    //.AppendLine("<hr>")
+                    .AppendFormat("<table width='100%' border='1px' cellpadding='5px' cellspacing='0' bgcolor='#F2F2F2'>")
+                    .AppendFormat("<tr style='background-color: #4CAF50;color: white;font-weight: bold;'><td align='center' valign='top'>Số Lượng</td><td align='center' valign='top'>Tên Hàng</td><td align='center' valign='top'>Giá</td></tr>");
+
+                    foreach (var line in cart.Lines)
+                    {
+                        //var subtotal = line.Product.Price * line.Quantity;
+
+                        //long subtotal = CultureHelper.Current == "vi"
+                        //    ? line.Product.Price * line.Quantity
+                        //    : line.Product.PriceUsd * line.Quantity;
+
+                        double subtotal;
+
+                        subtotal = line.Product.Price * line.Quantity;
+
+                        //if (CultureHelper.GetCurrentNeutralCulture() == "vi")
+                        //    subtotal = line.Product.Price * line.Quantity;
+                        //else if (CultureHelper.GetCurrentNeutralCulture() == "en")
+                        //    subtotal = line.Product.PriceUsd * line.Quantity;
+                        //else
+                        //    subtotal = line.Product.PriceCny * line.Quantity;
+
+                        //body.AppendFormat("{0}  x  {1}  (giá:  {2:c}",
+                        body.AppendFormat(
+                            "<tr><td align='center' valign='top'>{0}</td><td align='center' valign='top'>{1}</td><td align='right' valign='top'>{2}</td></tr>",
+                            line.Quantity,
+                            line.Product.Name,
+                            subtotal.ToString("C0", new CultureInfo(CultureHelper.GetCurrentNeutralCulture())));
+                    }
+                    body.AppendFormat("<tr><td align='center' valign='top'></td><td align='center' valign='top'><b>Tổng Cộng</b></td><td align='right' valign='top'><b>{0}</b></td></tr>"
+                        , cart.ComputeTotalValue().ToString("C0", new CultureInfo(CultureHelper.GetCurrentNeutralCulture())));
+
+                    body.AppendFormat("</table>");
+
+                    body.AppendLine("<br>")
+                        .AppendLine("Chuyển hàng đến:")
+                        .AppendLine(shippingDetails.Name)
+                        .AppendLine("<br>Địa chỉ:")
+                        .AppendLine(shippingDetails.Address)
+                        .AppendLine("<br>Điện thoại:")
+                        .AppendLine(shippingDetails.Phone)
+                        .AppendLine("<br>Email:")
+                        .AppendLine(shippingDetails.Email)
+                        .AppendLine("<br>Ngôn ngữ khách hàng sử dụng:")
+                        .AppendFormat("<b>{0}</b>", CultureInfo.CurrentCulture.DisplayName)
+                        //.AppendLine(shippingInfo.Line2 ?? "")
+                        //.AppendLine(shippingInfo.Line3 ?? "")
+                        //.AppendLine(shippingInfo.City)
+                        //.AppendLine(shippingInfo.State ?? "")
+                        //.AppendLine(shippingInfo.Country)
+                        //.AppendLine(shippingInfo.Zip)
+                        .AppendLine("</div>");
+                    //.AppendFormat("Gift wrap: {0}",
+                    //shippingInfo.GiftWrap ? "Yes" : "No");
+
+                    //MailMessage mailMessage = new MailMessage(
+                    //    emailSettings.MailFromAddress,   // From
+                    //    emailSettings.MailToAddress,     // To
+                    //    "Đơn hàng mới!",          // Subject
+                    //    body.ToString());                // Body
+
+
+
+
+                    MailDefinition mailDefinition = new MailDefinition
+                    {
+                        From = emailSettings.MailFromAddress,
+                        IsBodyHtml = true,
+                        Subject = "Đơn hàng mới!"
+                    };
+
+
+                    //ListDictionary replacements = new ListDictionary();
+                    //replacements.Add("{name}", "Martin");
+                    //replacements.Add("{country}", "Denmark");
+
+                    //string body = "<div>Hello {name} You're from {country}.</div>";
+                    //string body = "<table width='100%' border='0' cellpadding='0' cellspacing='0' bgcolor='#F2F2F2'>" +
+                    //              "<tr><td align='center' valign='top'>{name}</td><td align='center' valign='top'>{country}</td></tr>" +
+                    //              "</table>";
+
+                    MailMessage mailMessage = mailDefinition.CreateMailMessage(emailSettings.MailToAddress, null, body.ToString(), new System.Web.UI.Control());
+
+
+
+
+                    // To address 2
+                    if (emailSettings.MailToAddress2 != null && emailSettings.MailToAddress2 != "null")
+                    {
+                        mailMessage.To.Add(emailSettings.MailToAddress2);
+                    }
+
+                    // To Bcc
+                    if (emailSettings.MailToAddressBcc != null && emailSettings.MailToAddressBcc != "null")
+                    {
+                        mailMessage.Bcc.Add(emailSettings.MailToAddressBcc);
+                    }
+
+                    if (emailSettings.WriteAsFile)
+                    {
+                        mailMessage.BodyEncoding = Encoding.ASCII;
+                    }
+                    smtpClient.Send(mailMessage);
                 }
-
-                // body
-                StringBuilder body = new StringBuilder()
-                .AppendLine("<div>Một đơn hàng mới được đặt, chi tiết như sau:<br>")
-                //.AppendLine("<hr>")
-                .AppendFormat("<table width='100%' border='1px' cellpadding='5px' cellspacing='0' bgcolor='#F2F2F2'>")
-                .AppendFormat("<tr style='background-color: #4CAF50;color: white;font-weight: bold;'><td align='center' valign='top'>Số Lượng</td><td align='center' valign='top'>Tên Hàng</td><td align='center' valign='top'>Giá</td></tr>");
-
-                foreach (var line in cart.Lines)
-                {
-                    //var subtotal = line.Product.Price * line.Quantity;
-
-                    //long subtotal = CultureHelper.Current == "vi"
-                    //    ? line.Product.Price * line.Quantity
-                    //    : line.Product.PriceUsd * line.Quantity;
-
-                    double subtotal;
-
-                    subtotal = line.Product.Price * line.Quantity;
-
-                    //if (CultureHelper.GetCurrentNeutralCulture() == "vi")
-                    //    subtotal = line.Product.Price * line.Quantity;
-                    //else if (CultureHelper.GetCurrentNeutralCulture() == "en")
-                    //    subtotal = line.Product.PriceUsd * line.Quantity;
-                    //else
-                    //    subtotal = line.Product.PriceCny * line.Quantity;
-
-                    //body.AppendFormat("{0}  x  {1}  (giá:  {2:c}",
-                    body.AppendFormat(
-                        "<tr><td align='center' valign='top'>{0}</td><td align='center' valign='top'>{1}</td><td align='right' valign='top'>{2}</td></tr>",
-                        line.Quantity,
-                        line.Product.Name,
-                        subtotal.ToString("C0", new CultureInfo(CultureHelper.GetCurrentNeutralCulture())));
-                }
-                body.AppendFormat("<tr><td align='center' valign='top'></td><td align='center' valign='top'><b>Tổng Cộng</b></td><td align='right' valign='top'><b>{0}</b></td></tr>"
-                    , cart.ComputeTotalValue().ToString("C0", new CultureInfo(CultureHelper.GetCurrentNeutralCulture())));
-
-                body.AppendFormat("</table>");
-
-                body.AppendLine("<br>")
-                    .AppendLine("Chuyển hàng đến:")
-                    .AppendLine(shippingDetails.Name)
-                    .AppendLine("<br>Địa chỉ:")
-                    .AppendLine(shippingDetails.Address)
-                    .AppendLine("<br>Điện thoại:")
-                    .AppendLine(shippingDetails.Phone)
-                    .AppendLine("<br>Email:")
-                    .AppendLine(shippingDetails.Email)
-                    .AppendLine("<br>Ngôn ngữ khách hàng sử dụng:")
-                    .AppendFormat("<b>{0}</b>", CultureInfo.CurrentCulture.DisplayName)
-                    //.AppendLine(shippingInfo.Line2 ?? "")
-                    //.AppendLine(shippingInfo.Line3 ?? "")
-                    //.AppendLine(shippingInfo.City)
-                    //.AppendLine(shippingInfo.State ?? "")
-                    //.AppendLine(shippingInfo.Country)
-                    //.AppendLine(shippingInfo.Zip)
-                    .AppendLine("</div>");
-                //.AppendFormat("Gift wrap: {0}",
-                //shippingInfo.GiftWrap ? "Yes" : "No");
-
-                //MailMessage mailMessage = new MailMessage(
-                //    emailSettings.MailFromAddress,   // From
-                //    emailSettings.MailToAddress,     // To
-                //    "Đơn hàng mới!",          // Subject
-                //    body.ToString());                // Body
-
-
-
-
-                MailDefinition mailDefinition = new MailDefinition
-                {
-                    From = emailSettings.MailFromAddress,
-                    IsBodyHtml = true,
-                    Subject = "Đơn hàng mới!"
-                };
-
-
-                //ListDictionary replacements = new ListDictionary();
-                //replacements.Add("{name}", "Martin");
-                //replacements.Add("{country}", "Denmark");
-
-                //string body = "<div>Hello {name} You're from {country}.</div>";
-                //string body = "<table width='100%' border='0' cellpadding='0' cellspacing='0' bgcolor='#F2F2F2'>" +
-                //              "<tr><td align='center' valign='top'>{name}</td><td align='center' valign='top'>{country}</td></tr>" +
-                //              "</table>";
-
-                MailMessage mailMessage = mailDefinition.CreateMailMessage(emailSettings.MailToAddress, null, body.ToString(), new System.Web.UI.Control());
-
-
-
-
-                // To address 2
-                if (emailSettings.MailToAddress2 != null && emailSettings.MailToAddress2 != "null")
-                {
-                    mailMessage.To.Add(emailSettings.MailToAddress2);
-                }
-
-                // To Bcc
-                if (emailSettings.MailToAddressBcc != null && emailSettings.MailToAddressBcc != "null")
-                {
-                    mailMessage.Bcc.Add(emailSettings.MailToAddressBcc);
-                }
-
-                if (emailSettings.WriteAsFile)
-                {
-                    mailMessage.BodyEncoding = Encoding.ASCII;
-                }
-                smtpClient.Send(mailMessage);
             }
+            catch (Exception exception)
+            {
+                LogHelper.Write("ConnectionStringProvider/TryCreateDatabase", exception.Message);
+            }
+
         }
 
 

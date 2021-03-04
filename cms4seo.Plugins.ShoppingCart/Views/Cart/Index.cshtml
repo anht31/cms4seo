@@ -1,8 +1,12 @@
 ﻿
+@using cms4seo.Model.LekimaxType
+@using cms4seo.Service.Provider
 @model cms4seo.Model.Entities.CartIndexViewModel
 
 @{
     ViewBag.Title = "Giỏ Hàng Của Bạn";
+    var theme = Setting.WebSettings[WebSettingType.CurrentTheme];
+    Layout = "~/Themes/" + theme + "/Views/Shared/_Layout.cshtml";
 }
 
 <style>
@@ -42,7 +46,7 @@
         }
 
 
-        <a class="btn btn-primary" href="/cart-checkout">
+        <a class="btn btn-primary" href="/Plugins/Cart/Checkout">
             <span id="GioHangThanhToan" class="ng-cloak">Thanh toán</span>
         </a>
     </div>

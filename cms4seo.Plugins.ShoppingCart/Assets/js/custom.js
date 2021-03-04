@@ -31,7 +31,7 @@ function AddToMyCart(productId) {
     var quality = $('#numberOfProduct-' + productId).val();
     var result;
 
-    $.getJSON("/ShoppingCart/Cart/AddToCart?productId=" + productId + "&quality=" + quality
+    $.getJSON("/Plugins/Cart/AddToCart?productId=" + productId + "&quality=" + quality
         , function (data) {
             console.log("first success");
             result = data;
@@ -57,7 +57,7 @@ function PlusMyCart(productId) {
 
     //var quality = $('#numberOfProduct-' + productId).val();
 
-    $.getJSON("/ShoppingCart/Cart/UpdateCart?productId=" + productId + "&quality=" + "1"
+    $.getJSON("/Plugins/Cart/UpdateCart?productId=" + productId + "&quality=" + "1"
         , function (data) {
             //console.log("first success");
 
@@ -66,7 +66,7 @@ function PlusMyCart(productId) {
             $('div#cart-status').text(data.qualityTotal);
 
             // currentCulture set by selectGlobalize.js (in html attr)
-            $('#table-cart-detail').load("/ShoppingCart/Cart/TableCartDetail");
+            $('#table-cart-detail').load("/Plugins/Cart/TableCartDetail");
         })
         .done(function () {
             animateCSS("#shoping-cart", "bounce");
@@ -92,7 +92,7 @@ function MinusMyCart(productId) {
         //$('#row-' + productId).fadeOut('slow');
     }
 
-    $.getJSON("/ShoppingCart/Cart/UpdateCart?productId=" + productId + "&quality=" + "-1"
+    $.getJSON("/Plugins/Cart/UpdateCart?productId=" + productId + "&quality=" + "-1"
         , function (data) {
             //console.log("first success");
 
@@ -100,7 +100,7 @@ function MinusMyCart(productId) {
 
             $('div#cart-status').text(data.qualityTotal);
 
-            $('#table-cart-detail').load("/ShoppingCart/Cart/TableCartDetail");
+            $('#table-cart-detail').load("/Plugins/Cart/TableCartDetail");
         })
         .done(function () {
             animateCSS("#shoping-cart", "bounce");
@@ -120,14 +120,14 @@ function RemoveMyCart(productId) {
 
 
 
-    $.getJSON("/ShoppingCart/Cart/RemoveFromCart?productId=" + productId
+    $.getJSON("/Plugins/Cart/RemoveFromCart?productId=" + productId
         , function (data) {
             //console.log("first success");
 
 
             $('div#cart-status').text(data.qualityTotal);
 
-            $('#table-cart-detail').load("/ShoppingCart/Cart/TableCartDetail");
+            $('#table-cart-detail').load("/Plugins/Cart/TableCartDetail");
         })
         .done(function () {
             animateCSS("#shoping-cart", "bounce");

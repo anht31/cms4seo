@@ -71,15 +71,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\TestController.cs" />
-    <Compile Include="pluginTestAreaRegistration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
-    <None Include="Views\Test\Sub.cshtml" />
     <None Include="Views\Test\Index.cshtml" />
-    <None Include="Views\Test\Query.cshtml" />
     <None Include="Views\web.config" />
     <None Include="widgets.json" />
   </ItemGroup>
@@ -108,8 +105,8 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>xcopy /E /Y "$(ProjectDir)bin\Temp\cms4seo.Plugins.Test.dll" "$(SolutionDir)cms4seo.Web\Plugins\PluginTest\"
-xcopy /E /Y "$(ProjectDir)widgets.json" "$(SolutionDir)cms4seo.Web\Plugins\PluginTest\"
+    <PostBuildEvent>xcopy /Y "$(ProjectDir)bin\Temp\cms4seo.Plugins.Test.dll" "$(SolutionDir)cms4seo.Web\Plugins\PluginTest\"
+xcopy /Y "$(ProjectDir)widgets.json" "$(SolutionDir)cms4seo.Web\Plugins\PluginTest\"
 xcopy /E /Y "$(ProjectDir)Views" "$(SolutionDir)cms4seo.Web\Plugins\PluginTest\Views\"
 xcopy /E /Y "$(ProjectDir)Assets" "$(SolutionDir)cms4seo.Web\Plugins\PluginTest\Assets\"</PostBuildEvent>
   </PropertyGroup>
