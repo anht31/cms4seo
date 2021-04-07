@@ -15,7 +15,8 @@ namespace cms4seo.Model.Entities
         {
             {0, AdminResources.InfoModelLocationRuleDefault},
             {1, AdminResources.InfoModelLocationRuleContactForm},
-            {2, "Download Page"}
+            {2, "Download Page"},
+            {3, "SectionGallery"}
         };
 
         // SEO class has been property Id

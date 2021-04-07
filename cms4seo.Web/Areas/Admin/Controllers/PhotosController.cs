@@ -1,10 +1,15 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Data.Entity;
 using System.Net;
 using System.Threading.Tasks;
 using System.Web.Mvc;
+using Admin.Resources;
 using cms4seo.Common.Attribute;
+using cms4seo.Common.BootstrapHelpers;
+using cms4seo.Common.Helpers;
 using cms4seo.Data;
 using cms4seo.Model.Entities;
+using cms4seo.Service.Photo;
 
 namespace cms4seo.Admin.Controllers
 {
@@ -65,8 +70,38 @@ namespace cms4seo.Admin.Controllers
         public async Task<ActionResult> DeleteConfirmed(int id)
         {
             Photo photo = await db.Photos.FindAsync(id);
-            db.Photos.Remove(photo);
+
+            if (photo == null)
+            {
+                LogHelper.Write(@"Admin/Photos",
+                    $"Photo not found: {User.Identity.Name} for try delete photo");
+
+                return RedirectToAction("Index");
+            }
+
+
+            try
+            {
+                var photoService = new PhotoService();
+                photoService.DeletePhoto(photo);
+                db.Photos.Remove(photo);
+
+            }
+            catch (Exception e)
+            {
+                TempData[MessageType.Danger] =
+                    string.Format(AdminResources.PhotosController_Delete_photo_Message_0, e.Message);
+
+                LogHelper.Write(@"Admin/Photos",
+                    $"Deleted photo fail, user: {User.Identity.Name}, message: {e.Message}");
+
+                return RedirectToAction("Index");
+            }
+
+
+            
             await db.SaveChangesAsync();
+            //return View("Index"); // not refresh
             return RedirectToAction("Index");
         }
 

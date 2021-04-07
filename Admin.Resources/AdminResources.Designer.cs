@@ -2588,6 +2588,15 @@ namespace Admin.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Delele photo fail,  Message: {0}.
+        /// </summary>
+        public static string PhotosController_Delete_photo_Message_0 {
+            get {
+                return ResourceManager.GetString("PhotosController_Delete_photo_Message_0", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Image Quality (between 70 to 100).
         /// </summary>
         public static string PhotoSettingVmImageQuality {
@@ -4815,6 +4824,15 @@ namespace Admin.Resources {
         public static string WebSettingVmIsLockSeoMetaTag {
             get {
                 return ResourceManager.GetString("WebSettingVmIsLockSeoMetaTag", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Option Category (commas separator).
+        /// </summary>
+        public static string WebSettingVmOptionCategory {
+            get {
+                return ResourceManager.GetString("WebSettingVmOptionCategory", resourceCulture);
             }
         }
         

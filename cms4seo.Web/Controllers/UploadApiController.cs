@@ -105,17 +105,24 @@ namespace cms4seo.Web.Controllers
 
                 // prevent conflict file ========================================================                    
                 string nameWithoutExtension = Path.GetFileNameWithoutExtension(fileName);
+                
+                // init name
                 fileName = String.Copy(nameWithoutExtension.MakeNameFriendly());
 
+
+                // jpeg check $@"{path}\{fileName}-sm{extension}"
+                // png check $@"{path}\{fileName}{extension}"
+
+                // same way check with png, jpg
                 var n = 0;
-                while (File.Exists($@"{path}\{fileName}-sm{extension}"))
+                while (File.Exists($@"{path}\{fileName}{extension}"))
                     fileName = $"{nameWithoutExtension.MakeNameFriendly()}-{++n}";
 
 
                 // no resize for qualify banner
-                var smName = $"{fileName}-{extension}";
-                var mdName = $"{fileName}-{extension}";
-                var lgName = $"{fileName}-{extension}";
+                var smName = $"{fileName}{extension}";
+                var mdName = $"{fileName}{extension}";
+                var lgName = $"{fileName}{extension}";
 
 
 
@@ -185,22 +192,22 @@ namespace cms4seo.Web.Controllers
                 {
 
 
-                    var n2 = 0;
-                    var fileName2 = String.Copy(nameWithoutExtension.MakeNameFriendly());
-                    while (File.Exists($@"{path}\{fileName2}{extension}"))
-                        fileName2 = $"{nameWithoutExtension}-{++n2}";
+                    //var n2 = 0;
+                    //var fileName2 = String.Copy(nameWithoutExtension.MakeNameFriendly());
+                    //while (File.Exists($@"{path}\{fileName2}{extension}"))
+                    //    fileName2 = $"{nameWithoutExtension.MakeNameFriendly()}-{++n2}";
 
 
                     // some stuff to save file
-                    using (var fileStream = File.Create($@"{path}\{fileName2}{extension}"))
+                    using (var fileStream = File.Create($@"{path}\{fileName}{extension}"))
                     {
                         (await content.ReadAsStreamAsync()).CopyTo(fileStream);
                     }
 
                     // other image will not resize, thus no need rename extra like sm, md, lg
-                    smName = $"{fileName2}{extension}";
-                    mdName = $"{fileName2}{extension}";
-                    lgName = $"{fileName2}{extension}";
+                    //smName = $"{fileName}{extension}";
+                    //mdName = $"{fileName}{extension}";
+                    //lgName = $"{fileName}{extension}";
                 }
 
 

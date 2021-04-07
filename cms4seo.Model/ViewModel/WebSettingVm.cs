@@ -76,5 +76,8 @@ namespace cms4seo.Model.ViewModel
         //[Display(Name = "Bootswatch (Platform Theme, support Bootstrap Themes only)")]
         //public string Bootswatch { get; set; }
 
+        [Display(Name = "WebSettingVmOptionCategory", ResourceType = typeof(AdminResources))]
+        public string OptionCategory { get; set; }
+
     }
 }

@@ -8,7 +8,7 @@ CKEDITOR.editorConfig = function( config ) {
 	// config.language = 'fr';
     // config.uiColor = '#AADC6E';
     config.extraPlugins = "lineutils,widget,codesnippet,prism,codemirror,youtube,btgrid,mapresponsive";
-    config.extraAllowedContent = 'video[width,height,controls,autoplay,loop,muted,playsinline];source[src,type];iframe[allowfullscreen]';
+    config.extraAllowedContent = 'video[width,height,controls,autoplay,loop,muted,playsinline,id,class];source[src,type];iframe[allowfullscreen]';
     //config.allowedContent = true
 
     // config for youtube plugin

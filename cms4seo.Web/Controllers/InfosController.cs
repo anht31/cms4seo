@@ -29,6 +29,16 @@ namespace cms4seo.Web.Controllers
         }
 
 
+        [ChildActionOnly]
+        public ActionResult SectionGallery()
+        {
+            var info = db.Infos.FirstOrDefault(x => x.Location == 3);
+
+            if (info == null)
+                return null;
+
+            return View(info);
+        }
 
 
         protected override void Dispose(bool disposing)

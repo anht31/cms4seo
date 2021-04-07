@@ -1704,4 +1704,10 @@
   <data name="UploadPhoto_ListTable_HeaderLgPath" xml:space="preserve">
     <value>Large Image</value>
   </data>
+  <data name="WebSettingVmOptionCategory" xml:space="preserve">
+    <value>Option Category (commas separator)</value>
+  </data>
+  <data name="PhotosController_Delete_photo_Message_0" xml:space="preserve">
+    <value>Delele photo fail,  Message: {0}</value>
+  </data>
 </root>

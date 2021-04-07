@@ -174,13 +174,6 @@ input:checked + .checkbox-slider:before {
 
 /*#region edit content */
 
-.editContentIcon {
-    background-color: orange;
-    background: url('edit-icon.png') no-repeat;
-    background-size: 30px 30px;
-    width: 30px;
-    height: 30px;
-}
 
 .activeEditContents {
     border: 2px dashed orange !important;
@@ -188,9 +181,20 @@ input:checked + .checkbox-slider:before {
 
 
 .editContentButton {
+    
+}
+
+.activeEditContents::after {
+    content: " ";
+    background-color: orange;
+    background: url('edit-icon.png') no-repeat;
+    background-size: 30px 30px;
+    width: 30px;
+    height: 30px;
     position: absolute;
-    margin-left: -15px;
-    margin-top: -10px;
+    cursor: pointer;
+    -webkit-filter: drop-shadow(3px 3px 3px #222);
+    filter: drop-shadow(3px 3px 3px #222);
     z-index: 100;
 }
 
@@ -200,24 +204,22 @@ input:checked + .checkbox-slider:before {
 
 
 .editContentButton {
-    cursor: pointer;
-    -webkit-filter: drop-shadow(3px 3px 3px #222);
-    filter: drop-shadow(3px 3px 3px #222);
+    
 }
 
-    .editContentButton:hover {
+    .activeEditContents:hover::after {
         -webkit-filter: drop-shadow(4px 4px 4px #222);
         filter: drop-shadow(4px 4px 4px #222);
     }
 
 
-    .editContentButton:active {
+    .activeEditContents:active::after {
         -webkit-filter: drop-shadow(2px 2px 2px #222);
         filter: drop-shadow(2px 2px 2px #222);
     }
 
 
-    .editContentButton:hover {
+    .activeEditContents:hover::after {
         color: tomato;
     }
 

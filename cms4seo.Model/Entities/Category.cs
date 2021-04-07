@@ -9,9 +9,11 @@ namespace cms4seo.Model.Entities
 {
     public class Category : Seo
     {
-        // GetLocationRule ===============================================
+        // Old Modal - Migration to WebSetting Option ====================================
+        [ScaffoldColumn(false)]
         public Dictionary<int, string> LocationRule = new Dictionary<int, string>
         {
+            {0, "Default"},
             {1, "Services"},
             {2, "Portfolio"},
             {3, "Timeline"}

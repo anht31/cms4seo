@@ -31,5 +31,7 @@ namespace cms4seo.Model.LekimaxType
 
         public const string IsAutoThousandSeparator = "Website.IsAutoThousandSeparator";
 
+        public const string OptionCategory = "Website.OptionCategory";
+
     }
 }

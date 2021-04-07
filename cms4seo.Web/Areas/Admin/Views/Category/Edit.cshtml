@@ -1,4 +1,5 @@
 ﻿@using cms4seo.Common.AdminHelpers
+@using cms4seo.Service.Content
 @model Category
 
 @{
@@ -87,13 +88,16 @@
                         @Html.ValidationMessageFor(model => model.IsAside, "", new {@class = "text-danger"})
                     </div>
 
-
-                    @*<div class="form-group">
+                    
+                    @if (!string.IsNullOrWhiteSpace(Setting.WebSettings[WebSettingType.OptionCategory]))
+                    {
+                        <div class="form-group">
                             @Html.LabelFor(model => model.Location)
                             @Html.DropDownListFor(model => model.Location, new SelectList(
-                                Model.LocationRule, "Key", "Value"), new { @class = "form-control" })
-                            @Html.ValidationMessageFor(model => model.Location, "", new { @class = "text-danger" })
-                        </div>*@
+                                Setting.WebSettings[WebSettingType.OptionCategory].ToOptionsDictionary(), "Key", "Value"), new {@class = "form-control"})
+                            @Html.ValidationMessageFor(model => model.Location, "", new {@class = "text-danger"})
+                        </div>
+                    }
 
                     <div class="form-group">
                         @Html.LabelFor(model => model.Sort)

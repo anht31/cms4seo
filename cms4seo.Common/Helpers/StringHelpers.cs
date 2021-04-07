@@ -1,4 +1,7 @@
-﻿using System.Globalization;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -168,9 +171,14 @@ namespace cms4seo.Common.Helpers
 
         public static string MakeNameFriendly(this string value)
         {
+            value = value.Trim(); // Trim white space
             value = value.ReplaceDiacritics();
             value = value.ToLowerInvariant().Replace(" ", "-");
             value = Regex.Replace(value, @"[^0-9a-z-]", string.Empty);
+
+            // match repeat '-' character and pretty it
+            var pattern = @"(-)\1{1,}";
+            value = Regex.Replace(value, pattern, "-");
 
             return value;
         }
@@ -209,5 +217,41 @@ namespace cms4seo.Common.Helpers
         {
             return value != null && value.Trim() != string.Empty;
         }
+
+
+
+        public static Dictionary<int, string> ToOptionsDictionary(this string value)
+        {
+            if (string.IsNullOrWhiteSpace(value))
+                return null;
+
+            var list = value.Split(',').ToList();
+
+            var i = 0;
+
+            Dictionary<int, string> locationRule = new Dictionary<int, string>();
+
+            foreach (var name in list)
+            {
+                locationRule.Add(i++,name);
+            }
+
+            return locationRule;
+        }
+
+
+        public static string GetAlt(this string value)
+        {
+            if (string.IsNullOrWhiteSpace(value))
+                return string.Empty;
+
+            var imgName = value.Split('/').Last();
+
+            if (string.IsNullOrWhiteSpace(imgName))
+                return string.Empty;
+
+            return imgName.Split('.').First();
+        }
+
     }
 }

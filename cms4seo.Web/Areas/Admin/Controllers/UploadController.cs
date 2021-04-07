@@ -32,10 +32,11 @@ namespace cms4seo.Admin.Controllers
         //private static readonly PhotoSettings PhotoSettings = new PhotoSettings();
 
         private readonly ApplicationDbContext db = new ApplicationDbContext();
-        readonly string[] _photoExtension = { ".jpg", ".jpe", ".jpeg", ".bmp", ".gif", ".png", ".ico" };
+        readonly string[] _photoExtension = { ".jpg", ".jpe", ".jpeg", ".bmp", ".gif", ".png", ".ico", ".webp" };
         readonly string[] _jpgExtension = { ".jpg", ".jpe", ".jpeg"};
+        readonly string[] _webImageExtension = { ".jpg", ".jpe", ".jpeg", ".webp" };
         readonly string[] _docExtension = { ".doc", ".docx", ".pdf", ".xls", ".xlsx", ".ppt", ".pptx", ".rar", ".zip" };
-        private readonly string[] _videoExtension = {".mp4"};
+        private readonly string[] _videoExtension = {".mp4", ".webm"};
 
         private int large;
         private readonly int medium;
@@ -113,6 +114,11 @@ namespace cms4seo.Admin.Controllers
 
                 var extension = Path.GetExtension(fileName);
 
+                // change extension webp to jpeg
+                // this mean, just support webp upload, but publish as jpeg
+                if (extension == ".webp")
+                    extension = ".jpg";
+
                 if (!_photoExtension.Contains(extension.ToLower()))
                 {
                     // check support documents or video
@@ -189,7 +195,7 @@ namespace cms4seo.Admin.Controllers
 
 
 
-                    if (_jpgExtension.Contains(extension.ToLower()))
+                    if (_webImageExtension.Contains(extension.ToLower()))
                     {
                         //get bitmap
                         var bitmap = (Bitmap)Image.FromStream(await content.ReadAsStreamAsync());

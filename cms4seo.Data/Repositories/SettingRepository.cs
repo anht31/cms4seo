@@ -125,6 +125,7 @@ namespace cms4seo.Data.Repositories
             Set(WebSettingType.CurrentTheme, "moderniness");
             Set(WebSettingType.Bootswatch, "cms4seo.bootstrap.min.css");
             Set(WebSettingType.IsAutoThousandSeparator, true.ToString());
+            Set(WebSettingType.OptionCategory, string.Empty);
 
 
 

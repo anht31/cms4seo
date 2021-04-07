@@ -1709,4 +1709,10 @@
   <data name="UploadPhoto_ListTable_HeaderLgPath" xml:space="preserve">
     <value>Ảnh lớn</value>
   </data>
+  <data name="WebSettingVmOptionCategory" xml:space="preserve">
+    <value>Danh mục tùy chọn (phân cách bằng dấu phẩy)</value>
+  </data>
+  <data name="PhotosController_Delete_photo_Message_0" xml:space="preserve">
+    <value>Xóa ảnh lỗi, chi tiết: {0}</value>
+  </data>
 </root>

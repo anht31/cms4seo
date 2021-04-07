@@ -202,7 +202,7 @@ namespace cms4seo.Service.Themeable
                         }
 
                         // for test mode only
-                        LogHelper.Write("ThemeableVirtualPathProviderViewEngine", $"found cachedLocation {cachedLocation}");
+                        //LogHelper.Write("ThemeableVirtualPathProviderViewEngine", $"found cachedLocation {cachedLocation}");
 
                         return cachedLocation;
                     }

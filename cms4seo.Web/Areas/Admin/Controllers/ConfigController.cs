@@ -145,6 +145,7 @@ namespace cms4seo.Admin.Controllers
 
                 AdminLanguages = settingRepository.Get(WebSettingType.AdminLanguages),
                 ShopLanguages = settingRepository.Get(WebSettingType.ShopLanguages),
+                OptionCategory = settingRepository.Get(WebSettingType.OptionCategory),
                 IsLockSeoMetaTag = settingRepository.Get(WebSettingType.IsLockSeoMetaTag).ToBoolean(),
                 IsLockDeleteSettings = settingRepository.Get(WebSettingType.IsLockDeleteSettings).AsBool(),
                 RedirectMode = settingRepository.Get(WebSettingType.RedirectMode).AsInt(),
@@ -183,6 +184,7 @@ namespace cms4seo.Admin.Controllers
 
             settingRepository.Set(WebSettingType.AdminLanguages, webSettingVm.AdminLanguages);
             settingRepository.Set(WebSettingType.ShopLanguages, webSettingVm.ShopLanguages);
+            settingRepository.Set(WebSettingType.OptionCategory, webSettingVm.OptionCategory);
             settingRepository.Set(WebSettingType.IsLockSeoMetaTag, webSettingVm.IsLockSeoMetaTag.ToString());
             settingRepository.Set(WebSettingType.IsLockDeleteSettings, webSettingVm.IsLockDeleteSettings.ToString());
             settingRepository.Set(WebSettingType.RedirectMode, webSettingVm.RedirectMode.ToString());

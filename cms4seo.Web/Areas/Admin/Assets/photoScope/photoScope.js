@@ -143,10 +143,13 @@ photoScopeApp.controller('scopeController', function ($scope, $http) {
         for (var instanceName in CKEDITOR.instances) {
             if (CKEDITOR.instances.hasOwnProperty(instanceName)) {
                 var oEditor = CKEDITOR.instances[instanceName];
+
+                var videoType = item.MimeType.replace(".", ""); 
+
                 var html =
                     //"<img alt=\"" + item.AltAttribute + "\" src=\"" + item.LgPath + "\" width='100%' height='100%'/>";
                     '<video width="100%" controls>' +
-                        '<source src="' + item.LgPath + '" type="video/mp4">' +
+                        '<source src="' + item.LgPath + '" type="video/' + videoType + '">' +
                         'Your browser does not support the video tag.' +
                     '</video>';
                 var newElement = CKEDITOR.dom.element.createFromHtml(html, oEditor.document);
@@ -185,7 +188,7 @@ photoScopeApp.controller('scopeController', function ($scope, $http) {
 
     $scope.IsImage = function(item) {
 
-        if (item.MimeType.match(/.(jpg|jpe|jpeg|bmp|png|gif)$/i)) {
+        if (item.MimeType.match(/.(jpg|jpe|jpeg|bmp|png|gif|webp)$/i)) {
             return true;
         };
 
@@ -203,7 +206,7 @@ photoScopeApp.controller('scopeController', function ($scope, $http) {
 
     $scope.IsVideo = function(item) {
 
-        if (item.MimeType.match(/.(mp4)$/i)) {
+        if (item.MimeType.match(/.(mp4|webm)$/i)) {
             return true;
         };
 

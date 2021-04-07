@@ -151,9 +151,15 @@ If you want fixed folder to publish, please edit cms4seo.pubxml
 ## Future Plan
 
 - I18N support
-- Shopping Cart
 
 ## Release History
+
+#### v1.2.1.2
+
+* ckeditor ACF off for page Info, for static design page
+* fix col & col-lg display for ckeditor
+* support upload Webm media type
+* update ckeditor ACF support Video class & id
 
 #### v1.2.1.1
 

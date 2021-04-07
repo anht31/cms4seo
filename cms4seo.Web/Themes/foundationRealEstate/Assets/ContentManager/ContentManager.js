@@ -200,6 +200,7 @@ function SetStatusToggleSwitch() {
 }
 
 
+
 function ActiveEditContents() {
 
     var activeEditContent = getCookie("ActiveEditContent");
@@ -215,7 +216,7 @@ function ActiveEditContents() {
             }
 
             var button =
-                '<span class="editContentIcon" onclick="BuildModalAndOpen(\'' +
+                '<span class="editContentIcon editContentButton" onclick="BuildModalAndOpen(\'' +
                     $(item).attr('data-cms') +
                     '\',\'' + type +
                     '\', event' +
@@ -223,20 +224,28 @@ function ActiveEditContents() {
                 '</span>';
 
             $(item).addClass("activeEditContents");
-            $(item).after(button);
+
+            var attribute = 
+                'BuildModalAndOpen(\'' +
+                    $(item).attr('data-cms') +
+                    '\',\'' + type + '\', event' + ')';
+            $(item).attr("onclick", attribute);
+
+            //$(item).after(button);
 
             //console.log($(item).attr('data-cms') + ":" + $(item).width() + "vs" + $(item).parent().width());
 
+            //$(item).next().addClass("editContentButton");
 
-            if ($(item).closest('img').length) {
-                $(item).next().addClass("editContentButton");
-            } else if ($(item).closest('span').length) {
-                $(item).next().addClass("editContentButton");
-            } else if ($(item).width() + 35 >= $(item).parent().width()) {
-                $(item).next().addClass("editContentButton with-parent-width");
-            } else {
-                $(item).next().addClass("editContentButton");
-            }
+            //if ($(item).closest('img').length) {
+            //    $(item).next().addClass("editContentButton");
+            //} else if ($(item).closest('span').length) {
+            //    $(item).next().addClass("editContentButton");
+            //} else if ($(item).width() + 35 >= $(item).parent().width()) {
+            //    $(item).next().addClass("editContentButton with-parent-width");
+            //} else {
+            //    $(item).next().addClass("editContentButton");
+            //}
 
   
             // prevent event fire
@@ -254,6 +263,7 @@ function ActiveEditContents() {
 
     }
 }
+
 
 function BuildModalAndOpen(id, type, event) {
 
@@ -400,7 +410,23 @@ function GetContent(id) {
 
                 // build uploadBox
                 var type = $(modalContentBox).attr("data-type");
-                BuildUploadBox(modalContentBox, type, id)
+
+                if (jsonResults.length == 1) {
+
+                    BuildUploadBox(modalContentBox, type, jsonResults[0].Key)
+                }
+                else {
+
+                    // Rebuild
+                    $.each(jsonResults, function(i, item) {
+
+                        if (item.Key.endsWith(".Image")) {
+                            BuildUploadBox(modalContentBox, type, item.Key)
+                        }
+
+                    });
+
+                }
 
 
                 if (jsonResults.length == 1) {
