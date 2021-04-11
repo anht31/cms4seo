@@ -23,10 +23,10 @@ namespace TestConsole
         static void Main(string[] args)
         {
             Widget widget = new Widget("Index", "Test", "PluginTest"
-                , "testzone", string.Empty, "test-zone", "true");
+                , "testzone", string.Empty, "test-zone", "true", "", "");
 
             Widget widget2 = new Widget("Index", "Test2", "PluginTest2"
-                , "testzone2", string.Empty, "test-zone-2", "true");
+                , "testzone2", string.Empty, "test-zone-2", "true", "", "");
 
             var widgets = new List<Widget>();
             widgets.Add(widget);

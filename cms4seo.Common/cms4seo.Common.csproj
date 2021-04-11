@@ -97,6 +97,7 @@
     <Compile Include="Helpers\HtmlHelperExtensions.cs" />
     <Compile Include="Helpers\ImgHelpers.cs" />
     <Compile Include="Helpers\JsonHelpers.cs" />
+    <Compile Include="Helpers\LinqExtensions.cs" />
     <Compile Include="Helpers\LogHelper.cs" />
     <Compile Include="Helpers\LocalizeString.cs" />
     <Compile Include="Helpers\PluginHelpers.cs" />

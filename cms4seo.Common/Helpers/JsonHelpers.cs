@@ -53,6 +53,12 @@ namespace cms4seo.Common.Helpers
                         writer.WritePropertyName("Active");
                         writer.WriteValue(widget.Active);
 
+                        writer.WritePropertyName("AssemblyName");
+                        writer.WriteValue(widget.AssemblyName);
+
+                        writer.WritePropertyName("TypeName");
+                        writer.WriteValue(widget.TypeName);
+
                         writer.WriteEndObject();
                     }
 

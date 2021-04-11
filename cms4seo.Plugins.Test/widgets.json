@@ -6,6 +6,8 @@
     "Zone": "page",
     "RouteValues": null,
     "Page": "test-zone",
-    "Active": "true"
+    "Active": "true",
+    "AssemblyName": "cms4seo.Plugins.Test",
+    "TypeName": ""
   }
 ]

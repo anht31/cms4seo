@@ -6,7 +6,9 @@
     "Zone": "layout",
     "RouteValues": null,
     "Page": "",
-    "Active": "true"
+    "Active": "true",
+    "AssemblyName": "cms4seo.Plugins.ShoppingCart",
+    "TypeName": ""
   },
   {
     "Action": "_AddToCart",
@@ -15,6 +17,8 @@
     "Zone": "card_product",
     "RouteValues": null,
     "Page": "",
-    "Active": "true"
+    "Active": "true",
+    "AssemblyName": "cms4seo.Plugins.ShoppingCart",
+    "TypeName": ""
   }
 ]

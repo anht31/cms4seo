@@ -1,12 +1,17 @@
 ﻿using System;
+using System.Linq;
+using System.Reflection;
+using System.Web.Compilation;
 using System.Web.Mvc;
+using System.Web.WebPages;
+using cms4seo.Common.Helpers;
 using cms4seo.Data;
 using cms4seo.Model.Entities;
 using cms4seo.Service.Resolver;
-using cms4seo.Data.IdentityModels;
 using cms4seo.Service.Behaviour;
 using cms4seo.Service.Email;
 using cms4seo.Service.Provider;
+using cms4seo.Model.Abstract;
 
 namespace cms4seo.Web.Controllers
 {
@@ -33,17 +38,35 @@ namespace cms4seo.Web.Controllers
             {
                 
                 contact.PostDate = DateTime.Now;
+                bool isInvalidIp = false;
 
+                try
+                {
+                    if (PluginHelpers.Widgets.Any())
+                    {
+                        var widget = PluginHelpers.Widgets.FirstOrDefault(x => x.Zone == "mail-filter");
 
-                // Tor Exit Node
-                var ipAddress = Request.ServerVariables["REMOTE_ADDR"];
-                var checker = new TorChecker();
-                var clientIsUsingTor = checker.IsUsingTor(ipAddress);
+                        if (widget != null && widget.Active.AsBool())
+                        {
+                            IChecker checker = (IChecker)Activator
+                                .CreateInstance(widget.AssemblyName, widget.TypeName)
+                                .Unwrap();
+
+                            isInvalidIp = checker.IsInvalidIp(Request.ServerVariables["REMOTE_ADDR"]);
+                        }
+                    }
+                }
+                catch (Exception e)
+                {
+                    LogHelper.Write("ContactController.ContactForm().Widget", $"Filter fail, Message: {e.Message}");
+                }
+                
+
 
                 bool isValidPhone = contact.Phone.ValidatePhoneNumber(true);
 
                 // send mail & save message
-                if (!clientIsUsingTor & isValidPhone)
+                if (!isInvalidIp && isValidPhone)
                 {
                     db.Contacts.Add(contact);
                     db.SaveChanges();

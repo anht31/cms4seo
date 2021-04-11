@@ -181,6 +181,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstract\IChecker.cs" />
     <Compile Include="Entities\Answer.cs" />
     <Compile Include="Entities\Article.cs" />
     <Compile Include="Entities\ArticleTag.cs" />
@@ -242,6 +243,7 @@
       <Name>Admin.Resources</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

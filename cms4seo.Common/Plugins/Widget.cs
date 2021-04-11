@@ -21,8 +21,13 @@ namespace cms4seo.Common.Plugins
         public string Page { get; private set; }
         public string Active { get; private set; }
 
+        public string AssemblyName { get; private set; }
+        public string TypeName { get; private set; }
+
+
         public Widget(string action, string controller, string area, 
-            string zone, object routeValues, string page, string active)
+            string zone, object routeValues, string page, string active,
+            string assemblyName, string typeName)
         {
             Action = action;
             Controller = controller;
@@ -31,6 +36,8 @@ namespace cms4seo.Common.Plugins
             RouteValues = RouteValues;
             Page = page;
             Active = active;
+            AssemblyName = assemblyName;
+            TypeName = typeName;
         }
     }
 
