@@ -5,6 +5,7 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documents", "Documents", "{B4963575-94C3-4AF2-8EF7-E754E954A3BA}"
 	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
 		cms4seo.Web\migration-v1004.sql = cms4seo.Web\migration-v1004.sql
 		README.md = README.md
 	EndProjectSection

@@ -117,6 +117,21 @@ namespace cms4seo.Web.Controllers
 
 
 
+        public ActionResult FilterPrice(long priceFrom, long priceTo, int? page)
+        {
+            var products = ProductsValidation.Where(x => priceFrom < x.Price && x.Price <= priceTo).ToList();
+
+            var pageNumber = page ?? 1; // if no page was specified in the querystring, default to the first page (1)
+            var onePage = products.ToPagedList(pageNumber, 20); // will only contain 20 blog max because of the pageSize
+
+
+            ViewBag.strSearch = $"{priceFrom} -> {priceTo}";
+
+
+            return View(onePage);
+        }
+
+
 
 
 

@@ -33,7 +33,7 @@ namespace cms4seo.Web.Controllers
             return PartialView(new Category
             {
                 Id = 0,
-                Name = "Danh Mục Chính",
+                Name = "Menu",
                 Children = CategoriesValidation.Where(x => x.ParentId == null && x.IsAside).ToList()
             });
         }
@@ -45,7 +45,7 @@ namespace cms4seo.Web.Controllers
             return PartialView(new Category
             {
                 Id = 0,
-                Name = "Danh Mục Chính",
+                Name = "Menu",
                 Children = CategoriesValidation.Where(x => x.ParentId == null && x.IsAside).ToList()
             });
         }
@@ -73,6 +73,16 @@ namespace cms4seo.Web.Controllers
         [ChildActionOnly]
         public ActionResult AsideLink()
         {
+            return PartialView(CategoriesValidation.ToList());
+        }
+
+
+        [ChildActionOnly]
+        public ActionResult SubMenu(int id = 0)
+        {
+            ViewBag.CID = id;
+
+
             return PartialView(CategoriesValidation.ToList());
         }
     }

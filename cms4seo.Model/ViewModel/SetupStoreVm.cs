@@ -40,5 +40,14 @@ namespace cms4seo.Model.ViewModel
         [Display(Name = "Sample Database")]
         [DataType(cms4seoDataType.CustomEditor)]
         public string CurrentSample { get; set; }
+
+
+        //Holder for themes
+        public Dictionary<string, string> ThemeList { get; set; }
+
+
+        [Display(Name = "Sample Database")]
+        [DataType(cms4seoDataType.CustomEditor)]
+        public string Theme { get; set; }
     }
 }

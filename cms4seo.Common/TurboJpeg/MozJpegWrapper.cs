@@ -217,7 +217,7 @@ namespace cms4seo.Common.TurboJpeg
         /// <param name="flags">The bitwise OR of one or more of the <see cref="TJFlags"/> "flags"</param>
         /// <param name="subSamp">The level of chrominance subsampling to be used when generating the JPEG image (see <see cref="TJSubsamplingOptions"/> "Chrominance subsampling options".)</param>
         /// <returns>Byte array with the jpeg data</returns>
-        public byte[] Encode(Bitmap bmp, int quality = 75, bool jfif = true, TJFlags flags = TJFlags.NONE, TJSubsamplingOptions subSamp = TJSubsamplingOptions.TJSAMP_420)
+        public byte[] Encode(Bitmap bmp, int quality = 75, bool jfif = true, TJFlags flags = TJFlags.ACCURATEDCT, TJSubsamplingOptions subSamp = TJSubsamplingOptions.TJSAMP_444)
         {
             BitmapData bmpData = null;
             IntPtr buf = IntPtr.Zero;

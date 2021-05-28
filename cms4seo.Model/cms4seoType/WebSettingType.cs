@@ -33,5 +33,7 @@ namespace cms4seo.Model.LekimaxType
 
         public const string OptionCategory = "Website.OptionCategory";
 
+        public const string OptionPage = "Website.OptionPage";
+
     }
 }

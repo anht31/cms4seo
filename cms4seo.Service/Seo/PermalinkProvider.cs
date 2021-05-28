@@ -48,10 +48,14 @@ namespace cms4seo.Service.Seo
             {
                 permalink.Slug = $"/{segmentRootCategory.MakeNameFriendly()}/{segmentItemNameFriendly}";
             }
-            else if (segmentRootCategory != null && segmentMiddleCategory != null)
+            else if (flatterSiteArchitecture == 3 && segmentRootCategory != null && segmentMiddleCategory != null)
             {
                 permalink.Slug = $"/{segmentRootCategory.MakeNameFriendly()}" +
                                  $"/{segmentMiddleCategory.MakeNameFriendly()}/{segmentItemNameFriendly}";
+            }
+            else if (flatterSiteArchitecture == 4 && segmentRootCategory != null) // Dynamic 1
+            {
+                permalink.Slug = $"/{segmentRootCategory.MakeNameFriendly()}-{segmentItemNameFriendly}";
             }
             else if(segmentRootCategory != null)
             {
@@ -117,10 +121,16 @@ namespace cms4seo.Service.Seo
             {
                 slug = $"/{segmentRootCategory.MakeNameFriendly()}/{segmentItemNameFriendly}";
             }
-            else if (segmentRootCategory != null && segmentMiddleCategory != null)
+            else if (flatterSiteArchitecture == 3 && segmentRootCategory != null && segmentMiddleCategory != null)
             {
                 slug = $"/{segmentRootCategory.MakeNameFriendly()}" +
                                  $"/{segmentMiddleCategory.MakeNameFriendly()}/{segmentItemNameFriendly}";
+            }
+            else if (flatterSiteArchitecture == 4 && segmentRootCategory != null)
+            {
+                slug = segmentMiddleCategory == null
+                    ? $"/{segmentRootCategory.MakeNameFriendly()}-{segmentItemNameFriendly.MakeNameFriendly()}"
+                    : $"/{segmentRootCategory.MakeNameFriendly()}/{segmentMiddleCategory.MakeNameFriendly()}";
             }
             else if (segmentRootCategory != null)
             {

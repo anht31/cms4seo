@@ -388,12 +388,18 @@ namespace cms4seo.Admin.Controllers
             foreach (var item in sampleList2)
                 sampleList.Add(item.Key, item.Value);
 
+
+            // Theme
+            string themesPath = Server.MapPath("/Themes");
+            var themeList = Directory.GetDirectories(themesPath).Select(Path.GetFileName);
+
             #endregion
 
 
             var setupStoreVm = new SetupStoreVm()
             {
-                SampleList = sampleList
+                SampleList = sampleList,
+                ThemeList = themeList.ToDictionary(item => item.Trim(), item => item.Trim())
             };
             
             return View(setupStoreVm);
@@ -449,6 +455,8 @@ namespace cms4seo.Admin.Controllers
 
             settingRepository.Set(WebSettingType.AdminLanguages, adminLanguage);
             settingRepository.Set(WebSettingType.ShopLanguages, setupStoreVm.Country);
+
+            settingRepository.Set(WebSettingType.CurrentTheme, setupStoreVm.Theme);
 
 
 

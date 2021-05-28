@@ -1710,4 +1710,16 @@
   <data name="PhotosController_Delete_photo_Message_0" xml:space="preserve">
     <value>Delele photo fail,  Message: {0}</value>
   </data>
+  <data name="WebSettingVmOptionPage" xml:space="preserve">
+    <value>Option Page (separator by commas)</value>
+  </data>
+  <data name="EmailSettingVmSaveMode" xml:space="preserve">
+    <value>Save Mode</value>
+  </data>
+  <data name="EmailSettingVm_SaveModes_Alway" xml:space="preserve">
+    <value>Alway (defaut)</value>
+  </data>
+  <data name="EmailSettingVm_SaveModes_JustSaveSpamMail" xml:space="preserve">
+    <value>Just save Spam mail</value>
+  </data>
 </root>

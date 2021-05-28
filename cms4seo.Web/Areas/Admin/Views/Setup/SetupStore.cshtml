@@ -54,6 +54,15 @@
                 @Html.ValidationMessageFor(model => model.CurrentSample)
             </div>
 
+            
+            
+            <div class="form-group">
+                @Html.LabelFor(model => model.Theme)
+                @Html.DropDownListFor(model => model.Theme,
+                    new SelectList(Model.ThemeList, "Key", "Value"),
+                    new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Theme)
+            </div>
 
 
             <!-- Normal Field ==============================================================================-->

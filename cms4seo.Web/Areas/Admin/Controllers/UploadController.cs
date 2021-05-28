@@ -4,7 +4,6 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
-using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Configuration;
@@ -33,7 +32,7 @@ namespace cms4seo.Admin.Controllers
 
         private readonly ApplicationDbContext db = new ApplicationDbContext();
         readonly string[] _photoExtension = { ".jpg", ".jpe", ".jpeg", ".bmp", ".gif", ".png", ".ico", ".webp" };
-        readonly string[] _jpgExtension = { ".jpg", ".jpe", ".jpeg"};
+        //readonly string[] _jpgExtension = { ".jpg", ".jpe", ".jpeg"};
         readonly string[] _webImageExtension = { ".jpg", ".jpe", ".jpeg", ".webp" };
         readonly string[] _docExtension = { ".doc", ".docx", ".pdf", ".xls", ".xlsx", ".ppt", ".pptx", ".rar", ".zip" };
         private readonly string[] _videoExtension = {".mp4", ".webm"};
@@ -177,26 +176,30 @@ namespace cms4seo.Admin.Controllers
                 else
                 {
                     
+                    // pre init
+                    string smName, mdName, lgName;
 
-
-                    // prevent conflict file ========================================================                    
                     string nameWithoutExtension = Path.GetFileNameWithoutExtension(fileName);
+
                     fileName = String.Copy(nameWithoutExtension.MakeNameFriendly());
-
-                    var n = 0;
-                    while (File.Exists($@"{path}\{fileName}-sm{extension}"))
-                        fileName = $"{nameWithoutExtension.MakeNameFriendly()}-{++n}";
-
-
-
-                    var smName = $"{fileName}-sm{extension}";
-                    var mdName = $"{fileName}-md{extension}";
-                    var lgName = $"{fileName}-lg{extension}";
-
-
 
                     if (_webImageExtension.Contains(extension.ToLower()))
                     {
+                        // sync all to jpg to optimize mobile mode
+                        extension = ".jpg";
+
+
+                        // prevent conflict file =============================================
+                        var n = 0;
+                        while (File.Exists($@"{path}\{fileName}-sm{extension}"))
+                            fileName = $"{nameWithoutExtension.MakeNameFriendly()}-{++n}";
+
+
+                        smName = $"{fileName}-sm{extension}";
+                        mdName = $"{fileName}-md{extension}";
+                        lgName = $"{fileName}-lg{extension}";
+
+
                         //get bitmap
                         var bitmap = (Bitmap)Image.FromStream(await content.ReadAsStreamAsync());
 
@@ -215,12 +218,17 @@ namespace cms4seo.Admin.Controllers
                             LogHelper.Write("UploadApiController", $"warning, message: {e.Message}");
                         }
 
+                        // legacy mode
+                        //var smallImage = Imager.Resize(bitmap, small, maxHeight, onlyResizeIfWider);
+                        //var mediumImage = Imager.Resize(bitmap, medium, maxHeight, onlyResizeIfWider);
+                        //var largeImage = Imager.Resize(bitmap, large, maxHeight, onlyResizeIfWider);
 
-                        var smallImage = Imager.Resize(bitmap, small, maxHeight, onlyResizeIfWider);
-                        var mediumImage = Imager.Resize(bitmap, medium, maxHeight, onlyResizeIfWider);
-                        var largeImage = Imager.Resize(bitmap, large, maxHeight, onlyResizeIfWider);
+                        // Test mode
+                        var smallImage = Imager.ResizeImage(bitmap, small, maxHeight, onlyResizeIfWider);
+                        var mediumImage = Imager.ResizeImage(bitmap, medium, maxHeight, onlyResizeIfWider);
+                        var largeImage = Imager.ResizeImage(bitmap, large, maxHeight, onlyResizeIfWider);
 
-                        
+
                         using (MozJpeg mozJpeg = new MozJpeg())
                         {
                             mozJpeg.Save(smallImage, $@"{path}\{smName}", imageQuality);
@@ -241,22 +249,21 @@ namespace cms4seo.Admin.Controllers
                     {
 
 
-                        var n2 = 0;
-                        var fileName2 = String.Copy(nameWithoutExtension.MakeNameFriendly());
-                        while (File.Exists($@"{path}\{fileName2}{extension}"))
-                            fileName2 = $"{nameWithoutExtension}-{++n2}";
+                        var n = 0;
+                        while (File.Exists($@"{path}\{fileName}{extension}"))
+                            fileName = $"{nameWithoutExtension}-{++n}";
 
 
                         // some stuff to save file
-                        using (var fileStream = File.Create($@"{path}\{fileName2}{extension}"))
+                        using (var fileStream = File.Create($@"{path}\{fileName}{extension}"))
                         {                            
                             (await content.ReadAsStreamAsync()).CopyTo(fileStream);
                         }
 
                         // Image not jpg not be resize, thus not extent name sm, md, lg
-                        smName = $"{fileName2}{extension}";
-                        mdName = $"{fileName2}{extension}";
-                        lgName = $"{fileName2}{extension}";
+                        smName = $"{fileName}{extension}";
+                        mdName = $"{fileName}{extension}";
+                        lgName = $"{fileName}{extension}";
                     }
                         
 

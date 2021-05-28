@@ -1715,4 +1715,16 @@
   <data name="PhotosController_Delete_photo_Message_0" xml:space="preserve">
     <value>Xóa ảnh lỗi, chi tiết: {0}</value>
   </data>
+  <data name="WebSettingVmOptionPage" xml:space="preserve">
+    <value>Trang tùy chọn (phân cách bằng dấu phẩy)</value>
+  </data>
+  <data name="EmailSettingVmSaveMode" xml:space="preserve">
+    <value>Lưu trữ tin nhắn</value>
+  </data>
+  <data name="EmailSettingVm_SaveModes_Alway" xml:space="preserve">
+    <value>Luôn lưu trữ tin nhắn (mặc định, trừ thư rác)</value>
+  </data>
+  <data name="EmailSettingVm_SaveModes_JustSaveSpamMail" xml:space="preserve">
+    <value>Chỉ lưu trữ thư rác (chế độ bảo mật)</value>
+  </data>
 </root>

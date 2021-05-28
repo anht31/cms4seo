@@ -236,6 +236,16 @@ namespace cms4seo.Web.Controllers
 
         }
 
+
+
+
+        [ChildActionOnly]
+        public ActionResult SectionArticle(int size = 5)
+        {
+            return PartialView(ArticlesValidation.Take(size).ToList());
+        }
+
+
         #endregion
 
     }

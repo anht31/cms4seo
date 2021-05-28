@@ -12,6 +12,7 @@ using cms4seo.Service.Behaviour;
 using cms4seo.Service.Email;
 using cms4seo.Service.Provider;
 using cms4seo.Model.Abstract;
+using cms4seo.Model.LekimaxType;
 
 namespace cms4seo.Web.Controllers
 {
@@ -68,15 +69,46 @@ namespace cms4seo.Web.Controllers
                 // send mail & save message
                 if (!isInvalidIp && isValidPhone)
                 {
-                    db.Contacts.Add(contact);
-                    db.SaveChanges();
+                    var message = "";
+                    try
+                    {
+                        // send mail
+                        message = mailProcessor.ProcessContact(contact.FullName, contact.Email, contact.Phone, contact.Message);
+                    }
+                    catch (Exception exception)
+                    {
+                        contact.Message += $"\nException: {exception.Message}";
 
-                    // send mail
-                    var message = mailProcessor.ProcessContact(contact.FullName, contact.Email, contact.Phone, contact.Message);
+                        // save even SaveMode not allow
+                        if (Setting.WebSettings[EmailSettingType.SaveMode] != "0")
+                        {
+                            // save when not spam
+                            db.Contacts.Add(contact);
+                            db.SaveChanges();
+                        }
+                    }
+
+                    if (Setting.WebSettings[EmailSettingType.SaveMode] == "0")
+                    {
+                        // save when not spam
+                        db.Contacts.Add(contact);
+                        db.SaveChanges();
+                    }
+                    
 
                     if (message != null)
                         return Json(new { success = false, responseText = message },
                             JsonRequestBehavior.AllowGet);
+                }
+                else
+                {
+                    // spam mode
+                    if (Setting.WebSettings[EmailSettingType.SaveMode] == "1")
+                    {
+                        // just save spam
+                        db.Contacts.Add(contact);
+                        db.SaveChanges();
+                    }
                 }
 
 

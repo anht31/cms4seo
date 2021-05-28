@@ -253,5 +253,127 @@ namespace cms4seo.Common.Helpers
             return imgName.Split('.').First();
         }
 
+        /// <summary>
+        /// Desire Image Small Size
+        /// </summary>
+        /// <param name="value">sting or rich text</param>
+        /// <returns></returns>
+        public static string Small(this string value)
+        {
+            if (string.IsNullOrWhiteSpace(value))
+                return string.Empty;
+
+            if (value.Contains("-md.jpg"))
+                return value.Replace("-md.jpg", "-sm.jpg");
+
+            if (value.Contains("-lg.jpg"))
+                return value.Replace("-lg.jpg", "-sm.jpg");
+
+            return value;
+        }
+
+
+        /// <summary>
+        /// Desire Image Medium Size
+        /// </summary>
+        /// <param name="value">sting or rich text</param>
+        /// <returns></returns>
+        public static string Medium(this string value)
+        {
+            if (string.IsNullOrWhiteSpace(value))
+                return string.Empty;
+
+            if (value.Contains("-sm.jpg"))
+                return value.Replace("-sm.jpg", "-md.jpg");
+
+            if (value.Contains("-lg.jpg"))
+                return value.Replace("-lg.jpg", "-md.jpg");
+
+            return value;
+        }
+
+
+        /// <summary>
+        /// Desire Image Large Size
+        /// </summary>
+        /// <param name="value">sting or rich text</param>
+        /// <returns></returns>
+        public static string Large(this string value)
+        {
+            if (string.IsNullOrWhiteSpace(value))
+                return string.Empty;
+
+            if (value.Contains("-sm.jpg"))
+                return value.Replace("-sm.jpg", "-lg.jpg");
+
+            if (value.Contains("-md.jpg"))
+                return value.Replace("-md.jpg", "-lg.jpg");
+
+            return value;
+        }
+
+
+
+
+
+        /// <summary>
+        /// Desire Image Small Size
+        /// </summary>
+        /// <param name="value">rich text</param>
+        /// <returns></returns>
+        public static string AllSmall(this string value)
+        {
+            if (string.IsNullOrWhiteSpace(value))
+                return string.Empty;
+
+            if (value.Contains("-md.jpg"))
+                value = value.Replace("-md.jpg", "-sm.jpg");
+
+            if (value.Contains("-lg.jpg"))
+                return value.Replace("-lg.jpg", "-sm.jpg");
+
+            return value;
+        }
+
+
+        /// <summary>
+        /// Desire Image Medium Size
+        /// </summary>
+        /// <param name="value">rich text</param>
+        /// <returns></returns>
+        public static string AllMedium(this string value)
+        {
+            if (string.IsNullOrWhiteSpace(value))
+                return string.Empty;
+
+            if (value.Contains("-sm.jpg"))
+                value = value.Replace("-sm.jpg", "-md.jpg");
+
+            if (value.Contains("-lg.jpg"))
+                return value.Replace("-lg.jpg", "-md.jpg");
+
+            return value;
+        }
+
+
+        /// <summary>
+        /// Desire Image Large Size
+        /// </summary>
+        /// <param name="value">rich text</param>
+        /// <returns></returns>
+        public static string AllLarge(this string value)
+        {
+            if (string.IsNullOrWhiteSpace(value))
+                return string.Empty;
+
+            if (value.Contains("-sm.jpg"))
+                value = value.Replace("-sm.jpg", "-lg.jpg");
+
+            if (value.Contains("-md.jpg"))
+                return value.Replace("-md.jpg", "-lg.jpg");
+
+
+            return value;
+        }
     }
 }

@@ -82,7 +82,9 @@
                     <td>
                         @if (item.Href != "#")
                         {
-                            @item.Href
+                            <span class="override-href">
+                                @item.Href
+                            </span>
                         }
                         else
                         {

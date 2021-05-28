@@ -90,6 +90,8 @@ namespace cms4seo.Common.Plugins
                     Assembly assembly = Assembly.Load(assemblyName.FullName);
 
                     BuildManager.AddReferencedAssembly(assembly);
+
+                    LogHelper.Write("PluginManager.Initialize()", $"Add Assembly success: {assemblyName}");
                 }
 
                 #endregion
@@ -125,7 +127,7 @@ namespace cms4seo.Common.Plugins
             }
             catch (Exception e)
             {
-                LogHelper.Write("PluginManager.Initialize()", e.Message);
+                LogHelper.Write("PluginManager.Initialize()", "Add Assembly fail: " +  e.Message);
             }
 
 
@@ -181,7 +183,7 @@ namespace cms4seo.Common.Plugins
             }
             catch (Exception e)
             {
-                LogHelper.Write("PluginManager.Initialize()", e.Message);
+                LogHelper.Write("PluginManager.Initialize()", "Add widgets fail: " +  e.Message);
             }
 
 

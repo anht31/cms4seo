@@ -154,6 +154,17 @@ If you want fixed folder to publish, please edit cms4seo.pubxml
 
 ## Release History
 
+#### v1.3.0.0
+* Flat Site Architecture Dynamic 1 - 2 segment
+* (/root-category, /root-category-second-category, /root-category/product)
+* Helper for change image to Small, Medium, Large, AllSmall, AllMedium, AllLarge
+* Some log for PluginManager
+* Email Setting with save mode (private mode)
+* Option Page for mix static page with dynamic page in info.cs model
+* Auto select theme when avaiable
+* override-href color
+* Action FilterPrice for Product
+
 #### v1.2.1.2
 
 * ckeditor ACF off for page Info, for static design page

@@ -56,10 +56,16 @@
 						@Html.DisplayFor(modelItem => item.Content)
 					</td>*@
                     <td>
-                        @item.Slug
+                        <div>
+                            @item.Slug
+                        </div>
                     </td>
                     <td>
-                        @item.LocationRule[item.Location]
+                        @if (!string.IsNullOrWhiteSpace(Setting.WebSettings[WebSettingType.OptionPage]))
+                        {
+                            @Setting.WebSettings[WebSettingType.OptionPage].ToOptionsDictionary()[item.Location]
+                        }
+                        
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Sort)

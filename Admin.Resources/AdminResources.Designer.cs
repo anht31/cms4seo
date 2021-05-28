@@ -1438,6 +1438,24 @@ namespace Admin.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Alway (defaut).
+        /// </summary>
+        public static string EmailSettingVm_SaveModes_Alway {
+            get {
+                return ResourceManager.GetString("EmailSettingVm_SaveModes_Alway", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Just save Spam mail.
+        /// </summary>
+        public static string EmailSettingVm_SaveModes_JustSaveSpamMail {
+            get {
+                return ResourceManager.GetString("EmailSettingVm_SaveModes_JustSaveSpamMail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to File location (default: /Mail/).
         /// </summary>
         public static string EmailSettingVmFileLocation {
@@ -1488,6 +1506,15 @@ namespace Admin.Resources {
         public static string EmailSettingVmPassword {
             get {
                 return ResourceManager.GetString("EmailSettingVmPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save Mode.
+        /// </summary>
+        public static string EmailSettingVmSaveMode {
+            get {
+                return ResourceManager.GetString("EmailSettingVmSaveMode", resourceCulture);
             }
         }
         
@@ -4833,6 +4860,15 @@ namespace Admin.Resources {
         public static string WebSettingVmOptionCategory {
             get {
                 return ResourceManager.GetString("WebSettingVmOptionCategory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Option Page (separator by commas).
+        /// </summary>
+        public static string WebSettingVmOptionPage {
+            get {
+                return ResourceManager.GetString("WebSettingVmOptionPage", resourceCulture);
             }
         }
         

@@ -1,5 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using Admin.Resources;
+using cms4seo.Model.LekimaxType;
 
 namespace cms4seo.Model.ViewModel
 {
@@ -45,6 +47,17 @@ namespace cms4seo.Model.ViewModel
 
         [Display(Name = "EmailSettingVmFileLocation", ResourceType = typeof(AdminResources))]
         public string FileLocation { get; set; }
+
+
+        public Dictionary<int, string> SaveModes = new Dictionary<int, string>
+        {
+            {0, AdminResources.EmailSettingVm_SaveModes_Alway},
+            {1, AdminResources.EmailSettingVm_SaveModes_JustSaveSpamMail},
+        };
+
+        [Display(Name = "EmailSettingVmSaveMode", ResourceType = typeof(AdminResources))]
+        [DataType(cms4seoDataType.CustomEditor)]
+        public int SaveMode { get; set; }
 
     }
 }

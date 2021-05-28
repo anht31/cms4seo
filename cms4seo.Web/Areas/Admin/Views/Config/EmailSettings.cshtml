@@ -71,6 +71,16 @@
             }
 
 
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.SaveMode)
+                @Html.DropDownListFor(model => model.SaveMode,
+                    new SelectList(Model.SaveModes, "Key", "Value"),
+                    new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.SaveMode)
+            </div>
+
+
         </div>
         <div class="card-footer">
             <input type="submit" value="@AdminResources.CommonSave" class="btn btn-primary" />

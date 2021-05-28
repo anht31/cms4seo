@@ -73,6 +73,7 @@ namespace cms4seo.Data.Repositories
 
             Set(EmailSettingType.WriteAsFile, false.ToString());
             Set(EmailSettingType.FileLocation, "/Mail/");
+            Set(EmailSettingType.FileLocation, 0.ToString());
 
 
             var i = 30;
@@ -126,6 +127,7 @@ namespace cms4seo.Data.Repositories
             Set(WebSettingType.Bootswatch, "cms4seo.bootstrap.min.css");
             Set(WebSettingType.IsAutoThousandSeparator, true.ToString());
             Set(WebSettingType.OptionCategory, string.Empty);
+            Set(WebSettingType.OptionPage, "Default, ContactForm, Download Page, SectionGallery");
 
 
 

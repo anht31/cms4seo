@@ -33,7 +33,7 @@ namespace cms4seo.Model.Entities
 
 
         [Display(Name = "ProductModelTitle2", ResourceType = typeof(AdminResources))]
-        [ScaffoldColumn(false)]
+        //[ScaffoldColumn(false)]
         public string Title2 { get; set; }
 
 

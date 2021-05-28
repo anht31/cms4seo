@@ -46,7 +46,8 @@ namespace cms4seo.Model.ViewModel
         {
             {1, AdminResources.WebSettingVm_1_Segment},
             {2, AdminResources.WebSettingVm_2_Segment},
-            {3, AdminResources.WebSettingVm_3_Segment}
+            {3, AdminResources.WebSettingVm_3_Segment},
+            {4, "Dynamic 1 - 2 segment"},
         };
 
 
@@ -78,6 +79,10 @@ namespace cms4seo.Model.ViewModel
 
         [Display(Name = "WebSettingVmOptionCategory", ResourceType = typeof(AdminResources))]
         public string OptionCategory { get; set; }
+
+
+        [Display(Name = "WebSettingVmOptionPage", ResourceType = typeof(AdminResources))]
+        public string OptionPage { get; set; }
 
     }
 }

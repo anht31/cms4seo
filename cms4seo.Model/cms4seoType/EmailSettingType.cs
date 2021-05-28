@@ -18,5 +18,7 @@
 
         public const string WriteAsFile = "EmailSettings.WriteAsFile";
         public const string FileLocation = "EmailSettings.FileLocation";
+
+        public const string SaveMode = "EmailSettings.SaveMode";
     }
 }

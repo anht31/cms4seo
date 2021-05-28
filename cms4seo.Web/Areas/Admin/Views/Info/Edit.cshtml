@@ -80,12 +80,24 @@
                         
                     }
 
-                    <div class="form-group">
+                    @*<div class="form-group">
                         @Html.LabelFor(model => model.Location)
                         @Html.DropDownListFor(model => model.Location, new SelectList(
-                    Model.LocationRule, "Key", "Value"), new { @class = "form-control" })
+                            Model.LocationRule, "Key", "Value"), new { @class = "form-control" })
                         @Html.ValidationMessageFor(model => model.Location)
-                    </div>
+                    </div>*@
+                    
+
+                    @if (!string.IsNullOrWhiteSpace(Setting.WebSettings[WebSettingType.OptionPage]))
+                    {
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Location)
+                            @Html.DropDownListFor(model => model.Location, new SelectList(
+                                Setting.WebSettings[WebSettingType.OptionPage].ToOptionsDictionary(), "Key", "Value"), new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.Location, "", new { @class = "text-danger" })
+                        </div>
+                    }
+
 
 
                     <!-- SEO Meta Tags ================================================================-->

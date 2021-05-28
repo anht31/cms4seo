@@ -63,6 +63,7 @@ namespace cms4seo.Admin.Controllers
 
             emailSettingVm.WriteAsFile = Convert.ToBoolean(settingRepository.Get(EmailSettingType.WriteAsFile));
             emailSettingVm.FileLocation = settingRepository.Get(EmailSettingType.FileLocation);
+            emailSettingVm.SaveMode = settingRepository.Get(EmailSettingType.SaveMode).AsInt();
 
 
 
@@ -99,6 +100,8 @@ namespace cms4seo.Admin.Controllers
 
             settingRepository.Set(EmailSettingType.WriteAsFile, emailSettingVm.WriteAsFile.ToString());
             settingRepository.Set(EmailSettingType.FileLocation, emailSettingVm.FileLocation);
+
+            settingRepository.Set(EmailSettingType.SaveMode, emailSettingVm.SaveMode.ToString());
 
 
             TempData[MessageType.Warning] =
@@ -146,6 +149,7 @@ namespace cms4seo.Admin.Controllers
                 AdminLanguages = settingRepository.Get(WebSettingType.AdminLanguages),
                 ShopLanguages = settingRepository.Get(WebSettingType.ShopLanguages),
                 OptionCategory = settingRepository.Get(WebSettingType.OptionCategory),
+                OptionPage = settingRepository.Get(WebSettingType.OptionPage),
                 IsLockSeoMetaTag = settingRepository.Get(WebSettingType.IsLockSeoMetaTag).ToBoolean(),
                 IsLockDeleteSettings = settingRepository.Get(WebSettingType.IsLockDeleteSettings).AsBool(),
                 RedirectMode = settingRepository.Get(WebSettingType.RedirectMode).AsInt(),
@@ -185,6 +189,7 @@ namespace cms4seo.Admin.Controllers
             settingRepository.Set(WebSettingType.AdminLanguages, webSettingVm.AdminLanguages);
             settingRepository.Set(WebSettingType.ShopLanguages, webSettingVm.ShopLanguages);
             settingRepository.Set(WebSettingType.OptionCategory, webSettingVm.OptionCategory);
+            settingRepository.Set(WebSettingType.OptionPage, webSettingVm.OptionPage);
             settingRepository.Set(WebSettingType.IsLockSeoMetaTag, webSettingVm.IsLockSeoMetaTag.ToString());
             settingRepository.Set(WebSettingType.IsLockDeleteSettings, webSettingVm.IsLockDeleteSettings.ToString());
             settingRepository.Set(WebSettingType.RedirectMode, webSettingVm.RedirectMode.ToString());
