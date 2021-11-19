@@ -158,6 +158,7 @@ If you want fixed folder to publish, please edit cms4seo.pubxml
 * Migration support update theme key, value
 * **⚠️ Migration database point 3 (v1331 to v1413) ⚠️**
 * Update ProductProperties when add new Product Property
+* This version resync Git
 
 #### v1.4.1.2
 * More Secure for Setup Step
