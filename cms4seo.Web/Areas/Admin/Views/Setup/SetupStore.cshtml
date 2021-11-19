@@ -1,0 +1,108 @@
+﻿@model SetupStoreVm
+
+@{
+    ViewBag.Title = "Setup Store";
+    ViewBag.Description = "Please enter Store Information";
+    Layout = "~/Areas/Admin/Views/Shared/_SetupLayout.cshtml";
+    ViewBag.Step = 4;
+}
+
+
+
+@using (Html.BeginForm("SetupStore", "Setup"))
+{
+    <div class="card">
+        <div class="card-header">
+            <span class="h3">
+                @ViewBag.Title
+            </span>
+
+
+        </div>
+
+        <div class="card-body">
+
+            <!-- Hidden Field ==============================================================================-->
+
+            @foreach (var property in ViewData.ModelMetadata.Properties
+                                    .Where(
+                                        x => !x.IsComplexType
+                                        && x.DataTypeName != cms4seoDataType.CustomEditor
+                                        && !x.ShowForEdit
+                                ))
+            {
+                @Html.Hidden(property.PropertyName)
+            }
+
+            <!-- CustomEditor Field ========================================================================-->
+            
+            
+            <div class="form-group">
+                @Html.LabelFor(model => model.Country)
+                @Html.DropDownListFor(model => model.Country,
+                    new SelectList(Model.Countries, "Key", "Value"),
+                    new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Country)
+            </div>
+            
+            
+            <div class="form-group">
+                @Html.LabelFor(model => model.CurrentSample)
+                @Html.DropDownListFor(model => model.CurrentSample,
+                    new SelectList(Model.SampleList, "Key", "Value"),
+                    new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.CurrentSample)
+            </div>
+
+            
+            
+            <div class="form-group">
+                @Html.LabelFor(model => model.Theme)
+                @Html.DropDownListFor(model => model.Theme,
+                    new SelectList(Model.ThemeList, "Key", "Value"),
+                    new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Theme)
+            </div>
+
+
+            <!-- Normal Field ==============================================================================-->
+
+            @foreach (var property in ViewData.ModelMetadata.Properties.Where(
+                                    x => !x.IsComplexType
+                                    && x.DataTypeName != cms4seoDataType.CustomEditor
+                                    && x.ShowForEdit
+                                ))
+            {
+
+                <div class="form-group">
+                    <label>
+                        @(property.DisplayName ?? property.PropertyName)
+                    </label>
+                    @if (property.ModelType == typeof(bool))
+                    {
+                        @Html.CheckBox(property.PropertyName, new { @class = "checkbox" })
+                    }
+                    else if (property.DataTypeName == DataType.MultilineText.ToString())
+                    {
+                        @Html.TextArea(property.PropertyName, null, new { @class = "form-control", spellcheck = "false", rows = 5 })
+                    }
+                    else if (property.DataTypeName == DataType.Password.ToString())
+                    {
+                        @Html.Editor(property.PropertyName, new { htmlAttributes = new { @class = "form-control" } })
+                    }
+                    else
+                    {
+                        @Html.TextBox(property.PropertyName, null, new { @class = "form-control" })
+                    }
+                    @Html.ValidationMessage(property.PropertyName)
+                </div>
+
+            }
+
+
+        </div>
+        <div class="card-footer">
+            <input type="submit" value="Next" class="btn btn-primary" />
+        </div>
+    </div>
+}

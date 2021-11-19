@@ -1,0 +1,89 @@
+﻿@model dynamic
+
+@{
+    ViewBag.Title = "Migration";
+}
+
+<h2>
+    @AdminResources.Index_cshtmlExecute_Migration_from_old_code_to_new_code__Service_for_cms4seo_Source_Code_
+</h2>
+
+<div class="mt-3">
+    <a class="btn btn-warning" href="@Url.Action("AddSlashBeforeAllLink", "Migration")">
+        @AdminResources.Index_cshtmlExecute_Add_Slash_Before_Model_Slug
+    </a>
+</div>
+
+<div class="mt-3">
+    <a class="btn btn-warning" href="@Url.Action("GuidToProductFirst", "Migration")">
+        @AdminResources.Index_cshtmlExecute_Guid_to_Product_first
+    </a>
+</div>
+
+<div class="mt-3">
+    <a class="btn btn-warning" href="@Url.Action("PhotoPath", "Migration")">
+        @AdminResources.Index_cshtmlExecute_Photo_Path___Entity_Avatar_Path
+    </a>
+</div>
+
+<div class="mt-3">
+    <a class="btn btn-warning" href="@Url.Action("PhotoPathToProjectId", "Migration")">
+        Edit all photo path included avatar img to ProjectId path
+    </a>
+</div>
+
+<div class="mt-3">
+    <a class="btn btn-warning" href="@Url.Action("ProjectIdToUploads", "Migration")">
+        Edit all photo path included avatar img to /Uploads/{ProjectId}/Photo
+    </a>
+</div>
+
+<div class="mt-3">
+    <a class="btn btn-warning" href="@Url.Action("UpdateCurrentKey", "Migration")">
+        Update all key, remove private key, common key
+    </a>
+</div>
+
+<br/><strong>Version 1.3.1.1 or Newer</strong>
+
+<div class="mt-3">
+    <a class="btn btn-warning" href="@Url.Action("UpdateSmallAndMediumImageByLargeSize", "Migration")">
+        Update Small And Medium Image By Large Size
+    </a>
+</div>
+
+<div class="mt-3">
+    <a class="btn btn-warning" href="@Url.Action("UpdateAllSizeImageByHugeSize", "Migration")">
+        Update All Size Image By Huge Size
+    </a>
+</div>
+
+
+
+<br /><strong>Version 1.4.1.2 or Newer</strong>
+
+<div class="mt-3">
+    <div class="alert alert-warning" role="alert">
+        Caution: Update Source Theme, must backup data first, this process will delete Destination theme, and Edit Source Themes Key
+    </div>
+    @using (Html.BeginForm("UpdateTheme", "Migration", FormMethod.Post, new {@class = "form-inline"}))
+    {
+
+        <div class="form-group">
+            <label for="source">Source&nbsp;</label>
+            @Html.DropDownList("source",
+                new SelectList((Dictionary<string, string>) (ViewBag.ThemeList), "Key", "Value"),
+                new {@class = "form-control"})
+        </div>
+
+        <div class="form-group">
+            <label for="destination">&nbsp;Destination&nbsp;</label>
+            @Html.DropDownList("destination",
+                new SelectList((Dictionary<string, string>) (ViewBag.ThemeList), "Key", "Value"),
+                new {@class = "form-control"})
+        </div>
+        <button type="submit" class="btn btn-warning ml-3">Update Source Theme</button>
+        
+    }
+
+</div>

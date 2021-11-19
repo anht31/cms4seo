@@ -1,0 +1,66 @@
+﻿
+<div class="container body-content">
+
+
+    <style>
+        /*for easy click cms button*/
+        .sectionBrandSlick.cms-active .slick-track {
+            margin-bottom: 25px;
+            margin-left: 10px;
+        }
+    </style>
+    
+
+    <div class="sectionBrandSlick cms-@(CMS.Active ? "active" : "passive") ">
+
+        <span>
+            <img @CMS.Attribute("Section.Partner.Brand1")
+                src="@Setting.Contents["Section.Partner.Brand1"]"
+                alt="100x60"/>
+        </span>
+
+        <span>
+            <img @CMS.Attribute("Section.Partner.Brand2")
+                src="@Setting.Contents["Section.Partner.Brand2"]"
+                alt="100x60" />
+        </span>
+
+        <span>
+            <img @CMS.Attribute("Section.Partner.Brand3")
+                 src="@Setting.Contents["Section.Partner.Brand3"]"
+                 alt="100x60" />
+        </span>
+
+        <span>
+            <img @CMS.Attribute("Section.Partner.Brand4")
+                 src="@Setting.Contents["Section.Partner.Brand4"]"
+                 alt="100x60" />
+        </span>
+
+        <span>
+            <img @CMS.Attribute("Section.Partner.Brand5")
+                 src="@Setting.Contents["Section.Partner.Brand5"]"
+                 alt="100x60" />
+        </span>
+
+        <span>
+            <img @CMS.Attribute("Section.Partner.Brand6")
+                 src="@Setting.Contents["Section.Partner.Brand6"]"
+                 alt="100x60" />
+        </span>
+
+        <span>
+            <img @CMS.Attribute("Section.Partner.Brand7")
+                 src="@Setting.Contents["Section.Partner.Brand7"]"
+                 alt="100x60" />
+        </span>
+
+        <span>
+            <img @CMS.Attribute("Section.Partner.Brand8")
+                 src="@Setting.Contents["Section.Partner.Brand8"]"
+                 alt="100x60" />
+        </span>
+
+
+    </div>
+</div>

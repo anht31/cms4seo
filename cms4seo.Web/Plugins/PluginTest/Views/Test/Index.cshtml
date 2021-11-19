@@ -1,0 +1,23 @@
+﻿@using cms4seo.Model.LekimaxType
+@using cms4seo.Service.Provider
+@model String
+
+@{
+    ViewBag.Title = "Plugin Test";
+    var theme = Setting.WebSettings[WebSettingType.CurrentTheme];
+    Layout = "~/Themes/" + theme + "/Views/Shared/_Layout.cshtml";
+}
+
+
+
+@section Styles {
+    @Html.InlinePlatformStyle("~/Plugins/PluginTest/Assets/css/custom.css")
+}
+
+<h1>
+    Hello Test Zone!
+</h1>
+
+@section scripts {
+    @Html.InlinePlatformScript("~/Plugins/PluginTest/Assets/js/custom.js")
+}

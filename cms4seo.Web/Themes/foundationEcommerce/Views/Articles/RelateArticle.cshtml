@@ -1,0 +1,41 @@
+﻿@model PagedList.IPagedList<Article>
+
+
+<br />
+<div class="callout primary">
+    <article class="grid-container">
+        <div class="">
+            <h2>
+                <span @CMS.Attribute("Article.Header.Readmore")>
+                    @Setting.Contents["Article.Header.Readmore"]
+                </span>
+            </h2>
+            <p class="lead">
+
+            </p>
+        </div>
+    </article>
+</div>
+
+@foreach (var item in Model)
+{
+
+    <div class="blog-post">
+        <a class="cell-link" href="@item.Slug" target="_top">
+            <h3>@item.Name <small>@item.PostedDate.Value.ToShortDateString()</small></h3>
+            <img class="thumbnail" src="@item.Avatar">
+            @*<img class="thumbnail" src="@((item.Photos.FirstOrDefault(x => x.SmPath == item.Avatar) ?? new Photo()).LgPath)">*@
+            <p>
+                @item.Description
+            </p>
+            <div class="callout">
+                <ul class="menu simple">
+                    <li><a href="#">Author: @item.PostBy</a></li>
+                    <li><a href="#">Viewed: @item.ViewCounter</a></li>
+                    @*<li><a href="#">Comments: 3</a></li>*@
+                </ul>
+            </div>
+        </a>
+    </div>
+
+}

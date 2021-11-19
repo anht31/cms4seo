@@ -1,0 +1,35 @@
+﻿@using System.Web.Mvc.Html
+@model Topic
+
+
+@{
+    
+
+    ViewBag.PageHeader = ViewBag.Title;
+}
+
+
+@*@Html.Partial("_BreadcrumbInfo", (string)ViewBag.Title)*@
+
+<br/>
+
+<div class="">
+
+
+    @if (Model != null && Model.Children.Count > 0)
+    {
+        @Html.Partial("_SectionGridCardFolder", Model.Children)
+    }
+
+    @if (Model != null && Model.Articles.Count > 0)
+    {
+        
+        <div class="">
+            @foreach (var item in Model.Articles)
+            {
+                @Html.Partial("_CardArticle", item)
+            }
+        </div>
+    }
+
+</div>

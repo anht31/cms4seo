@@ -1,0 +1,14 @@
+[
+  {
+    "Action": "Index",
+    "Controller": "Test",
+    "Area": "PluginTest",
+    "Zone": "page",
+    "RouteValues": null,
+    "Page": "test-zone",
+    "Active": "true",
+    "AssemblyName": "cms4seo.Plugins.Test",
+    "TypeName": "",
+    "Path": "~/plugins/PluginTest/widgets.json"
+  }
+]

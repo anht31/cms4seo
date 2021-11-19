@@ -1,0 +1,22 @@
+﻿@model cms4seo.Model.Entities.Cart
+
+@Html.InlinePlatformStyle("~/Plugins/ShoppingCart/Assets/css/custom.css")
+@Html.InlinePlatformScript("~/Plugins/ShoppingCart/Assets/js/custom.js")
+
+<div class="container-cart">
+    <div class="box-cart pull-right">
+        <a class="cart-num"           
+           href='@(Request.Url.PathAndQuery.Contains("returnUrl") ? Request.Url.PathAndQuery 
+                     : "/Plugins/Cart/index?returnUrl=" + @Request.Url.PathAndQuery)' >
+            <div id="shoping-cart" class="">
+
+                <img class="cart-avatar" alt="cart-avatar" src="~/Plugins/ShoppingCart/Assets/img/cart.png"/>
+
+                <div id="cart-status" class="badge notify-cart">
+                    @Model.Lines.Sum(x => x.Quantity)
+                </div>
+            </div>
+        </a>
+    </div>
+</div>
+

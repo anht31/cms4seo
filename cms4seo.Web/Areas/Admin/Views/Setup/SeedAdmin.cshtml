@@ -1,0 +1,74 @@
+﻿@model cms4seo.Data.IdentityModels.RegisterViewModel
+
+@{
+    ViewBag.Title = "Seed Admin";
+    ViewBag.Description = "Enter admin user & password";
+    Layout = "~/Areas/Admin/Views/Shared/_SetupLayout.cshtml";
+    ViewBag.Step = 2;
+}
+
+
+
+@using (Html.BeginForm("SeedAdmin", "Setup"))
+{
+    foreach (var property in ViewData.ModelMetadata.Properties
+        .Where(
+            x => !x.IsComplexType
+                 && x.DataTypeName != cms4seoDataType.CustomEditor
+                 && !x.ShowForEdit
+        ))
+    {
+        @Html.Hidden(property.PropertyName)
+    }
+
+
+    @Html.ValidationSummary("", new { @class = "text-danger" })
+    <!-- edit ==============================================================================-->
+
+    foreach (var property in ViewData.ModelMetadata.Properties.Where(
+        x => !x.IsComplexType
+             && x.DataTypeName != cms4seoDataType.CustomEditor
+             && x.ShowForEdit
+        ))
+    {
+
+        <div class="form-group">
+            <label>
+                @(property.DisplayName ?? property.PropertyName)
+            </label>
+            @if (property.ModelType == typeof(bool))
+            {
+                @Html.CheckBox(property.PropertyName, new { @class = "checkbox" })
+            }
+            else if (property.DataTypeName == DataType.MultilineText.ToString())
+            {
+                @Html.TextArea(property.PropertyName, null, new { @class = "form-control", spellcheck = "false", rows = 5 })
+            }
+            else if (property.DataTypeName == DataType.Password.ToString())
+            {
+                @Html.Editor(property.PropertyName, new { htmlAttributes = new { @class = "form-control" } })
+            }
+            else
+            {
+                @Html.TextBox(property.PropertyName, null, new { @class = "form-control" })
+            }
+            @Html.ValidationMessage(property.PropertyName)
+        </div>
+
+    }
+
+    <input type="submit" value="Next" class="btn btn-primary waiting-when-post" />
+
+    if (TempData[MessageType.Danger] != null)
+    {
+        <a href="@Url.Action("Permission")" class="btn btn-warning">Bypass Seed Admin</a>
+    }
+
+    @*<input type="submit" value="@AdminResources.CommonSave" class="btn btn-primary" />*@
+    @*@Html.ActionLink(AdminResources.CommonCancel, "Index", null, new { @class = "btn btn-outline-secondary" })*@
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

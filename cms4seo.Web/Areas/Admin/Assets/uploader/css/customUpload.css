@@ -1,0 +1,54 @@
+﻿
+.margin-top-5px {
+    margin-top: 5px;
+}
+
+/*uploader ======================================*/
+
+.uploader div.browser label {
+    width: auto;
+}
+
+.demo-panel-files {
+    max-height: inherit;
+    min-height: inherit;
+}
+
+.no-display {
+    display: none;
+}
+
+#drag-and-drop-zone .browser {
+    width: 80%;
+    margin: auto;
+}
+
+.panel-no-margin-bottom {
+    margin-bottom: 0;
+}
+
+#modal-upload-document .modal-dialog {
+    width: 800px;
+}
+
+#modal-upload-document .modal-body {
+    padding: 20px 20px 0 20px;
+}
+
+
+/* popup upload document -> Message for user =================*/ 
+
+
+.modal-alert {
+    font-size: 32px;
+    display: none;
+}
+
+/*#modal-upload-document .alert-uploadDocument-success.active {
+    display: none;
+}*/
+
+#modal-upload-document .box-uploadDocument {    
+}
+
+

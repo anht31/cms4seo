@@ -1,0 +1,81 @@
+﻿@model Category
+
+<aside class="sidebar-menu mt-2 mb-3 shadow-sm @Setting.WebSettings[ShopSettingType.MenuFormatClass]">
+
+    <div class="sidebar-header">
+        <span @CMS.Attribute("Aside.Category.Header")>
+            @Setting.Contents["Aside.Category.Header"]
+        </span>
+    </div>
+
+    @foreach (var item in Model.Children.Where(x => x.IsAside))
+    {
+        if (item.Children.Count > 0)
+        {
+            <div class="dropdown">
+
+                <a target="_top" href="@(item.Href != "#" ? item.Href : item.Slug)" class="dropbtn">
+                    @*<i class="fa fa-circle fa-fw">&nbsp;</i>*@
+                    <i class="fa fa-chevron-right pull-right">&nbsp;</i>
+                    @item.Name
+                </a>
+
+                <div class="dropdown-content">
+
+                    @foreach (var itemChild in item.Children.Where(x => x.IsAside))
+                    {
+
+
+                        if (itemChild.Children.Count > 0)
+                        {
+
+                            <a target="_top" href="@(itemChild.Href != "#" ? itemChild.Href : itemChild.Slug)" class="">
+                                @itemChild.Name
+                            </a>
+
+
+                            foreach (var itemChildLv3 in itemChild.Children.Where(x => x.IsAside))
+                            {
+
+                                <a target="_top" href="@(itemChildLv3.Href != "#" ? itemChildLv3.Href : itemChildLv3.Slug)" class="">
+                                    @itemChildLv3.Name
+                                </a>
+                            }
+                        }
+                        else
+                        {
+
+                            <a target="_top" href="@(itemChild.Href != "#" ? itemChild.Href : itemChild.Slug)" class="">
+                                @itemChild.Name
+                            </a>
+
+                        }
+
+
+                    }
+                </div>
+            </div>
+        }
+        else
+        {
+
+            <a target="_top" href="@(item.Href != "#" ? item.Href : item.Slug)" class="">
+                @*<i class="fa fa-circle fa-fw">&nbsp;</i>*@
+                @item.Name
+            </a>
+        }
+    }
+
+    @if (Setting.WebSettings[ShopSettingType.IsShowContact].AsBool())
+    {
+        <a href="#" class="LinkToBottom">
+            @*<i class="fa fa-circle fa-fw">&nbsp;</i>*@
+            <span @CMS.Attribute("Aside.Category.MenuContact")>
+                @Setting.Contents["Aside.Category.MenuContact"]
+            </span>
+        </a>
+    }
+
+
+</aside>
+

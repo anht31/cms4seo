@@ -1,0 +1,27 @@
+﻿@model PermissionVm
+
+@{
+    ViewBag.Title = "Permission";
+    ViewBag.Description = "Check and guide setup Permission";
+    Layout = "~/Areas/Admin/Views/Shared/_SetupLayout.cshtml";
+    ViewBag.Step = 3;
+}
+
+<div>
+    <ul class="ul-permission">
+        <li class="@Model.HasWriteConnectionStringFile.ToString()">HasWriteConnectionStringFile</li>
+        <li class="@Model.HasWriteRedirectFile.ToString()">HasWriteRedirectFile</li>
+        <li class="@Model.HasWritePhotoFolder.ToString()">HasWritePhotoFolder</li>
+        <li class="@Model.HasWriteSitemapFile.ToString()">HasWriteSitemapFile</li>
+        <li class="@Model.HasWritePluginsFolder.ToString()">HasWritePluginsFolder</li>
+    </ul>
+</div>
+
+<div>
+
+    <a href="@Url.Action("Permission")" class="btn btn-success">
+        <i class="fa fa-recycle"></i>
+        Recheck Permission
+    </a>
+    <a href="@Url.Action("SetupStore")" class="btn btn-primary">Next</a>
+</div>

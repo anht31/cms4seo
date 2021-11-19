@@ -1,0 +1,14 @@
+﻿@using cms4seo.Model.LekimaxType
+@using cms4seo.Service.Provider
+@{
+    ViewBag.Title = "Xác nhận đơn hàng";
+    var theme = Setting.WebSettings[WebSettingType.CurrentTheme];
+    Layout = "~/Themes/" + theme + "/Views/Shared/_Layout.cshtml";
+}
+
+<div>
+    <h2>
+        <span>Đặt hàng thành công!</span>
+    </h2>
+    <span>Cám ơn quý khách! Chúng tôi sẽ liên lạc với quý khách để xác minh đơn hàng trong thời gian sớm nhất, nếu có thể.</span>
+</div>

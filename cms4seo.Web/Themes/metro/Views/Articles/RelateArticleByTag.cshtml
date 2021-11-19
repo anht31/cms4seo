@@ -1,0 +1,22 @@
+﻿
+@model PagedList.IPagedList<Article>
+
+
+<br />
+<br />
+
+@*@Html.Partial("_BreadcrumbInfo", "relate article")*@
+
+<div class="alert alert-secondary h2 text-center rounded-0">
+    <span @CMS.Attribute("Article.Relate.Header")>
+        @Setting.Contents["Article.Relate.Header"]
+    </span>
+</div>
+
+<div class="mt-2">
+
+    <div class="row">
+        @Html.Partial("_CardArticleList", Model)
+    </div>
+
+</div>

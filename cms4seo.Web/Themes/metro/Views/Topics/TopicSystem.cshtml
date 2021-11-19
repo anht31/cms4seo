@@ -1,0 +1,22 @@
+﻿
+@using cms4seo.Service.TopicHelper
+@model Topic
+
+@if (Model != null)
+{
+    foreach (var topic in Model.Children.ToList())
+    {
+
+        <div class="text-center container-light p-4">
+            <h4 class="font-weight-bold">
+                @topic.Name
+            </h4>
+        </div>
+
+        <div class="row mt-3">
+
+            @Html.Partial("_CardArticleList", topic.GetAllChildArticle())
+
+        </div>
+    }
+}

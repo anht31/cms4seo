@@ -1,0 +1,47 @@
+﻿@model Product
+
+<div class="pl-1 pr-1">
+    <a @CMS.Attribute("Products.Card.Price")
+        href="@Model.Slug" class="card h-100 
+        @Setting.WebSettings[ShopSettingType.AspectRatioImage]">
+        
+        <div class="aspect-ratio">
+            <img class="img-responsive card-img-top" src="@Model.Avatar" alt="@Model.Slug">
+        </div>
+
+        <div class="card-body">
+            <h5 class="card-title mb-1">
+                @Model.Name
+            </h5>
+            @if (Model.Price > 0)
+            {
+                <h5>
+                    @if (Model.OldPrice > 0)
+                    {
+                        <del class="price-old">
+                            @(Culture == "vi-VN" ? string.Format("{0:C0}", Model.OldPrice) : string.Format("{0:C}", Model.OldPrice))
+                        </del>
+                    }
+
+                    <div class="price-new badge badge-danger">
+                        @(Model.Price == 1 ? Setting.Contents["Products.Card.Price"] :
+                            Culture == "vi-VN" ? string.Format("{0:C0}", Model.Price) : string.Format("{0:C}", Model.Price))
+                    </div>
+
+                </h5>
+            }
+
+            <div>
+                @Model.Brief
+            </div>
+        </div>
+
+    </a>
+    
+
+
+    @Html.Partial("_WidgetPartial", Model,
+        new ViewDataDictionary { { "zone", "card_product" } })
+
+
+</div>

@@ -1,0 +1,49 @@
+﻿
+@{
+    var theme = Setting.WebSettings[WebSettingType.CurrentTheme];
+}
+
+<header class="container">
+    <div class="header-1">
+
+
+        <div class="row">
+            <div class="col-xl-4 pt-1">
+                Email:                
+                <span @CMS.Attribute(AppShop.Email)>
+                    @Setting.WebSettings[AppShop.Email]
+                </span>
+            </div>
+            <div class="col-xl-2 pt-1">
+                Hotline:
+                <span @CMS.Attribute(AppShop.Hotline)>
+                    @Setting.WebSettings[AppShop.Hotline]
+                </span>
+            </div>
+            <div class="col-xl-6">
+                
+                <div class="pull-right">
+                    @Html.Partial("_FormSearch")
+                </div>
+
+                <div class="pull-right internation pt-1 pr-4">
+                    <span>
+                        <a href="#">
+                            <img src="~/Themes/@theme/Assets/img/vi.png" />
+                        </a>
+
+                    </span>
+                    <span>
+                        <a href="#">
+                            <img src="~/Themes/@theme/Assets/img/en.png" />
+                        </a>
+
+                    </span>
+                </div>
+
+            </div>
+        </div>
+
+
+    </div>
+</header>

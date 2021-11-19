@@ -1,0 +1,77 @@
+﻿@model Domain.Entities.Product
+
+@{
+    ViewBag.Title = Model.Name;
+
+    if (Model != null)
+    {
+        ViewBag.Description = Model.MetaDescription;
+        ViewBag.Keywords = Model.MetaKeyWords;
+        ViewBag.Title = Model.MetaTitle;
+        ViewBag.OgImage = Model.Photos.FirstOrDefault() != null ? Model.Photos.FirstOrDefault().LgPath : "";
+    }
+
+    ViewBag.HiddenSlogun = "true";
+
+    ViewBag.ThemeImage = ViewBag.Category.ThemeImage;
+    ViewBag.ThemeImageMobile = ViewBag.Category.ThemeImageMobile;
+    ViewBag.ThemeTitle = ViewBag.Category.ThemeTitle;
+    ViewBag.ThemeDescription = ViewBag.Category.ThemeDescription;
+    ViewBag.ThemeLine3 = ViewBag.Category.ThemeLine3;
+    ViewBag.ThemeHref = ViewBag.Category.ThemeHref;
+}
+
+
+
+<div class="">
+
+
+    @*@Html.Partial("_Breadcrumb")*@
+
+
+    @*@Html.Partial("_RenderProductSimple")*@
+
+
+    
+    @Html.Partial("_SectionProductDetail")
+
+    
+
+    @if (Model.Description != null)
+    {
+        <div class="mt-4">
+
+            <div class="mb-3" style="border-bottom: 3px solid gray"></div>
+
+            @*<h1 class="text-center">@Model.Name</h1>
+
+            <hr/>*@
+
+            @Html.Raw(Model.Description)
+        </div>
+    }
+
+    <br />
+
+    @*@Html.Partial("_SectionAlertServiceMap")*@
+
+    @*@Html.Partial("_SectionTablePrice")*@
+
+    @*@Html.Partial("_SectionTablePriceContact")*@
+    
+
+    @*@Html.Partial("_SectionAlertServiceMap")*@
+
+    <!-- relative ============================================================================================ -->
+    @{
+        Html.RenderAction("RelateProduct", "Product", new { id = Model.Id });
+    }
+
+
+</div>
+
+
+
+
+@*@Html.Partial("_AboutUs")*@
+

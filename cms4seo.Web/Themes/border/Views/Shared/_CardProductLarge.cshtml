@@ -1,0 +1,57 @@
+﻿@model Product
+
+<div class="col-lg-12 portfolio-item card-style-1 card-animate-1 
+     @Setting.WebSettings[ShopSettingType.AspectRatioImage]">
+    <div class="card h-100">
+        <a href="@Model.Slug">            
+            
+            <div class="aspect-ratio">
+                <img class="card-img-top" src="@(Model.Photos.Count > 0 ? Model.Photos.FirstOrDefault().LgPath : "")" alt="@Model.Title2">
+            </div>
+
+            @if (!string.IsNullOrWhiteSpace(Setting.WebSettings[ShopSettingType.CardDecorate]))
+            {
+                <div class="decorate-badge">
+                    <img class="" alt="decorate" src='@Setting.WebSettings[ShopSettingType.CardDecorate]' />
+                </div>
+            }
+            else if (Model.OldPrice > 0 & Model.Price > 0)
+            {
+                <div class="notify-badge shadow-lg">
+                    Sale
+                </div>
+            }
+
+            <h5 class="card-title mt-2 pl-3 text-decoration-none">
+                @Model.Name                
+            </h5>
+
+        </a>
+
+
+        @if (Model.Price > 0)
+        {
+            <div class="card-price">
+
+                @if (Model.OldPrice > 0)
+                {
+                    <del class="price-old mb-2 ml-3">
+                        @(Culture == "vi-VN" ? string.Format("{0:C0}", Model.OldPrice) : string.Format("{0:C}", Model.OldPrice))
+                    </del>
+                }
+
+                <div class="price-new badge badge-danger mb-2 mr-3">
+                    @(Model.Price == 1 ? Setting.Contents["Products.Card.Price"] :
+                        Culture == "vi-VN" ? string.Format("{0:C0}", Model.Price) : string.Format("{0:C}", Model.Price))
+                </div>
+
+            </div>
+        }
+
+        @if (Setting.WebSettings[ShopSettingType.IsShowBrief].AsBool())
+        {
+            <p class="card-text">@Model.Brief</p>
+        }
+
+    </div>
+</div>

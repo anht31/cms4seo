@@ -1,0 +1,27 @@
+﻿
+@model IEnumerable<Product>
+
+<script>
+    window.loadSize = "@ViewBag.Size";
+</script>
+
+@foreach (var item in Model.OrderBy(x => x.Sort))
+{
+
+    <div class="cell">
+        <a class="cell-link card-animate-1" href="@item.Slug" target="_top">
+            <div class="callout margin-bottom-2">
+
+                <p>@item.Category.Name</p>
+                <div class="aspect-ratio">
+                    <img src="@item.Avatar" alt="@item.Name">
+                </div>
+                <div class="pt-0"></div>
+                <p class="lead">@item.Name</p>
+                <p class="subheader">@item.Brief</p>
+
+            </div>
+        </a>
+    </div>
+
+}

@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<appSettings>
+  <add key="Article.Detail.DateCreated" value="Created" />
+  <add key="Article.Detail.Download" value="Download" />
+  <add key="Article.Detail.Promote.InstructionPhone" value="Please contact our " />
+  <add key="Article.Detail.Promote.OrEmail" value="or email" />
+  <add key="Article.Detail.Promote.Product" value="our product" />
+  <add key="Article.Detail.Promote.Promise" value="We will advise the right service for you" />
+  <add key="Article.Detail.Promote.Welcome" value="When you need" />
+  <add key="Article.Detail.Viewed" value=", View: " />
+  <add key="Article.Header.Readmore" value="Maybe you want read more..." />
+  <add key="Article.Relate.Header" value="Maybe you are would like..." />
+  <add key="Articles.Card.DateCreated" value="Created: " />
+  <add key="Articles.Card.SeeMore" value="See more" />
+  <add key="Articles.Card.Viewed" value=", View: " />
+  <add key="Articles.Search.Message" value="Not found, please try etag bellow" />
+  <add key="Articles.Section.Header" value="LATEST STORIES" />
+  <add key="Aside.Articles.Trending" value="Trending" />
+  <add key="Aside.Callout.SmsBody" value="Please tell me more about your products" />
+  <add key="Aside.Callout.Span1" value="You just leave to SMS on the number" />
+  <add key="Aside.Callout.Span2" value="We will call you right back." />
+  <add key="Aside.Category.Header" value="Home" />
+  <add key="Aside.Category.MenuContact" value="Contact" />
+  <add key="Aside.Links.Header" value="Links" />
+  <add key="Aside.Statistic.Header" value="Statistic" />
+  <add key="Aside.Statistic.Today" value="Today: " />
+  <add key="Aside.Supporter.Header" value="Supporter" />
+  <add key="Aside.Topic.Header" value="Topic" />
+  <add key="Aside.TopView.Header" value="TRENDING POSTS" />
+  <add key="Banner.CallNow" value="Call Now" />
+  <add key="Banner.SeeMore" value="See more" />
+  <add key="Breadcrumb.Home" value="Home" />
+  <add key="Contact.Form.Email" value="Please enter email" />
+  <add key="Contact.Form.Fullname" value="your full name" />
+  <add key="Contact.Form.Header" value="Please leave your message, we will reply you soon as soon." />
+  <add key="Contact.Form.Message" value="your message" />
+  <add key="Contact.Form.Phonenumber" value="Please enter your phone number" />
+  <add key="Contact.Form.Submit" value="Send message" />
+  <add key="Emails.ContactForm.ServerBusyPleaseTryLater" value="Seem, Our Mail Server too overload, please try again later" />
+  <add key="Emails.Js.ServerBusyPleaseTryLater" value="Seem email server is busy, please try it later" />
+  <add key="Emails.Js.ThankForYourMessage" value="Thank you for your message" />
+  <add key="Emails.Template.Empty" value="May be you still not setup SMTP Mail Server" />
+  <add key="Emails.Template.Fullname" value="Full name: " />
+  <add key="Emails.Template.Header" value="New Customer have message for you:" />
+  <add key="Emails.Template.PhoneNumber" value="Phone number: " />
+  <add key="Footer.Column.Contact.Form.Button.Submit" value="Submit" />
+  <add key="Footer.Column.Contact.Form.Email" value="Email" />
+  <add key="Footer.Column.Contact.Form.Email.Placeholder" value="your email" />
+  <add key="Footer.Column.Contact.Form.Message" value="Message" />
+  <add key="Footer.Column.Contact.Form.Message.Placeholder" value="Message" />
+  <add key="Footer.Column.Contact.Form.Name" value="Name" />
+  <add key="Footer.Column.Contact.Form.Name.Placeholder" value="Please enter your name" />
+  <add key="Footer.Column.Contact.Form.Phone" value="Phone" />
+  <add key="Footer.Column.Contact.Form.Phone.Placeholder" value="Please enter your phone number" />
+  <add key="Footer.Socials.Facebook.Href" value="Please enter value" />
+  <add key="Footer.Socials.Header" value="Our Socials Net" />
+  <add key="Footer.Socials.Instagram.Href" value="Please enter value" />
+  <add key="Footer.Socials.Pinterest.Href" value="Please enter value" />
+  <add key="Footer.Socials.Twitter.Href" value="Please enter value" />
+  <add key="Footer.SupporterPhone.Label" value="Sale: " />
+  <add key="Footer2.Column1.Description" value="Wholesale and retail nationwide, with high discounts for agents and shops." />
+  <add key="Footer2.Column1.Header" value="Contact Me" />
+  <add key="Form.Search.Article.Placeholder" value="find article" />
+  <add key="Form.Search.Placeholder" value="find your product" />
+  <add key="Header.Menu.Brand" value="cms4seo" />
+  <add key="Header.Menu.Contact" value="Contact" />
+  <add key="Header.Search.Button" value="Search" />
+  <add key="Label.Home" value="Home" />
+  <add key="Page.Error.BadRequest.Description" value="Request Header Or Cookie Too Large" />
+  <add key="Page.Error.BadRequest.Header" value="Bad Request" />
+  <add key="Page.Error.GoHome" value="Go Home" />
+  <add key="Page.Error.NotFound.Description" value="The requested URL was not found on this server." />
+  <add key="Page.Error.NotFound.Header" value="Not Found" />
+  <add key="Page.Error.ServerError.Description" value="The page can't be displayed because an internal server error has occurred." />
+  <add key="Page.Error.ServerError.Header" value="Internal Server Error" />
+  <add key="Page.Filter.ByPrice" value="Filter by price" />
+  <add key="Product.Detail.Shopping.Button.Buy" value="Buy Now" />
+  <add key="Product.Detail.Shopping.Options" value="Small, Medium, Large" />
+  <add key="Product.Detail.Shopping.Property1" value="Size" />
+  <add key="Product.Detail.Shopping.Quantity.Input" value="One or Two" />
+  <add key="Product.Detail.Shopping.Quantity.Label" value="Quantity" />
+  <add key="Product.Edit" value="edit" />
+  <add key="Product.NewProduct" value="New Product" />
+  <add key="Product.OutOfStock" value="Out of Stock" />
+  <add key="Product.Relate" value="Maybe you want more" />
+  <add key="Product.SeeDemo" value="See demo" />
+  <add key="Products.Card.Price" value="Price: call me" />
+  <add key="Products.Header" value="Our Recent Work" />
+  <add key="Products.Search.Message" value="Not found, please try tag bellow" />
+  <add key="Section.AboutUs.CallAction" value="For detailed advice on our products and services, please contact" />
+  <add key="Section.AboutUs.Description" value="More description about our company" />
+  <add key="Section.AboutUs.Header" value="Header Title" />
+  <add key="Section.AboutUs.Item1" value="Item Description 1" />
+  <add key="Section.AboutUs.Item2" value="Item Description 2" />
+  <add key="Section.AboutUs.Item3" value="Item Description 3" />
+  <add key="Section.AboutUs.Item4" value="Item Description 4" />
+  <add key="Section.AboutUs.Item5" value="Item Description 5" />
+  <add key="Section.AboutUs.Item6" value="Item Description 6" />
+  <add key="Section.AboutUs.Item7" value="Item Description 7" />
+  <add key="Section.Certify1.Description" value="With advanced technology, with a clear process, to reduce costs at the best level." />
+  <add key="Section.Certify1.Header" value="Economy" />
+  <add key="Section.Certify2.Description" value="With the goal of sustainable development, we are committed to quality products." />
+  <add key="Section.Certify2.Header" value="Stablezation" />
+  <add key="Section.Certify3.Description" value="Our products have a variety of long-term durability certifications." />
+  <add key="Section.Certify3.Header" value="Quality" />
+  <add key="Section.Products.SeeMore" value="see more" />
+  <add key="Section.Search.Header" value=" results for keyword: " />
+  <add key="Topic.Aside.AuthorsHeader" value="Authors" />
+  <add key="Topic.Aside.TopicHeader" value="Categories" />
+  <add key="Topic.Header" value="LATEST STORIES" />
+  <add key="Topic.Trend.Header" value="BREAKING NEWS" />
+  <add key="Slider.Logo" value="" />
+
+
+
+  <add key="Section.Callout.Header" value="Really big special this week on items." />
+  <add key="Section.Footer.Description" value="Ecommerce, also known as electronic commerce or internet commerce, refers to the buying and selling of goods or services using the internet, and the transfer." />
+  <add key="Section.Footer.Header" value="Title, brand name or Store name." />
+</appSettings>

@@ -1,0 +1,96 @@
+﻿
+<footer>
+    <div class="grid-x grid-margin-x expanded callout secondary">
+
+        <div class="large-4 cell">
+            <h5 @CMS.Attribute("Section.Footer.Header")>
+                @Setting.Contents["Section.Footer.Header"]
+            </h5>
+            <div class="grid-x small-up-4 object-75x75-cover">
+                
+                <div class="cell">
+                    <img @CMS.Attribute("Section.Footer.Image1")
+                        src="@Setting.Contents["Section.Footer.Image1"]" class="thumbnail" alt="size-75x75">
+                </div>
+                
+                <div class="cell">
+                    <img @CMS.Attribute("Section.Footer.Image2")
+                        src="@Setting.Contents["Section.Footer.Image2"]" class="thumbnail" alt="size-75x75">
+                </div>
+
+                <div class="cell">
+                    <img @CMS.Attribute("Section.Footer.Image3")
+                        src="@Setting.Contents["Section.Footer.Image3"]" class="thumbnail" alt="size-75x75">
+                </div>
+
+                <div class="cell">
+                    <img @CMS.Attribute("Section.Footer.Image4")
+                        src="@Setting.Contents["Section.Footer.Image4"]" class="thumbnail" alt="size-75x75">
+                </div>
+
+                <div class="cell">
+                    <img @CMS.Attribute("Section.Footer.Image5")
+                        src="@Setting.Contents["Section.Footer.Image5"]" class="thumbnail" alt="size-75x75">
+                </div>
+
+                <div class="cell">
+                    <img @CMS.Attribute("Section.Footer.Image6")
+                        src="@Setting.Contents["Section.Footer.Image6"]" class="thumbnail" alt="size-75x75">
+                </div>
+
+                <div class="cell">
+                    <img @CMS.Attribute("Section.Footer.Image7")
+                        src="@Setting.Contents["Section.Footer.Image7"]" class="thumbnail" alt="size-75x75">
+                </div>
+
+                <div class="cell">
+                    <img @CMS.Attribute("Section.Footer.Image8")
+                        src="@Setting.Contents["Section.Footer.Image8"]" class="thumbnail" alt="size-75x75">
+                </div>
+
+
+            </div>
+
+        </div>
+
+        <div class="large-4 cell">
+            <h5 @CMS.Attribute("Section.Footer.Header2")>
+                @Setting.Contents["Section.Footer.Header2"]
+            </h5>
+            
+            @{
+                Html.RenderAction("AllTag", "ArticleTags");
+            }
+
+        </div>
+
+        <div class="large-4 cell">
+
+            <h5 @CMS.Attribute("Section.Footer.Header3")>
+                @Setting.Contents["Section.Footer.Header3"]
+            </h5>
+            <p @CMS.Attribute("Section.Footer.Description")>
+                @Setting.Contents["Section.Footer.Description"]
+            </p>
+        </div>
+
+    </div>
+    <div class="grid-x grid-margin-y expanded">
+
+        <div class="medium-6 cell">
+            <ul class="menu">
+                <li><a href="#">Legal</a></li>
+                <li><a href="#">Partner</a></li>
+                <li><a href="#">Explore</a></li>
+            </ul>
+        </div>
+
+        <div class="medium-6 cell">
+            <div class="footerPowerBy align-center">
+                &copy; 2020 - power by <a href="http://cms4seo.com" rel="noopener" target="_blank">cms4seo.com</a>
+            </div>
+        </div>
+    </div>
+
+</footer>
+

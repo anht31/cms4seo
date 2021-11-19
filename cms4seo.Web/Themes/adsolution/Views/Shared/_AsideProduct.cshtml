@@ -1,0 +1,12 @@
+﻿@{
+    Html.RenderAction("AsideMenu", "Nav", new { id = 0 });
+}
+
+
+@Html.Partial("_Info")
+
+@Html.Partial("_Supporter")
+
+@{
+    Html.RenderAction("Counter", "HitCounter");
+}

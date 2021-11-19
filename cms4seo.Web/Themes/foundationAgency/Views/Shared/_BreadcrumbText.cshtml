@@ -1,0 +1,23 @@
+﻿@model string
+
+<div class="grid-x cell">
+    <nav aria-label="You are here:" role="navigation">
+        <ul class="breadcrumbs">
+
+            <li>
+                <a href="/" target="_top">
+                    <span @CMS.Attribute("Breadcrumb.Home")>
+                        @Setting.Contents["Breadcrumb.Home"]
+                    </span>
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    @Model
+                </a>
+            </li>
+
+        </ul>
+    </nav>
+</div>

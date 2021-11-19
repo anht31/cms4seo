@@ -1,0 +1,485 @@
+﻿/* Project  ========================================================
+
+Project:	Admin css
+Version:	0.0.1
+Last change:  22 Apr 2016
+
+==================================================================== */
+
+
+@media (min-width: 768px) {
+    .chart-pie {
+        height: calc(20rem) !important;
+    }
+}
+
+
+/*for Mobile Management*/
+@media (max-width: 768px) {
+    .container, .container-fluid {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    #content-wrapper .card-body {
+        padding: 10px 7px;
+    }
+}
+
+/*#region card */
+
+
+#content-wrapper a.card {
+    text-decoration: none;
+}
+
+/*#endregion */
+
+/*
+    for funy animate
+*/
+
+/*#region Validation */
+
+.field-validation-error {
+    color: tomato;
+}
+
+/*#endregion */
+
+
+
+/*.sidebar-brand .fa-laugh-wink:hover {
+        border: 1px solid #5a5c69;
+        border-radius: 50%;
+     }*/
+
+
+/*.sidebar-brand .sidebar-brand-icon:hover {
+         width: 32px;
+          height: 32px;
+          border-radius: 50%;
+         margin: 0;
+         padding: 0;
+    box-shadow:
+                   0 0 60px 30px #fff,
+                   0 0 100px 60px #f0f,
+                   0 0 140px 90px #0ff;
+     }*/
+
+
+.sidebar-brand .sidebar-brand-icon {
+    -webkit-filter: drop-shadow(5px 5px 5px #222);
+    filter: drop-shadow(5px 5px 5px #222);
+}
+
+.sidebar-brand .sidebar-brand-icon img {
+    filter: brightness(120%);
+}
+
+.collapse-divider {
+
+}
+
+
+/* Index ===================================================================== */
+
+
+.hola2 {
+}
+
+.override-href {
+    background-color: #ffff89;
+}
+
+
+/* common -> ul-ok ================================*/
+
+ul.ul-ok {
+    padding-left: 25px;
+    list-style: none;
+}
+
+    ul.ul-ok li {
+        /*margin-bottom:10px;*/
+    }
+
+        ul.ul-ok li:before {
+            font-family: 'Glyphicons Halflings';
+            content: "\e013";
+            margin: 0 5px 0 -23px;
+            font-size: 18px;
+            color: #339966;
+        }
+
+
+/* for IDE editor bypass */
+.counterCharacter,
+.counterMetaTitle,
+.counterMetaDescription,
+.counterMetaKeyword {
+}
+
+.remainCharacters,
+.remainMetaTitle,
+.remainMetaDescription,
+.remainMetaKeyword {
+    color: #36b9cc;;
+}
+
+
+/* admin/[controller]/edit ================================== */
+
+
+option.root-item {
+    font-weight: bold;
+}
+
+option.child-item {
+    /*padding-left: 15px;
+    margin-left: 15px;*/
+}
+
+
+
+/* Setting -> table =========================================*/   
+.cell-password {
+    border: none;
+    background: transparent;
+}
+
+
+
+
+/*#region status code */
+
+
+.statusCode {
+    max-width: 767px;
+    width: 100%;
+    line-height: 1.4;
+    padding: 0px 15px;
+}
+
+.statusCode .statusCode-header {
+    position: relative;
+    line-height: 150px;
+}
+
+.statusCode .statusCode-header h1 {
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 186px;
+    font-weight: 900;
+    margin: 0px;
+    text-transform: uppercase;
+    background: url('/Areas/Admin/Assets/admin/text.png');
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: cover;
+    background-position: center;
+}
+
+.statusCode h2 {
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 26px;
+    font-weight: 700;
+    margin: 0;
+    padding-bottom: 10px;
+}
+
+.statusCode p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 0px;
+    text-transform: uppercase;
+}
+
+.statusCode a {
+    font-family: 'Titillium Web', sans-serif;
+    display: inline-block;
+    text-transform: uppercase;
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    background: #5c91fe;
+    padding: 10px 40px;
+    font-size: 14px;
+    font-weight: 700;
+    border-radius: 1px;
+    margin-top: 15px;
+    -webkit-transition: 0.2s all;
+    transition: 0.2s all;
+}
+
+.statusCode a:hover {
+    opacity: 0.8;
+}
+
+@media only screen and (max-width: 767px) {
+    .statusCode .statusCode-header {
+        height: 110px;
+        line-height: 110px;
+    }
+
+    .statusCode .statusCode-header h1 {
+        font-size: 120px;
+    }
+}
+
+
+/*#endregion */
+
+
+/*#region search box */
+
+.has-search .form-control {
+    padding-left: 2.375rem;
+}
+
+.has-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+}
+
+/*#endregion */
+
+
+
+/*#region upload photo aside */
+
+
+.aside-right .fixed-top-aside-right {
+    width: calc((100% - 224px) / 3 - 15px);
+}
+
+.aside-upload-photo {
+
+}
+
+.fixed-top-aside-right {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    /*left: 0;*/
+    z-index: 1030;
+    width: inherit;
+    max-height: 100%;
+    overflow-y: scroll;
+}
+
+.photo-list {
+    font-size: 14px;
+}
+
+@media (max-width: 768px) {
+    .aside-right .fixed-top-aside-right {
+        margin-left: 15px;
+        position: relative;
+        width: 100%;
+        z-index: unset;
+    }
+}
+
+/*#endregion */
+
+
+
+/*#region fix affix for aside upload photo */
+
+.fix-aside-uploader {
+    height: 1000px;
+}
+
+
+.photo-list .table a.btn.btn-warning {
+    font-size: 12px;
+    padding: 3px 4px;
+    color: white;
+}
+
+.photo-list .table td {
+    padding: 3px;
+    vertical-align: middle;
+}
+
+.photo-list .table a.btn.btn-danger {
+    font-size: 12px;
+    padding: 3px 4px;
+    color: white;
+}
+
+.photo-list .table td i.fas {
+    font-size: 28px;
+}
+
+.photo-list .table td a {
+    color: #aaa;
+    cursor: pointer;
+}
+
+.photo-list .table td img {
+    cursor: pointer;
+}
+
+.photo-list .table td a:hover {
+}
+
+/*#endregion */
+
+
+
+
+
+/*#region mobile management */
+
+.upload-mobile {
+    position: fixed;
+    right: 15px;
+    top: 200px;
+    z-index: 100;
+    color: orange;
+
+    cursor: pointer;
+    -webkit-filter: drop-shadow(3px 3px 3px #222);
+    filter: drop-shadow(3px 3px 3px #222);
+}
+
+
+.upload-mobile:hover {
+    -webkit-filter: drop-shadow(4px 4px 4px #222);
+    filter: drop-shadow(4px 4px 4px #222);
+}
+
+
+.upload-mobile:active {
+    -webkit-filter: drop-shadow(2px 2px 2px #222);
+    filter: drop-shadow(2px 2px 2px #222);
+}
+
+
+
+.upload-mobile fa-stack {
+    
+}
+
+/*#endregion */
+
+
+
+/*#region text-error */
+
+.text-error {
+    color: red;
+}
+
+/*#endregion */
+
+
+
+/*#region toggleSwitch */
+
+/* The switch - the box around the slider */
+.toggleSwitch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+    margin-bottom: 0;
+    /*margin-top: 10px;
+    margin-bottom: 15px;
+    margin-left: 4px;*/
+}
+
+/* Hide default HTML checkbox */
+.toggleSwitch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* The checkbox-slider */
+.checkbox-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.checkbox-slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked + .checkbox-slider {
+    /*background-color: #2196F3;*/
+    background-color: yellowgreen;
+    /*background-color: orange;*/
+}
+
+input:focus + .checkbox-slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .checkbox-slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.checkbox-slider.round {
+    border-radius: 34px;
+}
+
+.checkbox-slider.round:before {
+    border-radius: 50%;
+}
+
+/*#endregion */
+
+
+/*#region loading wait */
+
+/* This only works with JavaScript, 
+if it's not present, don't show loader */
+
+.waiting-when-post {
+
+}
+
+.se-pre-con {
+    display: none;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background: url(/Areas/Admin/Assets/setup/Preloader_3.gif) center no-repeat #fff;
+}
+
+.se-pre-con.active {
+    display: block;
+}
+
+/*#endregion */

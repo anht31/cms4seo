@@ -1,0 +1,125 @@
+﻿@using PagedList.Mvc
+@model PagedList.IPagedList<Product>
+
+@{
+    ViewBag.Title = Setting.WebSettings[ShopSettingType.HomepageMetaTitle];
+    ViewBag.Description = Setting.WebSettings[ShopSettingType.HomepageMetaDescription];
+    ViewBag.Keywords = Setting.WebSettings[ShopSettingType.HomepageMetaKeywords];
+
+
+    ViewBag.IsHome = "true";
+
+    ViewBag.OgImage = Setting.WebSettings[ShopSettingType.OgImage];
+
+}
+
+
+<br>
+
+
+<article class="grid-container">
+
+    <div class="grid-x grid-margin-x">
+
+        <div class="medium-7 large-6 cell">
+
+            <h1 @CMS.Attribute("Section.Home.Section1.Column1.Header")>
+                @Setting.Contents["Section.Home.Section1.Column1.Header"]
+            </h1>
+
+            <p @CMS.Attribute("Section.Home.Section1.Column1.Paragraph") class="subheader">@Setting.Contents["Section.Home.Section1.Column1.Paragraph"]</p>
+            
+            <a @CMS.Attribute("Section.Home.Section1.Column1.Button.Href"
+                   , "Section.Home.Section1.Column1.Button.Text") 
+                href="@Setting.Contents["Section.Home.Section1.Column1.Button.Href"]" 
+                target="_top" class="button">
+                @Setting.Contents["Section.Home.Section1.Column1.Button.Text"]
+            </a>
+
+            <a @CMS.Attribute("Section.Home.Section1.Column1.Button2.Href"
+                   ,"Section.Home.Section1.Column1.Button2.Text") 
+                href="@Setting.Contents["Section.Home.Section1.Column1.Button2.Href"]" 
+                target="_top" class="button">
+                @Setting.Contents["Section.Home.Section1.Column1.Button2.Text"]
+            </a>
+        </div>
+
+        <div class="show-for-large large-3 cell">
+            @*<img src="https://placehold.it/400x370&text=PSR1257 + 12 C" alt="picture of space">*@
+            <img @CMS.Attribute("Section.Home.Section1.Column2.Image") src="@Setting.Contents["Section.Home.Section1.Column2.Image"]" alt="Real Estate 400x370" />
+        </div>
+
+        <div class="medium-5 large-3 cell">
+            <div class="callout secondary">
+                @using (Html.BeginForm("Filter", "Product", FormMethod.Post))
+                {
+
+                    <div class="grid-x">
+                        <div class="small-12 cell">
+                            <label>
+                                <span @CMS.Attribute("Section.Home.Section1.Column3.Options.Label")>
+                                    @Setting.Contents["Section.Home.Section1.Column3.Options.Label"]
+                                </span>
+                                <select name="district" @CMS.Attribute("Section.Home.Section1.Column3.Options")>
+                                    @foreach (var item in (Setting.Contents["Section.Home.Section1.Column3.Options"]).ToOptions())
+                                    {
+                                        <option value="@item">@item</option>
+                                    }
+                                </select>
+                            </label>
+                        </div>
+                        <div class="small-12 cell">
+                            <label>
+                                <span @CMS.Attribute("Section.Home.Section1.Column3.Input.Label")>
+                                    @Setting.Contents["Section.Home.Section1.Column3.Input.Label"]
+                                </span>
+                                <input @CMS.Attribute("Section.Home.Section1.Column3.Input.Placeholder") name="maxPrice" type="number" 
+                                    placeholder="@Setting.Contents["Section.Home.Section1.Column3.Input.Placeholder"]">
+                            </label>
+                            <button @CMS.Attribute("Section.Home.Section1.Column3.SubmitButton") type="submit" class="button">
+                                @Setting.Contents["Section.Home.Section1.Column3.SubmitButton"]
+                            </button>
+                        </div>
+                    </div>
+                }
+
+            </div>
+        </div>
+
+    </div>
+
+    <div class="">
+        <hr>
+    </div>
+
+    <div class="">
+        <p class="lead" @CMS.Attribute("Section.Home.SectionProducts.Header")>
+            @Setting.Contents["Section.Home.SectionProducts.Header"]
+        </p>
+    </div>
+
+    <div class="grid-x grid-margin-x small-up-1 medium-up-2 large-up-3
+         @Setting.WebSettings[ShopSettingType.AspectRatioImage]" 
+         id="NewestProductsContainer">
+
+
+        @{
+            Html.RenderAction("NewestProducts", "Product", new { size = 6 });
+        }
+
+    </div>
+
+    <div class="font-weight-bold font-italic">
+        
+        <div class="text-center hide hidden" id="loading">
+            <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+                <span class="sr-only">Loading...</span>
+        </div><br />
+
+        <a @CMS.Attribute("Section.Home.SectionProducts.Loadmore")
+            href="#" class="button hollow expanded" id="loadMore">
+            @Setting.Contents["Section.Home.SectionProducts.Loadmore"]
+        </a>
+    </div>
+</article>
+

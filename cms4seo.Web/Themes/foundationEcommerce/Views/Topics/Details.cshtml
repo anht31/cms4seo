@@ -1,0 +1,39 @@
+﻿@model PagedList.IPagedList<Article>
+@using PagedList.Mvc;
+
+@{
+    ViewBag.PageHeader = ViewBag.Title;
+
+    var theme = Setting.WebSettings[WebSettingType.CurrentTheme];
+    Layout = "~/Themes/" + theme + "/Views/Shared/_LayoutBlog.cshtml";
+}
+
+
+
+@foreach (var item in Model)
+{
+
+    <div class="blog-post">
+        <a class="cell-link" href="@item.Slug" target="_top">
+            <h3>@item.Name <small>@item.PostedDate.Value.ToShortDateString()</small></h3>
+            <img class="thumbnail" src="@item.Avatar">
+            @*<img class="thumbnail" src="@((item.Photos.FirstOrDefault(x => x.SmPath == item.Avatar) ?? new Photo()).LgPath)">*@
+            <p>
+                @item.Description
+            </p>
+            <div class="callout">
+                <ul class="menu simple">
+                    <li><a href="#">Author: @item.PostBy</a></li>
+                    <li><a href="#">Viewed: @item.ViewCounter</a></li>
+                    @*<li><a href="#">Comments: 3</a></li>*@
+                </ul>
+            </div>
+        </a>
+    </div>
+
+}
+
+
+
+<!-- PagerList -->
+@Html.PagedListPager(Model, page => ViewBag.TopicSlug + "/" + page)

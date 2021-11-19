@@ -1,0 +1,33 @@
+﻿
+@model IEnumerable<Product>
+
+<script>
+    window.loadSize = "@ViewBag.Size";
+</script>
+
+
+
+<div class="row column">
+    <h3 @CMS.Attribute("Products.Header")>
+        @Setting.Contents["Products.Header"]
+    </h3>
+</div>
+
+<div class="grid-x grid-margin-x medium-up-3 large-up-4
+        @Setting.WebSettings[ShopSettingType.AspectRatioImage]">
+    
+    @foreach (var item in Model.OrderBy(x => x.Sort))
+    {
+
+        <div class="cell">
+            <a class="cell-link card-animate-1" href="@item.Slug" target="_top">
+                <div class="aspect-ratio">
+                    <img class="thumbnail" src="@item.Avatar" alt="@item.Name-size-550x550">
+                </div>
+                
+            </a>
+        </div>
+    }
+
+</div>
+

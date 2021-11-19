@@ -1,0 +1,73 @@
+﻿
+<div class="">
+
+    <div class="header2">
+        <span @CMS.Attribute(AppShop.CompanyNamePart1)>
+            @Setting.WebSettings[AppShop.CompanyNamePart1]
+        </span>
+        <span @CMS.Attribute(AppShop.CompanyNamePart2) class="headerSpan2">
+            @Setting.WebSettings[AppShop.CompanyNamePart2]
+        </span>
+    </div>
+
+    <hr />
+
+    <div>
+        <span class="fa fa-envelope titleSpan2"> </span>
+        <span class="titleSpan2">Email: </span>
+        <span @CMS.Attribute(AppShop.Email)>
+            @Setting.WebSettings[AppShop.Email]
+        </span>
+    </div>
+
+    <hr />
+
+    <i class="fa fa-map-marker titleSpan2"></i>
+    <span @CMS.Attribute(AppShop.Address1)>
+        @Setting.WebSettings[AppShop.Address1]
+    </span>
+    <br>
+
+
+    <span @CMS.Attribute(AppShop.Address2)>
+        @if (!string.IsNullOrWhiteSpace(Setting.WebSettings[AppShop.Address2]))
+        {
+            <i class="fa fa-map-marker titleSpan2"></i>
+            @Setting.WebSettings[AppShop.Address2]
+            <br>
+        }
+    </span>
+
+    <hr />
+
+    <div class="header2">
+
+        <div>
+            <i class="fa fa-phone-square headerSpan2"></i>
+            <span @CMS.Attribute(AppShop.HotlineName) class="headerSpan2">
+                @Setting.WebSettings[AppShop.HotlineName]
+            </span>
+            <a @CMS.Attribute(AppShop.Hotline)
+               href="tel:@Setting.WebSettings[AppShop.Hotline].RemoveSpace()">
+                @Setting.WebSettings[AppShop.Hotline]
+            </a>
+        </div>
+
+        
+        <div @CMS.Attribute(AppShop.SupporterPhone, AppShop.SupporterLabel)>
+            @if (!string.IsNullOrWhiteSpace(Setting.WebSettings[AppShop.SupporterPhone]))
+            {
+                <i class="fa fa-phone-square headerSpan2"></i>
+                <span class="headerSpan2">
+                    @Setting.WebSettings[AppShop.SupporterLabel]
+                </span>
+                <a href="tel:@Setting.WebSettings[AppShop.SupporterPhone].RemoveSpace()">
+                    @Setting.WebSettings[AppShop.SupporterPhone]
+                </a>
+            }
+        </div>
+
+
+    </div>
+
+</div>

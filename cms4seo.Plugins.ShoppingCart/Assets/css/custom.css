@@ -1,0 +1,60 @@
+﻿/*
+ * Custom Style for Plugin
+ * Name: ShoppingCart
+ *
+ */
+
+
+
+
+.box-cart {
+    position: fixed;
+    right: 150px;
+    /*top: 30px;*/
+    top: 45px;
+    z-index: 5000;
+}
+
+.box-cart .cart-avatar {
+    width: 80px;
+
+    -webkit-filter: drop-shadow(3px 3px 3px #222);
+    filter: drop-shadow(3px 3px 3px #222);
+}
+
+.box-cart .notify-cart {
+
+    position: absolute;
+    border-radius: 15px;  
+    top:0;
+    right:0;
+    background: #eeeeee;
+    font-size: 1.2rem;
+    color: #222;
+
+    /*height:2rem;
+    width:2rem;
+      
+    text-align: center;
+    line-height: 2rem;;
+    font-size: 1rem;
+    border-radius: 50%;
+    color:white;
+    border:1px solid blue;*/
+}
+
+
+@media (max-width: 700px) {
+    .box-cart {        
+        right: 17px;
+    }
+
+}
+
+
+
+/*table cart*/
+#table-cart-detail .input-group {
+    min-width: 137px;
+}
+ 

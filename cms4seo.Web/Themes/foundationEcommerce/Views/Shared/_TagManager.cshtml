@@ -1,0 +1,65 @@
+﻿
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<!-- favicon -->
+<link rel="shortcut icon" type="image/ico" href="@Setting.WebSettings[ShopSettingType.Favicon]">
+
+@if (ViewBag.Title != null)
+{
+    <title>@ViewBag.Title</title>
+}
+@if (ViewBag.Description != null)
+{
+    <meta name="description" content="@Html.Raw(ViewBag.Description)" />
+}
+@if (ViewBag.Keywords != null)
+{
+    <meta name="keywords" content="@ViewBag.Keywords" />
+}
+
+@*<meta name="author" content="@Setting.WebSettings[ShopSettingType.MetaAuthor]">*@
+<meta name="author" content="@Request.Url.Host">
+
+@* ReSharper disable once PossibleNullReferenceException *@
+@if (ViewBag.OgImage != null)
+{
+    <meta property="og:title" content="@ViewBag.Title" />
+    <meta property="og:description" content="@ViewBag.Description" />
+    <meta property="og:image" content="@(Request.Url.Scheme + Uri.SchemeDelimiter + Request.Url.Host + ViewBag.OgImage)" />
+    <meta property="og:image:alt" content="@ViewBag.Title" />
+}
+
+@using System.Text.RegularExpressions;
+@{
+    Uri uri = Request.Url;
+    string topLevelDomain = uri.Host.Replace("www.", "");
+    string urlWithCanonical = uri.Scheme + Uri.SchemeDelimiter + "www." + topLevelDomain + uri.PathAndQuery;
+
+    string pattern = @"\.(.*[a-z]){5}\.";
+    Match match = Regex.Match(uri.Host, pattern, RegexOptions.IgnoreCase);
+    if (!match.Success)
+    {
+        <link href="@urlWithCanonical" rel="canonical" />
+    }
+}
+
+
+@if (ViewBag.NoIndex == "1")
+{
+    <meta name="robots" content="noindex">
+}
+
+@Html.Raw(Setting.WebSettings[EmbedSettingType.FacebookId])
+
+<!-- template -->
+<link rel="preload" href="~/Themes/@Setting.WebSettings[WebSettingType.CurrentTheme]/Assets/fontawesome-5/webfonts/fa-solid-900.woff2" as="font" crossorigin="anonymous">
+
+
+<!-- template -->
+@Styles.Render("~/Content/css")
+
+<!-- hc-id ============================-->
+@*<script src="~/Scripts/hcid.js"></script>*@
+
+@Html.Raw(Setting.WebSettings[EmbedSettingType.Styles])

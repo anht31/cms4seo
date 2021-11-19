@@ -1,0 +1,16 @@
+﻿
+@model String
+
+@foreach (var widget in PluginHelpers.Widgets.Where(x => x.Active.AsBool() && x.Zone == Model))
+{
+    try
+    {
+    <!-- Load Plugin [@widget.Area] -->
+        Html.RenderAction(widget.Action, widget.Controller);
+    }
+    catch (Exception ex)
+    {
+    <!-- Load Plugin [@widget.Area] Fail, Message: @ex.Message -->
+    <!-- with Area: @widget.Area, Controller: @widget.Controller, Action: @widget.Action -->
+    }
+}

@@ -1,0 +1,6 @@
+﻿
+
+@if (!string.IsNullOrWhiteSpace(Setting.WebSettings[ShopSettingType.AsideMenu]))
+{
+    @Html.Partial(Setting.WebSettings[ShopSettingType.AsideMenu])
+}

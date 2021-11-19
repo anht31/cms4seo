@@ -1,0 +1,128 @@
+﻿@model cms4seo.Data.IdentityModels.GroupViewModel
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>@AdminResources.ApplicationGroup / @AdminResources.CommonEdit</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Name, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                
+                @Html.ValidationMessageFor(model => model.Name)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Description, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Description)
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.Label("Permissions", new { @class = "control-label col-md-2" })
+            
+            <div class=" col-md-10">
+
+
+
+                @if (Model != null)
+                {
+
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="card">
+                                <div class="card-header bg-success text-light">Secure Level 1</div>
+                                <div class="card-body">
+
+                                    <strong>Basic Roles</strong>
+                                    <hr />
+                                    @foreach (var item in Model.RolesList.Where(x => x.Text.Contains("Basic.")))
+                                    {
+                                        <input type="checkbox" name="selectedRoles" value="@item.Text" checked="@item.Selected" class="checkbox-inline" />
+                                        // label helper will not display prefix of Role (like Group., Basic.)
+                                        @Html.Label(item.Text, new { @class = "control-label" })
+                                        <br />
+                                    }
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="card">
+                                <div class="card-header bg-warning text-light">Secure Level 2</div>
+                                <div class="card-body">
+                                    <strong>Medium Roles</strong>
+                                    <hr />
+                                    @foreach (var item in Model.RolesList.Where(x => x.Text.Contains("Medium.")))
+                                    {
+                                        <input type="checkbox" name="selectedRoles" value="@item.Text" checked="@item.Selected" class="checkbox-inline" />
+                                        // label helper will not display prefix of Role (like Group., Basic.)
+                                        @Html.Label(item.Text, new { @class = "control-label" })
+                                        <br />
+                                    }
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="card">
+                                <div class="card-header bg-danger text-light">Secure Level 3</div>
+                                <div class="card-body">
+                                    <strong>Advance</strong>
+                                    <hr />
+                                    @foreach (var item in Model.RolesList.Where(x => x.Text.Contains("Advance.")))
+                                    {
+                                        <input type="checkbox" name="selectedRoles" value="@item.Text" checked="@item.Selected" class="checkbox-inline" />
+                                        // label helper will not display prefix of Role (like Group., Basic.)
+                                        @Html.Label(item.Text, new { @class = "control-label" })
+                                        <br />
+                                    }
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                }
+
+                @*@foreach (var item in Model.RolesList)
+                {
+                    <div>
+                        <input type="checkbox" name="selectedRoles" value="@item.Text" checked="@item.Selected" class="checkbox-inline"/>
+                        @Html.Label(item.Text, new {@class = "control-label"})
+                    </div>
+                }*@
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                @Html.ActionLink(AdminResources.CommonBackToList, "Index",
+                    null, null, new { @class = "btn btn-secondary" })
+                |
+                <input type="submit" value="@AdminResources.CommonSave" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+}
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,121 @@
+﻿@using cms4seo.Admin.Controllers
+
+<!DOCTYPE html>
+<html lang="@System.Globalization.CultureInfo.CurrentUICulture.Name">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+
+
+    <!-- get resources -->
+    <script type="text/javascript">
+        resources = {}; // Global variable.
+
+        dataTableLanguage = "@cms4seo.Common.Culture.CultureHelper.GetLanguageWithoutCountry()";
+
+
+        @*(function ($) {
+            $.getJSON("@Url.Action("GetResources", "Resource")", function(data){
+                resources = data;
+            });
+        })(jQuery);*@
+
+        @*var xmlHttp = new XMLHttpRequest();
+        xmlHttp.open('GET', '@Url.Action("GetResources", "Resource")', true);
+        xmlHttp.onreadystatechange = function() {
+            if (xmlHttp.readyState === 4) {
+                if(xmlHttp.status === 200) {
+                    resources = JSON.parse(xmlHttp.responseText);
+                    console.log("resources ready");
+                }
+            }
+        };
+        xmlHttp.send(null);*@
+
+        @*resources = JSON.parse(@(Re));
+        console.log("resources ready");*@
+
+        resources  = @Html.Raw(cms4seo.Admin.Services.Resources.Gets());
+
+    </script>
+
+
+    @Html.Partial("_Css")
+
+    @RenderSection("Styles", false)
+
+</head>
+
+
+
+<body id="page-top" data-resource-set="Resources">
+
+    <div class="se-pre-con"></div>
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+
+    @{
+        Html.RenderAction("Index", "Sidebar");
+    }
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+        <!-- Main Content -->
+        <div id="content">
+
+            @Html.Partial("_Topbar")
+
+            <!-- Begin Page Content -->
+            <div class="container-fluid">
+
+
+                <!-- message ======================================================-->
+                @Html.Partial("_StaticMessage")
+
+
+
+
+                @RenderBody()
+
+                <div class="mb-5"></div>
+
+
+            </div>
+            <!-- /.container-fluid -->
+        </div>
+        <!-- End of Main Content -->
+
+        @Html.Partial("_FooterAdmin")
+
+    </div>
+    <!-- End of Content Wrapper -->
+</div>
+<!-- End of Page Wrapper -->
+<!-- Scroll to Top Button-->
+<a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+</a>
+
+@Html.Partial("_LogoutModal")
+
+
+@Html.Partial("_Js")
+
+
+@RenderSection("scripts", false)
+
+
+</body>
+
+
+
+
+</html>

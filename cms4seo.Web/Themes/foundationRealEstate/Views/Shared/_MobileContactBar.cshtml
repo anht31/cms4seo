@@ -1,0 +1,19 @@
+﻿
+<div class="float-contact">
+    
+    @if (Setting.WebSettings[WebSettingType.ShopLanguages] == "vi-VN")
+    {
+        <button class="chat-zalo">
+            <a href="http://zalo.me/@Setting.WebSettings[AppShop.Hotline].RemoveSpace()">Chat Zalo</a>
+        </button>
+    }
+    
+    <button @CMS.Attribute(AppShop.FacebookLink) class="chat-face">
+        <a href="http://m.me/@Setting.WebSettings[AppShop.FacebookLink]">Chat Facebook</a>
+    </button>
+    <button @CMS.Attribute(AppShop.Hotline) class="hotline">
+        <a href="tel:@Setting.WebSettings[AppShop.Hotline].RemoveSpace()">
+            @Setting.WebSettings[AppShop.HotlineName]: @Setting.WebSettings[AppShop.Hotline]
+        </a>
+    </button>
+</div>

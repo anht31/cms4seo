@@ -1,0 +1,20 @@
+﻿@using cms4seo.Common.BootstrapHelpers
+
+<div class="mt-3">
+    @if (TempData[MessageType.Success] != null)
+    {
+        <div class="alert alert-success">@Html.Raw(TempData[MessageType.Success])</div>
+    }
+    @if (TempData[MessageType.Info] != null)
+    {
+        <div class="alert alert-info">@Html.Raw(TempData[MessageType.Info])</div>
+    }
+    @if (TempData[MessageType.Warning] != null)
+    {
+        <div class="alert alert-warning">@Html.Raw(TempData[MessageType.Warning])</div>
+    }
+    @if (TempData[MessageType.Danger] != null)
+    {
+        <div class="alert alert-danger">@Html.Raw(TempData[MessageType.Danger])</div>
+    }
+</div>

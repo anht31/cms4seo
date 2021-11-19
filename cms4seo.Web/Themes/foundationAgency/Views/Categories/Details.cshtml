@@ -1,0 +1,102 @@
+﻿@model PagedList.IPagedList<Product>
+
+@{
+
+    ViewBag.Title = ViewBag.CategoryName;
+
+    if (ViewBag.Category != null)
+    {
+        ViewBag.Description = ViewBag.Category.MetaDescription;
+        ViewBag.Keywords = ViewBag.Category.MetaKeyWords;
+        ViewBag.Title = ViewBag.Category.MetaTitle;
+    }
+
+    ViewBag.PageHeader = ViewBag.Title;
+
+    ViewBag.OverrideMenu = true;
+    ViewBag.OverrideFooter = true;
+}
+
+
+<div class="off-canvas position-left reveal-for-large" id="my-info" data-off-canvas>
+
+    @{
+        Html.RenderAction("AsideLink", "Nav");
+    }
+
+
+
+</div>
+
+<div class="off-canvas-content" data-off-canvas-content>
+
+    @{
+        Html.RenderAction("HeaderMenu", "Nav");
+    }
+
+
+
+    <div class="title-bar hide-for-large">
+        <div class="title-bar-left">
+            <button class="menu-icon" type="button" data-toggle="my-info"></button>
+            <span @CMS.Attribute(AppShop.CompanyNamePart1)
+                class="title-bar-title">
+                @Setting.WebSettings[AppShop.CompanyNamePart1]
+            </span>
+        </div>
+    </div>
+
+
+    <div class="callout primary">
+        <article class="grid-container">
+            <div class="">
+                <h1>@ViewBag.CategoryName</h1>
+                <p class="lead">
+                    @(((Category)(ViewBag.Category)).Description)
+                </p>
+            </div>
+        </article>
+    </div>
+
+    <article class="grid-container">
+        @Html.Partial("_Breadcrumb", (Category)(ViewBag.Category))
+    </article>
+
+
+    <article class="grid-container">
+
+        <div class="grid-x grid-margin-x small-up-2 medium-up-3 large-up-4
+             @Setting.WebSettings[ShopSettingType.AspectRatioImage]">
+
+            @foreach (var item in Model)
+            {
+                <a href="@item.Slug" class="cell cell-link card-animate-1">
+                    
+                    <div class="aspect-ratio">
+                        <img class="thumbnail" src="@item.Avatar">
+                    </div>
+
+                    <h5>@item.Name</h5>
+                    <br/>
+                </a>
+            }
+
+        </div>
+
+
+        <!-- page list ==========================================================================-->
+
+        <div class="right">
+            @Html.PagedListPager(Model, page => ViewBag.Category.Slug + "/" + page)
+        </div>
+
+
+        <hr>
+
+        @Html.Partial("_Footer2")
+
+
+    </article>
+</div>
+
+

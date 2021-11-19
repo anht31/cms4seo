@@ -1,0 +1,26 @@
+[
+  {
+    "Action": "Summary",
+    "Controller": "Cart",
+    "Area": "ShoppingCart",
+    "Zone": "layout",
+    "RouteValues": null,
+    "Page": "",
+    "Active": "true",
+    "AssemblyName": "cms4seo.Plugins.ShoppingCart",
+    "TypeName": "",
+    "Path": "~/plugins/ShoppingCart/widgets.json"
+  },
+  {
+    "Action": "_AddToCart",
+    "Controller": "Cart",
+    "Area": "ShoppingCart",
+    "Zone": "card_product",
+    "RouteValues": null,
+    "Page": "",
+    "Active": "true",
+    "AssemblyName": "cms4seo.Plugins.ShoppingCart",
+    "TypeName": "",
+    "Path": "~/plugins/ShoppingCart/widgets.json"
+  }
+]

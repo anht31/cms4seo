@@ -1,0 +1,25 @@
+﻿
+@if (User.IsInRole("Medium.Config"))
+{
+    if (Setting.WebSettings[WebSettingType.IsAutoSeoMetaTag].ToBoolean())
+    {
+        // for Mobile Management - hide mobile
+        <div class="alert alert-warning alert-dismissible d-none d-lg-block">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <strong>@AdminResources.Shared_Warning_Title</strong>
+            @AdminResources.Shared_Warning_SeoMeta
+            <a href='@Url.Action("WebSettings", "Config")' class='btn btn-warning btn-sm'>@AdminResources.CommonEdit</a>
+        </div>
+    }
+
+    if (Setting.WebSettings[WebSettingType.IsAutoEditPermalink].ToBoolean())
+    {
+        // for Mobile Management - hide mobile
+        <div class="alert alert-warning alert-dismissible d-none d-lg-block">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <strong>@AdminResources.Shared_Warning_Title</strong>
+            @AdminResources.Shared_Warning_Permalink
+            <a href='@Url.Action("WebSettings", "Config")' class='btn btn-warning btn-sm'>@AdminResources.CommonEdit</a>
+        </div>
+    }
+}

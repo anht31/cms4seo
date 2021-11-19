@@ -1,0 +1,165 @@
+﻿@using cms4seo.Common.AdminHelpers
+@using cms4seo.Service.Content
+@model Category
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<div class="row">
+    <div class="col-sm-8">
+
+
+        @using (Html.BeginForm("Edit", "Category"))
+        {
+            <div class="card">
+                <div class="card-header">
+
+                    @if (Model.IsCreate)
+                    {
+
+                        <span class="h3">@AdminResources.CommonCategory / @AdminResources.CommonCreateHeader</span>
+                    }
+                    else
+                    {
+                        <span class="h3">@AdminResources.CommonCategory / @AdminResources.CommonEdit / @Model.Name</span>
+                    }
+
+                    <span class="float-right">
+                        <input type="submit" value="@AdminResources.CommonSave" class="btn btn-primary btn-sm" />
+                    </span>
+                    <span class="float-right" style="margin-right: 5px;">
+                        @Html.ActionLink(AdminResources.CommonCancel, "Index", null, new { @class = "btn btn-outline-secondary btn-sm" })
+                    </span>
+                </div>
+
+                <div class="card-body p-3">
+
+                    @Html.AntiForgeryToken()
+
+                    @*<div class="form-horizontal">*@
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                    @Html.HiddenFor(model => model.Id)
+                    @Html.HiddenFor(model => model.Slug)
+                    @Html.HiddenFor(model => model.PhotosDelimiter)
+                    @Html.HiddenFor(model => model.IsLockSeo)
+                    @Html.HiddenFor(model => model.UnsignContent)
+                    @Html.HiddenFor(model => model.ScopeId)
+                    @Html.HiddenFor(model => model.DateCreated)
+                    @Html.HiddenFor(model => model.DateAmended)
+                    @Html.HiddenFor(model => model.IsCreate)
+                    @Html.HiddenFor(model => model.PostBy)
+
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Name)
+                        @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Description)
+                        <p class="remainCharacters">155</p>
+                        @Html.TextArea("Description", null, new { @class = "form-control counterCharacter", spellcheck = "false", rows = 5 })
+                        @*@Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })*@
+                        @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                    </div>
+
+                    <!-- simple checkbox razor ==================================================-->
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.IsMenu)
+                        @Html.EditorFor(model => model.IsMenu)
+                        @Html.ValidationMessageFor(model => model.IsMenu, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.IsHome)
+                        @*<div class="checkbox">*@
+                        @Html.EditorFor(model => model.IsHome)
+                        @Html.ValidationMessageFor(model => model.IsHome, "", new {@class = "text-danger"})
+                        @*</div>*@
+                    </div>
+
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.IsAside)
+                        @Html.EditorFor(model => model.IsAside)
+                        @Html.ValidationMessageFor(model => model.IsAside, "", new {@class = "text-danger"})
+                    </div>
+
+                    
+                    @if (!string.IsNullOrWhiteSpace(Setting.WebSettings[WebSettingType.OptionCategory]))
+                    {
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Location)
+                            @Html.DropDownListFor(model => model.Location, new SelectList(
+                                Setting.WebSettings[WebSettingType.OptionCategory].ToOptionsDictionary(), "Key", "Value"), new {@class = "form-control"})
+                            @Html.ValidationMessageFor(model => model.Location, "", new {@class = "text-danger"})
+                        </div>
+                    }
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Sort)
+                        @Html.EditorFor(model => model.Sort, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Sort, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.ParentId)
+                        @Html.DropDownGroupList("ParentId", (int)ViewBag.SelectedCategory, (List<Category>)ViewBag.Categories, 
+                            x => !x.ParentId.HasValue, (x, y) => x.ParentId.Equals(y.Id), 
+                            "Id", "Name", "--root--", 2)
+
+                        @*@Html.DropDownList("ParentId", null, "--root--", new { @class = "form-control" })*@
+                        @Html.ValidationMessageFor(model => model.ParentId, "", new { @class = "text-danger" })
+                    </div>
+
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Href)
+                        @Html.EditorFor(model => model.Href, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Href, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Avatar)
+                        @Html.EditorFor(model => model.Avatar, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Avatar, "", new { @class = "text-danger" })
+                    </div>
+
+                    @*<div class="form-group">
+                            @Html.LabelFor(model => model.PhotosDelimiter)
+                            @Html.EditorFor(model => model.PhotosDelimiter, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.PhotosDelimiter, "", new { @class = "text-danger" })
+                        </div>*@
+
+
+                    
+                    <!-- SEO Meta Tags ================================================================-->
+                    @Html.Partial("_Seo", Model)
+
+
+
+                </div>
+
+
+                <div class="card-footer">
+                    <input type="submit" value="@AdminResources.CommonSave" class="btn btn-primary" />
+                    @Html.ActionLink(AdminResources.CommonCancel, "Index", null, new { @class = "btn btn-outline-secondary" })
+                </div>
+            </div>
+        }
+
+    </div>
+
+    <div class="col-sm-4">
+
+        @Html.Partial("_UploadPhoto", cms4seoEntityType.Category)
+    </div>
+</div>
+
+
+
+@section Scripts {
+}

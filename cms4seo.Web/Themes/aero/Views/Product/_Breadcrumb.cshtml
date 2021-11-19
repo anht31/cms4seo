@@ -1,0 +1,40 @@
+﻿
+
+<ul class="breadcrumb-style-1">
+    <li>
+        <a href="/" target="_top">
+            <span class="glyphicon glyphicon-home"></span>
+            <span @CMS.Attribute("Breadcrumb.Home")>
+                @Setting.Contents["Breadcrumb.Home"]
+            </span>
+        </a>
+    </li>
+
+    @if (Model.Category != null)
+    {
+        if (Model.Category.ParentId != null)
+        {
+            if (Model.Category.Parent.ParentId != null)
+            {
+                <li>
+                    <a href="@Model.Category.Parent.Parent.Slug">
+                        @Model.Category.Parent.Parent.Name
+                    </a>
+                </li>
+            }
+            <li>
+                <a href="@Model.Category.Parent.Slug">
+                    @Model.Category.Parent.Name
+                </a>
+            </li>
+        }
+        <li>
+            <a href="@Model.Category.Slug"
+               class="current">
+                @Model.Category.Name
+            </a>
+        </li>
+    }
+
+</ul>
+

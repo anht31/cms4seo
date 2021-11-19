@@ -1,0 +1,76 @@
+﻿
+@model IEnumerable<Category>
+
+<div class="container headerMenu">
+
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark border shadow-sm menu-devider
+         @Setting.WebSettings[ShopSettingType.MenuFormatClass]">
+        <div class="container">
+            <a
+                class="navbar-brand" href="/" target="_top" data-toggle="tooltip" title="Home">                
+                <img @CMS.Attribute("Section.Header.Menu.Logo")
+                     height="30" class="d-inline-block align-top" alt="logo-png-size-150x150" 
+                     src="@Setting.Contents["Section.Header.Menu.Logo"]" />
+                &nbsp;
+                <span @CMS.Attribute("Header.Menu.Brand") class="brand-bs4">
+                    @Setting.Contents["Header.Menu.Brand"]
+                </span>
+            </a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" 
+                    data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" 
+                    aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+
+
+                    @foreach (var item in Model.Where(x => x.IsMenu))
+                    {
+
+                        if (item.Children.Count > 0 && !Setting.WebSettings[ShopSettingType.IsHiddenChildMenu].AsBool())
+                        {
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="@(item.Href != "#" ? item.Href : item.Slug)" id="navbarDropdown-@item.Id" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    @item.Name
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">
+                                    @foreach (var item2 in item.Children)
+                                    {
+
+                                        <a class="dropdown-item" target="_top"
+                                           href="@(item2.Href != "#" ? item2.Href : item2.Slug)">@item2.Name</a>
+
+                                    }
+                                </div>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link" target="_top" href="@(item.Href != "#" ? item.Href : item.Slug)">@item.Name</a>
+                            </li>
+                        }
+                    }
+                    
+                    @if (Setting.WebSettings[ShopSettingType.IsShowContact].AsBool())
+                    {
+                        <li class="nav-item">
+                            <a href="#" class="nav-link LinkToBottom">
+                                <span @CMS.Attribute("Header.Menu.Contact")>
+                                    @Setting.Contents["Header.Menu.Contact"]
+                                </span>
+                            </a>
+                        </li>
+                    }
+                    
+
+
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>

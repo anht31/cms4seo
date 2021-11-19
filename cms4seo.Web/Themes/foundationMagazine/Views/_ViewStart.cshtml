@@ -1,0 +1,81 @@
+﻿@{
+    var theme = Setting.WebSettings[WebSettingType.CurrentTheme];
+    Layout = "~/Themes/" + theme + "/Views/Shared/_Layout.cshtml";
+}
+
+
+@{
+
+    var bundles = BundleTable.Bundles;
+    var baseUrl = string.Concat("~/Themes/" + theme + "/");
+    //Maybe there is a better way to do this, the goal is to make the bundle configurable without having to recompile the code
+    if (!DynamicBundles.BundlesFinalized)
+    {
+        //Note, you need to reset the application pool in order for any changes here to be reloaded
+        // as the BundlesFinalized property is a static field that will only reset to false when the app restarts.
+
+
+        Bundle mainStyles = new StyleBundle("~/Content/css");
+        mainStyles
+            .Include(
+                //baseUrl + "Assets/foundation-6.4.3/foundation.min.css",
+                //baseUrl + "Assets/foundation-6.4.3/foundation-prototype.min.css",
+                baseUrl + "Assets/foundation-6.6.3/css/foundation.css",
+                baseUrl + "Assets/foundation-6.6.3/css/foundation-prototype.css",
+                baseUrl + "Assets/motion-ui-1.2.3/motion-ui.min.css",
+                baseUrl + "Assets/css/PagedList.css",
+                baseUrl + "Assets/fancybox/source/helpers/jquery.fancybox-buttons.css",
+                baseUrl + "Assets/fancybox/source/helpers/jquery.fancybox-thumbs.css",
+                baseUrl + "Assets/fancybox/source/jquery.fancybox.css",
+                baseUrl + "Assets/css/custom.css"
+
+            )
+            .Include(baseUrl + "Assets/fontawesome-5/css/all.min.css", new CssRewriteUrlTransform())
+            .Include(baseUrl + "Assets/foundation-icons/foundation-icons.css", new CssRewriteUrlTransform())
+            .Include(baseUrl + "Assets/ContentManager/ContentManager.css", new CssRewriteUrlTransform())
+            ;
+
+
+        //mainStyles.Transforms.Add(new System.Web.Optimization.BundleTransformer.Core.Transformers.CssTransformer());
+        mainStyles.Transforms.Add(new CssMinify());
+        //mainStyles.Orderer = new BundleTransformer.Core.Orderers.NullOrderer();
+        DynamicBundles.RegisterBundle(mainStyles);
+
+
+        Bundle mainScripts = new ScriptBundle("~/Scripts/js");
+        mainScripts.Include(
+
+            baseUrl + "Assets/jquery/jquery-2.1.4.min.js",
+            //baseUrl + "Assets/foundation-6.4.3/foundation.min.js",
+            baseUrl + "Assets/foundation-6.6.3/js/foundation.js",
+            baseUrl + "Assets/motion-ui-1.2.3/motion-ui.min.js",
+            baseUrl + "Assets/mail/mail.js",
+            baseUrl + "Assets/fancybox/lib/jquery.mousewheel-3.0.6.pack.js",
+            baseUrl + "Assets/fancybox/source/jquery.fancybox.pack.js",
+            baseUrl + "Assets/fancybox/source/helpers/jquery.fancybox-buttons.js",
+            baseUrl + "Assets/fancybox/source/helpers/jquery.fancybox-media.js",
+            baseUrl + "Assets/fancybox/source/helpers/jquery.fancybox-thumbs.js",
+            baseUrl + "Assets/ContentManager/ContentManager.js",
+            baseUrl + "Assets/loadmore/loadmore.js",
+            baseUrl + "Assets/js/custom.js"
+
+            //baseUrl + "Assets/jquery/jquery.js",
+            //baseUrl + "Assets/slick/slick.min.js",
+            //baseUrl + "Assets/js/common.js",
+            //baseUrl + "Assets/flipclock/flipclock.js",
+            //baseUrl + "Assets/mail/jqBootstrapValidation.js",
+            //baseUrl + "Assets/mail/mail.js",
+            //baseUrl + "Assets/fancybox/lib/jquery.mousewheel-3.0.6.pack.js",
+            //baseUrl + "Assets/fancybox/source/jquery.fancybox.pack.js",
+            //baseUrl + "Assets/fancybox/source/helpers/jquery.fancybox-buttons.js",
+            //baseUrl + "Assets/fancybox/source/helpers/jquery.fancybox-media.js",
+            //baseUrl + "Assets/fancybox/source/helpers/jquery.fancybox-thumbs.js",
+            //baseUrl + "Assets/vendor/bootstrap/js/bootstrap.bundle.min.js"
+            );
+        DynamicBundles.RegisterBundle(mainScripts);
+
+
+        DynamicBundles.FinalizeBundles(); //true = Force Optimizations, false = Force non Optmizations,
+                                          // null = respect web.config which is the same as calling the parameterless constructor.
+    }
+}

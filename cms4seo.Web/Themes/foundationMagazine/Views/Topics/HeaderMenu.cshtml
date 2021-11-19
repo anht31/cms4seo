@@ -1,0 +1,35 @@
+﻿@model List<Topic>
+
+
+
+
+<div class="title-bar" data-responsive-toggle="main-menu" data-hide-for="medium">
+    <button class="menu-icon" type="button" data-toggle></button>
+    <div class="title-bar-title">Menu</div>
+</div>
+
+<div class="top-bar align-center @Setting.WebSettings[ShopSettingType.MenuFormatClass]" id="main-menu">
+    <ul class="menu vertical medium-horizontal medium-text-center" data-responsive-menu="drilldown medium-dropdown">
+        
+        @foreach (var item in Model.Where(x => x.IsMenu))
+        {
+            if (item.Children.Count > 0 && !Setting.WebSettings[ShopSettingType.IsHiddenChildMenu].AsBool())
+            {
+                <li class="has-submenu">
+                    <a href="@(item.Href != "#" ? item.Href : item.Slug)">@item.Name</a>
+                    <ul class="submenu menu vertical" data-submenu>
+                        @foreach (var item2 in item.Children)
+                        {
+                            <li><a href="@(item2.Href != "#" ? item2.Href : item2.Slug)" target="_top">@item2.Name</a></li>
+                        }
+                    </ul>
+                </li>
+            }
+            else
+            {
+                <li><a href="@(item.Href != "#" ? item.Href : item.Slug)">@item.Name</a></li>
+            }
+        }
+
+    </ul>
+</div>

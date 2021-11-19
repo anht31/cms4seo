@@ -1,0 +1,17 @@
+﻿@model IEnumerable<string>
+    
+<h4>
+    <span @CMS.Attribute("Topic.Aside.AuthorsHeader")>
+        @Setting.Contents["Topic.Aside.AuthorsHeader"]
+    </span>
+</h4>
+<ul>
+    @foreach (var author in Model)
+    {
+        <li><a href="@Url.Action("Author", "Articles", new {author = author})">@author</a></li>
+    }
+    
+    @*<li><a href="#">Jesse</a></li>
+    <li><a href="#">Mike</a></li>
+    <li><a href="#">Holly</a></li>*@
+</ul>

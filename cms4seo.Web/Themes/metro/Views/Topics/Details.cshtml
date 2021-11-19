@@ -1,0 +1,37 @@
+﻿@model PagedList.IPagedList<Article>
+@using PagedList.Mvc;
+
+@{
+    var theme = Setting.WebSettings[WebSettingType.CurrentTheme];
+    Layout = "~/Themes/" + theme + "/Views/Shared/_LayoutArticle.cshtml";
+
+    ViewBag.PageHeader = ViewBag.Title;
+
+    // Title, Keywords, Description pass by Action
+}
+
+@*@Html.Partial("_BreadcrumbInfo", (string)ViewBag.Title)*@
+
+
+<div class="mt-3">
+
+
+
+    @if ((int)ViewBag.Id == 0)
+    {
+        <div class="row">
+            @Html.Partial("_CardArticleList", Model)
+        </div>
+    }
+    else
+    {
+        Html.RenderAction("TopicSystem", new { id = ViewBag.Id, view = ViewBag.View });
+    }
+
+
+
+
+</div>
+
+<!-- PagerList -->
+@Html.PagedListPager(Model, page => ViewBag.TopicSlug + "/" + page)

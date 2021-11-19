@@ -1,0 +1,39 @@
+﻿@using PagedList.Mvc
+@model PagedList.IPagedList<Product>
+
+@{
+    ViewBag.PageHeader = "[" + Model.Count() + "]" +
+                             Setting.Contents["Section.Search.Header"] +
+                             (string)ViewBag.strSearch;
+}
+
+
+<div class="mb-5">
+
+    <!-- header, use header in layout page -->
+
+    <div class="row mt-3">
+
+
+        @foreach (var item in Model)
+        {
+            @Html.Partial("_CardProduct", item)
+        }
+
+    </div>
+
+    @if (Model.Count == 0)
+    {
+        <h2 @CMS.Attribute("Products.Search.Message")>
+            @Setting.Contents["Products.Search.Message"]
+        </h2>
+        Html.RenderAction("AllTag", "ProductTags");
+    }
+
+    <!-- pagelist ==========================================================================-->
+    <div class="right">
+        @Html.PagedListPager(Model, page => Url.Action("Search", new { ViewBag.strSearch, page }))
+    </div>
+
+
+</div>

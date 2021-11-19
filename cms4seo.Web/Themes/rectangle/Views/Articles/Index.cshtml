@@ -1,0 +1,23 @@
+﻿@model PagedList.IPagedList<Article>
+@using PagedList.Mvc;
+
+
+@{
+    ViewBag.Title = Setting.Contents["Articles.Section.Header"];
+
+    ViewBag.PageHeader = "blog";
+}
+
+
+@*@Html.Partial("_BreadcrumbInfo", "LATEST STORIES")*@
+
+<div class="mt-3">
+    @foreach (var item in Model)
+    {
+        @Html.Partial("_CardArticle", item)
+    }
+</div>
+
+<!-- PagerList -->
+@Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+

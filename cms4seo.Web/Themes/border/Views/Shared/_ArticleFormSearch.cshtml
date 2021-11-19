@@ -1,0 +1,21 @@
+﻿
+
+
+@using (Html.BeginForm("Search", "Articles", FormMethod.Get,
+                            new {
+                                @class = "input-group py-2",
+                                style = "padding-top:0;"
+                            }))
+{
+    
+    <input @CMS.Attribute("Form.Search.Article.Placeholder")
+        placeholder="@Setting.Contents["Form.Search.Article.Placeholder"]"
+        class="form-control" name="strSearch" type="text" value="" aria-label="find">
+
+    <span class="input-group-append">
+        <button class="btn btn-outline border-left-0 border" type="submit" data-toggle="tooltip" title="Search">
+            <span class="fa fa-search"></span>
+        </button>
+    </span>
+
+}

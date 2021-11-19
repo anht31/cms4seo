@@ -1,0 +1,1775 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="CommonCancel" xml:space="preserve">
+    <value>Hủy và quay lại</value>
+  </data>
+  <data name="CommonCreate" xml:space="preserve">
+    <value>Tạo mới</value>
+  </data>
+  <data name="CommonCreateHeader" xml:space="preserve">
+    <value>Tạo mới</value>
+  </data>
+  <data name="CommonSave" xml:space="preserve">
+    <value>Lưu lại</value>
+  </data>
+  <data name="WebSettingVmAdminLanguages" xml:space="preserve">
+    <value>Ngôn ngữ trang quản trị mặc định (Tùy chọn ngôn ngữ trên Menu sẽ thay thế mặc định)</value>
+  </data>
+  <data name="HomePiechartOther" xml:space="preserve">
+    <value>Khác</value>
+  </data>
+  <data name="HomeViewSiteTheme" xml:space="preserve">
+    <value>Chủ đề trang Web</value>
+  </data>
+  <data name="YouMustEnterName" xml:space="preserve">
+    <value>Bạn phải nhập Tên</value>
+  </data>
+  <data name="SidebarArticle" xml:space="preserve">
+    <value>Bài viết</value>
+  </data>
+  <data name="SidebarCategory" xml:space="preserve">
+    <value>Danh mục</value>
+  </data>
+  <data name="SidebarConfig" xml:space="preserve">
+    <value>Cấu hình</value>
+  </data>
+  <data name="SidebarDashboard" xml:space="preserve">
+    <value>Bảng thông tin</value>
+    <comment>not localize</comment>
+  </data>
+  <data name="SidebarHeaderContent" xml:space="preserve">
+    <value>Nội dung</value>
+  </data>
+  <data name="SidebarHeaderSystem" xml:space="preserve">
+    <value>Hệ thống</value>
+  </data>
+  <data name="SidebarHomepage" xml:space="preserve">
+    <value>Trang chủ</value>
+  </data>
+  <data name="SidebarItemAddSitemapItem" xml:space="preserve">
+    <value>Sơ đồ website</value>
+  </data>
+  <data name="SidebarItemAdminSettings" xml:space="preserve">
+    <value>Thiết đặt website</value>
+  </data>
+  <data name="SidebarItemArticle" xml:space="preserve">
+    <value>Bài viết</value>
+  </data>
+  <data name="SidebarItemArticleTag" xml:space="preserve">
+    <value>Thẻ tên</value>
+  </data>
+  <data name="SidebarItemCategory" xml:space="preserve">
+    <value>Danh mục</value>
+  </data>
+  <data name="SidebarItemEmailSettings" xml:space="preserve">
+    <value>Cấu hình email</value>
+  </data>
+  <data name="SidebarItemEmbedSettings" xml:space="preserve">
+    <value>Cấu hình nhúng html</value>
+  </data>
+  <data name="SidebarItemHeaderAdvanceConfig" xml:space="preserve">
+    <value>Cài đặt nâng cao</value>
+  </data>
+  <data name="SidebarItemHeaderBasicConfig" xml:space="preserve">
+    <value>Cài đặt cơ bản</value>
+  </data>
+  <data name="SidebarItemHeaderConfig" xml:space="preserve">
+    <value>Cấu hình:</value>
+  </data>
+  <data name="SidebarItemHeaderConfigRole" xml:space="preserve">
+    <value>Cấu hình phân quyền</value>
+  </data>
+  <data name="SidebarItemHeaderCustomHomepage" xml:space="preserve">
+    <value>Tùy chọn trang chủ:</value>
+  </data>
+  <data name="SidebarItemHeaderManageArticle" xml:space="preserve">
+    <value>Quản lý bài viết:</value>
+  </data>
+  <data name="SidebarItemHeaderManageProduct" xml:space="preserve">
+    <value>Quản lý sản phẩm</value>
+  </data>
+  <data name="SidebarItemHeaderMigration" xml:space="preserve">
+    <value>Nâng cấp từ mã nguồn cũ:</value>
+  </data>
+  <data name="SidebarItemHeaderSystemHealth" xml:space="preserve">
+    <value>Thông tin</value>
+  </data>
+  <data name="SidebarItemHeaderSystemInfo" xml:space="preserve">
+    <value>Thông tin hệ thống</value>
+  </data>
+  <data name="SidebarItemHitcounters" xml:space="preserve">
+    <value>Bộ đếm truy cập</value>
+  </data>
+  <data name="SidebarItemHomepage" xml:space="preserve">
+    <value>Trang</value>
+  </data>
+  <data name="SidebarItemInjectLinks" xml:space="preserve">
+    <value>Chèn link</value>
+  </data>
+  <data name="SidebarItemLogs" xml:space="preserve">
+    <value>Nhật ký hệ thống</value>
+  </data>
+  <data name="SidebarItemManage" xml:space="preserve">
+    <value>Quản lý</value>
+  </data>
+  <data name="SidebarItemMigration" xml:space="preserve">
+    <value>Nâng cấp từ mã nguồn cũ</value>
+  </data>
+  <data name="SidebarItemPermalinks" xml:space="preserve">
+    <value>Permalinks</value>
+  </data>
+  <data name="SidebarItemPhotos" xml:space="preserve">
+    <value>Quản lý ảnh</value>
+  </data>
+  <data name="SidebarItemPhotoSettings" xml:space="preserve">
+    <value>Cấu hình ảnh</value>
+  </data>
+  <data name="SidebarItemProduct" xml:space="preserve">
+    <value>Sản phẩm</value>
+  </data>
+  <data name="SidebarItemRedirect" xml:space="preserve">
+    <value>Chuyển trang</value>
+  </data>
+  <data name="SidebarItemRole" xml:space="preserve">
+    <value>Phân quyền</value>
+  </data>
+  <data name="SidebarItemSearchOptimize" xml:space="preserve">
+    <value>Tối ưu tìm kiếm</value>
+  </data>
+  <data name="SidebarItemSeoInfo" xml:space="preserve">
+    <value>Thông tin SEO</value>
+  </data>
+  <data name="SidebarItemShopSetttings" xml:space="preserve">
+    <value>Cấu hình cửa hàng</value>
+  </data>
+  <data name="SidebarItemSlider" xml:space="preserve">
+    <value>Slider &amp; Banner</value>
+  </data>
+  <data name="SidebarItemSystemInfo" xml:space="preserve">
+    <value>Thông tin</value>
+  </data>
+  <data name="SidebarItemTag" xml:space="preserve">
+    <value>Thẻ tên</value>
+  </data>
+  <data name="SidebarItemTestSitemap" xml:space="preserve">
+    <value>Kiểm tra sơ đồ trang</value>
+  </data>
+  <data name="SidebarItemTopic" xml:space="preserve">
+    <value>Chủ đề</value>
+  </data>
+  <data name="SidebarItemUser" xml:space="preserve">
+    <value>Người dùng</value>
+  </data>
+  <data name="SidebarMessage" xml:space="preserve">
+    <value>Tin nhắn</value>
+  </data>
+  <data name="SidebarSearchOptimize" xml:space="preserve">
+    <value>Tối ưu tìm kiếm</value>
+  </data>
+  <data name="SidebarSystem" xml:space="preserve">
+    <value>Hệ thống</value>
+  </data>
+  <data name="SidebarUser" xml:space="preserve">
+    <value>Người dùng</value>
+  </data>
+  <data name="HomeArticle" xml:space="preserve">
+    <value>Bài viết</value>
+  </data>
+  <data name="HomeCategory" xml:space="preserve">
+    <value>Danh mục</value>
+  </data>
+  <data name="HomeDashboard" xml:space="preserve">
+    <value>Bảng thông tin</value>
+  </data>
+  <data name="HomeHitcounter" xml:space="preserve">
+    <value>Lượt truy cập</value>
+  </data>
+  <data name="HomeOrder" xml:space="preserve">
+    <value>Đơn hàng</value>
+  </data>
+  <data name="HomeProduct" xml:space="preserve">
+    <value>Sản phẩm</value>
+  </data>
+  <data name="TopbarLangugeChoose" xml:space="preserve">
+    <value>Chọn ngôn ngữ (trang quản trị)</value>
+  </data>
+  <data name="TopbarLogout" xml:space="preserve">
+    <value>Đăng xuất</value>
+  </data>
+  <data name="TopbarUserActivityLog" xml:space="preserve">
+    <value>Nhật ký hoạt động</value>
+  </data>
+  <data name="TopbarUserProfile" xml:space="preserve">
+    <value>Hồ sơ</value>
+  </data>
+  <data name="TopbarUserSettings" xml:space="preserve">
+    <value>Phân quyền</value>
+  </data>
+  <data name="js_Hello" xml:space="preserve">
+    <value>Xin chào</value>
+  </data>
+  <data name="UploadPhotoClickToOpenFileBrowser" xml:space="preserve">
+    <value>Chọn ảnh để tải lên</value>
+  </data>
+  <data name="UploadPhotoDebug" xml:space="preserve">
+    <value>Debug</value>
+  </data>
+  <data name="UploadPhotoDragAndDropImagesHere" xml:space="preserve">
+    <value>Kéo &amp; thả ảnh vào đây</value>
+  </data>
+  <data name="UploadPhotoListHeader" xml:space="preserve">
+    <value>Danh sách ảnh đã tải lên</value>
+  </data>
+  <data name="UploadPhotoListRefreshData" xml:space="preserve">
+    <value>Tải lại dữ liệu</value>
+  </data>
+  <data name="UploadPhotoListTableHeaderAction" xml:space="preserve">
+    <value>Chèn</value>
+  </data>
+  <data name="UploadPhotoListTableHeaderDelete" xml:space="preserve">
+    <value>Xóa</value>
+  </data>
+  <data name="UploadPhotoListTableHeaderPicture" xml:space="preserve">
+    <value>Ảnh</value>
+  </data>
+  <data name="UploadPhotoListTableHeaderSmPath" xml:space="preserve">
+    <value>Ảnh nhỏ</value>
+  </data>
+  <data name="UploadPhotoListTableInsertEditor" xml:space="preserve">
+    <value>Chèn bài viết</value>
+  </data>
+  <data name="CommonDelete" xml:space="preserve">
+    <value>Xóa</value>
+  </data>
+  <data name="UploadPhotoListTableSetAvatar" xml:space="preserve">
+    <value>Nhấp vào đây để đặt làm avatar</value>
+  </data>
+  <data name="UploadPhotoOr" xml:space="preserve">
+    <value>--hoặc--</value>
+  </data>
+  <data name="UploadPhotoStatusHeaderUploads" xml:space="preserve">
+    <value>Trạng thái Tải lên</value>
+  </data>
+  <data name="UploadPhotoStatusNoFilesMessage" xml:space="preserve">
+    <value>Chưa có ảnh nào được tải lên</value>
+  </data>
+  <data name="CommonAdminSettings" xml:space="preserve">
+    <value>Thiết đặt website</value>
+  </data>
+  <data name="CommonArticle" xml:space="preserve">
+    <value>Bài viết</value>
+  </data>
+  <data name="CommonArticleTag" xml:space="preserve">
+    <value>Thẻ tên bài viết</value>
+  </data>
+  <data name="CommonCategory" xml:space="preserve">
+    <value>Danh mục</value>
+  </data>
+  <data name="CommonContact" xml:space="preserve">
+    <value>Tin nhắn</value>
+  </data>
+  <data name="CommonEmailSettings" xml:space="preserve">
+    <value>Thiết đặt Email</value>
+  </data>
+  <data name="CommonEmbedSettings" xml:space="preserve">
+    <value>Thiết đặt nhúng html</value>
+  </data>
+  <data name="CommonExtraSitemap" xml:space="preserve">
+    <value>Sơ đồ trang mở rộng</value>
+  </data>
+  <data name="CommonEdit" xml:space="preserve">
+    <value>Sửa</value>
+  </data>
+  <data name="CommonIndex" xml:space="preserve">
+    <value>Mục lục</value>
+  </data>
+  <data name="CommonHeaderRestart" xml:space="preserve">
+    <value>Reset Website</value>
+  </data>
+  <data name="CommonHitCounter" xml:space="preserve">
+    <value>Lượt truy cập</value>
+  </data>
+  <data name="CommonInfo" xml:space="preserve">
+    <value>Nội dung trang</value>
+  </data>
+  <data name="CommonInjectionLink" xml:space="preserve">
+    <value>Chèn link vào bài viết</value>
+  </data>
+  <data name="CommonMessage" xml:space="preserve">
+    <value>Tin nhắn</value>
+  </data>
+  <data name="CommonPhoto" xml:space="preserve">
+    <value>Ảnh</value>
+  </data>
+  <data name="CommonPhotoSettings" xml:space="preserve">
+    <value>Thiết đặt ảnh</value>
+  </data>
+  <data name="CommonProduct" xml:space="preserve">
+    <value>Sản phẩm</value>
+  </data>
+  <data name="CommonRedirect" xml:space="preserve">
+    <value>Chuyển hướng</value>
+  </data>
+  <data name="CommonRestartNow" xml:space="preserve">
+    <value>Khởi động lại ngay lập tức</value>
+  </data>
+  <data name="CommonSearchHitCounter" xml:space="preserve">
+    <value>mm/dd/yyyy -&gt; Bấm enter để tìm</value>
+  </data>
+  <data name="CommonSetting" xml:space="preserve">
+    <value>Cấu hình</value>
+  </data>
+  <data name="CommonShopSettings" xml:space="preserve">
+    <value>Thiết đặt cửa hàng</value>
+  </data>
+  <data name="CommonSlider" xml:space="preserve">
+    <value>Slider</value>
+  </data>
+  <data name="CommonSystemInfo" xml:space="preserve">
+    <value>Thông tin hệ thống</value>
+  </data>
+  <data name="CommonSystemInfoProperty" xml:space="preserve">
+    <value>Thuộc tính</value>
+  </data>
+  <data name="CommonSystemInfoValue" xml:space="preserve">
+    <value>Giá trị</value>
+  </data>
+  <data name="CommonTag" xml:space="preserve">
+    <value>Thẻ tên</value>
+  </data>
+  <data name="CommonTopic" xml:space="preserve">
+    <value>Chủ đề</value>
+  </data>
+  <data name="ArticleModelAvatar" xml:space="preserve">
+    <value>Ảnh đại diện</value>
+  </data>
+  <data name="ArticleModelContent" xml:space="preserve">
+    <value>Nội dung</value>
+  </data>
+  <data name="ArticleModelDateCreated" xml:space="preserve">
+    <value>Ngày tạo</value>
+  </data>
+  <data name="ArticleModelDescription" xml:space="preserve">
+    <value>Mô tả</value>
+  </data>
+  <data name="ArticleModelIsPublish" xml:space="preserve">
+    <value>Xuất bản</value>
+  </data>
+  <data name="ArticleModelLocation" xml:space="preserve">
+    <value>Vị trị</value>
+  </data>
+  <data name="ArticleModelName" xml:space="preserve">
+    <value>Tên</value>
+  </data>
+  <data name="ArticleModelPostBy" xml:space="preserve">
+    <value>Viết bởi</value>
+  </data>
+  <data name="ArticleModelPostDate" xml:space="preserve">
+    <value>Ngày xuất bản</value>
+  </data>
+  <data name="ArticleModelRating" xml:space="preserve">
+    <value>Đánh giá (sao)</value>
+  </data>
+  <data name="ArticleModelSelectedArticleTag" xml:space="preserve">
+    <value>Thẻ tên</value>
+  </data>
+  <data name="ArticleModelSort" xml:space="preserve">
+    <value>Sắp xếp</value>
+  </data>
+  <data name="ArticleModelTopicId" xml:space="preserve">
+    <value>Chủ đề</value>
+  </data>
+  <data name="ArticleModelViewCounter" xml:space="preserve">
+    <value>Lượt xem</value>
+  </data>
+  <data name="CategoryModelAvatar" xml:space="preserve">
+    <value>Ảnh đại diện</value>
+  </data>
+  <data name="CategoryModelDescription" xml:space="preserve">
+    <value>Mô tả</value>
+  </data>
+  <data name="CategoryModelHref" xml:space="preserve">
+    <value>Đường dẫn (mặc định '#' hiển thị dạng list, 'link' sẽ trỏ tới link)</value>
+  </data>
+  <data name="CategoryModelIsAside" xml:space="preserve">
+    <value>Hiện ở menu bên cạnh</value>
+  </data>
+  <data name="CategoryModelIsHome" xml:space="preserve">
+    <value>Hiện ở trang chủ</value>
+  </data>
+  <data name="CategoryModelIsMenu" xml:space="preserve">
+    <value>Hiện ở menu đầu trang</value>
+  </data>
+  <data name="CategoryModelLocation" xml:space="preserve">
+    <value>Vị trí</value>
+  </data>
+  <data name="CategoryModelLocationRequired" xml:space="preserve">
+    <value>Vui lòng chọn một vị trí</value>
+  </data>
+  <data name="CategoryModelName" xml:space="preserve">
+    <value>Tên</value>
+  </data>
+  <data name="CategoryModelParentId" xml:space="preserve">
+    <value>Danh mục cha</value>
+  </data>
+  <data name="CategoryModelSort" xml:space="preserve">
+    <value>Sắp xếp</value>
+  </data>
+  <data name="CommentModelCommentBy" xml:space="preserve">
+    <value>Bình luật bởi</value>
+  </data>
+  <data name="CommentModelCommnetDate" xml:space="preserve">
+    <value>Ngày bình luận</value>
+  </data>
+  <data name="CommentModelMessage" xml:space="preserve">
+    <value>Tin nhắn</value>
+  </data>
+  <data name="CommentModelPostId" xml:space="preserve">
+    <value>Bài đăng</value>
+  </data>
+  <data name="CommentModelSearchContent" xml:space="preserve">
+    <value>Nội dung để tìm kiếm</value>
+  </data>
+  <data name="ContactModelEmail" xml:space="preserve">
+    <value>Địa chỉ email</value>
+  </data>
+  <data name="ContactModelFullName" xml:space="preserve">
+    <value>Họ và tên</value>
+  </data>
+  <data name="ContactModelMessage" xml:space="preserve">
+    <value>Tin nhắn</value>
+  </data>
+  <data name="ContactModelPhone" xml:space="preserve">
+    <value>Số điện thoại</value>
+  </data>
+  <data name="ContactModelPhoneRequired" xml:space="preserve">
+    <value>Vui lòng nhập số điện thoại</value>
+  </data>
+  <data name="ContactModelPostDate" xml:space="preserve">
+    <value>Ngày đăng</value>
+  </data>
+  <data name="ContactModelReadBy" xml:space="preserve">
+    <value>Đọc bởi</value>
+  </data>
+  <data name="ExtraSiteMapChangeFrequency" xml:space="preserve">
+    <value>Tần suất thay đổi</value>
+  </data>
+  <data name="ExtraSiteMapLastModify" xml:space="preserve">
+    <value>Điều chỉnh lần cuối</value>
+  </data>
+  <data name="ExtraSiteMapName" xml:space="preserve">
+    <value>Đường dẫn (không bao gòm tên miền)</value>
+  </data>
+  <data name="ExtraSiteMapNameRequired" xml:space="preserve">
+    <value>Vui lòng nhập đường dẫn</value>
+  </data>
+  <data name="ExtraSiteMapPriority" xml:space="preserve">
+    <value>Độ ưu tiên (trong khoảng 0,1 đến 1,0)</value>
+  </data>
+  <data name="ExtraSiteMapPriorityRange" xml:space="preserve">
+    <value>Độ ưu tiên nằm trong khoảng 0,1 đến 1,0</value>
+  </data>
+  <data name="ExtraSiteMapPriorityRequired" xml:space="preserve">
+    <value>Vui lòng nhập độ ưu tiên</value>
+  </data>
+  <data name="InfoModelAvatar" xml:space="preserve">
+    <value>Hình đại diện</value>
+  </data>
+  <data name="InfoModelBrief" xml:space="preserve">
+    <value>Mô tả nhanh</value>
+  </data>
+  <data name="InfoModelContent" xml:space="preserve">
+    <value>Nội dung</value>
+  </data>
+  <data name="InfoModelHref" xml:space="preserve">
+    <value>Đường dẫn</value>
+  </data>
+  <data name="InfoModelLocation" xml:space="preserve">
+    <value>Vị trí</value>
+  </data>
+  <data name="InfoModelLocationRuleDefault" xml:space="preserve">
+    <value>Mặc định</value>
+  </data>
+  <data name="InfoModelName" xml:space="preserve">
+    <value>Tên</value>
+  </data>
+  <data name="InfoModelSort" xml:space="preserve">
+    <value>Sắp xếp</value>
+  </data>
+  <data name="PhotoModelAltAttribute" xml:space="preserve">
+    <value>Thuộc tính Alt của ảnh</value>
+  </data>
+  <data name="PhotoModelEntity" xml:space="preserve">
+    <value>Đối tượng liên kết ảnh</value>
+  </data>
+  <data name="PhotoModelLgPath" xml:space="preserve">
+    <value>Đường dẫn ảnh lớn</value>
+  </data>
+  <data name="PhotoModelMdPath" xml:space="preserve">
+    <value>Đường dẫn ảnh vừa</value>
+  </data>
+  <data name="PhotoModelMineType" xml:space="preserve">
+    <value>Kiểu tệp</value>
+  </data>
+  <data name="PhotoModelModelId" xml:space="preserve">
+    <value>Id đối tượng liên kết ảnh</value>
+  </data>
+  <data name="PhotoModelName" xml:space="preserve">
+    <value>Tên</value>
+  </data>
+  <data name="PhotoModelPostBy" xml:space="preserve">
+    <value>Đăng bởi</value>
+  </data>
+  <data name="PhotoModelSmPath" xml:space="preserve">
+    <value>Đường dẫn ảnh nhỏ</value>
+  </data>
+  <data name="PhotoModelTitleAttribute" xml:space="preserve">
+    <value>Thuộc tính tiêu đề ảnh</value>
+  </data>
+  <data name="PostModelArticle" xml:space="preserve">
+    <value>Bài viết</value>
+  </data>
+  <data name="PostModelMessage" xml:space="preserve">
+    <value>Tin nhắn</value>
+  </data>
+  <data name="PostModelPostBy" xml:space="preserve">
+    <value>Đăng bởi</value>
+  </data>
+  <data name="PostModelPostDate" xml:space="preserve">
+    <value>Đăng ngày</value>
+  </data>
+  <data name="PostModelSearchContent" xml:space="preserve">
+    <value>Nội dung để tìm kiếm</value>
+  </data>
+  <data name="ProductModelAvatar" xml:space="preserve">
+    <value>Hình đại diện</value>
+  </data>
+  <data name="ProductModelBrief" xml:space="preserve">
+    <value>Mô tả nhanh</value>
+  </data>
+  <data name="ProductModelCategoryId" xml:space="preserve">
+    <value>Danh mục</value>
+  </data>
+  <data name="ProductModelCreated" xml:space="preserve">
+    <value>Ngày tạo</value>
+  </data>
+  <data name="ProductModelDateAmended" xml:space="preserve">
+    <value>Ngày điều chỉnh</value>
+  </data>
+  <data name="ProductModelDescription" xml:space="preserve">
+    <value>Mô tả</value>
+  </data>
+  <data name="ProductModelDistrict" xml:space="preserve">
+    <value>Tỉnh</value>
+  </data>
+  <data name="ProductModelIsHome" xml:space="preserve">
+    <value>Hiện trang chủ</value>
+  </data>
+  <data name="ProductModelIsOutOfStock" xml:space="preserve">
+    <value>Đã hết hàng</value>
+  </data>
+  <data name="ProductModelIsPublish" xml:space="preserve">
+    <value>Xuất bản</value>
+  </data>
+  <data name="ProductModelLocation" xml:space="preserve">
+    <value>Vị trí</value>
+  </data>
+  <data name="ProductModelName" xml:space="preserve">
+    <value>Tên</value>
+  </data>
+  <data name="ProductModelOldPrice" xml:space="preserve">
+    <value>Giá cũ</value>
+  </data>
+  <data name="ProductModelPostBy" xml:space="preserve">
+    <value>Đăng bởi</value>
+  </data>
+  <data name="ProductModelPrice" xml:space="preserve">
+    <value>Giá mới</value>
+  </data>
+  <data name="ProductModelPublished" xml:space="preserve">
+    <value>Xuất bản ngày</value>
+  </data>
+  <data name="ProductModelSelectedProductTag" xml:space="preserve">
+    <value>Thẻ tên đã chọn</value>
+  </data>
+  <data name="ProductModelSort" xml:space="preserve">
+    <value>Sắp xếp</value>
+  </data>
+  <data name="ProductModelSpecification" xml:space="preserve">
+    <value>Đặc điểm kỹ thuật</value>
+  </data>
+  <data name="ProductModelStringOldPrice" xml:space="preserve">
+    <value>Giá cũ</value>
+  </data>
+  <data name="ProductModelStringPrice" xml:space="preserve">
+    <value>Giá mới</value>
+  </data>
+  <data name="ProductModelSummary" xml:space="preserve">
+    <value>Tóm lược (bên phải trang chi tiết sản phẩm)</value>
+  </data>
+  <data name="ProductModelTitle2" xml:space="preserve">
+    <value>Tiêu đề 2 (tùy chọn)</value>
+  </data>
+  <data name="ProductModelTitle3" xml:space="preserve">
+    <value>Tiêu đề 3 (tùy chọn)</value>
+  </data>
+  <data name="ProductModelVolume" xml:space="preserve">
+    <value>Diện tích</value>
+  </data>
+  <data name="SeoModelLockSeo" xml:space="preserve">
+    <value>Khóa thẻ Seo</value>
+  </data>
+  <data name="SeoModelMetaDescription" xml:space="preserve">
+    <value>Thẻ Mô Tả</value>
+  </data>
+  <data name="SeoModelMetaKeywords" xml:space="preserve">
+    <value>Thẻ Từ Khóa</value>
+  </data>
+  <data name="SeoModelMetaTitle" xml:space="preserve">
+    <value>Thẻ Tiêu Đề</value>
+  </data>
+  <data name="SeoModelSearchContent" xml:space="preserve">
+    <value>Nội dung để tìm kiếm</value>
+  </data>
+  <data name="ShopModelName" xml:space="preserve">
+    <value>Tên</value>
+  </data>
+  <data name="ShopModelProvince" xml:space="preserve">
+    <value>Tỉnh</value>
+  </data>
+  <data name="ShopModelProvinceRequired" xml:space="preserve">
+    <value>Vui lòng chọn tỉnh</value>
+  </data>
+  <data name="SliderModelAlt" xml:space="preserve">
+    <value>Thẻ Alt của ảnh</value>
+  </data>
+  <data name="SliderModelAvatar" xml:space="preserve">
+    <value>Hình đại diện (laptop)</value>
+  </data>
+  <data name="SliderModelAvatarMobile" xml:space="preserve">
+    <value>Hình đại diện (điện thoại)</value>
+  </data>
+  <data name="SliderModelHref" xml:space="preserve">
+    <value>Đường dẫn Href (tùy chọn)</value>
+  </data>
+  <data name="SliderModelIsCaption" xml:space="preserve">
+    <value>Cho phép hiện chữ</value>
+  </data>
+  <data name="SliderModelLogo" xml:space="preserve">
+    <value>Logo (đường dẫn ảnh)</value>
+  </data>
+  <data name="SliderModelName" xml:space="preserve">
+    <value>Tên</value>
+  </data>
+  <data name="SliderModelPostBy" xml:space="preserve">
+    <value>Đăng bởi</value>
+  </data>
+  <data name="SliderModelSort" xml:space="preserve">
+    <value>Sắp xếp</value>
+  </data>
+  <data name="SliderModelText1" xml:space="preserve">
+    <value>Dòng 1</value>
+  </data>
+  <data name="SliderModelText2" xml:space="preserve">
+    <value>Dòng 2</value>
+  </data>
+  <data name="SliderModelText3" xml:space="preserve">
+    <value>Dòng 3</value>
+  </data>
+  <data name="TopicModelAvatar" xml:space="preserve">
+    <value>Hình đại diện</value>
+  </data>
+  <data name="TopicModelDescription" xml:space="preserve">
+    <value>Mô tả</value>
+  </data>
+  <data name="TopicModelHref" xml:space="preserve">
+    <value>Đường dẫn (tùy chọn chuyển hướng)</value>
+  </data>
+  <data name="TopicModelIsHome" xml:space="preserve">
+    <value>Hiện trang chủ</value>
+  </data>
+  <data name="TopicModelIsMenu" xml:space="preserve">
+    <value>Hiện Menu đầu trang</value>
+  </data>
+  <data name="TopicModelLocation" xml:space="preserve">
+    <value>Vị trí</value>
+  </data>
+  <data name="TopicModelName" xml:space="preserve">
+    <value>Tên</value>
+  </data>
+  <data name="TopicModelParentId" xml:space="preserve">
+    <value>Chủ đề cha</value>
+  </data>
+  <data name="TopicModelSort" xml:space="preserve">
+    <value>Sắp xếp</value>
+  </data>
+  <data name="WebSettingVmIsLockDeleteSettings" xml:space="preserve">
+    <value>Khóa chức năng xóa Cấu Hình</value>
+  </data>
+  <data name="WebSettingVmIsAutoSeoMetaTag" xml:space="preserve">
+    <value>Tự động tạo Meta Tag SEO</value>
+  </data>
+  <data name="WebSettingVmShopLanguages" xml:space="preserve">
+    <value>Ngôn ngữ trang Cửa Hàng</value>
+  </data>
+  <data name="EmailSettingVmFileLocation" xml:space="preserve">
+    <value>Vị trí lưu tệp email (mặc định: /Mail/)</value>
+  </data>
+  <data name="EmailSettingVmMailFromAddress" xml:space="preserve">
+    <value>Gửi Từ</value>
+  </data>
+  <data name="EmailSettingVmMailToAddress" xml:space="preserve">
+    <value>Gửi đến</value>
+  </data>
+  <data name="EmailSettingVmMailToAddress2" xml:space="preserve">
+    <value>Gửi đến địa chỉ 2</value>
+  </data>
+  <data name="EmailSettingVmMailToAddressBcc" xml:space="preserve">
+    <value>Đồng gửi</value>
+  </data>
+  <data name="EmailSettingVmPassword" xml:space="preserve">
+    <value>Mật khẩu</value>
+  </data>
+  <data name="EmailSettingVmServerName" xml:space="preserve">
+    <value>Tên máy chủ</value>
+  </data>
+  <data name="EmailSettingVmServerPort" xml:space="preserve">
+    <value>Cổng máy chủ</value>
+  </data>
+  <data name="EmailSettingVmSubject" xml:space="preserve">
+    <value>Tiêu đề (tiêu đề phụ)</value>
+  </data>
+  <data name="EmailSettingVmUsername" xml:space="preserve">
+    <value>Tên người dùng</value>
+  </data>
+  <data name="EmailSettingVmUseSsl" xml:space="preserve">
+    <value>Dùng SSL</value>
+  </data>
+  <data name="EmailSettingVmWriteAsFile" xml:space="preserve">
+    <value>Cho xuất email sang dạng tệp</value>
+  </data>
+  <data name="EmbedSettingVmFacebookId" xml:space="preserve">
+    <value>Id App Facebook</value>
+  </data>
+  <data name="EmbedSettingVmFacebookScript" xml:space="preserve">
+    <value>Mã Script Facebook</value>
+  </data>
+  <data name="EmbedSettingVmGoogleAnalytics" xml:space="preserve">
+    <value>Google Analytics</value>
+  </data>
+  <data name="EmbedSettingVmMap" xml:space="preserve">
+    <value>Nhúng bản đồ</value>
+  </data>
+  <data name="EmbedSettingVmName" xml:space="preserve">
+    <value>Tên</value>
+  </data>
+  <data name="EmbedSettingVmScripts" xml:space="preserve">
+    <value>Mã Scripts</value>
+  </data>
+  <data name="EmbedSettingVmStyles" xml:space="preserve">
+    <value>Mã Styles</value>
+  </data>
+  <data name="PhotoSettingVmImageQuality" xml:space="preserve">
+    <value>Chất lượng ảnh (từ 70 đến 100)</value>
+  </data>
+  <data name="PhotoSettingVmImageQualityRange" xml:space="preserve">
+    <value>Giá trị của {0} phải trong khoảng từ {1} đến {2}.</value>
+  </data>
+  <data name="PhotoSettingVmLargeSize" xml:space="preserve">
+    <value>Kích cỡ ảnh lớn (chiều rộng theo pixel)</value>
+  </data>
+  <data name="PhotoSettingVmMaxHeight" xml:space="preserve">
+    <value>Giới hạn chiều cao tối đa (theo pixel)</value>
+  </data>
+  <data name="PhotoSettingVmMediumSize" xml:space="preserve">
+    <value>Kích cỡ ảnh vừa (chiều rộng theo pixel)</value>
+  </data>
+  <data name="PhotoSettingVmSmallSize" xml:space="preserve">
+    <value>Kích cỡ ảnh nhỏ (chiều rộng theo pixel)</value>
+  </data>
+  <data name="ShopSettingVmAddress1" xml:space="preserve">
+    <value>Địa chỉ 1</value>
+  </data>
+  <data name="ShopSettingVmAddress2" xml:space="preserve">
+    <value>Đia chỉ 2</value>
+  </data>
+  <data name="ShopSettingVmCardDecorate" xml:space="preserve">
+    <value>Huy hiệu trang trí Hình sản phẩm (định dạng .png, size 54x54px)</value>
+  </data>
+  <data name="ShopSettingVmCompanyNamePart1" xml:space="preserve">
+    <value>Tên công ty phần 1</value>
+  </data>
+  <data name="ShopSettingVmCompanyNamePart2" xml:space="preserve">
+    <value>Tên công ty phần 2</value>
+  </data>
+  <data name="ShopSettingVmEmailAddress" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="ShopSettingVmFacebookLink" xml:space="preserve">
+    <value>Đường link trang Facebook</value>
+  </data>
+  <data name="ShopSettingVmHomepageMetaDescription" xml:space="preserve">
+    <value>Thẻ MetaDescription trang chủ</value>
+  </data>
+  <data name="ShopSettingVmHomepageMetaKeywords" xml:space="preserve">
+    <value>Thẻ MetaKeywords trang chủ</value>
+  </data>
+  <data name="ShopSettingVmHomepageMetaTitle" xml:space="preserve">
+    <value>Thẻ Meta tile trang chủ</value>
+  </data>
+  <data name="ShopSettingVmHotline" xml:space="preserve">
+    <value>Số điện thoại Hotline</value>
+  </data>
+  <data name="ShopSettingVmHotlineName" xml:space="preserve">
+    <value>Tên Hotline</value>
+  </data>
+  <data name="ShopSettingVmIsShowBrief" xml:space="preserve">
+    <value>Cho phép hiện Mô tả ngắn gọn</value>
+  </data>
+  <data name="ShopSettingVmIsUnderConstruction" xml:space="preserve">
+    <value>Bật chế độ đang xây dựng nội dung</value>
+  </data>
+  <data name="ShopSettingVmMenuFormatClass" xml:space="preserve">
+    <value>Định dạng Menu đầu trang (định dạng class Bootstrap 4 như  text-capitalize)</value>
+  </data>
+  <data name="ShopSettingVmMetaAuthor" xml:space="preserve">
+    <value>Thẻ Meta Author</value>
+  </data>
+  <data name="ShopSettingVmProductDetailSummary" xml:space="preserve">
+    <value>Tóm lượt sản phẩm (hiện như mặc định trang chi tiết sản phẩm)</value>
+  </data>
+  <data name="ShopSettingVmSupporterPhone" xml:space="preserve">
+    <value>Số điện thoại người hỗ trợ</value>
+  </data>
+  <data name="AccountControllerLoginInvalidLoginAttempt" xml:space="preserve">
+    <value>Đăng nhập không thành công</value>
+  </data>
+  <data name="ArticlesControllerEditYouMustEnterName" xml:space="preserve">
+    <value>Bạn nhập Tên vào</value>
+  </data>
+  <data name="CategoryControllerEditYouMustEnterName" xml:space="preserve">
+    <value>Bạn phải nhập Tên</value>
+  </data>
+  <data name="InfoControllerEditYouMustEnterName" xml:space="preserve">
+    <value>Bạn phải nhập Tên</value>
+  </data>
+  <data name="ManageControllerVerifyPhoneNumberFailedToVerifyPhone" xml:space="preserve">
+    <value>Kiểm duyệt số điện thoại đã thất bại</value>
+  </data>
+  <data name="ProductTagControllerEditNewTagValueCannotBeEmpty" xml:space="preserve">
+    <value>Giá trị Tag mới không được trống</value>
+  </data>
+  <data name="SlidersControllerEditYouMustEnterName" xml:space="preserve">
+    <value>Bạn phải nhập Tên</value>
+  </data>
+  <data name="TagControllerEditNewTagValueCannotBeEmpty" xml:space="preserve">
+    <value>Giá trị Tag không được để trống.</value>
+  </data>
+  <data name="TopicControllerEditYouMustEnterName" xml:space="preserve">
+    <value>Bạn phải nhập Tên</value>
+  </data>
+  <data name="UsersAdminControllerEditSomethingFailed" xml:space="preserve">
+    <value>Một lỗi đã phát sinh.</value>
+  </data>
+  <data name="ArticleTagControllerEditNewTagValueCannotBeEmpty" xml:space="preserve">
+    <value>Giá trị thẻ tên không thể để trống</value>
+  </data>
+  <data name="AccountControllerVerifyCodeInvalidCode" xml:space="preserve">
+    <value>Mã không hợp lệ</value>
+  </data>
+  <data name="ArticleTagControllerEditArticleTag_not_exist__please_check_it_" xml:space="preserve">
+    <value>Thẻ tên bài viết không tồn tại, vui lòng kiểm tra lại</value>
+  </data>
+  <data name="AccountControllerVerifyCode_For_DEMO_purposes_the_current_" xml:space="preserve">
+    <value>Cho mục đích Demo:</value>
+  </data>
+  <data name="AccountControllerVerifyCode__code_is__" xml:space="preserve">
+    <value>Mã code là:</value>
+  </data>
+  <data name="AccountControllerRegister_Confirm_your_account" xml:space="preserve">
+    <value>Xác nhận tài khoản của bạn</value>
+  </data>
+  <data name="AccountControllerRegister_Please_confirm_your_account_by_clicking_this_link__" xml:space="preserve">
+    <value>Vui lòng xác nhận tài khoản của bạn bằng cách click vào link sau đây:</value>
+  </data>
+  <data name="AccountControllerForgotPassword_Just_user_create_on_website_runtime_can_reset_password" xml:space="preserve">
+    <value>Chỉ những user tạo trên website mới có tính năng năng reset mật khẩu</value>
+  </data>
+  <data name="AccountControllerForgotPassword_Reset_Password" xml:space="preserve">
+    <value>Reset mật khẩu</value>
+  </data>
+  <data name="AccountControllerForgotPassword_Please_reset_your_password_by_clicking_here__" xml:space="preserve">
+    <value>Vui lòng reset mật khẩu bằng cách click vào đây:</value>
+  </data>
+  <data name="AccountControllerForgotPassword_Maybe_you_not_yet_setup_SMTP_Email__Detail_Error___0_" xml:space="preserve">
+    <value>Có thể bạn chưa cài đặt SMTP Email, Chi tiết lỗi: {0}</value>
+  </data>
+  <data name="ArticlesControllerCreate_Enter_link_to_navigate_to_Topic" xml:space="preserve">
+    <value>Click vào link để tạo Chủ Đề</value>
+  </data>
+  <data name="ArticlesControllerCreate_You_not_yet_create_any_Topic__please_create_Topic_first_" xml:space="preserve">
+    <value>Bạn chưa tạo bất cứ Chủ Đề nào, vui lòng tạo chủ đề trước</value>
+  </data>
+  <data name="ArticlesControllerEdit_Not_found_any_article_to_edit" xml:space="preserve">
+    <value>Không tìm thấy bài viết cần chỉnh sửa</value>
+  </data>
+  <data name="ArticlesControllerEdit__0___has__been__saved" xml:space="preserve">
+    <value>{0}  đã được lưu</value>
+  </data>
+  <data name="ArticlesControllerDelete_Article_was_t_deleted" xml:space="preserve">
+    <value>Bài viết chưa được xóa</value>
+  </data>
+  <data name="ArticlesControllerDelete_Error_rising_when_try_delete_photo__Message___0_" xml:space="preserve">
+    <value>Lỗi phát sinh khi thử xóa ảnh, Chi tiết: {0}</value>
+  </data>
+  <data name="ArticlesControllerDelete__0__was_deleted" xml:space="preserve">
+    <value>{0} đã được xóa</value>
+  </data>
+  <data name="ArticleTagControllerEdit_Not_found_tag_need_edit" xml:space="preserve">
+    <value>Không tìm thấy thẻ tên nào cần xóa</value>
+  </data>
+  <data name="ArticleTagControllerEdit_Rename_Tag_fail___tag_name_have_already_in_database" xml:space="preserve">
+    <value>Đổi tên Tag lỗi - Tag đã có trong cơ sở dữ liệu</value>
+  </data>
+  <data name="ArticleTagControllerEdit_Rename_tag_fail___tag_must_least_1_character" xml:space="preserve">
+    <value>Đổi thẻ tên không thành công, yêu cầu ít nhất 1 ký tự</value>
+  </data>
+  <data name="ArticleTagControllerDelete_ArticleTag_not_exist__please_check_it_" xml:space="preserve">
+    <value>Thẻ tên bài viết không tìm thấy, vui lòng kiểm tra lại</value>
+  </data>
+  <data name="CategoryControllerEdit__0___has__been__saved" xml:space="preserve">
+    <value>{0}  đã được lưu</value>
+  </data>
+  <data name="CategoryControllerDelete_Category_wasn_t_deleted" xml:space="preserve">
+    <value>Danh mục chưa được xóa</value>
+  </data>
+  <data name="CategoryControllerDelete_Category_have___" xml:space="preserve">
+    <value>Category have: [</value>
+  </data>
+  <data name="CategoryControllerDelete_Category_have____0___child_category__please_delete_child_category_first" xml:space="preserve">
+    <value>Danh mục có: [{0}] danh mục con, vui lòng xóa danh mục con trước</value>
+  </data>
+  <data name="CategoryControllerDelete_Category_have____0___product__please_delete_product_first" xml:space="preserve">
+    <value>Danh mục có: [{0}] sản phẩm, Vui lòng xóa sản phẩm trước</value>
+  </data>
+  <data name="CategoryControllerDelete__0__was_deleted" xml:space="preserve">
+    <value>{0} đã được xóa</value>
+  </data>
+  <data name="CategoryControllerDelete_Error_rising_when_try_delete_photo__Message___0_" xml:space="preserve">
+    <value>Lỗi phát sinh khi thử xóa ảnh, Chi tiết: {0}</value>
+  </data>
+  <data name="ConfigControllerEmailSettings__if_not_use__you_just_leave_Empty" xml:space="preserve">
+    <value>nếu bạn không dùng, chỉ việc để trống</value>
+  </data>
+  <data name="ConfigControllerEmailSettings__0___has__been__saved" xml:space="preserve">
+    <value>{0}  đã được lưu</value>
+  </data>
+  <data name="ConfigControllerAdminSettings__0___has__been__saved" xml:space="preserve">
+    <value>{0}  đã được lưu</value>
+  </data>
+  <data name="ConfigControllerEmbedSettings__0___has__been__saved" xml:space="preserve">
+    <value>{0}  đã được lưu</value>
+  </data>
+  <data name="ConfigControllerPhotoSettings__0___has__been__saved" xml:space="preserve">
+    <value>{0}  đã được lưu</value>
+  </data>
+  <data name="ConfigControllerShopSettings__0___has__been__saved" xml:space="preserve">
+    <value>{0}  đã được lưu</value>
+  </data>
+  <data name="ContactControllerEdit__0___has__been__saved" xml:space="preserve">
+    <value>{0}  đã được lưu</value>
+  </data>
+  <data name="ContactControllerDelete__0__was_deleted" xml:space="preserve">
+    <value>{0} đã được xóa</value>
+  </data>
+  <data name="ExtraSiteMapsControllerDelete_Request_Invalid__id_is_null" xml:space="preserve">
+    <value>Yêu cầu không hợp lệ, mục Id trống</value>
+  </data>
+  <data name="ExtraSiteMapsControllerDelete_Not_found_sitemap_item_to_delete" xml:space="preserve">
+    <value>Không tìm thấy mục Site-map trang cần xóa</value>
+  </data>
+  <data name="ExtraSiteMapsControllerDelete_Delete_success_SiteMap_Item___0__" xml:space="preserve">
+    <value>Đã xóa thành công mục Site-map '{0}'</value>
+  </data>
+  <data name="HitCountersControllerDeleteConfirmed__0__was_deleted" xml:space="preserve">
+    <value>{0} đã được xóa</value>
+  </data>
+  <data name="InfoControllerEdit__0___has__been__saved" xml:space="preserve">
+    <value>{0}  đã được lưu</value>
+  </data>
+  <data name="InfoControllerDelete_Not_found_item_to_delete" xml:space="preserve">
+    <value>Không tìm thấy mục cần xóa</value>
+  </data>
+  <data name="InfoControllerDelete_Error_rising_when_try_delete_photo__Message___0_" xml:space="preserve">
+    <value>Lỗi phát sinh khi thử xóa ảnh, chi tiết {0}</value>
+  </data>
+  <data name="InfoControllerDelete__0__was_deleted" xml:space="preserve">
+    <value>{0} đã được xóa</value>
+  </data>
+  <data name="InjectionHyperlinksControllerInject_Id___0__not_found" xml:space="preserve">
+    <value>Id: {0} không tìm thấy</value>
+  </data>
+  <data name="InjectionHyperlinksControllerInject_Artilce___0__has_been_inject_hyperlink_success_" xml:space="preserve">
+    <value>Bài viết: {0} đã được chèn link thành công!</value>
+  </data>
+  <data name="InjectionHyperlinksControllerClearAllLink_Id___0__not_found" xml:space="preserve">
+    <value>Id: {0} không tìm thấy</value>
+  </data>
+  <data name="InjectionHyperlinksControllerClearAllLinkAllArticle__Unauthor___Verity_code_not_valid_" xml:space="preserve">
+    <value>[Không xác thực]:[Mã không xác thực]</value>
+  </data>
+  <data name="InjectionHyperlinksControllerClearAllLinkAllArticle__Error____0____1__" xml:space="preserve">
+    <value>[Lỗi]:[{0}][{1}]</value>
+  </data>
+  <data name="InjectionHyperlinksControllerClearAllLinkAllArticle_Deleted_done__total___0__articles" xml:space="preserve">
+    <value>Đã xóa xong, tổng cộng: {0} bài viết</value>
+  </data>
+  <data name="LogsControllerIndex_Fail_to_open_Events_log" xml:space="preserve">
+    <value>Lỗi phát sinh khi mở Events.log</value>
+  </data>
+  <data name="ManageControllerIndex_Your_password_has_been_changed_" xml:space="preserve">
+    <value>Mật khẩu đã được thay đổi</value>
+  </data>
+  <data name="ManageControllerIndex_Your_password_has_been_set_" xml:space="preserve">
+    <value>Mật khẩu đã được thiết đặt</value>
+  </data>
+  <data name="ManageControllerIndex_Your_two_factor_provider_has_been_set_" xml:space="preserve">
+    <value>Provider của xác thực 2 yếu tố đã được thiết đặt.</value>
+  </data>
+  <data name="ManageControllerIndex_An_error_has_occurred_" xml:space="preserve">
+    <value>Một lỗi đã phát sinh.</value>
+  </data>
+  <data name="ManageControllerIndex_The_phone_number_was_added_" xml:space="preserve">
+    <value>Số điện thoại đã được thêm vào.</value>
+  </data>
+  <data name="ManageControllerIndex_Your_phone_number_was_removed_" xml:space="preserve">
+    <value>Số điện thoại đã được loại bỏ</value>
+  </data>
+  <data name="ManageControllerAddPhoneNumber_Your_security_code_is__" xml:space="preserve">
+    <value>Mã bảo mật của bạn là: </value>
+  </data>
+  <data name="ManageControllerVerifyPhoneNumber_For_DEMO_purposes_only__the_current_code_is_" xml:space="preserve">
+    <value>Cho mục đích DEMO, mã hiện tại là </value>
+  </data>
+  <data name="ManageControllerManageLogins_The_external_login_was_removed_" xml:space="preserve">
+    <value>Đăng nhập bằng tài khoản ngoài đã được loại bỏ.</value>
+  </data>
+  <data name="ManageControllerManageLogins_An_error_has_occurred_" xml:space="preserve">
+    <value>Lỗi đã phát sinh.</value>
+  </data>
+  <data name="MigrationControllerAddSlashBeforeAllLink_AddSlashBeforeAllLink_successfull____0___items_submited" xml:space="preserve">
+    <value>AddSlashBeforeAllLink successfull, [{0}] items submited</value>
+  </data>
+  <data name="MigrationControllerGuidToProductFirst_GuidToProductFirst_successful____0___items_submitted" xml:space="preserve">
+    <value>GuidToProductFirst successful, [{0}] items submitted</value>
+  </data>
+  <data name="MigrationControllerPhotoPath_PhotoPath_successful____0___items_submitted" xml:space="preserve">
+    <value>PhotoPath successful, [{0}] items submitted</value>
+  </data>
+  <data name="PhotosApiControllerGetPhotos_Not_found_entity__Please_add_Entity_in_UploadController_cs" xml:space="preserve">
+    <value>Không tìm thấy Entity, Vui lòng điền Entity trong UploadController.cs</value>
+  </data>
+  <data name="ProductControllerCreate_You_not_yet_create_any_Category__please_create_category_first_" xml:space="preserve">
+    <value>Bạn chưa tạo bất kỳ danh mục nào, vui lòng tạo danh mục trước!</value>
+  </data>
+  <data name="ProductControllerCreate_Click_to_create_category" xml:space="preserve">
+    <value>Click để tạo danh mục</value>
+  </data>
+  <data name="ProductControllerEdit__0___has__been__saved" xml:space="preserve">
+    <value>{0}  đã được lưu</value>
+  </data>
+  <data name="ProductControllerDelete_Product_not_found" xml:space="preserve">
+    <value>Sản phẩm không tìm thấy</value>
+  </data>
+  <data name="ProductControllerDelete_Delete_photo_is_fail__Message___0_" xml:space="preserve">
+    <value>Xóa ảnh thất bại, Chi tiết: {0}</value>
+  </data>
+  <data name="ProductControllerDelete_Product__0__deleted_success__by_User___1_" xml:space="preserve">
+    <value>Sản phẩm {0} đã xóa thành công, bỏi người dùng: {1}</value>
+  </data>
+  <data name="ProductTagControllerEdit_Tag_not_found" xml:space="preserve">
+    <value>Tag không tìm thấy</value>
+  </data>
+  <data name="ProductTagControllerEdit_Change_tag_fail___tag_already_in_database" xml:space="preserve">
+    <value>Chỉnh sửa Tag thất bại - Tag đã có trong cơ sở dữ liệu</value>
+  </data>
+  <data name="ProductTagControllerEdit_Change_tag_fail___tag_name_must_least_1_character" xml:space="preserve">
+    <value>Chỉnh sửa Tag thất bại - Tên Tag phải có ít nhất một ký tự</value>
+  </data>
+  <data name="ProductTagControllerEdit_ProductTag_not_exist__please_check_it_" xml:space="preserve">
+    <value>Tag sản phẩm không tồn tại, vui lòng kiểm tra lại.</value>
+  </data>
+  <data name="ProductTagControllerDelete_ProductTag_not_exist__please_check_it_" xml:space="preserve">
+    <value>Tag sản phẩm không tồn tại, vui lòng kiểm tra lại.</value>
+  </data>
+  <data name="RedirectsControllerIndex_Fail_to_open_301_csv" xml:space="preserve">
+    <value>Thất bại khi thử mở 301.csv</value>
+  </data>
+  <data name="SearchOptimizeControllerReindexSiteMap_Reindex_Sitemap_successfull____0___items_submited" xml:space="preserve">
+    <value>Reindex Sitemap successfull, [{0}] items submited</value>
+  </data>
+  <data name="SearchOptimizeControllerReindexPermalink_Reindex_Permalink_successfull____0___items_submited" xml:space="preserve">
+    <value>Lập lại chỉ mục Permalink thành công, [{0}] mục đã được gửi</value>
+  </data>
+  <data name="SettingControllerEdit_key_not_found" xml:space="preserve">
+    <value>Không tìm thấy Key</value>
+  </data>
+  <data name="SettingControllerEdit__0__has_been_edited" xml:space="preserve">
+    <value>{0} đã được chỉnh sửa</value>
+  </data>
+  <data name="SettingControllerEdit__0__has_been_created" xml:space="preserve">
+    <value>{0} đã được tạo</value>
+  </data>
+  <data name="SettingControllerDelete_Admin_IsLockDeleteSettings_is__true___please_set_it_to__false__to_do_it_" xml:space="preserve">
+    <value>Admin.IsLockDeleteSettings đang 'true', vui lòng đặt sang 'false' để thực hiện thao tác này!</value>
+  </data>
+  <data name="SettingControllerDelete__0__was_deleted" xml:space="preserve">
+    <value>{0} was deleted</value>
+  </data>
+  <data name="SlidersControllerEdit_slider_not_found" xml:space="preserve">
+    <value>Không tìm thấy Slide</value>
+  </data>
+  <data name="SlidersControllerEdit__0__already_saved" xml:space="preserve">
+    <value>{0} đã được lưu</value>
+  </data>
+  <data name="SlidersControllerDelete_Error_rising_when_try_delete_photo__Message___0_" xml:space="preserve">
+    <value>Lỗi phát sinh khi thử xóa ảnh, Chi tiết: {0}</value>
+  </data>
+  <data name="SlidersControllerDelete__0__was_deleted" xml:space="preserve">
+    <value>{0} đã được xóa</value>
+  </data>
+  <data name="TopicControllerEdit_Not_have_any_topic__please_add_first_topic" xml:space="preserve">
+    <value>Không có bất kỳ Chủ đề nào, vui lòng Tạo Chủ đề trước</value>
+  </data>
+  <data name="TopicControllerEdit__0___has__been__saved" xml:space="preserve">
+    <value>{0}  đã được lưu</value>
+  </data>
+  <data name="TopicControllerDelete_topic_not_found" xml:space="preserve">
+    <value>Chủ đề không được tìm thấy</value>
+  </data>
+  <data name="TopicControllerDelete_Topic_have____0___child_topic__please_delete_child_topic_first" xml:space="preserve">
+    <value>Chủ đề có: [{0}] chủ đề con, vui lòng xóa chủ đề con trước!</value>
+  </data>
+  <data name="TopicControllerDelete_Topic_have____0___article__please_delete_article_first_" xml:space="preserve">
+    <value>Chủ đề có: [{0}] bài viết, vui lòng xóa bài viết trước!</value>
+  </data>
+  <data name="TopicControllerDelete_Error_rising_when_try_delete_photo__Message___0_" xml:space="preserve">
+    <value>Lỗi phát sinh khi thử xóa ảnh, Chi tiết: {0}</value>
+  </data>
+  <data name="TopicControllerDelete__0__was_deleted" xml:space="preserve">
+    <value>{0} đã được xóa</value>
+  </data>
+  <data name="UploadControllerPostFormData_Not_found_entity__Please_add_Entity_in_UploadController_cs" xml:space="preserve">
+    <value>Không tìm thấy Entity, Vui lòng thêm Entity trong UploadController.cs</value>
+  </data>
+  <data name="PermalinkServiceReindex_Entity_not_found_" xml:space="preserve">
+    <value>Entity not found.</value>
+  </data>
+  <data name="ConfirmEmail_cshtmlExecute_Thank_you_for_confirming_your_email__Please" xml:space="preserve">
+    <value>Cám ơn bạn đã xác nhận Email. Vui lòng</value>
+  </data>
+  <data name="ConfirmEmail_cshtmlExecute_Click_here_to_Log_in" xml:space="preserve">
+    <value>Click here to Log in</value>
+  </data>
+  <data name="ConfirmEmail_cshtmlExecute_Confirm_Email" xml:space="preserve">
+    <value>Xác nhận email</value>
+  </data>
+  <data name="DisplayEmail_cshtmlExecute_Please_check_your_email_and_confirm_your_email_address_" xml:space="preserve">
+    <value>Vui lòng kiểm tra hòm thư của bạn để xác nhận Email</value>
+  </data>
+  <data name="DisplayEmail_cshtmlExecute_For_DEMO_only__You_can_click_this_link_to_confirm_the_email__" xml:space="preserve">
+    <value>Cho mục đích Demo: Bạn có thể click vào link để xác nhận email:</value>
+  </data>
+  <data name="DisplayEmail_cshtmlExecute_Please_change_this_code_to_register_an_email_service_in_IdentityConfig_to_send_an_email_" xml:space="preserve">
+    <value>Vui lòng đổi mã này để đăng ký một dịch vụ Email trong IdentityConfig để gửi email</value>
+  </data>
+  <data name="DisplayEmail_cshtmlExecute_link" xml:space="preserve">
+    <value>Đường dẫn</value>
+  </data>
+  <data name="ForgotPassword_cshtmlExecute_Enter_your_email_" xml:space="preserve">
+    <value>Vui lòng nhập Email.</value>
+  </data>
+  <data name="ForgotPassword_cshtmlExecute_Forgot_your_password_" xml:space="preserve">
+    <value>Quên mật khẩu?</value>
+  </data>
+  <data name="ForgotPassword_cshtmlExecute_Return_Login_Page" xml:space="preserve">
+    <value>Trở về trang đăng nhập</value>
+  </data>
+  <data name="ForgotPasswordConfirmation_cshtmlExecute_Forgot_Password_Confirmation" xml:space="preserve">
+    <value>Xác nhận quên mật khẩu</value>
+  </data>
+  <data name="Register_cshtmlExecute_Register" xml:space="preserve">
+    <value>Đăng Ký</value>
+  </data>
+  <data name="Register_cshtmlExecute_Create_a_new_account_" xml:space="preserve">
+    <value>Tạo một tài khoản mới</value>
+  </data>
+  <data name="Register_cshtmlExecute_Return_Login_Page" xml:space="preserve">
+    <value>Trở về trang đăng nhập</value>
+  </data>
+  <data name="Index_cshtmlExecute_Config_Index" xml:space="preserve">
+    <value>Mục lục trang cấu hình</value>
+  </data>
+  <data name="Index_cshtmlExecute_List_of_basic_config" xml:space="preserve">
+    <value>Danh sách cấu hình cơ bản</value>
+  </data>
+  <data name="Index_cshtmlExecute_Email_Setting" xml:space="preserve">
+    <value>Thiết đặt Email</value>
+  </data>
+  <data name="Index_cshtmlExecute_Admin_Setting" xml:space="preserve">
+    <value>Thiết đặt website</value>
+  </data>
+  <data name="Index_cshtmlExecute_Embed_Setting" xml:space="preserve">
+    <value>Thiết đặt nhúng html</value>
+  </data>
+  <data name="Index_cshtmlExecute_Photo_Setting" xml:space="preserve">
+    <value>Thiết đặt ảnh</value>
+  </data>
+  <data name="Index_cshtmlExecute_Shop_Setting" xml:space="preserve">
+    <value>Thiết đặt cửa hàng</value>
+  </data>
+  <data name="CommonBackToList" xml:space="preserve">
+    <value>Quay lai danh mục</value>
+  </data>
+  <data name="Delete_cshtmlExecute_Are_you_sure_you_want_to_delete_this_" xml:space="preserve">
+    <value>Bạn có chắc muốn xóa mục này</value>
+  </data>
+  <data name="CommonHeaderDetails" xml:space="preserve">
+    <value>Chi tiết</value>
+  </data>
+  <data name="Index_cshtmlExecute_Inject_Hyperlinks_Now" xml:space="preserve">
+    <value>Chẻn liên kết</value>
+  </data>
+  <data name="Index_cshtmlExecute_Clear_All_links" xml:space="preserve">
+    <value>Xóa tất cả liên kết</value>
+  </data>
+  <data name="AddPhoneNumber_cshtmlExecute_Add_Phone_Number" xml:space="preserve">
+    <value>Thêm số điện thoại</value>
+  </data>
+  <data name="ChangePassword_cshtmlExecute_Change_Password" xml:space="preserve">
+    <value>Change Password</value>
+  </data>
+  <data name="ChangePassword_cshtmlExecute_Change_Password_Form" xml:space="preserve">
+    <value>Change Password Form</value>
+  </data>
+  <data name="Index_cshtmlExecute_Manage_your_account" xml:space="preserve">
+    <value>Quản lý tài khoản của bạn</value>
+  </data>
+  <data name="Index_cshtmlExecute_Change_your_password" xml:space="preserve">
+    <value>Đổi mật khẩu của bạn</value>
+  </data>
+  <data name="Index_cshtmlExecute_Pick_a_password" xml:space="preserve">
+    <value>Chọn mật khẩu</value>
+  </data>
+  <data name="CommonChange" xml:space="preserve">
+    <value>Change</value>
+  </data>
+  <data name="CommonRemove" xml:space="preserve">
+    <value>Remove</value>
+  </data>
+  <data name="CommonAdd" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="Index_cshtmlExecute__Manage_" xml:space="preserve">
+    <value>[Quản lý]</value>
+  </data>
+  <data name="CommonNone" xml:space="preserve">
+    <value>None</value>
+  </data>
+  <data name="Index_cshtmlExecute_Phone_Number_" xml:space="preserve">
+    <value>Số điện thoại:</value>
+  </data>
+  <data name="Index_cshtmlExecute_External_Logins_" xml:space="preserve">
+    <value>Đăng nhập bằng tài khoản ngoài</value>
+  </data>
+  <data name="Index_cshtmlExecute_Two_factor_is_currently_enabled_" xml:space="preserve">
+    <value>Xác thực 2 yếu tố đã bật:</value>
+  </data>
+  <data name="Index_cshtmlExecute_Two_factor_is_currently_disabled_" xml:space="preserve">
+    <value>Xác thực 2 yếu tố đã tắt:</value>
+  </data>
+  <data name="Index_cshtmlExecute_Browser_is_currently_remembered_for_two_factor_" xml:space="preserve">
+    <value>Trình duyệt hiện được ghi nhớ cho xác thực 2 bước</value>
+  </data>
+  <data name="Index_cshtmlExecute_Browser_is_currently_not_remembered_for_two_factor_" xml:space="preserve">
+    <value>Trình duyệt hiện không được nhớ cho xác thực 2 bước</value>
+  </data>
+  <data name="VerifyPhoneNumber_cshtmlExecute_Verify_Phone_Number" xml:space="preserve">
+    <value>Xác nhận số điện thoại</value>
+  </data>
+  <data name="VerifyPhoneNumber_cshtmlExecute_Add_a_phone_number_" xml:space="preserve">
+    <value>Thêm một số điện thoại.</value>
+  </data>
+  <data name="Index_cshtmlExecute_Migration_from_old_code_to_new_code__Service_for_cms4seo_Source_Code_" xml:space="preserve">
+    <value>Nâng cấp mã nguồn và dữ liệu (Mã nguồn cms4seo)</value>
+  </data>
+  <data name="Index_cshtmlExecute_Add_Slash_Before_Model_Slug" xml:space="preserve">
+    <value>Thêm / trước thuộc tính Slug mỗi Model liên kết ảnh</value>
+  </data>
+  <data name="Index_cshtmlExecute_Guid_to_Product_first" xml:space="preserve">
+    <value>Guid to Product first</value>
+  </data>
+  <data name="Index_cshtmlExecute_Photo_Path___Entity_Avatar_Path" xml:space="preserve">
+    <value>Đường dẫn ảnh &amp; Đường dẫn hình đại diện</value>
+  </data>
+  <data name="CommonDetails" xml:space="preserve">
+    <value>Chi tiết</value>
+  </data>
+  <data name="Delete_cshtmlExecute_Are_you_sure_you_want_to_delete_this_Role_" xml:space="preserve">
+    <value>Bạn có chắc muốn xóa mục Phân Quyền này?</value>
+  </data>
+  <data name="Delete_cshtmlExecute_Deleting_this_Role_will_remove_all_users_from_this_role__It_will_not_delete_the_users_" xml:space="preserve">
+    <value>Xóa Phân Quyền này sẽ loại bỏ tất phân quyền ở tất cả người dùng. Nó sẽ không xóa Người Dùng</value>
+  </data>
+  <data name="CommonNote" xml:space="preserve">
+    <value>Note</value>
+  </data>
+  <data name="_Seo_cshtmlExecute_Seo_Meta_Tag" xml:space="preserve">
+    <value>Thẻ Meta SEO</value>
+  </data>
+  <data name="_Seo_cshtmlExecute_Change_Meta_Seo_could_reduce_your_traffic_website" xml:space="preserve">
+    <value>Thay đổi thông tin SEO có thể giảm lượt truy cập website</value>
+  </data>
+  <data name="CommonUser" xml:space="preserve">
+    <value>User</value>
+  </data>
+  <data name="Delete_cshtmlExecute_Are_you_sure_you_want_to_delete_this_User_" xml:space="preserve">
+    <value>Bạn có chắc muốn xóa mục Người Dùng này?</value>
+  </data>
+  <data name="SidebarItemGroup" xml:space="preserve">
+    <value>Nhóm phân quyền</value>
+  </data>
+  <data name="ApplicationGroup" xml:space="preserve">
+    <value>Nhóm Phân Quyền</value>
+    <comment>Nhóm Phân Quyền</comment>
+  </data>
+  <data name="WebSettingVmRedirectMode" xml:space="preserve">
+    <value>Chế độ chuyển hướng</value>
+  </data>
+  <data name="WebSettingVm_RedirectModes_ForceRedirects" xml:space="preserve">
+    <value>Bắt buộc chuyển hướng (tắt Rewriter để tối ưu)</value>
+  </data>
+  <data name="WebSettingVm_RedirectModes_NoRedirect" xml:space="preserve">
+    <value>Không chuyển hướng</value>
+  </data>
+  <data name="WebSettingVm_RedirectModes_RedirectWhenNotfound" xml:space="preserve">
+    <value>Chuyển hướng nếu gặp lỗi 404 Notfound (đề nghị)</value>
+  </data>
+  <data name="WebSettingVmFlatterSiteArchitecture" xml:space="preserve">
+    <value>Kiến trúc Web phẳng (chỉ áp dụng khi tạo mục mới)</value>
+  </data>
+  <data name="WebSettingVm_1_Segment" xml:space="preserve">
+    <value>1 phân đoạn</value>
+  </data>
+  <data name="WebSettingVm_2_Segment" xml:space="preserve">
+    <value>2 phân đoạn</value>
+  </data>
+  <data name="WebSettingVm_3_Segment" xml:space="preserve">
+    <value>3 phân đoạn</value>
+  </data>
+  <data name="Admin_CategoryController_Edit_YouNotAllowSelectSecondLevelCategory" xml:space="preserve">
+    <value>Bạn không được phép chọn Danh mục cấp 2 (vui lòng chọn Danh mục gốc hoặc Danh mục cấp 1)</value>
+  </data>
+  <data name="Admin_TopicController_YouNotAllowSelect2ndLevelTopic" xml:space="preserve">
+    <value>Bạn không được phép chọn Chủ đề cấp 2 (vui lòng chọn Chủ để gốc hoặc Chủ đề cấp 1)</value>
+  </data>
+  <data name="WebSettingVm_IsAutoEditPermalink" xml:space="preserve">
+    <value>Tự động sửa link khi cập nhật Sản phẩm, bài viết.</value>
+  </data>
+  <data name="ShopSettingVmIsHiddenChildMenu" xml:space="preserve">
+    <value>Ẩn danh mục con sản phẩm</value>
+  </data>
+  <data name="MarkAsRead" xml:space="preserve">
+    <value>Đánh dấu là đã đọc</value>
+  </data>
+  <data name="ShopSettingVmIsCardCoverObject" xml:space="preserve">
+    <value>Hiện thị ảnh sản phẩm cùng kích thước (card-cover-object css class)</value>
+  </data>
+  <data name="SidebarItemListConfig" xml:space="preserve">
+    <value>Danh sách cấu hình</value>
+  </data>
+  <data name="CommonItemCreated" xml:space="preserve">
+    <value>{0} đã được tạo</value>
+  </data>
+  <data name="CommonItemDeleted" xml:space="preserve">
+    <value>{0} đã được xóa</value>
+  </data>
+  <data name="CommonItemEditMessage" xml:space="preserve">
+    <value>{0} đã được cập nhật</value>
+  </data>
+  <data name="CommonItemNotFound" xml:space="preserve">
+    <value>{0} không tìm thấy</value>
+  </data>
+  <data name="SidebarItemContents" xml:space="preserve">
+    <value>Nội dung theme</value>
+  </data>
+  <data name="SidebarItemHeaderTheme" xml:space="preserve">
+    <value>Nội dung thiết kế</value>
+  </data>
+  <data name="ShopSettingVmOgImage" xml:space="preserve">
+    <value>Ảnh chủ đề khi chia sẻ trang chủ lên mạng xã hội (size 1200x630 px)</value>
+  </data>
+  <data name="ShopSettingVm_IsDisallowCopy" xml:space="preserve">
+    <value>Chặn copy nội dung (bảo vệ nội dung web, không cho copy)</value>
+  </data>
+  <data name="ShopSettingVm_IsHiddenProductSummary" xml:space="preserve">
+    <value>Ẩn tóm tắt sản phẩm (phù hợp với dạng sản phẩm hiển thị như bài viết)</value>
+  </data>
+  <data name="ShopSettingVm_MobileContact" xml:space="preserve">
+    <value>Mẫu nút liên hệ (nút bấm gọi hoặc tin nhắn facebook)</value>
+  </data>
+  <data name="ShopSettingVm_MobileContactAnimate" xml:space="preserve">
+    <value>Hoạt họa (hiệu ứng nhấp nháy)</value>
+  </data>
+  <data name="ShopSettingVm_MobileContactAnimateCircle" xml:space="preserve">
+    <value>Hiệu ứng &amp; Nút tròn (kết hợp)</value>
+  </data>
+  <data name="ShopSettingVm_MobileContactCircle" xml:space="preserve">
+    <value>Nút tròn (góc phải)</value>
+  </data>
+  <data name="ShopSettingVm_MobileContactLegacy" xml:space="preserve">
+    <value>Truyền thống (nút đỏ, với số điện thoại)</value>
+  </data>
+  <data name="ShopSettingVm_MobileMobileContactBar" xml:space="preserve">
+    <value>Dạng Thanh (xếp chồng các nút)</value>
+  </data>
+  <data name="ShopSettingVm_Favicon" xml:space="preserve">
+    <value>Favicon (Ảnh nhỏ hiện trên Tag trình duyệt, kiểu ico, size 64x64px)</value>
+  </data>
+  <data name="EmbedSettingVm_Aside" xml:space="preserve">
+    <value>Nhúng trên Aside trang</value>
+  </data>
+  <data name="EmbedSettingVm_Comment" xml:space="preserve">
+    <value>Nhúng bình luận</value>
+  </data>
+  <data name="EmbedSettingVm_Header" xml:space="preserve">
+    <value>Nhúng trên Head trang</value>
+  </data>
+  <data name="ShopSettingVm_AspectRatioImage" xml:space="preserve">
+    <value>Kỳ vọng tỷ lệ hình ảnh cho Card</value>
+  </data>
+  <data name="ShopSettingVm_AspectRatioImages_NotUse" xml:space="preserve">
+    <value>Không dùng (tôi sẽ tự điều chỉnh ảnh trước khi upload)</value>
+  </data>
+  <data name="ShopSettingVm_AspectRatioImages_Square" xml:space="preserve">
+    <value>Ảnh vuông (tỷ lệ 1:1)</value>
+  </data>
+  <data name="ShopSettingVm_NoMobileContacts" xml:space="preserve">
+    <value>Không dùng nút liên hệ</value>
+  </data>
+  <data name="js_Exceeded" xml:space="preserve">
+    <value>Đã vượt quá </value>
+  </data>
+  <data name="js_Remaining" xml:space="preserve">
+    <value>Còn lại </value>
+  </data>
+  <data name="WebSettingVm_IsAutoThousandSeparator" xml:space="preserve">
+    <value>Tự động phân cách hàng ngàn</value>
+  </data>
+  <data name="ShopSettingVm_AspectRatioImages_2_3" xml:space="preserve">
+    <value>Ảnh hẹp (tỷ lệ 2:3)</value>
+  </data>
+  <data name="ShopSettingVm_AspectRatioImages_3_2" xml:space="preserve">
+    <value>Rộng (tỷ lệ 3:2)</value>
+  </data>
+  <data name="ShopSettingVm_AspectRatioImages_9_16" xml:space="preserve">
+    <value>Hẹp hơn (tỷ lệ 9:16)</value>
+  </data>
+  <data name="ShopSettingVm_AspectRatioImages_Landscape" xml:space="preserve">
+    <value>Phong cảnh (tỷ lệ 4:3)</value>
+  </data>
+  <data name="ShopSettingVm_AspectRatioImages_Portrait" xml:space="preserve">
+    <value>Chân dung (tỷ lệ 3:4)</value>
+  </data>
+  <data name="String1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ShopSettingVm_AspectRatioImages_16_9" xml:space="preserve">
+    <value>Rộng hơn (tỷ lệ 16:9)</value>
+  </data>
+  <data name="Account_Login_EmailPlaceholder" xml:space="preserve">
+    <value>Nhập email của bạn ...</value>
+  </data>
+  <data name="Account_Login_ForgotPassword" xml:space="preserve">
+    <value>Quên mật khẩu?</value>
+  </data>
+  <data name="Account_Login_PasswordPlaceholder" xml:space="preserve">
+    <value>Mật khẩu</value>
+  </data>
+  <data name="Account_Login_Register" xml:space="preserve">
+    <value>Đăng ký người dùng mới?</value>
+  </data>
+  <data name="Account_Login_RememberMe" xml:space="preserve">
+    <value>Duy trì trạng thái đăng nhập</value>
+  </data>
+  <data name="Articles_Index_AmendDate" xml:space="preserve">
+    <value>Ngày sửa đổi</value>
+  </data>
+  <data name="Articles_Index_Href" xml:space="preserve">
+    <value>Đường link</value>
+  </data>
+  <data name="Category_Index_Href" xml:space="preserve">
+    <value>Đường link</value>
+  </data>
+  <data name="InjectionHyperlinks_Index_ClearAll" xml:space="preserve">
+    <value>Xóa tất cả link</value>
+  </data>
+  <data name="InjectionHyperlinks_Index_Href" xml:space="preserve">
+    <value>Đường Link</value>
+  </data>
+  <data name="InjectionHyperlinks_Index_Insert" xml:space="preserve">
+    <value>Chèn link tự động</value>
+  </data>
+  <data name="LoginLayout_Title" xml:space="preserve">
+    <value>Đăng Nhập</value>
+  </data>
+  <data name="LoginPartialAdmin" xml:space="preserve">
+    <value>Đăng xuất</value>
+  </data>
+  <data name="Topic_Index_Href" xml:space="preserve">
+    <value>Đường link</value>
+  </data>
+  <data name="User_Logout" xml:space="preserve">
+    <value>Đăng xuất</value>
+  </data>
+  <data name="Shared_Warning_Permalink" xml:space="preserve">
+    <value>Đường LINK đang tự động cập nhật.</value>
+  </data>
+  <data name="Shared_Warning_SeoMeta" xml:space="preserve">
+    <value>Thẻ Meta đang tự động cập nhật.</value>
+  </data>
+  <data name="Shared_Warning_Title" xml:space="preserve">
+    <value>Cảnh báo!</value>
+  </data>
+  <data name="InfoModelLocationRuleContactForm" xml:space="preserve">
+    <value>Contact Form</value>
+  </data>
+  <data name="ShopSettingVm_IsShowContact" xml:space="preserve">
+    <value>Hiện Menu Liên hệ (nút di chuyển cuối trang)</value>
+  </data>
+  <data name="AccountController_Register_MaybeYouNotHaveBeenSetSMTPEmail" xml:space="preserve">
+    <value>Có thể bạn chưa cài SMTP Email, chi tiết lỗi: {0}</value>
+  </data>
+  <data name="Index_cshtmlExecute_Email_Confirmed" xml:space="preserve">
+    <value>Đã xác nhận Email</value>
+  </data>
+  <data name="Index_cshtmlExecute_Verify_Email_Now" xml:space="preserve">
+    <value>Xác nhận Email Ngay</value>
+  </data>
+  <data name="ManageController_VerifyEmail_PleaseCheckYourEmailAndConfirmYourEmailAddress" xml:space="preserve">
+    <value>Vui lòng kiểm tra hòm thư của bạn và xác nhận địa chỉ email</value>
+  </data>
+  <data name="ShopSettingVm_AsideMenu" xml:space="preserve">
+    <value>Menu bên cạnh (dùng thử chỉ giao diện adsolution)</value>
+  </data>
+  <data name="ShopSettingVm_AsideMenuChildView" xml:space="preserve">
+    <value>Hiện tất cả menu con</value>
+  </data>
+  <data name="ShopSettingVm_AsideMenuDropdown" xml:space="preserve">
+    <value>Menu thả xuống</value>
+  </data>
+  <data name="ShopSettingVm_IsShowArticleComment" xml:space="preserve">
+    <value>Hiện bình luận bài viết</value>
+  </data>
+  <data name="ShopSettingVm_IsShowProductComment" xml:space="preserve">
+    <value>Hiện bình luận sản phẩm</value>
+  </data>
+  <data name="SearchOptimizeController_ReseedPermalink_Auto_Edit_Permalink_is_off_please_turn_on" xml:space="preserve">
+    <value>Tính năng tự động sửa link đang tắt, vui lòng bật lên để có thể Xây dựng lại hệ thống đường link</value>
+  </data>
+  <data name="SearchOptimizeController_ReseedPermalink_Reseed_Permalink_successfull____0___items_submited" xml:space="preserve">
+    <value>Xây dựng lại hệ thống đường liên kết thành công, {0} đã thay đổi.</value>
+  </data>
+  <data name="SearchOptimizeController_ReseedPermalink_Index_Caution" xml:space="preserve">
+    <value>Tính năng Reseed Permalink, giúp xây dựng lại tất cả đường link trên toàn website. Điều này có nghĩa là những đường dẫn hiện có trên google, hoặc những đường link bạn đã chia sẽ có thể sẽ không truy cập được. Nếu website của bạn mới xây dựng và có rất ít lượt truy cập thì bạn có dùng tính năng này để tạo lại tất cả đường link theo kiến trúc mới (1 phân đoạn, 2 phân đoạn, 3 phân đoạn), hoặc đồng bộ hàng loạt Tên sản phẩm và Danh mục với đường link. Hãy chắn chắn bạn đang làm điều gì.</value>
+  </data>
+  <data name="SearchOptimizeController_ReseedPermalink_Index_Important" xml:space="preserve">
+    <value>Rất quan trọng! </value>
+  </data>
+  <data name="SearchOptimizeController_ReseedPermalink_Just_support_3000_Record" xml:space="preserve">
+    <value>Bạn có tổng số: {0} liên kết, số lượng liên kết quá lớn, hệ thống chỉ hỗ trợ dưới 3000 liên kết.</value>
+  </data>
+  <data name="UploadPhoto_ListTable_HeaderLgPath" xml:space="preserve">
+    <value>Ảnh lớn</value>
+  </data>
+  <data name="WebSettingVmOptionCategory" xml:space="preserve">
+    <value>Danh mục tùy chọn (phân cách bằng dấu phẩy)</value>
+  </data>
+  <data name="PhotosController_Delete_photo_Message_0" xml:space="preserve">
+    <value>Xóa ảnh lỗi, chi tiết: {0}</value>
+  </data>
+  <data name="WebSettingVmOptionPage" xml:space="preserve">
+    <value>Trang tùy chọn (phân cách bằng dấu phẩy)</value>
+  </data>
+  <data name="EmailSettingVmSaveMode" xml:space="preserve">
+    <value>Lưu trữ tin nhắn</value>
+  </data>
+  <data name="EmailSettingVm_SaveModes_Alway" xml:space="preserve">
+    <value>Luôn lưu trữ tin nhắn (mặc định, trừ thư rác)</value>
+  </data>
+  <data name="EmailSettingVm_SaveModes_JustSaveSpamMail" xml:space="preserve">
+    <value>Chỉ lưu trữ thư rác (chế độ bảo mật)</value>
+  </data>
+  <data name="EmbedSettingVmFacebookPage" xml:space="preserve">
+    <value>Nhúng Trang Facebook</value>
+  </data>
+  <data name="PhotoSettingVmClientResize" xml:space="preserve">
+    <value>Client Resize Full Mode</value>
+  </data>
+  <data name="Product_ViewCounter" xml:space="preserve">
+    <value>Lượt xem</value>
+  </data>
+  <data name="WebSettingVmOptionProperties" xml:space="preserve">
+    <value>Thuộc tính tùy chọn (phân cách bằng dấu phẩy)</value>
+  </data>
+  <data name="WebSettingVm_IsProductViewCounter" xml:space="preserve">
+    <value>Đếm lượt xem sản phẩm</value>
+  </data>
+  <data name="SidebarItemTocSetttings" xml:space="preserve">
+    <value>Mục lục tự động</value>
+  </data>
+  <data name="TocVm_IsAutoArticleTOC" xml:space="preserve">
+    <value>Tự động tạo mục lục bài viết tin tức</value>
+  </data>
+  <data name="TocVm_IsAutoProductTOC" xml:space="preserve">
+    <value>Tự động tạo mục lục bài viết sản phẩm</value>
+  </data>
+  <data name="TocVm_IsTocReturn" xml:space="preserve">
+    <value>Hiện nút trở về mục lục</value>
+  </data>
+  <data name="TocVm_TocTitle" xml:space="preserve">
+    <value>Tiêu đề mục lục</value>
+  </data>
+  <data name="ShopSettingVm_ArticlePageSize" xml:space="preserve">
+    <value>Số bài viết trong một trang</value>
+  </data>
+  <data name="ShopSettingVm_ProductPageSize" xml:space="preserve">
+    <value>Số sản phẩm trên một trang</value>
+  </data>
+  <data name="PhotoSettingsView_ConfigForDragAndDrop" xml:space="preserve">
+    <value>Cấu hình cho phần upload ảnh Kéo &amp; Thả</value>
+  </data>
+  <data name="PhotoSettingVm_IsAutoConvertImageToJpg" xml:space="preserve">
+    <value>Tự động chuyển ảnh sang JPEG</value>
+  </data>
+  <data name="Product_IsHiddenProductSummary" xml:space="preserve">
+    <value>Ẩn tóm tắt sản phẩm (giống trang bài viết)</value>
+  </data>
+</root>

@@ -1,0 +1,231 @@
+﻿@{
+    var controller = HttpContext.Current.Request.RequestContext.RouteData.Values["controller"].ToString();
+}
+
+<!DOCTYPE html>
+<html lang="@CultureHelper.GetCurrentNeutralCulture()">
+<head>
+    
+    @if (User != null && User.IsInRole("Medium.Contents"))
+    {
+        <!-- Cached Off -->
+    }
+    else
+    {
+        <!-- Cached Time: @DateTime.Now | Duration: @(CMS.CacheDuration / 60) Minutes -->
+    }
+
+
+    @Html.Partial("_TagManager")
+    
+    @RenderSection("Styles", false)
+
+    @Html.Raw(Setting.WebSettings[EmbedSettingType.GoogleAnalytics])
+    
+    
+
+</head>
+
+<body class="@(Setting.WebSettings[ShopSettingType.IsDisallowCopy].AsBool() ? "noselect" : "")">
+
+    @Html.Raw(Setting.WebSettings[EmbedSettingType.FacebookScript])
+
+    @Html.Partial("_UnderConstruction")
+
+    @*@Html.Partial("_header-1")*@
+
+    
+@Html.Partial("_WidgetAction", "layout", null)
+
+    <div class="container">
+        @{
+            Html.RenderAction("Slider", "Home");
+        }
+    </div>
+
+
+    @{
+        Html.RenderAction("HeaderMenu", "Nav");
+    }
+
+    @if (!(controller == "Articles" || controller == "Topics"))
+    {
+        <div class="container d-md-none">
+            @Html.Partial("_FormSearch")
+        </div>
+    }
+    else
+    {
+        <div class="container d-md-none">
+            @Html.Partial("_ArticleFormSearch")
+        </div>
+    }
+
+    <div class="container mt-4">
+
+        
+
+        @if (ViewBag.IsHome == "true")
+        {
+            <div class="home-page">
+
+
+                @Html.Partial("_SectionAlert")
+
+
+                @RenderBody()
+
+            </div>
+        }
+        else
+        {
+            if (ViewBag.PageHeader != null)
+            {
+                <h1 class="text-center">
+                    @if (ViewBag.PageHeader == "blog")
+                    {
+                        <span @CMS.Attribute("Articles.Section.Header")>
+                            @Setting.Contents["Articles.Section.Header"]
+                        </span>
+                    }
+                    else if ((ViewBag.PageHeader)[0] == '[')
+                    {
+                        <span @CMS.Attribute("Section.Search.Header")>
+                            @ViewBag.PageHeader
+                        </span>
+                    }
+                    else
+                    {
+                        @ViewBag.PageHeader
+                    }
+                </h1>
+            }
+
+
+            <div class="row">
+
+                @{
+                    // set false to right Aside Menu
+                    // set true to left Aside Menu
+                    var leftAside = false;
+                }
+
+                <div class="col-lg-9 col-md-8 @(leftAside ? "order-lg-2 order-md-2" : "") mt-2">
+
+
+
+
+                    @RenderBody()
+
+
+
+                </div>
+
+
+
+                <div class="col-lg-3 col-md-4 @(leftAside ? "order-lg-1 order-md-1" : "") mt-when-xs">
+
+
+
+
+                    @if (controller == "Articles" || controller == "Topics" || controller == "ArticleTags")
+                    {
+
+                        <div class="d-none d-md-block">
+                            @Html.Partial("_ArticleFormSearch")
+                        </div>
+
+                        
+
+                        Html.RenderAction("AllTag", "ProductTags");
+
+
+                        Html.RenderAction("AsideMenuTopLevel", "Nav", new { id = 0 });
+
+
+
+                        @Html.Partial("_AsideSupporter")
+
+
+                        Html.RenderAction("AsideTopView", "Articles");
+
+
+                        Html.RenderAction("AsideAllTopic", "Topics");
+
+
+                        //Html.RenderAction("AllTag", "ArticleTags");
+
+                    }
+                    else
+                    {
+
+                        <div class="asideSearch d-none d-md-block">
+                            @Html.Partial("_FormSearch")
+                        </div>
+
+                        Html.RenderAction("AsideMenu", "Nav", new { id = 0 });
+
+
+                        @Html.Partial("_AsideInfo")
+
+                        @Html.Partial("_AsideSupporter")
+
+
+                        Html.RenderAction("AsideCounter", "HitCounter");
+
+
+                        //Html.RenderAction("AllTag", "ProductTags");
+
+                    }
+
+
+
+
+
+
+                </div>
+
+            </div>
+                    }
+
+    </div>
+
+    @*<div class="container mt-5">
+            @Html.Partial("_AboutUs")
+        </div>*@
+
+
+    <div class="container mt-5">
+        @Html.Partial("_SectionCertificate")
+    </div>
+
+
+    @Html.Partial("_SectionBrandSlick")
+
+    @Html.Partial("_Footer")
+
+    @Html.Partial("_FooterPowerBy")
+
+    @if (!string.IsNullOrWhiteSpace(Setting.WebSettings[ShopSettingType.MobileContact]))
+    {
+        @Html.Partial(Setting.WebSettings[ShopSettingType.MobileContact])
+    }
+
+    <script>
+        window.Js_ThankForYourMessage = "@Setting.Contents["Emails.Js.ThankForYourMessage"]";
+        window.Js_ServerBusyPleaseTryLater = "@Setting.Contents["Emails.Js.ServerBusyPleaseTryLater"]";
+    </script>
+
+    @Scripts.Render("~/Scripts/js")
+    @RenderSection("scripts", false)
+
+@Html.Partial("_Scripts")
+
+
+
+    @{
+        Html.RenderAction("CmsSwitcher", "Home");
+    }
+
+</body>
+</html>

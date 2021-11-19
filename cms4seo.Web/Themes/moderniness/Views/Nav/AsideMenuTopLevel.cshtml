@@ -1,0 +1,43 @@
+﻿@model Category
+
+<aside class="asideMenu">
+    <div class="list-group mt-2 shadow-sm @Setting.WebSettings[ShopSettingType.MenuFormatClass]">
+        <a href="#" class="list-group-item list-group-item-action list-group-item-secondary active">
+            <i class="fa fa-home text-uppercase"></i>
+            <span @CMS.Attribute("Aside.Category.Header")>
+                @Setting.Contents["Aside.Category.Header"]
+            </span>
+        </a>
+
+
+        @foreach (var item in Model.Children.Where(x => x.IsAside))
+        {
+            if (item.Children.Count > 0)
+            {
+
+                <a target="_top" href="@(item.Href != "#" ? item.Href : item.Slug)" class="list-group-item list-group-item-action">
+                    @item.Name
+                </a>
+
+            }
+            else
+            {
+
+                <a target="_top" href="@(item.Href != "#" ? item.Href : item.Slug)" class="list-group-item list-group-item-action">
+                    @item.Name
+                </a>
+            }
+        }
+        
+        @if (Setting.WebSettings[ShopSettingType.IsShowContact].AsBool())
+        {
+            <a href="#" class="list-group-item list-group-item-action LinkToBottom">
+                <span @CMS.Attribute("Aside.Category.MenuContact")>
+                    @Setting.Contents["Aside.Category.MenuContact"]
+                </span>
+            </a>
+        }
+        
+
+    </div>
+</aside>

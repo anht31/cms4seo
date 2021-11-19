@@ -1,0 +1,147 @@
+body {
+    background-color: #eee;
+    padding-bottom: 40px;
+    padding-top: 40px;
+}
+
+.login-card .card-body {
+    padding: 15px;
+}
+
+
+.form-signin {
+    margin: 0 auto;
+    max-width: 330px;
+    margin-top: calc(45vh - 210px);
+    -webkit-filter: drop-shadow(3px 3px 3px #222);
+    filter: drop-shadow(3px 3px 3px #222);
+}
+
+.form-signin a {
+    color: #337ab7;
+}
+
+.form-signin .btn-primary {
+    color: #fff;
+    background-color: #337ab7;
+    border-color: #2e6da4;
+}
+
+    .form-signin .form-signin-heading,
+    .form-signin .checkbox {
+        margin-bottom: 10px;
+    }
+
+    .form-signin .checkbox {
+        font-weight: normal;
+    }
+
+    .form-signin .form-control {
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        font-size: 16px;
+        height: auto;
+        padding: 10px;
+        position: relative;
+    }
+
+        .form-signin .form-control:focus {
+            z-index: 2;
+        }
+
+    .form-signin input[type="email"] {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        margin-bottom: -1px;
+    }
+
+    .form-signin input[type="password"] {
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        margin-bottom: 10px;
+        margin-top: 10px;
+    }
+
+
+
+
+
+/*#region status code */
+
+
+.statusCode {
+    max-width: 767px;
+    width: 100%;
+    line-height: 1.4;
+    padding: 0px 15px;
+}
+
+.statusCode .statusCode-header {
+    position: relative;
+    line-height: 150px;
+}
+
+.statusCode .statusCode-header h1 {
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 186px;
+    font-weight: 900;
+    margin: 0px;
+    text-transform: uppercase;
+    background: url('/Areas/Admin/Assets/admin/text.png');
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: cover;
+    background-position: center;
+}
+
+.statusCode h2 {
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 26px;
+    font-weight: 700;
+    margin: 0;
+    padding-bottom: 10px;
+}
+
+.statusCode p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 0px;
+    text-transform: uppercase;
+}
+
+.statusCode a {
+    font-family: 'Titillium Web', sans-serif;
+    display: inline-block;
+    text-transform: uppercase;
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    background: #5c91fe;
+    padding: 10px 40px;
+    font-size: 14px;
+    font-weight: 700;
+    border-radius: 1px;
+    margin-top: 15px;
+    -webkit-transition: 0.2s all;
+    transition: 0.2s all;
+}
+
+.statusCode a:hover {
+    opacity: 0.8;
+}
+
+@media only screen and (max-width: 767px) {
+    .statusCode .statusCode-header {
+        height: 110px;
+        line-height: 110px;
+    }
+
+    .statusCode .statusCode-header h1 {
+        font-size: 120px;
+    }
+}
+
+
+/*#endregion */

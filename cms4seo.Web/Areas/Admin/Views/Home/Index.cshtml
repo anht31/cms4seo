@@ -1,0 +1,295 @@
+﻿@{
+    ViewBag.Title = "Home/Index";
+}
+
+
+<!-- Page Heading -->
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+
+    @*<a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>*@
+
+</div>
+<!-- Content Row -->
+<div class="row">
+
+
+    @Html.Action("Statistics")
+
+</div>
+
+
+<!-- Content Row -->
+<div class="row">
+
+
+    <!-- Area Chart -->
+    <!-- Hit-counter chart-js ================-->
+    @Html.Partial("_LineChart")
+
+
+
+    <!-- Pie Chart -->
+    <div class="col-xl-4 col-lg-5">
+        <div class="card shadow mb-4">
+            <!-- Card Header - Dropdown -->
+            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                <h6 class="m-0 font-weight-bold text-primary">@AdminResources.HomeViewSiteTheme</h6>
+
+                @*<div class="dropdown no-arrow">
+                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
+                        <div class="dropdown-header">Dropdown Header:</div>
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                </div>*@
+
+            </div>
+
+            <!-- Card Body -->
+            <div class="card-body">
+                <div class="chart-pie pt-4 pb-2">
+                    <canvas id="myPieChart"></canvas>
+                </div>
+
+                @*<div class="mt-4 text-center small">
+                    <span class="mr-2">
+                        <i class="fas fa-circle text-primary"></i> Direct
+                    </span>
+                    <span class="mr-2">
+                        <i class="fas fa-circle text-success"></i> Social
+                    </span>
+                    <span class="mr-2">
+                        <i class="fas fa-circle text-info"></i> Referral
+                    </span>
+                    <span class="mr-2">
+                        <i class="fas fa-circle text-secondary"></i> Other
+                    </span>
+                </div>*@
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+@*@Html.Partial("_NonUseProjectAndIllustrations")*@
+
+
+
+
+
+
+@section Scripts {
+
+    <script>
+
+        $.get('@Url.Action("LineChart")',
+            function(result) {
+
+                var labelDates = new Array();
+                var datasetSessions = new Array();
+                var datasetUsers = new Array();
+
+
+                //dataLineChart = result;
+                $.each(result,
+                    function(index, value) {
+                        if (value != null && value !== "") {
+
+                            // fill date
+                            var dateSegments = value.Date.split("-");
+                            labelDates.push(dateSegments[1] + '/' + dateSegments[2]);
+
+
+                            // fill sessions
+                            datasetSessions.push(value.DailySessionCounter);
+
+                            //fill usercounters
+                            datasetUsers.push(value.DailyUserCounter);
+
+                        }
+                    });
+
+
+                var canvas = document.getElementById("myAreaChart");
+                var ctx = canvas.getContext('2d');
+
+                // Global Options:
+                Chart.defaults.global.defaultFontColor = 'black';
+                Chart.defaults.global.defaultFontSize = 16;
+
+                var data = {
+                    labels: labelDates,
+                    datasets: [
+                        {
+                            label: "Sessons",
+                            fill: false,
+                            lineTension: 0.1,
+                            backgroundColor: "rgba(225,0,0,0.4)",
+                            borderColor: "red", // The main line color
+                            borderCapStyle: 'square',
+                            borderDash: [], // try [5, 15] for instance
+                            borderDashOffset: 0.0,
+                            borderJoinStyle: 'miter',
+                            pointBorderColor: "black",
+                            pointBackgroundColor: "white",
+                            pointBorderWidth: 1,
+                            pointHoverRadius: 8,
+                            pointHoverBackgroundColor: "yellow",
+                            pointHoverBorderColor: "brown",
+                            pointHoverBorderWidth: 2,
+                            pointRadius: 4,
+                            pointHitRadius: 10,
+                            // notice the gap in the data and the spanGaps: true
+                            data: datasetSessions,
+                            spanGaps: true,
+                        }, {
+                            label: "User",
+                            fill: true,
+                            lineTension: 0.1,
+                            backgroundColor: "rgba(167,105,0,0.4)",
+                            borderColor: "rgb(167, 105, 0)",
+                            borderCapStyle: 'butt',
+                            borderDash: [],
+                            borderDashOffset: 0.0,
+                            borderJoinStyle: 'miter',
+                            pointBorderColor: "white",
+                            pointBackgroundColor: "black",
+                            pointBorderWidth: 1,
+                            pointHoverRadius: 8,
+                            pointHoverBackgroundColor: "brown",
+                            pointHoverBorderColor: "yellow",
+                            pointHoverBorderWidth: 2,
+                            pointRadius: 4,
+                            pointHitRadius: 10,
+                            // notice the gap in the data and the spanGaps: false
+                            data: datasetUsers,
+                            spanGaps: true,
+                        }
+                    ]
+                };
+
+                // Notice the scaleLabel at the same level as Ticks
+                var options = {
+                    maintainAspectRatio: false,
+                    layout: {
+                        padding: {
+                            left: 10,
+                            right: 25,
+                            top: 25,
+                            bottom: 0
+                        }
+                    },
+                    scales: {
+                        yAxes: [
+                            {
+                                ticks: {
+                                    beginAtZero: true
+                                },
+                                scaleLabel: {
+                                    display: false,
+                                    labelString: 'View',
+                                    fontSize: 20
+                                }
+                            }
+                        ]
+                    }
+                };
+
+                // Chart declaration:
+                // ReSharper disable once UnusedLocals
+                var myBarChart = new Chart(ctx,
+                {
+                    type: 'line',
+                    data: data,
+                    options: options
+                });
+
+            });
+
+
+
+        $.get('@Url.Action("PieChart")',
+            function(result) {
+                //dataSet
+                var dataSetLabel = new Array();
+                var dataSetCount = new Array();
+
+
+                //dataLineChart = result;
+                $.each(result,
+                    function(index, value) {
+                        if (value != null && value !== "") {
+
+                            // fill label
+                            dataSetLabel.push(value.Label);
+
+                            //fill Count
+                            dataSetCount.push(value.Count);
+
+                        }
+                    });
+
+                // Set new default font family and font color to mimic Bootstrap's default styling
+                Chart.defaults.global.defaultFontFamily = 'Nunito', '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
+                Chart.defaults.global.defaultFontColor = '#858796';
+
+                // Pie Chart Example
+                var ctx = document.getElementById("myPieChart");
+                // ReSharper disable once UnusedLocals
+                var myPieChart = new Chart(ctx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: dataSetLabel,
+                        datasets: [{
+                            data: dataSetCount,
+                            backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc', '#888'],
+                            hoverBackgroundColor: ['#2e59d9', '#17a673', '#2c9faf', '#666'],
+                            hoverBorderColor: "rgba(234, 236, 244, 1)",
+                        }],
+                    },
+                    options: {
+                        maintainAspectRatio: false,
+                        tooltips: {
+                            backgroundColor: "rgb(255,255,255)",
+                            bodyFontColor: "#858796",
+                            borderColor: '#dddfeb',
+                            borderWidth: 1,
+                            xPadding: 15,
+                            yPadding: 15,
+                            displayColors: false,
+                            caretPadding: 10,
+                        },
+                        legend: {
+                            display: true
+                        },
+                        cutoutPercentage: 50,
+                        plugins: {
+                            labels: {
+                                render: 'percentage',
+                                fontColor: 'white',
+                                precision: 1
+                            }
+                        }
+                    },
+
+                });
+                
+
+            });
+
+    </script>
+
+
+    <!-- Page level custom scripts -->
+    @*<script src="/Areas/Admin/Assets/sb-admin-2/js/demo/chart-area-demo.js"></script>*@
+    @*<script src="/Areas/Admin/Assets/sb-admin-2/js/demo/chart-pie-demo.js"></script>*@
+
+}

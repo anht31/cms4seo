@@ -1,0 +1,27 @@
+﻿@{
+    var theme = Setting.WebSettings[WebSettingType.CurrentTheme];
+}
+
+<div class="float-contact-style-icon">
+    
+    @if (Setting.WebSettings[WebSettingType.ShopLanguages] == "vi-VN")
+    {
+        <a class="chat-zalo shadowed"
+           href="http://zalo.me/@Setting.WebSettings[AppShop.Hotline].RemoveSpace()"
+        >
+            <img width="50" src="~/Themes/@theme/Assets/icon/zalo.png" />
+        </a>
+    }
+
+    <a @CMS.Attribute(AppShop.FacebookLink)
+        class="chat-face shadowed" href="http://m.me/@Setting.WebSettings[AppShop.FacebookLink]"
+    >
+        <img width="50" src="~/Themes/@theme/Assets/icon/messenger.png"/>
+    </a>
+
+    <a @CMS.Attribute(AppShop.Hotline) class="hotline shadowed" 
+                                       href="tel:@Setting.WebSettings[AppShop.Hotline].RemoveSpace()" 
+    >
+        <img width="50" src="~/Themes/@theme/Assets/icon/call.png" />
+    </a>
+</div>

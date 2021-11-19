@@ -1,0 +1,38 @@
+﻿
+<div class="h5">
+    <em>
+        <span @CMS.Attribute("Article.Detail.Promote.Welcome")>
+            @Setting.Contents["Article.Detail.Promote.Welcome"]
+        </span>
+        <strong>
+            <a href="/" target="_blank">
+                <span @CMS.Attribute("Article.Detail.Promote.Product")>
+                    @Setting.Contents["Article.Detail.Promote.Product"]
+                </span>
+            </a>            
+        </strong>
+        <span @CMS.Attribute("Article.Detail.Promote.InstructionPhone")>
+            @Setting.Contents["Article.Detail.Promote.InstructionPhone"]
+        </span>
+    </em>
+    <strong>
+        <a href="tel:@Setting.WebSettings[AppShop.Hotline].RemoveSpace()" >
+            @Setting.WebSettings[AppShop.Hotline]
+        </a>
+    </strong>
+    <em>
+        (
+        <span @CMS.Attribute("Article.Detail.Promote.OrEmail")>
+            @Setting.Contents["Article.Detail.Promote.OrEmail"]
+        </span>
+        <strong>
+            <a href="mailto:@Setting.WebSettings[AppShop.Email]">
+                @Setting.WebSettings[AppShop.Email]
+            </a>
+        </strong>
+        )
+        <span @CMS.Attribute("Article.Detail.Promote.Promise")>
+            @Setting.Contents["Article.Detail.Promote.Promise"]
+        </span>
+    </em>
+</div>

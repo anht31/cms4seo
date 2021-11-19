@@ -1,0 +1,103 @@
+﻿
+<!DOCTYPE html>
+<html class="no-js" lang="@CultureHelper.GetCurrentNeutralCulture()">
+<head>
+    
+    @Html.Partial("_TagManager")
+    
+    @RenderSection("Styles", false)
+
+    @Html.Raw(Setting.WebSettings[EmbedSettingType.GoogleAnalytics])
+
+  
+</head>
+<body class="@(Setting.WebSettings[ShopSettingType.IsDisallowCopy].AsBool() ? "noselect" : "")">
+
+    @if (!(ViewBag.OverrideMenu ?? false))
+    {
+        Html.RenderAction("HeaderMenu", "Nav");
+    }
+
+
+    @if (ViewBag.PageHeader != null)
+    {
+        <div class="callout large primary text-center">
+            @if (ViewBag.PageHeader == "blog")
+            {
+                <h1 @CMS.Attribute("Articles.Section.Header")>
+                    @Setting.Contents["Articles.Section.Header"]
+                </h1>
+            }
+            else if ((ViewBag.PageHeader)[0] == '[')
+            {
+                <h1 @CMS.Attribute("Section.Search.Header")>
+                    @ViewBag.PageHeader
+                </h1>
+            }
+            else
+            {
+                <h1>
+                    @ViewBag.PageHeader
+                </h1>
+            }
+        </div>
+    }
+
+
+    <article class="grid-container object-850x350 cover">
+        <div class="grid-x grid-margin-x" id="content">
+            <div class="medium-9 cell">
+
+                @RenderBody()
+
+
+            </div>
+
+
+            <div class="medium-3 cell" data-sticky-container>
+                <div class="sticky" data-sticky data-anchor="content">
+
+                    @{
+                        Html.RenderAction("AsideAllTopic", "Topics");
+                    }
+
+                    @{
+                        Html.RenderAction("AllAuthors", "Articles");
+                    }
+
+
+                </div>
+            </div>
+        </div>
+
+    </article>
+
+
+
+
+    <br>
+
+
+    @if (!(ViewBag.OverrideFooter ?? false))
+    {
+
+        @Html.Partial("_Footer")
+
+    }
+
+    @Scripts.Render("~/Scripts/js")
+    @RenderSection("scripts", false)
+
+    <script>
+        $(document).foundation();
+    </script>
+
+
+
+
+    @{
+        Html.RenderAction("CmsSwitcher", "Home");
+    }
+
+</body>
+</html>

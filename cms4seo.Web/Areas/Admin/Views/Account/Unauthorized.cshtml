@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewBag.Title = "Unauthorized";
+    Layout = "~/Areas/Admin/Views/Shared/_LoginLayout.cshtml";
+}
+
+<div class="statusCode">
+    <div class="statusCode-header">
+        <h1>401</h1>
+    </div>
+    <h2>Access Deny</h2>
+    <p>You do not permission to access this page</p>
+
+    <a href="@Url.Action("Index","Home")" target="_top" class="btn btn-secondary">Return admin page</a>
+    <a href="@Url.Action("Login","Account")" target="_top" class="btn btn-info">Login with another account</a>
+</div>

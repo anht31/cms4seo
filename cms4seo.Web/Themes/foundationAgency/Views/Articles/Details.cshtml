@@ -1,0 +1,59 @@
+﻿@using System.Text.RegularExpressions;
+@model Article
+
+
+@{
+    ViewBag.Title = Model.MetaTitle;
+    ViewBag.Description = Model.MetaDescription;
+    ViewBag.Keywords = Model.MetaKeyWords;
+
+    if (Model != null)
+    {
+        ViewBag.OgUrl = Request.Url.AbsoluteUri;
+        ViewBag.OgType = "article";
+        ViewBag.OgImage = Model.Photos.FirstOrDefault() != null ? Model.Photos.FirstOrDefault().LgPath : "";
+    }
+
+    ViewBag.PageHeader = Model.Name;
+    var theme = Setting.WebSettings[WebSettingType.CurrentTheme];
+    Layout = "~/Themes/" + theme + "/Views/Shared/_LayoutBlog.cshtml";
+}
+
+
+@if (Model != null)
+{
+    <div class="blog-post">
+
+        <h3>@Model.Name <small>@Model.PostedDate.Value.ToShortDateString()</small></h3>
+
+        <p>
+            @Html.Raw(Model.Content)
+        </p>
+        <div class="callout">
+            <ul class="menu simple">
+                <li><a href="#">Author: @Model.PostBy</a></li>
+                <li><a href="#">Viewed: @Model.ViewCounter</a></li>
+                @*<li><a href="#">Comments: 3</a></li>*@
+            </ul>
+        </div>
+
+    </div>
+}
+
+
+
+@if (!string.IsNullOrWhiteSpace(Setting.WebSettings[EmbedSettingType.Comment])
+     && Setting.WebSettings[EmbedSettingType.Comment].Contains("data-href=")
+     && Setting.WebSettings[ShopSettingType.IsShowArticleComment].AsBool())
+{
+    var dataHref = "data-href=\"" + Request.Url.AbsoluteUri + "\"";
+    var embed = Setting.WebSettings[EmbedSettingType.Comment];
+    var embedComments = Regex.Replace(embed, "data-href=\"(.*)\"",
+        dataHref, RegexOptions.Multiline | RegexOptions.IgnoreCase);
+    @Html.Raw(embedComments);
+}
+
+<!-- relative ============================================================================================ -->
+@{
+    Html.RenderAction(Model.ArtilceTags.Any() ? "RelateArticleByTag" : "RelateArticle", "Articles", new { articleId = Model.Id });
+}

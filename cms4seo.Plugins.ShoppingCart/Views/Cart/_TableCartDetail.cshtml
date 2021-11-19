@@ -1,0 +1,65 @@
+﻿
+@using cms4seo.Common.Culture;
+
+@model cms4seo.Model.Entities.CartIndexViewModel
+    
+
+
+@foreach (var line in Model.Cart.Lines)
+{
+    <tr id="row-@line.Product.Id">
+        <td class="text-center">
+
+
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <button class="btn btn-danger" type="button" onclick="MinusMyCart(@line.Product.Id)" id="button-minus-@line.Product.Id">
+                        <span class="fa fa-minus"></span>
+                    </button>
+                </div>
+                <label class="form-control" id="line-quality-@line.Product.Id">@line.Quantity</label>
+
+                <div class="input-group-append">
+                    <button class="btn btn-success" type="button" onclick="PlusMyCart(@line.Product.Id)">
+                        <span class="fa fa-plus"></span>
+                    </button>
+                </div>
+            </div>
+
+
+        </td>
+        <td class="text-left">@line.Product.Name</td>
+        <td class="text-right">
+            
+            <span>
+                @line.Product.Price.ToString("c0", CultureHelper.CurrentCulture())
+            </span>
+
+        </td>
+
+
+        <td class="text-right">
+
+
+            <span>
+                @((line.Quantity * line.Product.Price).ToString("c0", CultureHelper.CurrentCulture()))
+            </span>
+
+        </td>
+        <td>
+
+            <a onclick="RemoveMyCart(@line.Product.Id)" class="btn btn-xs btn-danger pull-right">
+                <i style="color: #fff" class="fas fa-trash-alt"></i>
+            </a>
+
+        </td>
+    </tr>
+}
+
+<tr>
+    <td colspan="3" class="text-right">
+    </td>
+    <td class="text-right font-weight-bold">
+        @Model.Cart.ComputeTotalValue().ToString("c0", CultureHelper.CurrentCulture())
+    </td>
+</tr>

@@ -1,0 +1,31 @@
+﻿@using Microsoft.AspNet.Identity
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new {id = "logoutForm", @class = ""}))
+    {
+        @Html.AntiForgeryToken()
+
+
+        <li>
+
+            @*@Html.ActionLink("Hello " + User.Identity.GetUserName().Split('@')[0] + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })*@
+            @*<a href="@Url.Action("Index", "Manage", new { area = "Admin"})"></a>*@
+
+            <a href="#">
+                <i class="fa fa-user fa-fw"></i>Hello @User.Identity.GetUserName().Split('@')[0]
+            </a>
+        </li>
+        <li class="divider"></li>
+        <li>
+            <a href="javascript:document.getElementById('logoutForm').submit()">
+                <i class="fa fa-sign-out fa-fw"></i>
+                @AdminResources.LoginPartialAdmin
+            </a>
+        </li>
+    }
+}
+else
+{
+    <li>@Html.ActionLink("Register", "Register", "Account", new {Area = "Admin"}, new {id = "registerLink"})</li>
+    <li>@Html.ActionLink("Log in", "Login", "Account", new {Area = "Admin"}, new {id = "loginLink"})</li>
+}

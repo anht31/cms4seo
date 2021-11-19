@@ -1,0 +1,48 @@
+﻿
+
+@*@Html.Partial("_ArticleTag")*@
+
+@*@{
+    Html.RenderAction("AsideMenu", "Nav", new { id = ViewBag.CategoryId, isHome = false });
+}*@
+
+
+@Html.Partial("_AsideSupporter")
+
+@{
+    Html.RenderAction("AsideMenu", "Nav", new { id = 0 });
+}
+
+
+
+@*@Html.Partial("_EmbedFacebook")*@
+
+@*@{
+    Html.RenderAction("NewArticle", "Articles");
+}*@
+
+@*@{
+    Html.RenderAction("AsideTopView", "Articles");
+}*@
+
+@*@Html.Partial("_TopViewArticle")*@
+
+
+
+
+@*@Html.Partial("_Counter")*@
+
+
+
+
+@*@{
+    Html.RenderAction("AsideAllTopic", "Topics");
+}*@
+
+@*@{
+    Html.RenderAction("AllArticleTag", "Articles");
+}*@
+
+@{
+    Html.RenderAction("Counter", "HitCounter");
+}

@@ -1,0 +1,40 @@
+﻿
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<Article>
+
+
+@{
+    var theme = Setting.WebSettings[WebSettingType.CurrentTheme];
+    Layout = "~/Themes/" + theme + "/Views/Shared/_LayoutArticle.cshtml";
+
+    ViewBag.Title = ViewBag.Tag;
+    ViewBag.PageHeader = "tag: " + ViewBag.Tag;
+    ViewBag.NoIndex = "1";
+}
+
+<div class="mb-5">
+
+
+    @*@Html.Partial("_BreadcrumbInfo", (string)ViewBag.Tag)*@
+
+
+    <div class="mb-3 mt-3">
+
+        
+        <div class="row">
+            @Html.Partial("_CardArticleList", Model)
+        </div>
+
+
+    </div>
+
+
+
+    <!-- pagelist ==========================================================================-->
+    <div class="right">
+        @Html.PagedListPager(Model, page => Url.Action("ListBy", "ArticleTags", new { slug = ViewBag.Slug, page }))
+    </div>
+
+
+</div>

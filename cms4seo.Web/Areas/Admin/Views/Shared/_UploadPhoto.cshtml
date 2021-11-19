@@ -1,0 +1,138 @@
+﻿@model string
+
+<script>
+    window.entity = '@Model';
+</script>
+
+<div class="aside-right">
+
+    <div class="aside-upload-photo">
+
+        <div class="">
+            <!-- D&D Zone-->
+            <div id="drag-and-drop-zone" class="uploader upload-photo-saneheight">
+                <div>@AdminResources.UploadPhotoDragAndDropImagesHere</div>
+                <div class="or">@AdminResources.UploadPhotoOr</div>
+                <div class="browser">
+                    <label>
+                        <span>@AdminResources.UploadPhotoClickToOpenFileBrowser</span>
+                        <input type="file" name="files[]" multiple="multiple" title='Click to add Files'>
+                    </label>
+                </div>
+            </div>
+            <!-- /D&D Zone -->
+        </div>
+
+
+        <div id="asideBoxStatus">
+            <!-- /status box -->
+            <div class="card mt-2">
+                <div class="card-header">
+                    <strong class="panel-title">@AdminResources.UploadPhotoStatusHeaderUploads</strong>
+                </div>
+                <div class="card-body p-2 demo-panel-files" id='demo-files'>
+                    <span class="demo-note">@AdminResources.UploadPhotoStatusNoFilesMessage</span>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="d-none">
+            <!-- Debug box -->
+            <div class="card mt-2 upload-photo-saneheight">
+                <div class="card-header">
+                    <strong class="panel-title">@AdminResources.UploadPhotoDebug</strong>
+                </div>
+                <div class="card-body p-2 demo-panel-debug">
+                    <ul id="demo-debug"></ul>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- scope image -->
+
+        <div ng-app="photoScope" class="photo-list mt-3">
+            <div ng-controller="scopeController" class="card" id="panelScope">
+                <div class="card-header">
+                    @AdminResources.UploadPhotoListHeader
+                    <a class="btn btn-sm btn-warning float-right" ng-click="reloadData()" ng-disabled="disableRefreshButton">@AdminResources.UploadPhotoListRefreshData</a>
+                </div>
+                <div class="card-body table-responsive p-2">
+                    <table class="table table-striped table-bordered table-hover">
+                        <thead>
+                        <tr>
+                            <th>
+                                
+                            </th>
+                            <th>
+                                @AdminResources.UploadPhotoListTableHeaderPicture
+                            </th>
+                            @*<th>
+                                        Avatar
+                                    </th>*@
+                            @*<th>
+                                        Name
+                                    </th>*@
+                            <th>
+                                @AdminResources.UploadPhotoListTableHeaderAction
+                            </th>
+                            <th>
+                                @AdminResources.UploadPhoto_ListTable_HeaderLgPath
+                            </th>
+                            <th>
+                                @AdminResources.UploadPhotoListTableHeaderDelete
+                            </th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        <tr ng-repeat="item in items" id="photo-{{item.Id}}">
+                            <td>
+                                <a ng-click="Up(item)"><i class="fas fa-caret-up"></i></a>
+                                <a ng-click="Down(item)"><i class="fas fa-caret-down"></i></a>
+                            </td>
+
+                            <td class="cell-picture" data-toggle="tooltip" title="@AdminResources.UploadPhotoListTableSetAvatar">
+                                <img ng-show="IsImage(item)" ng-src="{{item.SmPath}}" ng-click="SetActive(item)"
+                                     data-ng-class="ActiveAvatar(item)"/>
+                                <img ng-show="IsDocument(item)" ng-src="/Areas/Admin/Assets/photoScope/image/doc-icon.jpg"/>
+                                <img ng-show="IsVideo(item)" ng-src="/Areas/Admin/Assets/photoScope/image/mp4-flat.png"/>
+                            </td>
+                            @*<td>
+                                        <input type="radio" ng-model="selectAvatar.Sort" ng-value="item.Sort" ng-click="SetActive(item)">
+                                    </td>*@
+
+                            @*<td>{{item.Name}}</td>*@
+
+                            <td>
+                                <a ng-click="InsertEditor(item)" ng-show="IsImage(item)" class="btn btn-warning">@AdminResources.UploadPhotoListTableInsertEditor</a>
+                                <a ng-click="InsertVideo(item)" ng-show="IsVideo(item)" class="btn btn-warning">@AdminResources.UploadPhotoListTableInsertEditor</a>
+                            </td>
+
+                            <td>
+                                <div>{{item.LgPath}}</div>
+                            </td>
+                            <td>
+                                <a class="btn btn-sm btn-danger" ng-click="Delete(item)" ng-disabled="disabledDelete">@AdminResources.CommonDelete</a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+
+                </div>
+            </div>
+        </div>
+
+
+
+
+    </div>
+</div>
+
+
+
+
+@Html.Partial("_MobileManagement")

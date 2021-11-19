@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<appSettings>
+  <add key="Article.Detail.DateCreated" value="Ngày tạo" />
+  <add key="Article.Detail.Download" value="Tải xuống" />
+  <add key="Article.Detail.Promote.InstructionPhone" value="Bạn chỉ cần gọi " />
+  <add key="Article.Detail.Promote.OrEmail" value="hoặc email" />
+  <add key="Article.Detail.Promote.Product" value="sản phẩm của chúng tôi" />
+  <add key="Article.Detail.Promote.Promise" value="Chúng tôi sẽ tư vấn sản phẩm phù hợp nhất với bạn" />
+  <add key="Article.Detail.Promote.Welcome" value="Khi bạn cần" />
+  <add key="Article.Detail.Viewed" value=", Đã xem: " />
+  <add key="Article.Header.Readmore" value="Có thể bạn thích đọc ..." />
+  <add key="Article.Relate.Header" value="Có thể bạn cũng thích ..." />
+  <add key="Articles.Card.DateCreated" value="Ngày tạo: " />
+  <add key="Articles.Card.SeeMore" value="Xem thêm" />
+  <add key="Articles.Card.Viewed" value=", Lượt xem: " />
+  <add key="Articles.Search.Message" value="Không tìm thấy, vui lòng thử etag dưới đây" />
+  <add key="Articles.Section.Header" value="Bài viết mới nhất" />
+  <add key="Aside.Articles.Trending" value="Đang hot" />
+  <add key="Aside.Callout.SmsBody" value="Vui lòng cho tôi biết thêm về sản phẩm của bạn" />
+  <add key="Aside.Callout.Span1" value="Bạn chỉ việc gửi tin nhắn đến số" />
+  <add key="Aside.Callout.Span2" value="Chúng tôi sẽ gọi lại cho bạn." />
+  <add key="Aside.Category.Header" value="Trang chủ" />
+  <add key="Aside.Category.MenuContact" value="Liên hệ" />
+  <add key="Aside.Links.Header" value="Liên kết" />
+  <add key="Aside.Statistic.Header" value="Thống kê" />
+  <add key="Aside.Statistic.Today" value="Hôm nay: " />
+  <add key="Aside.Supporter.Header" value="Hỗ trợ" />
+  <add key="Aside.Topic.Header" value="Chủ đề" />
+  <add key="Aside.TopView.Header" value="Bài viết đang hot" />
+  <add key="Banner.CallNow" value="Gọi ngay bây giờ" />
+  <add key="Banner.SeeMore" value="Xem thêm" />
+  <add key="Breadcrumb.Home" value="Trang chủ" />
+  <add key="Contact.Form.Email" value="Email của bạn" />
+  <add key="Contact.Form.Fullname" value="Họ tên của bạn" />
+  <add key="Contact.Form.Header" value="Vui lòng để lại tin nhắn, chúng tôi sẽ phản hồi bạn nhanh nhất có thể." />
+  <add key="Contact.Form.Message" value="Thông điệp của bạn" />
+  <add key="Contact.Form.Phonenumber" value="Vui lòng nhập số điện thoại" />
+  <add key="Contact.Form.Submit" value="Gửi tin" />
+  <add key="Emails.ContactForm.ServerBusyPleaseTryLater" value="Có vẻ server mail đã quá tải, vui lòng thử lại sau" />
+  <add key="Emails.Js.ServerBusyPleaseTryLater" value="Có vẻ server đang bận, vui lòng thử lại sau" />
+  <add key="Emails.Js.ThankForYourMessage" value="Cám ơn bạn đã gửi tin" />
+  <add key="Emails.Template.Empty" value="Có vẻ bạn chưa cài đặt SMTP Mail Server" />
+  <add key="Emails.Template.Fullname" value="Họ tên: " />
+  <add key="Emails.Template.Header" value="Khách hàng mới gửi tin" />
+  <add key="Emails.Template.PhoneNumber" value="Điện thoại: " />
+  <add key="Footer.Column.Contact.Form.Button.Submit" value="Gửi" />
+  <add key="Footer.Column.Contact.Form.Email" value="Email" />
+  <add key="Footer.Column.Contact.Form.Email.Placeholder" value="địa chỉ email" />
+  <add key="Footer.Column.Contact.Form.Message" value="Tin nhắn" />
+  <add key="Footer.Column.Contact.Form.Message.Placeholder" value="Tin nhắn" />
+  <add key="Footer.Column.Contact.Form.Name" value="Họ tên" />
+  <add key="Footer.Column.Contact.Form.Name.Placeholder" value="Vui lòng nhập họ tên" />
+  <add key="Footer.Column.Contact.Form.Phone" value="Điện thoại" />
+  <add key="Footer.Column.Contact.Form.Phone.Placeholder" value="Vui lòng nhập số điện thoại" />
+  <add key="Footer.Socials.Facebook.Href" value="Đường link đến facebook của bạn" />
+  <add key="Footer.Socials.Header" value="Mạng liên kết" />
+  <add key="Footer.Socials.Instagram.Href" value="Đường link đến Instagram của bạn" />
+  <add key="Footer.Socials.Pinterest.Href" value="Đường link đến Pinterest của bạn" />
+  <add key="Footer.Socials.Twitter.Href" value="Đường link đến Twitter của bạn" />
+  <add key="Footer.SupporterPhone.Label" value="Kinh doanh: " />
+  <add key="Footer2.Column1.Description" value="Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor. Suspendisse dictum feugiat nisl ut dapibus. Mauris iaculis porttitor." />
+  <add key="Footer2.Column1.Header" value="Liên hệ" />
+  <add key="Form.Search.Article.Placeholder" value="tìm bài viết" />
+  <add key="Form.Search.Placeholder" value="tìm sản phẩm" />
+  <add key="Header.Menu.Brand" value="cms4seo" />
+  <add key="Header.Menu.Contact" value="Liên hệ" />
+  <add key="Header.Search.Button" value="Tìm" />
+  <add key="Label.Home" value="Trang chủ" />
+  <add key="Page.Error.BadRequest.Description" value="Yêu cầu tiêu đề hoặc cookie quá lớn" />
+  <add key="Page.Error.BadRequest.Header" value="Yêu cầu không hợp lệ" />
+  <add key="Page.Error.GoHome" value="Về trang chủ" />
+  <add key="Page.Error.NotFound.Description" value="Trang bạn yêu cầu không tìm thấy." />
+  <add key="Page.Error.NotFound.Header" value="Không tìm thấy" />
+  <add key="Page.Error.ServerError.Description" value="Trang của bạn không thể hiện, vì một lỗi trên máy chủ." />
+  <add key="Page.Error.ServerError.Header" value="Lỗi máy chủ" />
+  <add key="Page.Filter.ByPrice" value="Lọc bởi giá" />
+  <add key="Product.Detail.Shopping.Button.Buy" value="Mua ngay" />
+  <add key="Product.Detail.Shopping.Options" value="Nhỏ, Vừa, Lớn" />
+  <add key="Product.Detail.Shopping.Property1" value="Kích thước" />
+  <add key="Product.Detail.Shopping.Quantity.Input" value="Một hoặc Hai" />
+  <add key="Product.Detail.Shopping.Quantity.Label" value="Số lượng" />
+  <add key="Product.Edit" value="sửa" />
+  <add key="Product.NewProduct" value="Sản phẩm mới" />
+  <add key="Product.OutOfStock" value="Hết hàng" />
+  <add key="Product.Relate" value="Có thể bạn thích" />
+  <add key="Product.SeeDemo" value="Xem bản demo" />
+  <add key="Products.Card.Price" value="Giá: liên hệ" />
+  <add key="Products.Header" value="Công trình gần nhất" />
+  <add key="Products.Search.Message" value="Không tìm thấy, Vui lòng thử tag dưới" />
+  <add key="Section.AboutUs.CallAction" value="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam" />
+  <add key="Section.AboutUs.Description" value="Một vài miêu tả về công ty bạn, vd: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." />
+  <add key="Section.AboutUs.Header" value="Tiêu đề công ty, cửa hàng của bạn" />
+  <add key="Section.AboutUs.Item1" value="Item 1" />
+  <add key="Section.AboutUs.Item2" value="Item 2" />
+  <add key="Section.AboutUs.Item3" value="Item 3" />
+  <add key="Section.AboutUs.Item4" value="item 4" />
+  <add key="Section.AboutUs.Item5" value="Item 5" />
+  <add key="Section.AboutUs.Item6" value="item 6" />
+  <add key="Section.AboutUs.Item7" value="item 7" />
+  <add key="Section.Certify1.Description" value="Miêu tả tính năng sản phẩm của bạn, vd: Sản phẩm độ bền cao, chống nước." />
+  <add key="Section.Certify1.Header" value="Tiết kiệm" />
+  <add key="Section.Certify2.Description" value="Miêu tả tính năng sản phẩm của bạn, consectetur adipiscing elit. Donec id porta." />
+  <add key="Section.Certify2.Header" value="Bền vững" />
+  <add key="Section.Certify3.Description" value="Miêu tả tính năng sản phẩm của bạn, consectetur adipiscing elit. Donec id porta." />
+  <add key="Section.Certify3.Header" value="Chất lượng" />
+  <add key="Section.Products.SeeMore" value="xem thêm" />
+  <add key="Section.Search.Header" value=" kết quả cho từ khóa: " />
+  <add key="Topic.Aside.AuthorsHeader" value="Người viết" />
+  <add key="Topic.Aside.TopicHeader" value="Chủ đề" />
+  <add key="Topic.Header" value="Bài viết Hot" />
+  <add key="Topic.Trend.Header" value="Tin mới nhất" />
+
+
+
+  <add key="Section.Home.Section1.Column1.Button.Href" value="#" />
+  <add key="Section.Home.Section1.Column1.Button.Text" value="Xem qua một vòng" />
+  <add key="Section.Home.Section1.Column1.Button2.Href" value="#" />
+  <add key="Section.Home.Section1.Column1.Button2.Text" value="Bắt đầu dùng thử" />
+  <add key="Section.Home.Section1.Column1.Header" value="Nhắm mắt lại và cảm nhận" />
+  <add key="Section.Home.Section1.Column1.Paragraph" value="Có vẻ đẹp trong không gian, và nó có trật tự. Không có thời tiết, và có sự đều đặn. Đó là dự đoán. Mọi thứ trong không gian đều tuân theo định luật vật lý. Nếu bạn biết những luật này và tuân theo chúng, không gian sẽ đối xử tử tế với bạn." />
+  <add key="Section.Home.Section1.Column2.Image" value="/Themes/foundationRealEstate/Assets/Image/real-estate.jpg" />
+  <add key="Section.Home.Section1.Column3.Input.Label" value="Giá tối đa" />
+  <add key="Section.Home.Section1.Column3.Input.Placeholder" value="Giá cao nhất bạn có thể trả" />
+  <add key="Section.Home.Section1.Column3.Options" value="Quận 1, Quận 2, Quận 3, Quận 4" />
+  <add key="Section.Home.Section1.Column3.Options.Label" value="Khu vực" />
+  <add key="Section.Home.Section1.Column3.SubmitButton" value="Tìm ngay!" />
+  <add key="Section.Home.SectionProducts.Header" value="Sản phẩm mới nhất của chúng tôi" />
+  <add key="Section.Home.SectionProducts.Loadmore" value="Xem thêm sản phẩm" />
+</appSettings>

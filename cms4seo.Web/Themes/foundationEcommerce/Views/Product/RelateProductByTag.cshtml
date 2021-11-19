@@ -1,0 +1,36 @@
+﻿@using PagedList
+@model IEnumerable<Product>
+
+
+@if (Model.Any())
+{
+
+
+
+    <div class="grid-x grid-margin-x medium-up-3 large-up-5
+        @Setting.WebSettings[ShopSettingType.AspectRatioImage]">
+
+        @foreach (var item in Model)
+        {
+            <div class="cell">
+                <a class="cell-link card-animate-1" href="@item.Slug">
+                    <div class="aspect-ratio">
+                        <img class="thumbnail" src="@item.Avatar">
+                    </div>
+                    <h5>
+                        @item.Name
+                        <small>
+                            @(item.Price == 1 ? Setting.Contents["Products.Card.Price"] :
+                                Culture == "vi-VN" ? string.Format("{0:C0}", item.Price) : string.Format("{0:C}", item.Price))
+                        </small>
+                    </h5>
+                    <p>@item.Brief</p>
+                </a>
+                <a href="#" class="button hollow tiny expanded">Buy Now</a>
+                <br/>
+            </div>
+        }
+
+    </div>
+
+}

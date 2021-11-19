@@ -1,0 +1,54 @@
+﻿
+@using cms4seo.Model.LekimaxType
+@using cms4seo.Service.Provider
+@model cms4seo.Model.Entities.CartIndexViewModel
+
+@{
+    ViewBag.Title = "Giỏ Hàng Của Bạn";
+    var theme = Setting.WebSettings[WebSettingType.CurrentTheme];
+    Layout = "~/Themes/" + theme + "/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    #cartTable td {
+        vertical-align: middle;
+    }
+</style>
+
+
+<div>
+    <div class="h3">        
+        Giỏ hàng của bạn
+    </div>
+    <table id="cartTable" class="table table-responsive">
+        <thead>
+        <tr>
+            <th>Số lượng</th>
+            <th>Tên sản phẩm</th>
+            <th>Đơn giá</th>
+            <th>Thành tiền</th>
+            <th>Hủy</th>
+        </tr>
+        </thead>
+
+        <tbody id="table-cart-detail">
+            @Html.Partial("_TableCartDetail", Model)
+        </tbody>
+
+    </table>
+
+    <div class="text-center">
+        @if (!string.IsNullOrEmpty(Model.ReturnUrl))
+        {
+            <a class="btn btn-primary" href="@Model.ReturnUrl">
+                <span id="GioHangQuayLai">Quay lại</span>
+            </a>
+        }
+
+
+        <a class="btn btn-primary" href="/Plugins/Cart/Checkout">
+            <span id="GioHangThanhToan" class="ng-cloak">Thanh toán</span>
+        </a>
+    </div>
+
+</div>

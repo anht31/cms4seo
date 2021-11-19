@@ -1,0 +1,23 @@
+﻿
+<h2>Welcome to Search Optimize Page</h2>
+
+<a class="btn btn-warning" href="@Url.Action("ReindexSiteMap", "SearchOptimize")">Reindex SiteMap</a>
+
+<br />
+<br />
+<a class="btn btn-danger" id="reseed-permalink"
+   data-action="confirm"
+   data-id="reseed-permalink"
+   data-value="Reseed Permalink"
+   href="/Admin/SearchOptimize/ReseedPermalink">Reseed Permalink</a>
+
+<br/>
+<br/>
+<a class="btn btn-warning" href="@Url.Action("ReindexPermalink", "SearchOptimize")">Reindex Permalink</a>
+
+<br />
+<br />
+<div class="alert alert-danger">
+    <strong>@AdminResources.SearchOptimizeController_ReseedPermalink_Index_Important</strong>
+    @AdminResources.SearchOptimizeController_ReseedPermalink_Index_Caution
+</div>

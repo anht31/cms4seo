@@ -1,0 +1,37 @@
+﻿@using PagedList.Mvc
+@model PagedList.IPagedList<Product>
+@{
+    ViewBag.Title = Setting.WebSettings[ShopSettingType.HomepageMetaTitle];
+    ViewBag.Description = Setting.WebSettings[ShopSettingType.HomepageMetaDescription];
+    ViewBag.Keywords = Setting.WebSettings[ShopSettingType.HomepageMetaKeywords];
+
+
+    ViewBag.IsHome = true.ToString();
+
+    ViewBag.OgImage = Setting.WebSettings[ShopSettingType.OgImage];
+
+}
+
+
+<!-- Page Content -->
+<div class="">
+
+
+    @{
+          Html.RenderAction("ProductSystem", "Product");
+    }
+
+
+
+    @*@{
+        Html.RenderAction("AllTag", "ProductTags");
+    }
+
+    <br/>*@
+
+
+    @*@Html.Partial("_AboutUs")*@
+
+
+</div>
+<!-- /.container -->

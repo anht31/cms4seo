@@ -1,0 +1,82 @@
+﻿@using cms4seo.Model.LekimaxType
+@using cms4seo.Service.Provider
+@model cms4seo.Model.Entities.ShippingDetails
+
+@{
+    ViewBag.Title = "Thanh toán";
+    var theme = Setting.WebSettings[WebSettingType.CurrentTheme];
+    Layout = "~/Themes/" + theme + "/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="card border-secondary mb-3">
+    <div class="card-header font-weight-bold">
+        <span>Thanh toán đơn hàng</span>
+    </div>
+    <div class="card-body text-secondary">
+        <i>
+            <span>Vui lòng nhập địa chỉ giao hàng</span>
+        </i>
+
+
+        <br />
+        <br />
+
+
+
+        <form id="checkoutForm" action="/Plugins/Cart/Checkout" method="post" >
+
+
+            <div class="form-group">
+                <label class="font-weight-bold">
+                    <span>Họ tên quý khách</span>
+                </label>
+                <input class="form-control" data-val="true" required id="Name" name="Name" type="text" value="" 
+                       placeholder="Vui lòng nhập họ tên">
+            </div>
+
+            <div class="form-group">
+                <label class="font-weight-bold">
+                    <span>Địa chỉ</span>
+                </label>
+                <input class="form-control" data-val="true" required id="Address" name="Address" type="text" value="" 
+                       placeholder="Vui lòng nhập địa chỉ nhận hàng">
+            </div>
+
+            <div class="form-group">
+                <label class="font-weight-bold">
+                    <span>Số điện thoại</span>
+                </label>
+                <input class="form-control" data-val="true" required id="Phone" name="Phone" type="text" value="" 
+                       placeholder="Số điện thoại liên lạc">
+            </div>
+
+
+            <div class="form-group">
+                <label class="font-weight-bold">
+                    <span>Địa chỉ email</span>
+                </label>
+                <input class="form-control" data-val="true" required id="Email" name="Email" type="email" value="" 
+                       placeholder="vui lòng nhập email người nhận hàng">
+            </div>
+
+            <br/>
+            
+
+            <div class="text-center">
+
+
+                <button class="btn btn-primary btn-lg buttonload" type="submit" onClick="SubmitCheckOut(this); ">
+                    <span>Xác nhận đơn hàng</span>
+                </button>
+
+            </div>
+
+        </form>
+
+
+    </div>
+</div>
+
+
+

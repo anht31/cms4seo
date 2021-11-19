@@ -1,0 +1,56 @@
+﻿
+
+<div class="container header-style">
+    <div class="border-style">
+        <div class="row">
+
+            <div class="col-lg-2 col-md-3 col-4 logo-container">
+
+                <img @CMS.Attribute("Section.Header.Logo")
+                    src="@Setting.Contents["Section.Header.Logo"]" 
+                    class="img-responsive" alt="logo-size-120x120"/>
+            </div>
+
+
+            <div class="col-lg-6 col-md-9 col-8">
+                <div class="header-company">
+                    @Setting.WebSettings[AppShop.CompanyNamePart1]
+                </div>
+                <h4 class="header-phone">
+                    <span @CMS.Attribute(AppShop.HotlineName)>
+                        @Setting.WebSettings[AppShop.HotlineName]
+                    </span>
+
+                    <a href="tel:@Setting.WebSettings[AppShop.Hotline].RemoveSpace()"
+                       data-toggle="tooltip" title="Call">
+
+                        <span @CMS.Attribute(AppShop.Hotline)>
+                            @Setting.WebSettings[AppShop.Hotline]
+                        </span>
+                    </a>
+
+                    <span class="d-none d-sm-inline-block"> - </span>
+                    
+                    <a href="tel:@Setting.WebSettings[AppShop.SupporterPhone].RemoveSpace()"
+                       class="header-phone-2"
+                       data-toggle="tooltip" title="Call">
+
+                        <span @CMS.Attribute(AppShop.SupporterPhone)>
+                            @Setting.WebSettings[AppShop.SupporterPhone]
+                        </span>
+                    </a>
+
+                    
+                </h4>
+            </div>
+
+
+
+            <div class="col-lg-4 col-md-12 header-search-box">
+                @Html.Partial("_FormSearch")
+            </div>
+
+
+        </div>
+    </div>
+</div>

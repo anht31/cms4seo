@@ -1,0 +1,52 @@
+﻿
+@model PagedList.IPagedList<Product>
+
+@{
+
+    ViewBag.Title = ViewBag.CategoryName;
+
+    if (ViewBag.Category != null)
+    {
+        ViewBag.Description = ViewBag.Category.MetaDescription;
+        ViewBag.Keywords = ViewBag.Category.MetaKeyWords;
+        ViewBag.Title = ViewBag.Category.MetaTitle;
+    }
+
+    ViewBag.PageHeader = ViewBag.Title;
+}
+
+
+<div class="">
+
+    @Html.Partial("_BreadcrumbViewbag")
+
+    <div class="row mt-3">
+
+        @if (Model.Count > 1)
+        {
+            foreach (var item in Model)
+            {
+                @Html.Partial("_CardProduct", item)
+            }
+        }
+        else
+        {
+            foreach (var item in Model)
+            {
+                @Html.Partial("_CardProductLarge", item)
+            }
+        }
+
+    </div>
+
+
+    <!-- page list ==========================================================================-->
+
+    <div class="right">
+        @*@Html.PagedListPager(Model, page => Url.Action("Details", new {id = ViewBag.CategoryId, page}))*@
+        @Html.PagedListPager(Model, page => ViewBag.Category.Slug + "/" + page)
+    </div>
+
+    
+
+</div>

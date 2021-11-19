@@ -1,0 +1,34 @@
+﻿@model IEnumerable<Category>
+
+
+@foreach (var category in Model)
+{
+
+    <div class="text-center">
+        <h2>@category.Name</h2>
+        <hr>
+    </div>
+
+    <div class="grid-x grid-margin-x small-up-2 medium-up-3 large-up-6
+         @Setting.WebSettings[ShopSettingType.AspectRatioImage]">
+
+        @foreach (var item in category.GetAllChildProduct().Take(6))
+        {
+            <div class="cell">
+                <a class="cell-link" href="@item.Slug">
+                    <div class="aspect-ratio">
+                        <img class="thumbnail" src="@item.Avatar">
+                    </div>
+                    <h5>@item.Name</h5>
+                    <p>
+                        @(item.Price == 1 ? Setting.Contents["Products.Card.Price"] :
+                            Culture == "vi-VN" ? string.Format("{0:C0}", item.Price) : string.Format("{0:C}", item.Price))
+                    </p>
+                </a>
+                <a href="#" class="button small expanded hollow">Buy</a>
+            </div>
+        }
+
+    </div>
+}
+

@@ -1,0 +1,78 @@
+﻿@using System.Text.RegularExpressions;
+@model Product
+
+@{
+    ViewBag.Title = Model.Name;
+
+    if (Model != null)
+    {
+        ViewBag.Description = Model.MetaDescription;
+        ViewBag.Keywords = Model.MetaKeyWords;
+        ViewBag.Title = Model.MetaTitle;
+        ViewBag.OgImage = Model.Photos.FirstOrDefault() != null ? Model.Photos.FirstOrDefault().LgPath : "";
+        ViewBag.OgUrl = Request.Url.AbsoluteUri;
+        ViewBag.OgType = "website";
+    }
+
+    ViewBag.HiddenSlogun = "true";
+}
+
+
+
+<div class="">
+
+
+    @Html.Partial("_Breadcrumb")
+
+
+    @*@Html.Partial("_RenderProductSimple")*@
+    
+    @if (!Setting.WebSettings[ShopSettingType.IsHiddenProductSummary].AsBool())
+    {
+        @Html.Partial("_SectionProductDetail")
+    }
+    
+
+
+    @if (Model.Description != null)
+    {
+        <div class="mt-4">
+            @Html.Raw(Model.Description)
+        </div>
+    }
+
+    <br />
+
+    <div class="mt-5">
+        @foreach (var item in Model.ProductTags)
+        {
+            <a href="@Url.Action("ListBy", "ProductTags", new {slug = item.Slug})" 
+               class="badge badge-secondary rounded-0 pt-2 pb-2 pr-2 pl-2 mb-2 mr-1">@item.Name</a>
+        }
+    </div>
+    
+    
+    @if (!string.IsNullOrWhiteSpace(Setting.WebSettings[EmbedSettingType.Comment])
+         && Setting.WebSettings[EmbedSettingType.Comment].Contains("data-href=")
+         && Setting.WebSettings[ShopSettingType.IsShowProductComment].AsBool())
+    {
+        var dataHref = "data-href=\"" + Request.Url.AbsoluteUri + "\"";
+        var embed = Setting.WebSettings[EmbedSettingType.Comment];
+        var embedComments = Regex.Replace(embed, "data-href=\"(.*)\"",
+            dataHref, RegexOptions.Multiline | RegexOptions.IgnoreCase);
+        @Html.Raw(embedComments);
+    }
+
+    <!-- relative =========================================== -->
+    @{
+        Html.RenderAction(Model.ProductTags.Any() ? "RelateProductByTag" : "RelateProduct"
+            , "Product", new {id = Model.Id});
+    }
+
+</div>
+
+
+
+
+@*@Html.Partial("_AboutUs")*@
+

@@ -1,0 +1,33 @@
+﻿@{
+    var theme = Setting.WebSettings[WebSettingType.CurrentTheme];
+}
+
+<a href="tel:@Setting.WebSettings[AppShop.Hotline].RemoveSpace()"
+   class="suntory-alo-phone suntory-alo-green"
+   id="suntory-alo-phoneIcon" style="left: 0px; bottom: 0px;">
+    <div class="suntory-alo-ph-circle"></div>
+    <div class="suntory-alo-ph-circle-fill"></div>
+    <div class="suntory-alo-ph-img-circle">
+        <span @CMS.Attribute(AppShop.Hotline)></span>
+        <i class="fa fa-phone"></i>
+    </div>
+</a>
+
+
+<div class="float-contact-style-icon">
+
+    
+
+    @if (Setting.WebSettings[WebSettingType.ShopLanguages] == "vi-VN")
+    {
+        <a class="chat-zalo shadowed"
+           href="http://zalo.me/@Setting.WebSettings[AppShop.Hotline].RemoveSpace()">
+            <img width="50" src="~/Themes/@theme/Assets/icon/zalo.png" />
+        </a>
+    }
+    
+    <a @CMS.Attribute(AppShop.FacebookLink)
+        class="chat-face shadowed" href="http://m.me/@Setting.WebSettings[AppShop.FacebookLink]">
+        <img width="50" src="~/Themes/@theme/Assets/icon/messenger.png"/>
+    </a>
+</div>

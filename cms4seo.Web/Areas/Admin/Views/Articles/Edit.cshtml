@@ -1,0 +1,188 @@
+﻿
+@using cms4seo.Common.Culture
+@model Article
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+
+<div class="row">
+    <div class="col-sm-8">
+
+
+        @using (Html.BeginForm("Edit", "Articles"))
+        {
+            <div class="card">
+                <div class="card-header">
+                    @if (Model.IsCreate)
+                    {
+                        
+                        <span class="h3">@AdminResources.CommonArticle / @AdminResources.CommonCreateHeader</span>
+                    }
+                    else
+                    {
+                        <span class="h3">@AdminResources.CommonArticle / @AdminResources.CommonEdit / @Model.Name</span>
+                    }
+
+                    <span class="float-right">
+                        <input type="submit" value="@AdminResources.CommonSave" class="btn btn-primary btn-sm" />
+                    </span>
+                    <span class="float-right" style="margin-right: 5px;">
+                        @Html.ActionLink(AdminResources.CommonCancel, "Index", null, new { @class = "btn btn-outline-secondary btn-sm" })
+                    </span>
+                </div>
+
+                @Html.AntiForgeryToken()
+
+                <div class="card-body">
+                    
+                    
+                    @foreach (var property in ViewData.ModelMetadata.Properties
+                        .Where( x => !x.IsComplexType                            
+                                 && x.DataTypeName != cms4seoDataType.CustomEditor
+                                 && !x.ShowForEdit
+                    )){
+                        @Html.Hidden(property.PropertyName)
+                    }
+
+
+
+                    <!--<h4>Article</h4>-->
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.IsPublish)
+                        @Html.EditorFor(model => model.IsPublish)
+                        @Html.ValidationMessageFor(model => model.IsPublish, "", new { @class = "text-danger" })
+                    </div>
+
+                    @*<div class="form-group">
+                        @Html.LabelFor(model => model.TopicId)
+                        @Html.DropDownList("TopicId", null, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.TopicId, "", new { @class = "text-danger" })
+                    </div>*@
+                    
+                    
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.TopicId)
+                        @Html.DropDownGroupList("TopicId", (int?)ViewBag.SelectedTopic, (List<Topic>)ViewBag.Topics
+                            , x => !x.ParentId.HasValue, (x, y) => x.ParentId.Equals(y.Id)
+                            , "Id", "Name", null)
+                        @Html.ValidationMessageFor(model => model.TopicId, "", new { @class = "text-danger" })
+                    </div>
+
+                    
+
+
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    
+                    <!-- edit ==============================================================================-->
+                    @foreach (var property in ViewData.ModelMetadata.Properties.Where(
+                        x => !x.IsComplexType
+                             && x.DataTypeName != cms4seoDataType.CustomEditor
+                             && x.ShowForEdit
+                    )){
+                        //if (property.PropertyName != ""
+                        //    && property.PropertyName != "Post"
+                        //    && property.PropertyName != "Topic"
+                        //    && property.PropertyName != "Id"
+                        //    //&& property.PropertyName != "PostedDate"
+                        //    && property.PropertyName != "PostBy"
+                        //    && property.PropertyName != "Rating"
+                        //    && property.PropertyName != "ViewCounter"
+                        //    && property.PropertyName != "UnsignContent"
+                        //    && property.PropertyName != "MetaKeyWords"
+                        //    && property.PropertyName != "MetaDescription"
+                        //    && property.PropertyName != "MetaTitle"
+                        //    && property.PropertyName != "IsLockSeo"                            
+                        //    && property.PropertyName != "TopicId"
+                        //    && property.PropertyName != "DateCreated"
+                        //    && property.PropertyName != "PostedDate"
+                        //    && property.PropertyName != "IsPublish"
+                        //    && property.PropertyName != "Photos"
+                        //    && property.PropertyName != "ScopeId"
+                        //    && property.PropertyName != "PhotosDelimiter"
+                        //    && property.PropertyName != "Slug"
+                        //    && property.PropertyName != "Tags"
+                        //    && property.PropertyName != "CombinedTags"
+                        //    && property.PropertyName != "ArtilceTags"
+                        //    && property.PropertyName != "SelectedArticleTag"
+                        //    && property.PropertyName != "IsCreate"
+                        //    )
+                        
+                        <div class="form-group">
+                            <label>
+                                @(property.DisplayName ?? property.PropertyName)
+                            </label>
+                            @if (property.PropertyName == "Description")
+                            {
+                                <p class="remainCharacters">155</p>
+                                @Html.TextArea(property.PropertyName, null, new { @class = "form-control counterCharacter", rows = 5 })
+                            }
+                            else if (property.PropertyName == "Content")
+                            {
+                                @Html.TextArea(property.PropertyName, null, new { @class = "form-control", rows = 5 })
+                            }
+                            else
+                            {
+                                @Html.TextBox(property.PropertyName, null, new { @class = "form-control" })
+                            }
+                            @Html.ValidationMessage(property.PropertyName)
+                        </div>
+                        
+                    }
+
+
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.PostedDate)
+                        @Html.EditorFor(model => model.PostedDate, new { htmlAttributes = new { @class = "form-control datepicker" } })
+                        @Html.ValidationMessageFor(model => model.PostedDate, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.SelectedArticleTag)
+                        @Html.EditorFor(model => model.SelectedArticleTag, "TagEditor", new { htmlAttributes = new { @class = "form-control", data_value = "ArticleTag" } })
+                        @Html.ValidationMessageFor(model => model.SelectedArticleTag, "", new { @class = "text-danger" })
+                    </div>
+
+
+                    <!-- SEO Meta Tags ================================================================-->
+                    @Html.Partial("_Seo", Model)
+
+
+
+                </div>
+
+                <div class="card-footer">
+                    <input type="submit" value="@AdminResources.CommonSave" class="btn btn-primary" />
+                    @Html.ActionLink(AdminResources.CommonCancel, "Index", null, new { @class = "btn btn-outline-secondary" })
+                </div>
+            </div>
+        }
+
+
+
+    </div>
+    <div class="col-sm-4">
+        @Html.Partial("_UploadPhoto", cms4seoEntityType.Article)
+    </div>
+</div>
+
+
+
+@section Scripts {
+
+    @*@Scripts.Render("~/bundles/jqueryval")*@
+
+    <script>
+
+        CKEDITOR.replace('Content',
+        {
+            height: 600,
+            language: '@CultureHelper.GetCurrentNeutralCulture()'
+        });
+
+    </script>
+}

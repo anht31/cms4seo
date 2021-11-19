@@ -1,0 +1,44 @@
+﻿
+<footer>
+    <div class="grid-x expanded callout secondary footer-light padding-top-2 padding-bottom-2">
+        
+
+        <div class="large-4 cell">
+            @Html.Partial("_FooterInfo")
+        </div>
+
+
+        <div class="large-4 cell text-center">
+            @Html.Partial("_FooterSocials")
+        </div>
+
+
+        <div class="large-4 cell">
+            @{
+                Html.RenderAction("FooterMenu", "Nav");
+            }
+        </div>
+
+
+    </div>
+    
+
+    <div class="grid-x">
+
+        <div class="medium-6 cell font-weight-bold">
+            <ul class="menu align-center">
+                <li><a href="#">Legal</a></li>
+                <li><a href="#">Partner</a></li>
+                <li><a href="#">Explore</a></li>
+            </ul>
+        </div>
+
+        <div class="medium-6 cell">
+            <div class="footerPowerBy align-center">
+                &copy; 2020 - power by <a href="http://cms4seo.com" rel="noopener" target="_blank">cms4seo.com</a>
+            </div>
+        </div>
+    </div>
+
+</footer>
+

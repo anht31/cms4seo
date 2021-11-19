@@ -1,0 +1,36 @@
+﻿@model cms4seo.Data.IdentityModels.ApplicationRole
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>@AdminResources.CommonDelete</h2>
+
+<h3>
+    @AdminResources.Delete_cshtmlExecute_Are_you_sure_you_want_to_delete_this_Role_
+</h3>
+<p>
+    @AdminResources.Delete_cshtmlExecute_Deleting_this_Role_will_remove_all_users_from_this_role__It_will_not_delete_the_users_
+</p>
+<div>
+    <h4>Role.</h4>
+    <hr/>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+    </dl>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-outline-secondary"/> |
+            @Html.ActionLink(AdminResources.CommonBackToList, "Index")
+        </div>
+    }
+</div>

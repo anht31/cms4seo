@@ -1,0 +1,24 @@
+﻿
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<Article>
+
+
+@{
+    ViewBag.PageHeader = "Result for tag: [" + ViewBag.Tag + "]";
+    ViewBag.NoIndex = "1";
+
+    var theme = Setting.WebSettings[WebSettingType.CurrentTheme];
+    Layout = "~/Themes/" + theme + "/Views/Shared/_LayoutBlog.cshtml";
+}
+
+
+
+@foreach (var item in Model)
+{
+    @Html.Partial("_CardArticle", item)
+}
+
+
+<!-- PagerList -->
+@Html.PagedListPager(Model, page => Url.Action("Index", new { page, size = 10 }))

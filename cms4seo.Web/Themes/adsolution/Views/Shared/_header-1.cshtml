@@ -1,0 +1,70 @@
+﻿@{
+    var theme = Setting.WebSettings[WebSettingType.CurrentTheme];
+}
+
+<header class="container-fluid p-0">
+    
+    <div class="container-bg-image header-1">
+        
+        <img @CMS.Attribute("Section.HeaderBanner.Image")
+            src="@Setting.Contents["Section.HeaderBanner.Image"]"
+            class="img-responsive bg-image" alt="size-1366x110" />
+
+        <div class="just-contain header-contain">
+            <div class="row">
+
+                <div class="col-xl-3 col-lg-2 col-md-6 col-sm-5 pt-1">
+                    <img @CMS.Attribute("Section.Header.Logo")
+                         class="header-banner-logo" alt="logo-size-300x110" 
+                         src="@Setting.Contents["Section.Header.Logo"]" />
+
+                </div>
+
+
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-7 d-none d-sm-block pt-2">
+                    <div class="text-center text-shadow">
+
+                        <h3 class="text-primary text-uppercase" style="font-family: 'Montserrat', sans-serif;"
+                            @CMS.Attribute(AppShop.CompanyNamePart1)>
+                            @Setting.WebSettings[AppShop.CompanyNamePart1]
+                        </h3>
+                        <h2 class="text-danger" style="font-family: 'Alfa Slab One', cursive;"
+                            @CMS.Attribute(AppShop.CompanyNamePart2) class="headerSpan2">
+                            @Setting.WebSettings[AppShop.CompanyNamePart2]
+                        </h2>
+                    </div>
+
+                </div>
+                <div class="col-xl-3 col-lg-4 d-none d-lg-block">
+
+                    <div class="pull-right">
+                        <div class="pt-5 h2" style="color: orange">
+                            <i class="fa fa-phone-square"></i>
+                            <a @CMS.Attribute(AppShop.Hotline)
+                               href="tel:@Setting.WebSettings[AppShop.Hotline].RemoveSpace()">
+                                @Setting.WebSettings[AppShop.Hotline]
+                            </a>
+                        </div>
+                    </div>
+
+                    @*<div class="pull-right internation pt-1 pr-4">
+                        <span>
+                            <a href="#">
+                                <img src="~/Themes/@theme/img/vi.png" />
+                            </a>
+
+                        </span>
+                        <span>
+                            <a href="#">
+                                <img src="~/Themes/@theme/img/en.png" />
+                            </a>
+
+                        </span>
+                    </div>*@
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</header>

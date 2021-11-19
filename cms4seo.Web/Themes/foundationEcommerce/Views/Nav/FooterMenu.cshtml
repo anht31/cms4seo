@@ -1,0 +1,17 @@
+﻿@model IEnumerable<Category>
+
+
+<div class="footerMenu margin-left-3">
+    <ul class="menu vertical @Setting.WebSettings[ShopSettingType.MenuFormatClass]">
+
+        @foreach (var item in Model)
+        {
+            <li>
+                <a target="_top" href="@(item.Href != "#" ? item.Href : Url.Action("ListBy", "Product", new {slug = item.Slug}))">
+                    <i class="fa fa-circle" aria-hidden="true">&nbsp;</i>@item.Name
+                </a>
+            </li>
+        }
+
+    </ul>
+</div>

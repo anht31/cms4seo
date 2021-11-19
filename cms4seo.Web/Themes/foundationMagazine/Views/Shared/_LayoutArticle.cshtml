@@ -1,0 +1,255 @@
+﻿
+<!DOCTYPE html>
+<html class="no-js" lang="@CultureHelper.GetCurrentNeutralCulture()">
+<head>
+    
+    @Html.Partial("_TagManager")
+    
+    @RenderSection("Styles", false)
+
+    @Html.Raw(Setting.WebSettings[EmbedSettingType.GoogleAnalytics])
+
+
+</head>
+<body class="@(Setting.WebSettings[ShopSettingType.IsDisallowCopy].AsBool() ? "noselect" : "")">
+
+    @if (!(ViewBag.OverrideMenu ?? false))
+    {
+        Html.RenderAction("HeaderMenu", "Nav");
+    }
+
+
+    <!-- logo and ad break -->
+    <br>
+
+    <article class="grid-container">
+        <div class="grid-x grid-margin-x">
+            <div class="medium-4 cell">
+                <img @CMS.Attribute("Section.Header.Image")
+                     src="@Setting.Contents["Section.Header.Image"]" alt="size-450x183">
+            </div>
+            <div class="medium-8 cell object-900x175-cover-resize">
+                <img @CMS.Attribute("Section.Header.Image2")
+                     src="@Setting.Contents["Section.Header.Image2"]" alt="size-900x175">
+            </div>
+        </div>
+    </article>
+    <!-- / logo and ad break -->
+
+    <br>
+
+
+
+    @{
+        Html.RenderAction("HeaderMenu", "Topics");
+    }
+
+
+
+
+    <br>
+    <article class="grid-container">
+
+        @if (ViewBag.IsHome == "true")
+        {
+            <div class="grid-x grid-margin-x">
+                <div class="medium-8 cell">
+                    <p class="object-900x450-cover-resize">
+                        <img @CMS.Attribute("Section.Index.Promoted.Image")
+                             src="@Setting.Contents["Section.Index.Promoted.Image"]"
+                             alt="Promoted-Article-size-900x450"
+                             width="900" height="450">
+                    </p>
+
+                </div>
+                <div class="medium-4 cell object-400x200-cover-resize">
+                    <p>
+                        <a @CMS.Attribute("Section.Promoted.Other.Image.Href")
+                           href="@Setting.Contents["Section.Promoted.Other.Image.Href"]">
+
+                            <img @CMS.Attribute("Section.Promoted.Other.Image")
+                                 src="@Setting.Contents["Section.Promoted.Other.Image"]"
+                                 alt="Promoted-Article-Other-size-400x200">
+                        </a>
+                    </p>
+                    <p>
+                        <a @CMS.Attribute("Section.Promoted.Other.Image2.Href")
+                            href="@Setting.Contents["Section.Promoted.Other.Image2.Href"]">
+
+                            <img @CMS.Attribute("Section.Promoted.Other.Image2")
+                                src="@Setting.Contents["Section.Promoted.Other.Image2"]"
+                                alt="Promoted-Article-Other-size-400x200">
+                        </a>
+                        
+                    </p>
+                </div>
+            </div>
+
+
+
+            Html.RenderAction("TrendInMonth", "Articles", new { size = 5 });
+
+        }
+
+
+        <hr>
+
+        <div class="text-center">
+            <h4 style="margin: 0;" class="text-center">
+                @if (ViewBag.PageHeader != null)
+            {
+                    @ViewBag.PageHeader
+                }
+                else
+                {
+                    <span @CMS.Attribute("Topic.Header")>
+                        @Setting.Contents["Topic.Header"]
+                    </span>
+                }
+            </h4>
+        </div>
+
+        <hr>
+
+        <div class="grid-x grid-margin-x">
+
+            <div class="large-8 cell" style="border-right: 1px solid #E3E5E8;">
+
+                @RenderBody()
+
+            </div>
+
+
+
+            <div class="grid-x large-4 cell">
+
+                <aside>
+
+                    <div class="grid-x small-up-3">
+
+                        <div class="cell text-center">
+                            <i class="fi-social-facebook"></i>
+                            <h6 @CMS.Attribute("Section.Social.Followers.Facebook")>
+                                @Setting.Contents["Section.Social.Followers.Facebook"]
+                            </h6>
+                            <p><small>FOLLOWERS</small></p>
+                            <br>
+                        </div>
+
+                        <div class="cell text-center">
+                            <i class="fi-social-twitter"></i>
+                            <h6 @CMS.Attribute("Section.Social.Followers.Twitter")>
+                                @Setting.Contents["Section.Social.Followers.Twitter"]
+                            </h6>
+                            <p><small>FOLLOWERS</small></p>
+                            <br>
+                        </div>
+
+                        <div class="cell text-center">
+                            <i class="fi-social-instagram"></i>
+                            <h6 @CMS.Attribute("Section.Social.Followers.Instagram")>
+                                @Setting.Contents["Section.Social.Followers.Instagram"]
+                            </h6>
+                            <p><small>FOLLOWERS</small></p>
+                            <br>
+                        </div>
+
+                        <div class="cell text-center">
+                            <i class="fi-social-tumblr"></i>
+                            <h6 @CMS.Attribute("Section.Social.Followers.Tumblr")>
+                                @Setting.Contents["Section.Social.Followers.Tumblr"]
+                            </h6>
+                            <p><small>FOLLOWERS</small></p>
+                        </div>
+
+                        <div class="cell text-center">
+                            <i class="fi-social-pinterest"></i>
+                            <h6 @CMS.Attribute("Section.Social.Followers.Pinterest")>
+                                @Setting.Contents["Section.Social.Followers.Pinterest"]
+                            </h6>
+                            <p><small>FOLLOWERS</small></p>
+                        </div>
+
+                        <div class="cell text-center">
+                            <i class="fi-social-youtube"></i>
+                            <h6 @CMS.Attribute("Section.Social.Followers.Youtube")>
+                                @Setting.Contents["Section.Social.Followers.Youtube"]
+                            </h6>
+                            <p><small>FOLLOWERS</small></p>
+                        </div>
+
+                    </div>
+
+                    <br>
+
+                    <div class="grid-x cell">
+                        <p class="lead width-100">
+                            <span @CMS.Attribute("Section.Aside.Banner.Header")>
+                                @Setting.Contents["Section.Aside.Banner.Header"]
+                            </span>
+                        </p>
+
+                        <p class="object-400x300-cover">
+                            <img @CMS.Attribute("Section.Aside.Banner.Image")
+                                 src="@Setting.Contents["Section.Aside.Banner.Image"]" alt="size-400x300">
+
+                        </p>
+
+                    </div>
+
+                    <br>
+
+                    <div class="grid-x cell">
+
+                        @{
+                            Html.RenderAction("AsideTopView", "Articles");
+                        }
+
+
+
+                    </div>
+
+                </aside>
+
+            </div>
+
+        </div>
+    </article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <br>
+
+
+    @if (!(ViewBag.OverrideFooter ?? false))
+    {
+
+        @Html.Partial("_Footer")
+
+    }
+
+    @Scripts.Render("~/Scripts/js")
+    @RenderSection("scripts", false)
+
+    <script>
+        $(document).foundation();
+    </script>
+
+
+    @{
+        Html.RenderAction("CmsSwitcher", "Home");
+    }
+
+
+</body>
+</html>

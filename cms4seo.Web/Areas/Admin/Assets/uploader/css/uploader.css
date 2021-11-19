@@ -1,0 +1,82 @@
+.uploader
+{
+	border: 2px dotted #A5A5C7;
+	width: 100%;
+	color: #92AAB0;
+	text-align: center;
+	vertical-align: middle;
+	padding: 20px 0px;
+	margin-bottom: 10px;
+	font-size: 24px;
+    font-weight: bold;
+	cursor: default;
+
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.uploader div.or {
+	/*font-size: 50%;*/
+	font-weight: bold;
+	color: #C0C0C0;
+	padding: 10px;
+}
+
+.uploader div.browser label {
+	background-color: #5a7bc2;
+	padding: 5px 15px;
+	color: white;
+	padding: 6px 0px;
+	font-size: 18px;
+	font-weight: bold;
+	cursor: pointer;
+	border-radius: 2px;
+	position: relative;
+	overflow: hidden;
+	display: block;
+	width: 80%;
+	margin: 20px auto 0px auto;
+
+	box-shadow: 2px 2px 2px #888888;
+    /*min-width: 240px;
+    max-width: 240px;*/
+}
+
+.uploader div.browser span {
+	cursor: pointer;
+}
+
+
+.uploader div.browser input {
+	position: absolute;
+	top: 0;
+	right: 0;
+	margin: 0;
+	border: solid transparent;
+	border-width: 0 0 100px 200px;
+	opacity: .0;
+	filter: alpha(opacity= 0);
+	-o-transform: translate(250px,-50px) scale(1);
+	-moz-transform: translate(-300px,0) scale(4);
+	direction: ltr;
+	cursor: pointer;
+}
+
+.uploader div.browser label:hover {
+	background-color: #427fed;
+}
+
+
+/* upload -> photo-list ===========================================*/
+
+.photo-list .cell-picture > img {
+    width: 64px;
+}
+
+.photo-list .cell-picture > img.active {
+    border: 2px solid orange;
+}

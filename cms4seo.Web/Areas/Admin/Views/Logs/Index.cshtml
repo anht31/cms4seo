@@ -1,0 +1,16 @@
+﻿@model List<string>
+
+@{
+    ViewBag.Title = "Admin/Logs";
+}
+
+<h2>Events.log</h2>
+
+@if (Model != null)
+{
+    foreach (var item in Model)
+    {
+        @Html.Raw(item);
+    }
+
+}

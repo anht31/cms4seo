@@ -1,0 +1,129 @@
+﻿@model IEnumerable<Article>
+
+@{
+    var wideCard = false;
+    var i = 0;
+}
+
+@foreach (var item in Model)
+{
+
+    {
+        //wideCard = ++i % 12 == 4; // simple 1
+        //wideCard = (++i % 10 == 0 || i % 10 == 4); // way 4 work - problem with mobile
+        wideCard = (++i % 16 == 5 || i % 16 == 12); // way 4 work - for mobile
+    }
+
+    if (wideCard)
+    {
+        <div class="col-lg-8 col-md-12 container-bg-image wide-card">
+            <div class="card mb-3 article-card-metro-wide">
+                <div class="card-body">
+
+                    <a href="@item.Slug" target="_top" title="@item.Name">
+                        <div class="article-box">
+
+                            <div class="aspect-ratio">
+
+                                <img class="artilce-image img-responsive top-right" src="@item.Avatar" alt="@item.Slug">
+
+
+                                <div class="artilce-card-content bg-@(i % 7) top-left">
+
+                                    <div class="mt-2 h4">
+                                        @item.Name
+                                    </div>
+
+                                    <p class="text-ellipsis-4">@item.Description</p>
+
+                                    <div>
+                                        @*<span class="btn btn-outline-danger btn-sm mr-2 d-inline-block float-left">
+                                                <span @CMS.Attribute("Articles.Card.SeeMore")>
+                                                    @Setting.Contents["Articles.Card.SeeMore"]
+                                                </span>
+                                            </span>*@
+
+                                        <em class="d-inline-block float-right artilce-info">
+                                            <span class="fa fa-clock-o d-sm-none"> </span>
+                                            <span @CMS.Attribute("Articles.Card.DateCreated") class="d-none d-sm-inline-block">
+                                                @Setting.Contents["Articles.Card.DateCreated"]
+                                            </span>
+                                            @item.PostedDate.Value.ToShortDateString()
+                                            <span>&nbsp;&nbsp;</span><span class="fa fa-bar-chart-o d-sm-none"> </span>
+                                            <span @CMS.Attribute("Articles.Card.Viewed") class="d-none d-sm-inline-block">
+                                                @Setting.Contents["Articles.Card.Viewed"]
+                                            </span>
+                                            <span class="">@item.ViewCounter</span>
+                                        </em>
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </a>
+
+                </div>
+
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="col-lg-4 col-6 container-bg-image">
+            <div class="card mb-3 article-card-metro-square">
+                <div class="card-body">
+
+                    <a href="@item.Slug" target="_top" title="@item.Name">
+                        <div class="article-box">
+
+                            <div class="aspect-ratio">
+                                <img class="img-responsive" src="@item.Avatar" alt="@item.Slug">
+                                
+                                <div class="artilce-card-content bg-@(i % 7) just-bottom">
+
+                                    <div class="mt-2 h4">
+                                        @item.Name
+                                    </div>
+                                    
+                                    <div class="d-none d-sm-inline-block">
+                                        <p class="text-ellipsis-3">@item.Description</p>
+                                    </div>
+
+                                    <div>
+
+                                        @*<span class="btn btn-outline-danger btn-sm mr-2 d-inline-block float-left">
+                                            <span @CMS.Attribute("Articles.Card.SeeMore")>
+                                                @Setting.Contents["Articles.Card.SeeMore"]
+                                            </span>
+                                        </span>*@
+
+                                        <em class="d-inline-block float-right artilce-info">
+                                            <span class="fa fa-clock-o d-sm-none"> </span>
+                                            <span @CMS.Attribute("Articles.Card.DateCreated") class="d-none d-sm-inline-block">
+                                                @Setting.Contents["Articles.Card.DateCreated"]
+                                            </span>
+                                            @item.PostedDate.Value.ToShortDateString()
+                                            <span>&nbsp;&nbsp;</span><span class="fa fa-bar-chart-o d-sm-none"> </span>
+                                            <span @CMS.Attribute("Articles.Card.Viewed") class="d-none d-sm-inline-block">
+                                                @Setting.Contents["Articles.Card.Viewed"]
+                                            </span>
+                                            <span class="">@item.ViewCounter</span>
+                                        </em>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </a>
+
+                </div>
+
+            </div>
+        </div>
+    }
+
+
+}

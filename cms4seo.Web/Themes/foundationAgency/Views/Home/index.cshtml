@@ -1,0 +1,154 @@
+﻿@using PagedList.Mvc
+@model PagedList.IPagedList<Product>
+
+@{
+    ViewBag.Title = Setting.WebSettings[ShopSettingType.HomepageMetaTitle];
+    ViewBag.Description = Setting.WebSettings[ShopSettingType.HomepageMetaDescription];
+    ViewBag.Keywords = Setting.WebSettings[ShopSettingType.HomepageMetaKeywords];
+
+
+    ViewBag.IsHome = "true";
+
+    ViewBag.OgImage = Setting.WebSettings[ShopSettingType.OgImage];
+
+}
+
+
+<div class="callout large">
+    <div class="row column text-center">
+        <h1 @CMS.Attribute("Section.Callout.Header")>
+            @Setting.Contents["Section.Callout.Header"]
+        </h1>
+        <p class="lead">
+            <span @CMS.Attribute("Section.Callout.Description")>
+                @Setting.Contents["Section.Callout.Description"]
+            </span>
+        </p>
+        <a @CMS.Attribute("Section.Callout.Button1.Href"
+               , "Section.Callout.Button1.Text")
+            href="@Setting.Contents["Section.Callout.Button1.Href"]" class="button large">
+            @Setting.Contents["Section.Callout.Button1.Text"]
+        </a>
+        <a @CMS.Attribute("Section.Callout.Button2.Href"
+               , "Section.Callout.Button2.Text")
+           href="@Setting.Contents["Section.Callout.Button2.Href"]" class="button large hollow">
+            @Setting.Contents["Section.Callout.Button2.Text"]
+        </a>
+    </div>
+</div>
+
+
+<article class="grid-container">
+    <div class="grid-x grid-margin-x">
+        <div class="medium-6 cell small-order-2 medium-order-1">
+            <h2>
+                <span @CMS.Attribute("Section.Intro.Header")>
+                    @Setting.Contents["Section.Intro.Header"]
+                </span>
+            </h2>
+            <p @CMS.Attribute("Section.Intro.Description")>
+                @Setting.Contents["Section.Intro.Description"]
+            </p>
+        </div>
+        <div class="medium-6 cell small-order-1 medium-order-2">
+            <img @CMS.Attribute("Section.Intro.Image") class="thumbnail" 
+                 src="@Setting.Contents["Section.Intro.Image"]" alt="size-750x350">
+        </div>
+    </div>
+
+    <div class="grid-x grid-margin-x">
+        <div class="medium-4 cell">
+            <h3>
+                <span @CMS.Attribute("Section.Service1.Header")>
+                    @Setting.Contents["Section.Service1.Header"]
+                </span>
+            </h3>
+            <p @CMS.Attribute("Section.Service1.Description")>
+                @Setting.Contents["Section.Service1.Description"]
+            </p>
+        </div>
+        <div class="medium-4 cell">
+            <h3>
+                <span @CMS.Attribute("Section.Service2.Header")>
+                    @Setting.Contents["Section.Service2.Header"]
+                </span>
+            </h3>
+            <p @CMS.Attribute("Section.Service2.Description")>
+                @Setting.Contents["Section.Service2.Description"]
+            </p>
+        </div>
+        <div class="medium-4 cell">
+            <h3>
+                <span @CMS.Attribute("Section.Service3.Header")>
+                    @Setting.Contents["Section.Service3.Header"]
+                </span>
+            </h3>
+            <p @CMS.Attribute("Section.Service3.Description")>
+                @Setting.Contents["Section.Service3.Description"]
+            </p>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="row column">
+        <ul class="vertical medium-horizontal menu expanded text-center">
+            <li>
+                <a @CMS.Attribute("Section.Statistic.Link1.Href"
+                       , "Section.Statistic.Link1.Text"
+                       , "Section.Statistic.Link1.Span") 
+                    href="@Setting.Contents["Section.Statistic.Link1.Href"]">
+                    <div class="stat">@Setting.Contents["Section.Statistic.Link1.Text"]</div>
+                    <span>@Setting.Contents["Section.Statistic.Link1.Span"]</span>
+                </a>
+            </li>
+            <li>
+                <a @CMS.Attribute("Section.Statistic.Link2.Href"
+                       , "Section.Statistic.Link2.Text"
+                       , "Section.Statistic.Link2.Span")
+                    href="@Setting.Contents["Section.Statistic.Link2.Href"]">
+                    <div class="stat">@Setting.Contents["Section.Statistic.Link2.Text"]</div>
+                    <span>@Setting.Contents["Section.Statistic.Link2.Span"]</span>
+                </a>
+            </li>
+            <li>
+                <a @CMS.Attribute("Section.Statistic.Link3.Href"
+                       , "Section.Statistic.Link3.Text"
+                       , "Section.Statistic.Link3.Span")
+                    href="@Setting.Contents["Section.Statistic.Link3.Href"]">
+                    <div class="stat">@Setting.Contents["Section.Statistic.Link3.Text"]</div>
+                    <span>@Setting.Contents["Section.Statistic.Link3.Span"]</span>
+                </a>
+            </li>
+            <li>
+                <a @CMS.Attribute("Section.Statistic.Link4.Href"
+                       , "Section.Statistic.Link4.Text"
+                       , "Section.Statistic.Link4.Span")
+                    href="@Setting.Contents["Section.Statistic.Link4.Href"]">
+                    <div class="stat">@Setting.Contents["Section.Statistic.Link4.Text"]</div>
+                    <span>@Setting.Contents["Section.Statistic.Link4.Span"]</span>
+                </a>
+            </li>
+            <li>
+                <a @CMS.Attribute("Section.Statistic.Link5.Href"
+                       , "Section.Statistic.Link5.Text"
+                       , "Section.Statistic.Link5.Span")
+                   href="@Setting.Contents["Section.Statistic.Link5.Href"]">
+                    <div class="stat">@Setting.Contents["Section.Statistic.Link5.Text"]</div>
+                    <span>@Setting.Contents["Section.Statistic.Link5.Span"]</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <hr>
+    
+    
+    
+    @{
+        Html.RenderAction("NewestProducts", "Product", new { size = 12 });
+    }
+    
+
+    <hr>
+</article>

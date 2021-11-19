@@ -1,0 +1,12 @@
+﻿@model PagedList.IPagedList<Article>
+@using PagedList.Mvc;
+
+
+@foreach (var item in Model)
+{
+    @Html.Partial("_CardArticle", item)
+}
+
+
+<!-- PagerList -->
+@Html.PagedListPager(Model, page => Url.Action("Index", new { page, size = 10 }))

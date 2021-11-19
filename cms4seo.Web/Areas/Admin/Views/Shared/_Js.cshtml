@@ -1,0 +1,56 @@
+﻿@{
+    var version = cms4seo.Admin.Controllers.SystemInfoController.CurrentVersion;
+}
+
+<script src="~/Areas/Admin/Assets/angular/angular.min.js"></script>
+<script src="~/Areas/Admin/Assets/photoScope/photoScope.js?v=@version"></script>
+
+<script src="~/Areas/Admin/Assets/ckeditor/ckeditor.js"></script>
+
+@*@Scripts.Render("~/bootstrap/js")*@
+
+
+<!-- Bootstrap core JavaScript-->
+<script src="~/Areas/Admin/Assets/jquery/jquery-2.1.3.js"></script>
+@*<script src="/Areas/Admin/Assets/sb-admin-2/vendor/jquery/jquery.min.js"></script>*@
+<script src="/Areas/Admin/Assets/sb-admin-2/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+
+<!-- Helpers-->
+<script src="~/Areas/Admin/Assets/Helpers/helper.js"></script>
+
+<!-- Core plugin JavaScript-->
+<script src="/Areas/Admin/Assets/sb-admin-2/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+<!-- Custom scripts for all pages-->
+<script src="/Areas/Admin/Assets/sb-admin-2/js/sb-admin-2.js?v=@version"></script>
+
+<!-- Page level plugins -->
+<script src="/Areas/Admin/Assets/sb-admin-2/vendor/chart.js/Chart.min.js"></script>
+<script src="/Areas/Admin/Assets/sb-admin-2/js/chartjs-plugin-labels/chartjs-plugin-labels.min.js"></script>
+<script src="~/Areas/Admin/Assets/sb-admin-2/js/html-highlighter/html-syntax-highligher.js"></script>
+
+
+<!-- message responsive -->
+<script src="~/Areas/Admin/Assets/lobibox/js/lobibox.js"></script>
+
+<!-- Page level plugins -->
+<script src="/Areas/Admin/Assets/sb-admin-2/vendor/datatables/jquery.dataTables.min.js"></script>
+<script src="/Areas/Admin/Assets/sb-admin-2/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+<!-- Page level custom scripts -->
+@*<script src="/Areas/Admin/Assets/sb-admin-2/js/demo/datatables-demo.js"></script>*@
+
+@*@RenderSection("scripts", required: false)*@
+
+<script src="~/Areas/Admin/Assets/jquery-ui-1.12.1/jquery-ui.js"></script>
+<script src="~/Areas/Admin/Assets/jquery-ui-1.12.1/i18n/datepicker-@(cms4seo.Common.Culture.CultureHelper.GetCurrentNeutralCulture()).js"></script>
+
+<!-- comfirm message for Delete -->
+<script src="~/Areas/Admin/Assets/admin/bootbox.js"></script>
+
+
+<script src="~/Areas/Admin/Assets/uploader/js/dmuploader.js?v=@version"></script>
+<script src="~/Areas/Admin/Assets/uploader/js/demo.js"></script>
+
+<script src="~/Areas/Admin/Assets/admin/admin.js?v=@version"></script>

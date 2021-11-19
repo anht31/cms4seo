@@ -1,0 +1,12 @@
+﻿@{
+    ViewBag.Title = AdminResources.ConfirmEmail_cshtmlExecute_Confirm_Email;
+    Layout = "~/Areas/Admin/Views/Shared/_LoginLayout.cshtml";
+}
+
+<h2>@ViewBag.Title.</h2>
+<div>
+    <p>
+        @AdminResources.ConfirmEmail_cshtmlExecute_Thank_you_for_confirming_your_email__Please
+        @Html.ActionLink(AdminResources.ConfirmEmail_cshtmlExecute_Click_here_to_Log_in, "Login", "Account", null, new {id = "loginLink"})
+    </p>
+</div>

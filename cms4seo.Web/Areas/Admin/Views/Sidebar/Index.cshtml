@@ -1,0 +1,272 @@
+﻿@using cms4seo.Common.AdminHelpers
+
+@{
+    var pathAndQuery = "";
+    if (Request.Url != null)
+    {
+        pathAndQuery = Request.Url.PathAndQuery;
+    }
+
+
+}
+
+<!-- Sidebar -->
+<!-- toggled class - force active for mobile sidebar -->
+<ul class="navbar-nav bg-gradient-dark sidebar sidebar-dark accordion" id="accordionSidebar">
+    <!-- Sidebar - Brand -->
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/" data-toggle="tooltip" title="Go Shop Page">
+
+        <div class="sidebar-brand-icon">
+            <img class="img-fluid" src="/Areas/Admin/Assets/admin/cms4seo.png" />
+        </div>
+        
+        @*<div class="sidebar-brand-icon rotate-n-15">
+                <i class="fas fa-laugh-wink"></i>
+            </div>
+            <div class="sidebar-brand-text mx-3">
+                <sup></sup>
+            </div>*@
+    </a>
+
+
+
+    <!-- Divider -->
+    <hr class="sidebar-divider my-0">
+    <!-- Nav Item - Dashboard -->
+    <li class='nav-item @(pathAndQuery.Length < 7 ? "active" : "")'>
+        <a class="nav-link" href="@Url.Action("Index", "Home")">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>@AdminResources.SidebarDashboard</span>
+        </a>
+    </li>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider">
+    <!-- Heading -->
+    <div class="sidebar-heading">
+        @AdminResources.SidebarHeaderContent
+    </div>
+
+
+    @if (User.IsInRole("Medium.Info") || User.IsInRole("Basic.Slider"))
+    {
+
+        <!-- Nav Item - Pages Collapse Menu -->
+        <li class='nav-item @pathAndQuery.IsNavbarActive("Info", "Slider")'>
+
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                <i class="fas fa-fw fa-home"></i>
+                <span>@AdminResources.SidebarHomepage</span>
+            </a>
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">@AdminResources.SidebarItemHeaderCustomHomepage</h6>
+                    <a class='collapse-item @pathAndQuery.IsNavbarActive("Info")' href="@Url.Action("Index", "Info")">@AdminResources.SidebarItemHomepage</a>
+                    <a class='collapse-item @pathAndQuery.IsNavbarActive("Slider")' href="@Url.Action("Index", "Sliders")">@AdminResources.SidebarItemSlider</a>
+                </div>
+            </div>
+        </li>
+
+    }
+
+
+    @if (User.IsInRole("Basic.Category") || User.IsInRole("Basic.Product") || User.IsInRole("Basic.ProductTag"))
+    {
+        <!-- Nav Item - Pages Collapse Menu -->
+        <li class='nav-item @pathAndQuery.IsNavbarActive("Category", "Product", "ProductTag")'>
+
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseProduct" aria-expanded="true" aria-controls="collapseProduct">
+                <i class="fas fa-fw fa-folder"></i>
+                <span>@AdminResources.SidebarCategory</span>
+            </a>
+            <div id="collapseProduct" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">@AdminResources.SidebarItemHeaderManageProduct</h6>
+                    <a class='collapse-item @pathAndQuery.IsNavbarActive("Category")' href="@Url.Action("Index", "Category")">@AdminResources.SidebarItemCategory</a>
+                    <a class='collapse-item @pathAndQuery.IsNavbarActive("Product")' href="@Url.Action("Index", "Product")">@AdminResources.SidebarItemProduct</a>
+                    <a class='collapse-item @pathAndQuery.IsNavbarActive("ProductTag")' href="@Url.Action("Index", "ProductTag")">@AdminResources.SidebarItemTag</a>
+                </div>
+            </div>
+        </li>
+    }
+
+
+    @if (User.IsInRole("Basic.Topic") || User.IsInRole("Basic.Article") || User.IsInRole("Basic.ArticleTag"))
+    {
+
+        <!-- Nav Item - Pages Collapse Menu -->
+        <li class='nav-item @pathAndQuery.IsNavbarActive("Topic", "Article", "ArticleTag")'>
+
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseArticle" aria-expanded="true" aria-controls="collapseArticle">
+                <i class="fas fa-fw fa-edit"></i>
+                <span>@AdminResources.SidebarArticle</span>
+            </a>
+            <div id="collapseArticle" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">@AdminResources.SidebarItemHeaderManageArticle</h6>
+                    <a class='collapse-item @pathAndQuery.IsNavbarActive("Topic")' href="@Url.Action("Index", "Topic")">@AdminResources.SidebarItemTopic</a>
+                    <a class='collapse-item @pathAndQuery.IsNavbarActive("Article")' href="@Url.Action("Index", "Articles")">@AdminResources.SidebarItemArticle</a>
+                    <a class='collapse-item @pathAndQuery.IsNavbarActive("ArticleTag")' href="@Url.Action("Index", "ArticleTag")">@AdminResources.SidebarItemArticleTag</a>
+                </div>
+            </div>
+        </li>
+
+    }
+
+
+    @if (User.IsInRole("Basic.Contact"))
+    {
+        <li class="nav-item @pathAndQuery.IsNavbarActive("Contact")">
+            <a class="nav-link" href="@Url.Action("Index", "Contact")">
+                <i class="fas fa-fw fa-envelope"></i>
+                <span>@AdminResources.SidebarMessage</span>
+                @if (ViewBag.MessageUnread != null && (int)ViewBag.MessageUnread > 0)
+                {
+                    <!-- Counter - Messages -->
+                    <sup class="badge badge-danger badge-pill">@ViewBag.MessageUnread</sup>
+                }
+
+            </a>
+        </li>
+    }
+
+
+
+
+    @if (User.IsInRole("Basic.Common") || User.IsInRole("Medium.UsersAdmin")
+         || User.IsInRole("Medium.GroupsAdmin") || User.IsInRole("Advance.RolesAdmin"))
+    {
+
+        <!-- Divider -->
+        <hr class="sidebar-divider">
+        <div class="sidebar-heading">
+            @AdminResources.SidebarHeaderSystem
+        </div>
+
+        <li class='nav-item @pathAndQuery.IsNavbarActive("Manage", "RolesAdmin", "UsersAdmin")'>
+
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUser" aria-expanded="true" aria-controls="collapseUser">
+                <i class="fas fa-fw fa-user"></i>
+                <span>@AdminResources.SidebarUser</span>
+            </a>
+            <div id="collapseUser" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">@AdminResources.SidebarItemHeaderConfigRole</h6>
+                    <a class='collapse-item @pathAndQuery.IsNavbarActive("Manage")' href="@Url.Action("Index", "Manage")">@AdminResources.SidebarItemManage</a>
+                    <a class='collapse-item @pathAndQuery.IsNavbarActive("UsersAdmin")' href="@Url.Action("Index", "UsersAdmin")">@AdminResources.SidebarItemUser</a>
+                    <a class='collapse-item @pathAndQuery.IsNavbarActive("GroupsAdmin")' href="@Url.Action("Index", "GroupsAdmin")">@AdminResources.SidebarItemGroup</a>
+                    <a class='collapse-item @pathAndQuery.IsNavbarActive("RolesAdmin")' href="@Url.Action("Index", "RolesAdmin")">@AdminResources.SidebarItemRole</a>
+                </div>
+            </div>
+        </li>
+
+
+    }
+
+    @if (User.IsInRole("Medium.ExtraSiteMaps") || User.IsInRole("Medium.SearchOptimize")
+         || User.IsInRole("Medium.InjectionHyperlinks") || User.IsInRole("Medium.Permalinks")
+         || User.IsInRole("Medium.Redirects") || User.IsInRole("Medium.SearchOptimize")
+         || User.IsInRole("Medium.HitCounters"))
+    {
+        <li class='nav-item @pathAndQuery.IsNavbarActive("ExtraSiteMaps", "SearchOptimize", "InjectionHyperlinks", "Permalinks", "Redirects", "HitCounters", "TocSettings")'>
+
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSearchOptimize" aria-expanded="true" aria-controls="collapseSearchOptimize">
+                <i class="fas fa-fw fa-chart-line"></i>
+                <span>@AdminResources.SidebarSearchOptimize</span>
+            </a>
+            <div id="collapseSearchOptimize" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">@AdminResources.SidebarItemHeaderConfig</h6>
+                    @*<a class='collapse-item @pathAndQuery.IsNavbarActive("ExtraSiteMaps")' href="@Url.Action("Index", "ExtraSiteMaps")">@AdminResources.SidebarItemAddSitemapItem</a>*@
+                    <a class='collapse-item @pathAndQuery.IsNavbarActive("SearchOptimize")' href="@Url.Action("Index", "SearchOptimize")">@AdminResources.SidebarItemSearchOptimize</a>
+                    @*<a class='collapse-item @pathAndQuery.IsNavbarActive("InjectionHyperlinks")' href="@Url.Action("Index", "InjectionHyperlinks")">@AdminResources.SidebarItemInjectLinks</a>*@
+                    <a class='collapse-item @pathAndQuery.IsNavbarActive("Permalinks")' href="@Url.Action("Index", "Permalinks")">@AdminResources.SidebarItemPermalinks</a>
+                    <a class='collapse-item @pathAndQuery.IsNavbarActive("Redirects")' href="@Url.Action("Index", "Redirects")">@AdminResources.SidebarItemRedirect</a>
+                    
+                    <a class='collapse-item @pathAndQuery.IsNavbarActive("TocSettings")' href="@Url.Action("TocSettings", "Config")">@AdminResources.SidebarItemTocSetttings</a>
+
+                    <div class="collapse-divider"></div>
+                    @*<h6 class="collapse-header">@AdminResources.SidebarItemHeaderSystemInfo</h6>*@
+                    @*<a class='collapse-item @pathAndQuery.IsNavbarActive("SearchOptimize")' href="@Url.Action("SiteMap", "SearchOptimize")">@AdminResources.SidebarItemTestSitemap</a>*@
+                    <a class='collapse-item @pathAndQuery.IsNavbarActive("HitCounters")' href="@Url.Action("Index", "HitCounters")">@AdminResources.SidebarItemHitcounters</a>
+                </div>
+            </div>
+        </li>
+    }
+
+
+    @if (User.IsInRole("Basic.SystemInfo") || User.IsInRole("Advance.Migration")
+         || User.IsInRole("Medium.Photos") || User.IsInRole("Medium.Logs"))
+    {
+        <li class='nav-item @pathAndQuery.IsNavbarActive("SystemInfo", "Migration", "Photos", "Logs")'>
+
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSystem" aria-expanded="true" aria-controls="collapseSystem">
+                <i class="fas fa-fw fa-cube"></i>
+                <span>@AdminResources.SidebarHeaderSystem</span>
+            </a>
+            <div id="collapseSystem" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">@AdminResources.SidebarItemHeaderSystemInfo</h6>
+                    <a class='collapse-item @pathAndQuery.IsNavbarActive("SystemInfo")' href="@Url.Action("Index", "SystemInfo")">@AdminResources.SidebarItemSystemInfo</a>
+                    <div class="collapse-divider"></div>
+                    <h6 class="collapse-header">@AdminResources.SidebarItemHeaderMigration</h6>
+                    <a class='collapse-item @(User.IsInRole("Developer") || User.IsInRole("Advance.Migration") ? "" : "d-none") @pathAndQuery.IsNavbarActive("Migration")' href="@Url.Action("Index", "Migration")">@AdminResources.SidebarItemMigration</a>
+                    <div class="collapse-divider"></div>
+                    <h6 class="collapse-header">@AdminResources.SidebarItemHeaderSystemHealth</h6>
+                    <a class='collapse-item @pathAndQuery.IsNavbarActive("Photos")' href="@Url.Action("Index", "Photos")">@AdminResources.SidebarItemPhotos</a>
+                    <a class='collapse-item @pathAndQuery.IsNavbarActive("Logs")' href="@Url.Action("Index", "Logs")">@AdminResources.SidebarItemLogs</a>
+                </div>
+            </div>
+        </li>
+
+    }
+
+
+    @if (User.IsInRole("Medium.Config") || User.IsInRole("Medium.Contents"))
+    {
+
+        <li class='nav-item @pathAndQuery.IsNavbarActive("AdminSettings", "EmailSettings", "EmbedSettings", "PhotoSettings", "ShopSettings")'>
+
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseConfig" aria-expanded="true" aria-controls="collapseConfig">
+                <i class="fas fa-fw fa-cog"></i>
+                <span>@AdminResources.SidebarConfig</span>
+            </a>
+            <div id="collapseConfig" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <a class='collapse-item @pathAndQuery.IsNavbarActive("Index")' href="@Url.Action("Index", "Config")">@AdminResources.SidebarItemListConfig</a>
+                    <h6 class="collapse-header">@AdminResources.SidebarItemHeaderBasicConfig</h6>
+                    <a class='collapse-item @pathAndQuery.IsNavbarActive("WebSettings")' href="@Url.Action("WebSettings", "Config")">@AdminResources.SidebarItemAdminSettings</a>
+                    <a class='collapse-item @pathAndQuery.IsNavbarActive("EmailSettings")' href="@Url.Action("EmailSettings", "Config")">@AdminResources.SidebarItemEmailSettings</a>
+                    <a class='collapse-item @pathAndQuery.IsNavbarActive("EmbedSettings")' href="@Url.Action("EmbedSettings", "Config")">@AdminResources.SidebarItemEmbedSettings</a>
+                    <a class='collapse-item @pathAndQuery.IsNavbarActive("PhotoSettings")' href="@Url.Action("PhotoSettings", "Config")">@AdminResources.SidebarItemPhotoSettings</a>
+                    <a class='collapse-item @pathAndQuery.IsNavbarActive("ShopSettings")' href="@Url.Action("ShopSettings", "Config")">@AdminResources.SidebarItemShopSetttings</a>
+                    <div class="collapse-divider"></div>
+                    <h6 class="collapse-header">@AdminResources.SidebarItemHeaderTheme</h6>
+
+                    <a class='collapse-item @(User.IsInRole("Developer") || User.IsInRole("Medium.Contents") ? "" : "d-none") @pathAndQuery.IsNavbarActive("Contents")'
+                       href="@Url.Action("Index", "Contents")">@AdminResources.SidebarItemContents</a>
+
+                </div>
+            </div>
+        </li>
+
+    }
+    
+    <li class="nav-item @pathAndQuery.IsNavbarActive("Plugins")">
+        <a class="nav-link" href="@Url.Action("Index", "Plugins")">
+            <i class="fas fa-fw fa-puzzle-piece" style="margin-left: 3px;"></i>
+            <span>Plugins</span>
+        </a>
+    </li>
+
+
+<!-- Divider -->
+    <hr class="sidebar-divider d-none d-md-block">
+    <!-- Sidebar Toggler (Sidebar) -->
+    <div class="text-center d-none d-md-inline">
+        <button class="rounded-circle border-0" id="sidebarToggle"></button>
+    </div>
+
+
+</ul>
+<!-- End of Sidebar -->

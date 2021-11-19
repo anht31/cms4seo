@@ -1,0 +1,13 @@
+﻿
+@*must more support for model type*@
+
+@model object
+
+@{
+    foreach (var widget in PluginHelpers.Widgets
+        .Where(x => x.Active.AsBool() && x.Zone == (string)ViewData["zone"]))
+    {
+        @Html.Partial("~/Plugins/" + widget.Area + "/Views/"
+            + widget.Controller + "/" + widget.Action + ".cshtml")
+    }
+}

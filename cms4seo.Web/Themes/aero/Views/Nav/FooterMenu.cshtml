@@ -1,0 +1,26 @@
+﻿
+@model IEnumerable<Category>
+
+<div class="footerMenu @Setting.WebSettings[ShopSettingType.MenuFormatClass]">
+    
+    <div>
+        <ul>
+
+            <li>
+
+                <a @CMS.Attribute("Label.Home") href="/" target="_top"><i class="fa fa-lightbulb-o" aria-hidden="true"></i>@Setting.Contents["Label.Home"]</a>
+
+            </li>
+            @foreach (var item in Model)
+            {
+                <li>
+                    <a target="_top" href="@(item.Href != "#" ? item.Href : Url.Action("ListBy", "Product", new {slug = item.Slug}))">
+                        <i class="fa fa-lightbulb-o" aria-hidden="true"></i>@item.Name
+                    </a>
+                </li>
+            }
+
+
+        </ul>
+    </div>
+</div>

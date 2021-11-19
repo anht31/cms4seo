@@ -1,0 +1,40 @@
+﻿@model int
+
+
+<aside class="card rounded-0 shadow-sm mt-3 asideCounter">
+    <div class="card-header">
+        <b>
+            <span class="fa fa-bar-chart-o fa-fw"></span>
+            <span @CMS.Attribute("Aside.Statistic.Header")>
+                @Setting.Contents["Aside.Statistic.Header"]
+            </span>
+        </b>        
+    </div>
+    <div class="card-body text-center">
+
+        <div class="clock" data-value="@Model"></div>
+
+        <h5 class="mt-2">
+            <span class="fa fa-user"></span> User:
+            <code class="box-shadow font-weight-bold" id="counter-user">
+                @ViewBag.UserCounter
+            </code>
+        </h5>
+
+        <h5 class="">
+            <span class="fa fa-dashboard"></span> 
+            <span @CMS.Attribute("Aside.Statistic.Today")>
+                @Setting.Contents["Aside.Statistic.Today"]
+            </span>
+            <code class="box-shadow font-weight-bold">
+                @ViewBag.DailyCounter
+            </code>
+        </h5>
+
+        <h5 class="">
+            <span class="fa fa-flash"></span> Online:
+            <code class="box-shadow font-weight-bold" id="counter">@HttpContext.Current.Application["visitasOnline"]</code>
+        </h5>
+
+    </div>
+</aside>

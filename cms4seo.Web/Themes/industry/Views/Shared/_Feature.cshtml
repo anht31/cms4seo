@@ -1,0 +1,90 @@
+﻿
+<!-- START THE FEATURETTES -->
+
+<div class="">
+
+    @*<hr class="featurette-divider">*@
+
+    <div class="row featurette d-flex">
+        <div class="col-md-7 align-self-center">
+            <h2 class="featurette-heading">
+                <span @CMS.Attribute("Section.Feature1.Header")>
+                    @Setting.Contents["Section.Feature1.Header"]
+                </span>
+                <span @CMS.Attribute("Section.Feature1.HeaderExpand") class="text-muted">
+                    @Setting.Contents["Section.Feature1.HeaderExpand"]
+                </span>
+            </h2>
+            <p class="lead">
+                <span @CMS.Attribute("Section.Feature1.Description")>
+                    @Setting.Contents["Section.Feature1.Description"]
+                </span>
+            </p>
+        </div>
+        <div class="col-md-5">
+            
+            <img @CMS.Attribute("Section.Feature1.Image")
+                src="@Setting.Contents["Section.Feature1.Image"]"
+                alt="png-size-500x300" class="featurette-image img-fluid mx-auto" />
+
+        </div>
+    </div>
+
+    @*<hr class="featurette-divider">*@
+
+    <div class="row featurette d-flex">
+        <div class="col-md-7 order-md-2  align-self-center">
+            <h2 class="featurette-heading">
+                <span @CMS.Attribute("Section.Feature2.Header")>
+                    @Setting.Contents["Section.Feature2.Header"]
+                </span>
+                <span @CMS.Attribute("Section.Feature2.HeaderExpand") class="text-muted">
+                    @Setting.Contents["Section.Feature2.HeaderExpand"]
+                </span>
+            </h2>
+            <p class="lead">
+                <span @CMS.Attribute("Section.Feature2.Description")>
+                    @Setting.Contents["Section.Feature2.Description"]
+                </span>
+            </p>
+        </div>
+        <div class="col-md-5 order-md-1">
+            
+            <img @CMS.Attribute("Section.Feature2.Image")
+                src="@Setting.Contents["Section.Feature2.Image"]"
+                alt="png-size-500x300" class="featurette-image img-fluid mx-auto" />
+
+        </div>
+    </div>
+
+    @*<hr class="featurette-divider">*@
+
+    <div class="row featurette d-flex">
+        <div class="col-md-7  align-self-center">
+            <h2 class="featurette-heading">
+                <span @CMS.Attribute("Section.Feature3.Header")>
+                    @Setting.Contents["Section.Feature3.Header"]
+                </span>
+                <span @CMS.Attribute("Section.Feature3.HeaderExpand") class="text-muted">
+                    @Setting.Contents["Section.Feature3.HeaderExpand"]
+                </span>
+            </h2>
+            <p class="lead">
+                <span @CMS.Attribute("Section.Feature3.Description")>
+                    @Setting.Contents["Section.Feature3.Description"]
+                </span>
+            </p>
+        </div>
+        <div class="col-md-5">
+            
+            <img @CMS.Attribute("Section.Feature3.Image")
+                 src="@Setting.Contents["Section.Feature3.Image"]"
+                 alt="png-size-500x300" class="featurette-image img-fluid mx-auto" />
+            
+        </div>
+    </div>
+
+    @*<hr class="featurette-divider">*@
+</div>
+
+<!-- /END THE FEATURETTES -->

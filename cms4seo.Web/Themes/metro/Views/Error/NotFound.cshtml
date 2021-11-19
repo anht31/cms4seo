@@ -1,0 +1,28 @@
+﻿
+@{
+    var theme = Setting.WebSettings[WebSettingType.CurrentTheme];
+    Layout = "~/Themes/" + theme + "/Views/Shared/_LayoutArticle.cshtml";
+
+    ViewBag.Title = "NotFound";
+}
+
+<div class="statusCode container-light">
+    <div class="statusCode-header">
+        <h1>404</h1>
+    </div>
+    <h2>
+        <span @CMS.Attribute("Page.Error.NotFound.Header")>
+            @Setting.Contents["Page.Error.NotFound.Header"]
+        </span>
+    </h2>
+    <p>
+        <span @CMS.Attribute("Page.Error.NotFound.Description")>
+            @Setting.Contents["Page.Error.NotFound.Description"]
+        </span>
+    </p>
+    <a href="/" target="_top">
+        <span @CMS.Attribute("Page.Error.GoHome")>
+            @Setting.Contents["Page.Error.GoHome"]
+        </span>
+    </a>
+</div>

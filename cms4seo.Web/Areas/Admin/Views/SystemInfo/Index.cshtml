@@ -1,0 +1,24 @@
+﻿@model Dictionary<string, string>
+
+<div class="card">
+    <div class="card-header">@AdminResources.CommonSystemInfo</div>
+    <div class="card-body table-responsive">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>@AdminResources.CommonSystemInfoProperty</th>
+                    <th>@AdminResources.CommonSystemInfoValue</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var key in Model.Keys)
+            {
+                    <tr>
+                        <td>@key</td>
+                        <td>@Model[key]</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,289 @@
+/* 
+    Created on : 10/02/2016, 14:57:27
+    Author     : tcavalin
+    Modify: anht31
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    
+    border: 0;
+    outline: 0;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    color: #333;
+}
+
+body > header #github {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+body > header {
+    background: #333333;
+    background: -moz-linear-gradient(left,  #333333 0%, #444444 100%);
+    background: -webkit-linear-gradient(left,  #333333 0%,#444444 100%);
+    background: linear-gradient(to right,  #333333 0%,#444444 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#333333', endColorstr='#444444',GradientType=1 );
+    
+    padding: 30px 0;
+    
+    width: 100%;
+    
+    color: #FFF;
+    text-align: center;
+}
+
+body > header h1 {
+    margin: 10px 0 20px 0;
+    
+    font-size: 42px;
+    
+    display: inline-block;
+}
+
+body > header h2 {
+    font-style: italic;
+    color: #EEE;
+}
+
+body > header h3 {
+    font-size: 14px;
+    font-style: italic;
+    color: #EEE;
+}
+
+section {
+    margin: 20px;
+}
+
+section h2 {
+    font-size: 22px;
+    font-weight: 600;
+    color: #333;
+    
+    margin: 0 0 10px 0;
+}
+
+section article {
+    margin: 0 0 20px 0;
+    border-bottom: 1px dotted #EEE;
+    padding: 0 0 20px 0;
+}
+section article:last-of-type {
+    margin: 0;
+    border-bottom: 0;
+    padding: 0;
+}
+
+section p {
+    line-height: 28px;
+}
+
+section code,
+section pre {
+    background-color: #EEE;
+    
+    padding: 4px;
+    margin: 0;
+    
+    font-size: 14px;
+    
+    border-radius: 3px;
+}
+
+section pre {
+    padding: 10px;
+    margin: 15px 0;
+}
+
+body > footer {
+    padding: 30px 0;
+    margin: 20px 0 0 0;
+    
+    width: 100%;
+    
+    text-align: center;
+    font-size: 14px;
+    color: #999;
+    
+    border-top: 1px dotted #EEE;
+    
+    display: inline-block;
+}
+
+body > footer a {
+    color: #999;
+    text-decoration: none;
+}
+body > footer a:hover {
+    text-decoration: underline;
+}
+
+
+
+@media (max-width: 480px) {
+    .steps .steps-container li .step {
+        padding: 0 15px;
+    }
+
+    .setup-box.mt-5 {
+        margin-top: 80px !important;
+    }
+}
+
+
+
+/*#region li-ok - for display Permission check sign */
+
+ul.ul-permission li {
+    padding-left: 25px;
+    list-style: none;
+}
+
+
+
+ul.ul-permission li.True:before {
+    font-family: "Font Awesome\ 5 Free";
+    content: "\f058";
+    margin: 0 5px 0 -23px;
+    font-size: 18px;
+    color: #339966;
+}
+
+ul.ul-permission li.False:before {
+    font-family: "Font Awesome\ 5 Free";
+    content: "\f058";
+    margin: 0 5px 0 -23px;
+    font-size: 18px;
+    color: #FF3547;
+}
+
+
+/*#endregion */
+
+
+
+
+
+/*#region status code */
+
+
+.statusCode {
+    max-width: 767px;
+    width: 100%;
+    line-height: 1.4;
+    padding: 0px 15px;
+}
+
+.statusCode .statusCode-header {
+    position: relative;
+    line-height: 150px;
+}
+
+.statusCode .statusCode-header h1 {
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 186px;
+    font-weight: 900;
+    margin: 0px;
+    text-transform: uppercase;
+    background: url('/Areas/Admin/Assets/admin/text.png');
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: cover;
+    background-position: center;
+}
+
+.statusCode h2 {
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 26px;
+    font-weight: 700;
+    margin: 0;
+    padding-bottom: 10px;
+}
+
+.statusCode p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 0px;
+    text-transform: uppercase;
+}
+
+.statusCode a {
+    font-family: 'Titillium Web', sans-serif;
+    display: inline-block;
+    text-transform: uppercase;
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    background: #5c91fe;
+    padding: 10px 40px;
+    font-size: 14px;
+    font-weight: 700;
+    border-radius: 1px;
+    margin-top: 15px;
+    -webkit-transition: 0.2s all;
+    transition: 0.2s all;
+}
+
+.statusCode a:hover {
+    opacity: 0.8;
+}
+
+@media only screen and (max-width: 767px) {
+    .statusCode .statusCode-header {
+        height: 110px;
+        line-height: 110px;
+    }
+
+    .statusCode .statusCode-header h1 {
+        font-size: 120px;
+    }
+}
+
+
+/*#endregion */
+
+
+
+/*#region error validation */
+
+.form-group .field-validation-error {
+    color: #ff3547;
+}
+
+/*#endregion */
+
+
+
+/*#region loading wait */
+
+/* This only works with JavaScript, 
+if it's not present, don't show loader */
+
+.waiting-reload-plugins {
+
+}
+
+.se-pre-con {
+    display: none;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background: url(/Areas/Admin/Assets/setup/Preloader_3.gif) center no-repeat #fff;
+}
+
+.se-pre-con.active {
+    display: block;
+}
+
+/*#endregion */

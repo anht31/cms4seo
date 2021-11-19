@@ -1,0 +1,60 @@
+﻿
+<!DOCTYPE html>
+<html class="no-js" lang="@CultureHelper.GetCurrentNeutralCulture()">
+<head>
+    
+    @Html.Partial("_TagManager")
+    
+    @RenderSection("Styles", false)
+
+    @Html.Raw(Setting.WebSettings[EmbedSettingType.GoogleAnalytics])
+
+  
+</head>
+<body class="@(Setting.WebSettings[ShopSettingType.IsDisallowCopy].AsBool() ? "noselect" : "")">
+    
+    @if (!(ViewBag.OverrideMenu ?? false))
+    {
+        Html.RenderAction("HeaderMenu", "Nav");
+    }
+
+
+
+    @RenderBody()
+
+
+    <br>
+
+
+    @if (!(ViewBag.OverrideFooter ?? false))
+    {
+
+        @Html.Partial("_Footer")
+
+    }
+
+
+    @if (!string.IsNullOrWhiteSpace(Setting.WebSettings[ShopSettingType.MobileContact]))
+    {
+        @Html.Partial(Setting.WebSettings[ShopSettingType.MobileContact])
+    }
+
+
+    @Scripts.Render("~/Scripts/js")
+    @RenderSection("scripts", false)
+
+    <script>
+        $(document).foundation();
+        window.Js_ThankForYourMessage = "@Setting.Contents["Emails.Js.ThankForYourMessage"]";
+        window.Js_ServerBusyPleaseTryLater = "@Setting.Contents["Emails.Js.ServerBusyPleaseTryLater"]";
+    </script>
+
+
+    @{
+        Html.RenderAction("CmsSwitcher", "Home");
+    }
+    
+    @Html.Raw(Setting.WebSettings[EmbedSettingType.Scripts])
+
+</body>
+</html>

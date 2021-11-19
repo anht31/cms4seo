@@ -1,0 +1,14 @@
+[
+  {
+    "Action": "",
+    "Controller": "",
+    "Area": "Defender",
+    "Zone": "mail-filter",
+    "RouteValues": null,
+    "Page": "",
+    "Active": "true",
+    "AssemblyName": "cms4seo.Plugins.Defender",
+    "TypeName": "cms4seo.Plugins.Defender.Common.IpChecker",
+    "Path": "~/plugins/Defender/widgets.json"
+  }
+]

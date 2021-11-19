@@ -1,0 +1,126 @@
+﻿@model IEnumerable<Product>
+@{
+    ViewBag.Title = "Admin: All Products";
+}
+
+@Html.Partial("_Warning")
+
+@*<span data-resource-id="AllCategory">@DbRes.T("AllCategory", "Resources")</span>*@
+
+@AntiForgery.GetHtml()
+<div class="card">
+    <div class="card-header">
+        <span class="h3" data-resource-id="AllCategory">@AdminResources.CommonProduct / @AdminResources.CommonIndex</span>
+        <span class="float-right">
+            @Html.ActionLink(AdminResources.CommonCreate, "Create", null, new {@class = "btn btn-success btn-sm"})
+        </span>
+    </div>
+    <div class="card-body table-responsive">
+        <table class="table table-striped table-condensed table-bordered" id="dataTables-adv">
+            <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Category.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Sort)
+                </th>
+
+                <th class="text-right">ID</th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Avatar)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Href)
+                </th>
+
+                @*<th>Tags</th>*@
+                <th>
+                    @Html.DisplayNameFor(model => model.IsPublish)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.IsHome)
+                </th>
+
+                <th class="text-center">
+                    
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var item in Model.OrderBy(x => x.Sort))
+            {
+                <tr>
+
+                    <td class="text-right">@item.Category.Name</td>
+
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Sort)
+                    </td>
+
+
+
+                    <td class="text-right">@item.Id</td>
+                    <td>
+                        <img src="@item.Avatar" width="70">
+                    </td>
+                    <td>
+                        @Html.ActionLink(item.Name, "Edit", new {id = item.Id})
+                    </td>
+
+                    <td>
+                        <div>
+                            @item.Slug
+                        </div>
+                    </td>
+                    @*<td class="text-center">
+                            @foreach (var tag in @item.Tags)
+                            {
+                                <span class="badge">@tag</span>
+                            }
+                        </td>*@
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IsPublish)
+                        @if (item.IsPublish)
+                        {
+                            <span class="invisible">x</span>
+                        }
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IsHome)
+                        @if (item.IsHome)
+                        {
+                            <span class="invisible">x</span>
+                        }
+                    </td>
+
+
+                    <td class="text-center">
+
+                        <!-- js-del-vertify ----------------------------------------------------- -->
+                        @Html.ActionLink("Delete", "Delete", new {id = item.Id}, new
+                        {
+                            data_action = "delete",
+                            data_value = item.Name,
+                            @class = "btn btn-danger btn-xs",
+                            id = item.Id
+                        })
+
+                    </td>
+
+                </tr>
+            }
+            </tbody>
+        </table>
+
+    </div>
+    <div class="card-footer">
+        @Html.ActionLink(AdminResources.CommonCreate, "Create", null, new {@class = "btn btn-success"})
+    </div>
+</div>

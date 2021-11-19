@@ -1,0 +1,83 @@
+﻿@using System.Text.RegularExpressions;
+@model Product
+
+@{
+    ViewBag.Title = Model.Name;
+
+    if (Model != null)
+    {
+        ViewBag.Description = Model.MetaDescription;
+        ViewBag.Keywords = Model.MetaKeyWords;
+        ViewBag.Title = Model.MetaTitle;
+        ViewBag.OgImage = Model.Photos.FirstOrDefault() != null ? Model.Photos.FirstOrDefault().LgPath : "";
+        ViewBag.OgUrl = Request.Url.AbsoluteUri;
+        ViewBag.OgType = "website";
+    }
+
+    ViewBag.HiddenSlogun = "true";
+}
+
+
+
+<div class="">
+
+
+    @*@Html.Partial("_Breadcrumb")*@
+
+
+    @*@Html.Partial("_RenderProductSimple")*@
+
+
+
+    @if (!Setting.WebSettings[ShopSettingType.IsHiddenProductSummary].AsBool())
+    {
+        @Html.Partial("_SectionProductDetail")
+    }
+
+
+
+    @if (Model.Description != null)
+    {
+        <div class="mt-4">
+
+            <div class="mb-3" style="border-bottom: 3px solid gray"></div>
+
+            @*<h1 class="text-center">@Model.Name</h1>
+
+                <hr/>*@
+
+            @Html.Raw(Model.Description)
+        </div>
+    }
+
+    <br />
+    
+    @if (!string.IsNullOrWhiteSpace(Setting.WebSettings[EmbedSettingType.Comment])
+                         && Setting.WebSettings[EmbedSettingType.Comment].Contains("data-href=")
+                         && Setting.WebSettings[ShopSettingType.IsShowProductComment].AsBool())
+    {
+        var dataHref = "data-href=\"" + Request.Url.AbsoluteUri + "\"";
+        var embed = Setting.WebSettings[EmbedSettingType.Comment];
+        var embedComments = Regex.Replace(embed, "data-href=\"(.*)\"",
+            dataHref, RegexOptions.Multiline | RegexOptions.IgnoreCase);
+        @Html.Raw(embedComments);
+    }
+
+
+    @*@Html.Partial("_SectionAlertServiceMap")*@
+
+    @*@Html.Partial("_SectionTablePrice")*@
+
+    @*@Html.Partial("_SectionTablePriceContact")*@
+
+
+    @*@Html.Partial("_SectionAlertServiceMap")*@
+
+    <!-- relative ============================================================================================ -->
+    @{
+        Html.RenderAction("RelateProduct", "Product", new { id = Model.Id });
+    }
+
+
+</div>
+

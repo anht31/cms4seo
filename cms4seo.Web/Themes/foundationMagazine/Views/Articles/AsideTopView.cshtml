@@ -1,0 +1,27 @@
+﻿@model IEnumerable<Article>
+
+
+<p class="lead width-100">
+    <span @CMS.Attribute("Aside.TopView.Header")>
+        @Setting.Contents["Aside.TopView.Header"]
+    </span>
+</p>
+
+
+
+@foreach (var item in Model)
+{
+    <div class="media-object object-100x100-cover">
+        <div class="media-object-section">
+            <a class="cell-link" href="@item.Slug" target="_top">
+                <img class="thumbnail" src="@item.Avatar" alt="size-100x100">
+            </a>
+        </div>
+        <div class="media-object-section">
+            <a class="" href="@item.Slug" target="_top">
+                <h5>@item.Name</h5>
+            </a>
+        </div>
+    </div>
+
+}

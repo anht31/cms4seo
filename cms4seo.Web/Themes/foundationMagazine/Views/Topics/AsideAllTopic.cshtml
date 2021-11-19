@@ -1,0 +1,15 @@
+﻿@model List<Topic>
+
+
+<h4>
+    <span @CMS.Attribute("Topic.Aside.TopicHeader")>
+        @Setting.Contents["Topic.Aside.TopicHeader"]
+    </span>
+</h4>
+<ul>
+    @foreach (var item in Model)
+    {
+        <li><a href="@item.Slug">@item.Name</a></li>
+    }
+
+</ul>

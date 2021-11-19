@@ -1,0 +1,61 @@
+﻿@model IEnumerable<cms4seo.Common.Plugins.Widget>
+
+
+<div class="card">
+    <div class="card-header">
+        <span class="h3">Plugins / @AdminResources.CommonIndex</span>
+    </div>
+    <!-- /.panel-heading -->
+    <div class="card-body table-responsive">
+        <table class="table table-striped table-bordered table-hover" id="dataTables-adv">
+            <thead>
+                <tr>
+
+                    <th>
+                        @Html.DisplayNameFor(model => model.Active)
+                    </th>
+                    <th>
+                        <b>Name</b>
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Zone)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.AssemblyName)
+                    </th>
+
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+
+                        <td>
+                            <label class="toggleSwitch">
+                                <input onclick='cPlugin.Toggle(this, "@item.Area", "@item.Zone")' 
+                                       type="checkbox" class="waiting-reload-plugins"
+                                       @(item.Active.AsBool() ? "checked='checked'" : "")>
+                                <span class="checkbox-slider round"></span>
+                            </label>
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Area)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Zone)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.AssemblyName)
+                        </td>
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="card-footer">
+        @*@Html.ActionLink(AdminResources.CommonCreate, "Create", null, new {@class = "btn btn-success"})*@
+    </div>
+</div>

@@ -1,0 +1,59 @@
+﻿@model Article
+
+@{
+    var wideCard = false;
+    var i = Model.Id % 7;
+}
+
+<div class="@(wideCard ? "col-lg-8" : "col-lg-4") container-bg-image">
+    <div class="card mb-3 article-card-2">
+        <div class="card-body">
+
+            <a href="@Model.Slug" target="_top" title="@Model.Name">
+                <div class="article-box">
+                    
+                    <div class="image">
+                        <img class="img-responsive" src="@Model.Avatar" alt="@Model.Slug">
+                        
+                        <div class="artilce-card-content bg-@i just-bottom">
+
+                            <div class="mt-2 h4">
+                                @Model.Name
+                            </div>
+
+                            <p class="text-ellipsis-3">@Html.Raw(Model.Description)</p>
+                            
+                            <div>
+                                @*<span class="btn btn-outline-danger btn-sm mr-2 d-inline-block float-left">
+                                    <span @CMS.Attribute("Articles.Card.SeeMore")>
+                                        @Setting.Contents["Articles.Card.SeeMore"]
+                                    </span>
+                                </span>*@
+
+                                <em class="d-inline-block float-right artilce-info">
+                                    <span @CMS.Attribute("Articles.Card.DateCreated")>
+                                        @Setting.Contents["Articles.Card.DateCreated"]
+                                    </span>
+                                    @Model.PostedDate.Value.ToShortDateString()
+                                    <span @CMS.Attribute("Articles.Card.Viewed")>
+                                        @Setting.Contents["Articles.Card.Viewed"]
+                                    </span>
+                                    <span class="">@Model.ViewCounter</span>
+                                </em>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+
